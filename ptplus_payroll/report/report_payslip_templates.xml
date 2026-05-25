@@ -32,161 +32,238 @@
         </t>
         <div style="font-size: 14px;">
             <!-- Normalize line sets -->
-            <t t-set="lines" t-value="o.line_ids"/>
-            <t t-set="prev_lines" t-value="o.l10n_pt_previous_payslip_id.line_ids"/>
+            <t t-set="lines" t-value="o.line_ids" />
+            <t t-set="prev_lines" t-value="o.l10n_pt_previous_payslip_id.line_ids" />
 
             <!-- ========= BASIC SALARY ========= -->
-            <t t-set="basic_taxable_gross"
-               t-value="round(o.get_tax_sum_to_base(o, line_ids=lines), 2)"/>
+            <t
+                    t-set="basic_taxable_gross"
+                    t-value="round(o.get_tax_sum_to_base(o, line_ids=lines), 2)"
+                />
 
-            <t t-set="basic_tax_retained_current"
-               t-value="abs(lines.filtered(lambda l: l.code == 'IRS_SOMA_BASE').total)"/>
+            <t
+                    t-set="basic_tax_retained_current"
+                    t-value="abs(lines.filtered(lambda l: l.code == 'IRS_SOMA_BASE').total)"
+                />
 
-            <t t-set="basic_tax_retained_previous"
-               t-value="abs(prev_lines.filtered(lambda l: l.code == 'IRS_SOMA_BASE').total)"/>
+            <t
+                    t-set="basic_tax_retained_previous"
+                    t-value="abs(prev_lines.filtered(lambda l: l.code == 'IRS_SOMA_BASE').total)"
+                />
 
-            <t t-set="basic_tax_retained"
-               t-value="basic_tax_retained_current - basic_tax_retained_previous"/>
+            <t
+                    t-set="basic_tax_retained"
+                    t-value="basic_tax_retained_current - basic_tax_retained_previous"
+                />
 
             <!-- overtime adjustment for youth / return -->
-            <t t-set="overtime_taxable"
-               t-value="round(o.get_total_income_overtime(o, line_ids=lines), 2)"/>
+            <t
+                    t-set="overtime_taxable"
+                    t-value="round(o.get_total_income_overtime(o, line_ids=lines), 2)"
+                />
 
-            <t t-if="o.employee_id.pt_employee_has_youth_irs() or o.employee_id.pt_employee_has_return_program()">
-                <t t-set="basic_taxable_gross"
-                   t-value="basic_taxable_gross + overtime_taxable"/>
+            <t
+                    t-if="o.employee_id.pt_employee_has_youth_irs() or o.employee_id.pt_employee_has_return_program()"
+                >
+                <t
+                        t-set="basic_taxable_gross"
+                        t-value="basic_taxable_gross + overtime_taxable"
+                    />
             </t>
 
             <t t-if="basic_taxable_gross">
                 <span>
                     Basic Salary and Other Income: (Incidence:
-                    <span t-out="basic_taxable_gross"
-                          t-options="{'widget': 'monetary','display_currency': o.company_id.currency_id}"/>
+                    <span
+                            t-out="basic_taxable_gross"
+                            t-options="{'widget': 'monetary','display_currency': o.company_id.currency_id}"
+                        />
                     , TEMR:
-                    <span t-out="round(abs(basic_tax_retained / basic_taxable_gross * 100), 2) if basic_taxable_gross else 0"/> %)
+                    <span
+                            t-out="round(abs(basic_tax_retained / basic_taxable_gross * 100), 2) if basic_taxable_gross else 0"
+                        /> %)
                 </span>
             </t>
 
             <!-- ========= EXTRA HOURS ========= -->
-            <t t-set="overtime_taxable_current"
-               t-value="abs(lines.filtered(lambda l: l.code == 'IRS_HOR_EXTRA').amount)"/>
+            <t
+                    t-set="overtime_taxable_current"
+                    t-value="abs(lines.filtered(lambda l: l.code == 'IRS_HOR_EXTRA').amount)"
+                />
 
-            <t t-set="overtime_taxable_previous"
-               t-value="abs(prev_lines.filtered(lambda l: l.code == 'IRS_HOR_EXTRA').amount)"/>
+            <t
+                    t-set="overtime_taxable_previous"
+                    t-value="abs(prev_lines.filtered(lambda l: l.code == 'IRS_HOR_EXTRA').amount)"
+                />
 
-            <t t-set="overtime_taxable"
-               t-value="overtime_taxable_current - overtime_taxable_previous"/>
+            <t
+                    t-set="overtime_taxable"
+                    t-value="overtime_taxable_current - overtime_taxable_previous"
+                />
 
-            <t t-set="overtime_tax_retained_current"
-               t-value="abs(lines.filtered(lambda l: l.code == 'IRS_HOR_EXTRA').total)"/>
+            <t
+                    t-set="overtime_tax_retained_current"
+                    t-value="abs(lines.filtered(lambda l: l.code == 'IRS_HOR_EXTRA').total)"
+                />
 
-            <t t-set="overtime_tax_retained_previous"
-               t-value="abs(prev_lines.filtered(lambda l: l.code == 'IRS_HOR_EXTRA').total)"/>
+            <t
+                    t-set="overtime_tax_retained_previous"
+                    t-value="abs(prev_lines.filtered(lambda l: l.code == 'IRS_HOR_EXTRA').total)"
+                />
 
-            <t t-set="overtime_tax_retained"
-               t-value="overtime_tax_retained_current - overtime_tax_retained_previous"/>
+            <t
+                    t-set="overtime_tax_retained"
+                    t-value="overtime_tax_retained_current - overtime_tax_retained_previous"
+                />
 
             <t t-if="overtime_taxable">
-                <br/>
+                <br />
                 <span>
                     Extra Hours: (Incidence:
-                    <span t-out="overtime_taxable"
-                          t-options="{'widget': 'monetary','display_currency': o.company_id.currency_id}"/>
+                    <span
+                            t-out="overtime_taxable"
+                            t-options="{'widget': 'monetary','display_currency': o.company_id.currency_id}"
+                        />
                     , TEMR:
-                    <span t-out="round(abs(overtime_tax_retained / overtime_taxable * 100), 2) if overtime_taxable else 0"/> %)
+                    <span
+                            t-out="round(abs(overtime_tax_retained / overtime_taxable * 100), 2) if overtime_taxable else 0"
+                        /> %)
                 </span>
             </t>
 
             <!-- ========= HOLIDAY ALLOWANCE ========= -->
-            <t t-set="holiday_codes"
-               t-value="['SUBS_FER','SUBS_FER_DUO','SUBS_FER_DUO_50','SUBS_FER_50','SUBS_FER_PROP','SUBS_FER_ANOS_ANT']"/>
+            <t
+                    t-set="holiday_codes"
+                    t-value="['SUBS_FER','SUBS_FER_DUO','SUBS_FER_DUO_50','SUBS_FER_50','SUBS_FER_PROP','SUBS_FER_ANOS_ANT']"
+                />
 
-            <t t-set="holiday_tax_codes"
-               t-value="['SUBS_FER_TRIBUTADO','SUBS_FER_DUO_TRIBUTADO','SUBS_FER_DUO_50_TRIBUTADO','SUBS_FER_50_TRIBUTADO']"/>
+            <t
+                    t-set="holiday_tax_codes"
+                    t-value="['SUBS_FER_TRIBUTADO','SUBS_FER_DUO_TRIBUTADO','SUBS_FER_DUO_50_TRIBUTADO','SUBS_FER_50_TRIBUTADO']"
+                />
 
-            <t t-set="holiday_taxable_gross"
-               t-value="sum(lines.filtered(lambda l: l.code in holiday_codes).mapped('total')) or 0"/>
+            <t
+                    t-set="holiday_taxable_gross"
+                    t-value="sum(lines.filtered(lambda l: l.code in holiday_codes).mapped('total')) or 0"
+                />
 
-            <t t-set="holiday_taxable"
-               t-value="holiday_taxable_gross if o.employee_id.pt_employee_has_youth_irs() and holiday_taxable_gross else (sum(lines.filtered(lambda l: l.code in holiday_tax_codes).mapped('amount')) or 0)"/>
+            <t
+                    t-set="holiday_taxable"
+                    t-value="holiday_taxable_gross if o.employee_id.pt_employee_has_youth_irs() and holiday_taxable_gross else (sum(lines.filtered(lambda l: l.code in holiday_tax_codes).mapped('amount')) or 0)"
+                />
 
-            <t t-set="holiday_tax_retained"
-               t-value="sum(lines.filtered(lambda l: l.code in holiday_tax_codes).mapped('total')) or 0"/>
+            <t
+                    t-set="holiday_tax_retained"
+                    t-value="sum(lines.filtered(lambda l: l.code in holiday_tax_codes).mapped('total')) or 0"
+                />
 
             <t t-if="holiday_taxable">
-                <br/>
+                <br />
                 <span>
                     Holiday Allowance: (Incidence:
-                    <span t-out="holiday_taxable"
-                          t-options="{'widget': 'monetary','display_currency': o.company_id.currency_id}"/>
+                    <span
+                            t-out="holiday_taxable"
+                            t-options="{'widget': 'monetary','display_currency': o.company_id.currency_id}"
+                        />
                     , TEMR:
-                    <span t-out="round(abs(holiday_tax_retained / holiday_taxable * 100), 2)"/> %)
+                    <span
+                            t-out="round(abs(holiday_tax_retained / holiday_taxable * 100), 2)"
+                        /> %)
                 </span>
             </t>
 
             <!-- ========= CHRISTMAS ALLOWANCE ========= -->
-            <t t-set="christmas_codes"
-               t-value="['SUBS_NAT','SUBS_NAT_DUO','SUBS_NAT_DUO_50','SUBS_NAT_50','SUBS_NATAL_PROP']"/>
+            <t
+                    t-set="christmas_codes"
+                    t-value="['SUBS_NAT','SUBS_NAT_DUO','SUBS_NAT_DUO_50','SUBS_NAT_50','SUBS_NATAL_PROP']"
+                />
 
-            <t t-set="christmas_tax_codes"
-               t-value="['SUBS_NAT_TRIBUTADO','SUBS_NAT_DUO_TRIBUTADO','SUBS_NAT_DUO_50_TRIBUTADO','SUBS_NAT_50_TRIBUTADO']"/>
+            <t
+                    t-set="christmas_tax_codes"
+                    t-value="['SUBS_NAT_TRIBUTADO','SUBS_NAT_DUO_TRIBUTADO','SUBS_NAT_DUO_50_TRIBUTADO','SUBS_NAT_50_TRIBUTADO']"
+                />
 
-            <t t-set="christmas_taxable_gross"
-               t-value="sum(lines.filtered(lambda l: l.code in christmas_codes).mapped('total')) or 0"/>
+            <t
+                    t-set="christmas_taxable_gross"
+                    t-value="sum(lines.filtered(lambda l: l.code in christmas_codes).mapped('total')) or 0"
+                />
 
-            <t t-set="christmas_taxable"
-               t-value="christmas_taxable_gross if o.employee_id.pt_employee_has_youth_irs() and christmas_taxable_gross else (sum(lines.filtered(lambda l: l.code in christmas_tax_codes).mapped('amount')) or 0)"/>
+            <t
+                    t-set="christmas_taxable"
+                    t-value="christmas_taxable_gross if o.employee_id.pt_employee_has_youth_irs() and christmas_taxable_gross else (sum(lines.filtered(lambda l: l.code in christmas_tax_codes).mapped('amount')) or 0)"
+                />
 
-            <t t-set="christmas_tax_retained"
-               t-value="sum(lines.filtered(lambda l: l.code in christmas_tax_codes).mapped('total')) or 0"/>
+            <t
+                    t-set="christmas_tax_retained"
+                    t-value="sum(lines.filtered(lambda l: l.code in christmas_tax_codes).mapped('total')) or 0"
+                />
 
             <t t-if="christmas_taxable">
-                <br/>
+                <br />
                 <span>
                     Christmas Allowance: (Incidence:
-                    <span t-out="christmas_taxable"
-                          t-options="{'widget': 'monetary','display_currency': o.company_id.currency_id}"/>
+                    <span
+                            t-out="christmas_taxable"
+                            t-options="{'widget': 'monetary','display_currency': o.company_id.currency_id}"
+                        />
                     , TEMR:
-                    <span t-out="round(abs(christmas_tax_retained / christmas_taxable * 100), 2)"/> %)
+                    <span
+                            t-out="round(abs(christmas_tax_retained / christmas_taxable * 100), 2)"
+                        /> %)
                 </span>
             </t>
 
             <!-- ========= GLOBAL BASIC SALARY ========= -->
-            <t t-set="global_basic_taxable"
-               t-value="o.line_ids.filtered(lambda l: l.code == 'IRS_SOMA_BASE_TRIBUTAVEL').total"/>
+            <t
+                    t-set="global_basic_taxable"
+                    t-value="o.line_ids.filtered(lambda l: l.code == 'IRS_SOMA_BASE_TRIBUTAVEL').total"
+                />
 
-            <t t-set="global_basic_tax_retained"
-               t-value="abs(o.line_ids.filtered(lambda l: l.code == 'IRS_SOMA_BASE').total)"/>
+            <t
+                    t-set="global_basic_tax_retained"
+                    t-value="abs(o.line_ids.filtered(lambda l: l.code == 'IRS_SOMA_BASE').total)"
+                />
 
             <t t-if="global_basic_taxable and o.l10n_pt_previous_payslip_id">
-                <br/>
+                <br />
                 <span>
                     Global Basic Salary and Other Income: (Incidence:
-                    <span t-out="global_basic_taxable"
-                          t-options="{'widget': 'monetary','display_currency': o.company_id.currency_id}"/>
+                    <span
+                            t-out="global_basic_taxable"
+                            t-options="{'widget': 'monetary','display_currency': o.company_id.currency_id}"
+                        />
                     , TEMR:
-                    <span t-out="round(abs(global_basic_tax_retained / global_basic_taxable * 100), 2) if global_basic_taxable else 0"/> %)
+                    <span
+                            t-out="round(abs(global_basic_tax_retained / global_basic_taxable * 100), 2) if global_basic_taxable else 0"
+                        /> %)
                 </span>
             </t>
 
             <!-- ========= GLOBAL EXTRA HOURS ========= -->
-            <t t-set="global_overtime_line"
-               t-value="o.line_ids.filtered(lambda l: l.code == 'IRS_HOR_EXTRA')"/>
+            <t
+                    t-set="global_overtime_line"
+                    t-value="o.line_ids.filtered(lambda l: l.code == 'IRS_HOR_EXTRA')"
+                />
 
-            <t t-set="global_overtime_taxable"
-               t-value="global_overtime_line.amount"/>
+            <t t-set="global_overtime_taxable" t-value="global_overtime_line.amount" />
 
-            <t t-set="global_overtime_tax_retained"
-               t-value="abs(global_overtime_line.total)"/>
+            <t
+                    t-set="global_overtime_tax_retained"
+                    t-value="abs(global_overtime_line.total)"
+                />
 
             <t t-if="global_overtime_taxable and o.l10n_pt_previous_payslip_id">
-                <br/>
+                <br />
                 <span>
                     Global Extra Hours: (Incidence:
-                    <span t-out="global_overtime_taxable"
-                          t-options="{'widget': 'monetary','display_currency': o.company_id.currency_id}"/>
+                    <span
+                            t-out="global_overtime_taxable"
+                            t-options="{'widget': 'monetary','display_currency': o.company_id.currency_id}"
+                        />
                     , TEMR:
-                    <span t-out="round(abs(global_overtime_tax_retained / global_overtime_taxable * 100), 2) if global_overtime_taxable else 0"/> %)
+                    <span
+                            t-out="round(abs(global_overtime_tax_retained / global_overtime_taxable * 100), 2) if global_overtime_taxable else 0"
+                        /> %)
                 </span>
             </t>
 
