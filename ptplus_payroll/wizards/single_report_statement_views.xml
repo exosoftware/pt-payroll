@@ -14,13 +14,11 @@
                         name="employer_id"
                         invisible="single_report_type != 'annex_zero'"
                     >
-                        <group>
-                            <group class="o_row">
-                                <field
-                                    name="ru_company_eac"
-                                    string="5. Main Company Economic Activity (EAC)"
-                                />
-                            </group>
+                        <group class="o_row">
+                            <field
+                                name="ru_company_eac"
+                                string="5. Main Company Economic Activity (EAC)"
+                            />
                         </group>
                     </page>
                     <page
@@ -28,18 +26,16 @@
                         name="people_service"
                         invisible="single_report_type != 'annex_zero'"
                     >
-                        <group>
-                            <separator string="2. Workers Posted Abroad" />
-                            <group class="o_row">
-                                <field
-                                    name="ru_posted_workers"
-                                    string="No. of workers"
-                                />
-                                <field
-                                    name="ru_number_of_postings"
-                                    string="No. of postings"
-                                />
-                            </group>
+                        <separator string="2. Workers Posted Abroad" />
+                        <group class="o_row">
+                            <field
+                                name="ru_posted_workers"
+                                string="No. of workers"
+                            />
+                            <field
+                                name="ru_number_of_postings"
+                                string="No. of postings"
+                            />
                         </group>
                     </page>
                     <page
@@ -47,13 +43,11 @@
                         name="overtime_work"
                         invisible="single_report_type != 'annex_zero'"
                     >
-                        <group>
-                            <group class="o_row">
-                                <field
-                                    name="ru_overtime_workers_approval"
-                                    string="2. Approval of Overtime by Workers Committee/Union"
-                                />
-                            </group>
+                        <group class="o_row">
+                            <field
+                                name="ru_overtime_workers_approval"
+                                string="2. Approval of Overtime by Workers Committee/Union"
+                            />
                         </group>
                     </page>
                     <page
@@ -268,42 +262,40 @@
                         name="employer_economic_data"
                         invisible="single_report_type != 'annex_zero'"
                     >
-                        <group>
-                            <separator string="2. Share Capital Percentage" />
-                            <group class="o_row">
-                                <field
-                                    name="ru_percent_private_national_share_capital"
-                                    string="Private National:"
-                                />
-                                <field
-                                    name="ru_percent_foreign_share_capital"
-                                    string="Foreign:"
-                                />
-                                <field
-                                    name="ru_percent_public_national_share_capital"
-                                    string="Public National:"
-                                />
-                            </group>
-                            <separator string="3. Professional Training Costs" />
-                            <group class="o_row">
-                                <field
-                                    name="ru_training_hours_compensation"
-                                    string="Training Hours:"
-                                />
-                                <field name="ru_remaining_employer_funding" />
-                                <field name="ru_european_social_fund" />
-                                <field name="ru_other_funding_sources" />
-                            </group>
-                            <separator
-                                string="4. Occupational health and safety charges"
+                        <separator string="2. Share Capital Percentage" />
+                        <group class="o_row">
+                            <field
+                                name="ru_percent_private_national_share_capital"
+                                string="Private National:"
                             />
-                            <group class="o_row">
-                                <field name="ru_health_safety_services_organization" />
-                                <field name="ru_workspaces_organization_modification" />
-                                <field name="ru_equipment_purchase" />
-                                <field name="ru_training_information_consultation" />
-                                <field name="ru_other_expenses" />
-                            </group>
+                            <field
+                                name="ru_percent_foreign_share_capital"
+                                string="Foreign:"
+                            />
+                            <field
+                                name="ru_percent_public_national_share_capital"
+                                string="Public National:"
+                            />
+                        </group>
+                        <separator string="3. Professional Training Costs" />
+                        <group class="o_row">
+                            <field
+                                name="ru_training_hours_compensation"
+                                string="Training Hours:"
+                            />
+                            <field name="ru_remaining_employer_funding" />
+                            <field name="ru_european_social_fund" />
+                            <field name="ru_other_funding_sources" />
+                        </group>
+                        <separator
+                            string="4. Occupational health and safety charges"
+                        />
+                        <group class="o_row">
+                            <field name="ru_health_safety_services_organization" />
+                            <field name="ru_workspaces_organization_modification" />
+                            <field name="ru_equipment_purchase" />
+                            <field name="ru_training_information_consultation" />
+                            <field name="ru_other_expenses" />
                         </group>
                     </page>
                     <field name="ru_complementary_data" invisible="True" />
@@ -511,13 +503,11 @@
                         name="employer_id"
                         invisible="single_report_type != 'annex_b'"
                     >
-                        <group>
-                            <group class="o_row">
-                                <field
-                                    name="ru_company_eac"
-                                    string="2. Company Economic Activity (EAC) as of December 31"
-                                />
-                            </group>
+                        <group class="o_row">
+                            <field
+                                name="ru_company_eac"
+                                string="2. Company Economic Activity (EAC) as of December 31"
+                            />
                         </group>
                     </page>
                     <page
@@ -528,7 +518,7 @@
                         <field name="ru_employee_ids_annex_b" nolabel="1">
                             <list create="0" delete="false">
                                 <field name="employee_id" />
-                                <!--                                <field name="contract_id" />-->
+                                <field name="version_id" optional="hide" />
                                 <field name="social_scheme" />
                                 <field name="entry_reason" />
                                 <field name="h_1art227" />
@@ -537,7 +527,7 @@
                             <form string="Employee Info">
                                 <group>
                                     <field name="employee_id" />
-                                    <!--                                    <field name="contract_id" />-->
+                                    <field name="version_id" />
                                     <field name="social_scheme" />
                                     <field name="entry_reason" />
                                     <field name="h_1art227" />
@@ -551,3 +541,4 @@
         </field>
     </record>
 </odoo>
+

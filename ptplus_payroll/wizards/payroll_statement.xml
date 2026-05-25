@@ -90,4 +90,19 @@
             </button>
         </field>
     </record>
+
+    <record id="action_wizard_payroll_statement" model="ir.actions.act_window">
+        <field name="name">Payroll Statements</field>
+        <field name="res_model">payroll.statement.wizard.pt</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="wizard_payroll_statement_form" />
+        <field name="target">new</field>
+    </record>
+
+    <menuitem
+        id="wizard_payroll_statement_menu"
+        parent="payroll_menu_report_pt"
+        groups="hr_payroll.group_hr_payroll_user"
+        action="action_wizard_payroll_statement"
+    />
 </odoo>

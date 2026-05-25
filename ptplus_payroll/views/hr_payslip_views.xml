@@ -53,18 +53,10 @@
                 </button>
             </div>
             <xpath expr="(//button[@name='refund_sheet'])[1]" position="attributes">
-                <attribute
-                    name="invisible"
-                    add="country_code == 'PT'"
-                    separator="or"
-                />
+                <attribute name="invisible" add="country_code == 'PT'" separator="or" />
             </xpath>
             <xpath expr="(//button[@name='refund_sheet'])[2]" position="attributes">
-                <attribute
-                    name="invisible"
-                    add="country_code == 'PT'"
-                    separator="or"
-                />
+                <attribute name="invisible" add="country_code == 'PT'" separator="or" />
             </xpath>
             <label for="date_from" position="before">
                 <field name="country_code" invisible="1" />

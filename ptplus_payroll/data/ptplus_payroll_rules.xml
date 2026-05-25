@@ -9,7 +9,7 @@
         <field name="country_id" ref="base.pt" />
         <field
             name="default_work_entry_type_id"
-            ref="ptplus_payroll_ee.entry_type_pt_attendance"
+            ref="ptplus_payroll.entry_type_pt_attendance"
         />
     </record>
 
@@ -22,12 +22,12 @@
         <field
             name="unpaid_work_entry_type_ids"
             eval="[
-                (4, ref('ptplus_payroll_ee.entry_type_pt_lack_of_candidates_for_elections_and_polling_stations')),
-                (4, ref('ptplus_payroll_ee.entry_type_pt_absence_due_to_death_of_spouse_relative_or_related')),
-                (4, ref('ptplus_payroll_ee.entry_type_pt_lack_of_student_workers')),
-                (4, ref('ptplus_payroll_ee.entry_type_pt_public_holiday')),
-                (4, ref('ptplus_payroll_ee.entry_type_pt_marriage_license')),
-                (4, ref('ptplus_payroll_ee.entry_type_pt_absences_authorised_or_approved_by_the_employer')),
+                (4, ref('ptplus_payroll.entry_type_pt_lack_of_candidates_for_elections_and_polling_stations')),
+                (4, ref('ptplus_payroll.entry_type_pt_absence_due_to_death_of_spouse_relative_or_related')),
+                (4, ref('ptplus_payroll.entry_type_pt_lack_of_student_workers')),
+                (4, ref('ptplus_payroll.entry_type_pt_public_holiday')),
+                (4, ref('ptplus_payroll.entry_type_pt_marriage_license')),
+                (4, ref('ptplus_payroll.entry_type_pt_absences_authorised_or_approved_by_the_employer')),
         ]"
         />
     </record>
@@ -41,7 +41,7 @@
         <value
             model="hr.salary.rule"
             search="[
-            ('struct_id', '=', ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay')),
+            ('struct_id', '=', ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay')),
             ('code', '=', 'BASIC')]"
         />
         <value
@@ -68,7 +68,7 @@
         <value
             model="hr.salary.rule"
             search="[
-            ('struct_id', '=', ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay')),
+            ('struct_id', '=', ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay')),
             ('code', '=', 'GROSS')]"
         />
         <value
@@ -90,7 +90,7 @@
         <value
             model="hr.salary.rule"
             search="[
-            ('struct_id', '=', ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay')),
+            ('struct_id', '=', ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay')),
             ('code', '=', 'DEDUCTION')]"
         />
         <value
@@ -112,7 +112,7 @@
         <value
             model="hr.salary.rule"
             search="[
-            ('struct_id', '=', ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay')),
+            ('struct_id', '=', ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay')),
             ('code', '=', 'NET')]"
         />
         <value
@@ -1157,7 +1157,7 @@ result = version.l10n_pt_travel_allowance</field>
 result = (version.l10n_pt_shift_regime_option == "two_shift_regime" or 'REG_2_TUR' in inputs) and 'BASIC' in rules</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-if inputs['REG_2_TUR']:
+if 'REG_2_TUR' in inputs:
     result = inputs['REG_2_TUR'].amount
 else:
     result = version.l10n_pt_shift_regime_rate * version.wage </field>
@@ -1180,7 +1180,7 @@ else:
 result = (version.l10n_pt_shift_regime_option == "three_shift_regime" or 'REG_3_TUR' in inputs) and 'BASIC' in rules</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-if inputs['REG_3_TUR']:
+if 'REG_3_TUR' in inputs:
     result = inputs['REG_3_TUR'].amount
 else:
     result = version.l10n_pt_shift_regime_rate * version.wage </field>
@@ -1203,7 +1203,7 @@ else:
 result = (version.l10n_pt_shift_regime_option == "four_shift_regime" or 'REG_4_TUR' in inputs) and 'BASIC' in rules</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-if inputs['REG_4_TUR']:
+if 'REG_4_TUR' in inputs:
     result = inputs['REG_4_TUR'].amount
 else:
     result = version.l10n_pt_shift_regime_rate * version.wage </field>
@@ -1226,7 +1226,7 @@ else:
 result = (version.l10n_pt_shift_regime_option == "five_shift_regime" or 'REG_5_TUR' in inputs) and 'BASIC' in rules</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-if inputs['REG_5_TUR']:
+if 'REG_5_TUR' in inputs:
     result = inputs['REG_5_TUR'].amount
 else:
     result = version.l10n_pt_shift_regime_rate * version.wage </field>
@@ -1293,7 +1293,7 @@ result_qty = inputs['FER_NAO_GOZ'].amount</field>
 result = 'EXTRA100' in inputs or ('EXTRA100' in worked_days and version.l10n_pt_overtime_first_hour_rate)</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-if inputs['EXTRA100']:
+if 'EXTRA100' in inputs:
     result_qty = inputs['EXTRA100'].amount
 else:
     result_qty = worked_days['EXTRA100'].amount
@@ -1315,7 +1315,7 @@ result = pt_get_overtime(version.l10n_pt_overtime_first_hour_rate, result_rules_
 result = 'EXTRA200' in inputs or ('EXTRA200' in worked_days and version.l10n_pt_overtime_remaining_hours_rate)</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-if inputs['EXTRA200']:
+if 'EXTRA200' in inputs:
     result_qty = inputs['EXTRA200'].amount
 else:
     result_qty = worked_days["EXTRA200"].amount
@@ -1359,7 +1359,7 @@ result = pt_get_overtime(version.l10n_pt_overtime_rest_days_rate, result_rules_p
 result = 'EXTRA400' in inputs or ('EXTRA400' in worked_days and version.l10n_pt_overtime_workdays_rate)</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-if inputs['EXTRA400']:
+if 'EXTRA400' in inputs:
     result_qty = inputs['EXTRA400'].amount
 else:
     result_qty = worked_days["EXTRA400"].amount
@@ -1381,7 +1381,7 @@ result = pt_get_overtime(version.l10n_pt_overtime_workdays_rate, result_rules_pt
 result = 'EXTRA500' in inputs or ('EXTRA500' in worked_days and version.l10n_pt_overtime_holidays_rate)</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-if inputs['EXTRA500']:
+if 'EXTRA500' in inputs:
     result_qty = inputs['EXTRA500'].amount
 else:
     result_qty = worked_days["EXTRA500"].amount
@@ -1403,7 +1403,7 @@ result = pt_get_overtime(version.l10n_pt_overtime_holidays_rate, result_rules_pt
 result = 'EXTRA600' in inputs or ('EXTRA600' in worked_days and version.l10n_pt_overtime_saturday_and_holidays_rate)</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-if inputs['EXTRA600']:
+if 'EXTRA600' in inputs:
     result_qty = inputs['EXTRA600'].amount
 else:
     result_qty = worked_days["EXTRA600"].amount
@@ -1425,7 +1425,7 @@ result = pt_get_overtime(version.l10n_pt_overtime_saturday_and_holidays_rate, re
 result = 'EXTRA700' in inputs or ('EXTRA700' in worked_days and version.l10n_pt_overtime_sunday_rate)</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-if inputs['EXTRA700']:
+if 'EXTRA700' in inputs:
     result_qty = inputs['EXTRA700'].amount
 else:
     result_qty = worked_days["EXTRA700"].amount
@@ -1447,7 +1447,7 @@ result = pt_get_overtime(version.l10n_pt_overtime_sunday_rate, result_rules_pt)<
 result = 'EXTRA800' in inputs or ('EXTRA800' in worked_days and version.l10n_pt_night_overtime_first_hour_rate and version.l10n_pt_overtime_first_hour_rate)</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-if inputs['EXTRA800']:
+if 'EXTRA800' in inputs:
     result_qty = inputs['EXTRA800'].amount
 else:
     result_qty = worked_days["EXTRA800"].number_of_hours
@@ -1469,7 +1469,7 @@ result = pt_get_night_overtime(version.l10n_pt_night_overtime_first_hour_rate, v
 result = 'EXTRA900' in inputs or ('EXTRA900' in worked_days and version.l10n_pt_night_overtime_remaining_hours_rate and version.l10n_pt_overtime_remaining_hours_rate)</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-if inputs['EXTRA900']:
+if 'EXTRA900' in inputs:
     result_qty = inputs['EXTRA900'].amount
 else:
     result_qty = worked_days["EXTRA900"].number_of_hours
@@ -1491,7 +1491,7 @@ result = pt_get_night_overtime(version.l10n_pt_night_overtime_remaining_hours_ra
 result = 'EXTRA1000' in inputs or ('EXTRA1000' in worked_days and version.l10n_pt_night_overtime_rest_days_rate and version.l10n_pt_overtime_rest_days_rate)</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-if inputs['EXTRA1000']:
+if 'EXTRA1000' in inputs:
     result_qty = inputs['EXTRA1000'].amount
 else:
     result_qty = worked_days["EXTRA1000"].number_of_hours
@@ -1513,7 +1513,7 @@ result = pt_get_night_overtime(version.l10n_pt_night_overtime_rest_days_rate, ve
 result = 'EXTRA1100' in inputs or ('EXTRA1100' in worked_days and version.l10n_pt_night_overtime_workdays_rate and version.l10n_pt_overtime_workdays_rate)</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-if inputs['EXTRA1100']:
+if 'EXTRA1100' in inputs:
     result_qty = inputs['EXTRA1100'].amount
 else:
     result_qty = worked_days["EXTRA1100"].number_of_hours
@@ -1535,7 +1535,7 @@ result = pt_get_night_overtime(version.l10n_pt_night_overtime_workdays_rate, ver
 result = 'EXTRA1200' in inputs or ('EXTRA1200' in worked_days and version.l10n_pt_night_overtime_holidays_rate and version.l10n_pt_overtime_holidays_rate)</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-if inputs['EXTRA1200']:
+if 'EXTRA1200' in inputs:
     result_qty = inputs['EXTRA1200'].amount
 else:
     result_qty = worked_days["EXTRA1200"].number_of_hours
@@ -1557,7 +1557,7 @@ result = pt_get_night_overtime(version.l10n_pt_night_overtime_holidays_rate, ver
 result = 'EXTRA1300' in inputs or ('EXTRA1300' in worked_days and version.l10n_pt_night_overtime_saturday_and_holidays_rate and version.l10n_pt_overtime_saturday_and_holidays_rate)</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-if inputs['EXTRA1300']:
+if 'EXTRA1300' in inputs:
     result_qty = inputs['EXTRA1300'].amount
 else:
     result_qty = worked_days["EXTRA1300"].number_of_hours
@@ -1579,7 +1579,7 @@ result = pt_get_night_overtime(version.l10n_pt_night_overtime_holidays_rate, ver
 result = 'EXTRA1400' in inputs or ('EXTRA1400' in worked_days and version.l10n_pt_night_overtime_sunday_rate and version.l10n_pt_overtime_sunday_rate)</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-if inputs['EXTRA1400']:
+if 'EXTRA1400' in inputs:
     result_qty = inputs['EXTRA1400'].amount
 else:
     result_qty = worked_days["EXTRA1400"].number_of_hours
@@ -1601,7 +1601,7 @@ result = pt_get_night_overtime(version.l10n_pt_night_overtime_sunday_rate, versi
 result = 'EXTRA1500' in inputs or ('EXTRA1500' in worked_days and version.l10n_pt_overtime_first_hour_rate_100)</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-if inputs['EXTRA1500']:
+if 'EXTRA1500' in inputs:
     result_qty = inputs['EXTRA1500'].amount
 else:
     result_qty = worked_days['EXTRA1500'].number_of_hours
@@ -1623,7 +1623,7 @@ result = pt_get_overtime(version.l10n_pt_overtime_first_hour_rate_100, result_ru
 result = 'EXTRA1600' in inputs or ('EXTRA1600' in worked_days and version.l10n_pt_overtime_remaining_hours_rate_100)</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-if inputs['EXTRA1600']:
+if 'EXTRA1600' in inputs:
     result_qty = inputs['EXTRA1600'].amount
 else:
     result_qty = worked_days['EXTRA1600'].number_of_hours
@@ -1645,7 +1645,7 @@ result = pt_get_overtime(version.l10n_pt_overtime_remaining_hours_rate_100, resu
 result = 'EXTRA1700' in inputs or ('EXTRA1700' in worked_days and version.l10n_pt_overtime_rest_days_rate_100)</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-if inputs['EXTRA1700']:
+if 'EXTRA1700' in inputs:
     result_qty = inputs['EXTRA1700'].amount
 else:
     result_qty = worked_days['EXTRA1700'].number_of_hours
@@ -1667,7 +1667,7 @@ result = pt_get_overtime(version.l10n_pt_overtime_rest_days_rate_100, result_rul
 result = 'EXTRA1800' in inputs or ('EXTRA1800' in worked_days and version.l10n_pt_overtime_workdays_rate_100)</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-if inputs['EXTRA1800']:
+if 'EXTRA1800' in inputs:
     result_qty = inputs['EXTRA1800'].amount
 else:
     result_qty = worked_days['EXTRA1800'].number_of_hours
@@ -1689,7 +1689,7 @@ result = pt_get_overtime(version.l10n_pt_overtime_workdays_rate_100, result_rule
 result = 'EXTRA1900' in inputs or ('EXTRA1900' in worked_days and version.l10n_pt_overtime_holidays_rate_100)</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-if inputs['EXTRA1900']:
+if 'EXTRA1900' in inputs:
     result_qty = inputs['EXTRA1900'].amount
 else:
     result_qty = worked_days['EXTRA1900'].number_of_hours
@@ -1711,7 +1711,7 @@ result = pt_get_overtime(version.l10n_pt_overtime_holidays_rate_100, result_rule
 result = 'EXTRA2000' in inputs or ('EXTRA2000' in worked_days and version.l10n_pt_overtime_saturday_and_holidays_rate_100)</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-if inputs['EXTRA2000']:
+if 'EXTRA2000' in inputs:
     result_qty = inputs['EXTRA2000'].amount
 else:
     result_qty = worked_days['EXTRA2000'].number_of_hours
@@ -1733,7 +1733,7 @@ result = pt_get_overtime(version.l10n_pt_overtime_saturday_and_holidays_rate_100
 result = 'EXTRA2100' in inputs or ('EXTRA2100' in worked_days and version.l10n_pt_overtime_sunday_rate_100)</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-if inputs['EXTRA2100']:
+if 'EXTRA2100' in inputs:
     result_qty = inputs['EXTRA2100'].amount
 else:
     result_qty = worked_days['EXTRA2100'].number_of_hours
@@ -1755,7 +1755,7 @@ result = pt_get_overtime(version.l10n_pt_overtime_sunday_rate_100, result_rules_
 result = 'EXTRA3000' in inputs or ('EXTRA3000' in worked_days and contract.l10n_pt_overtime_first_hour_rate)</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-if inputs['EXTRA3000']:
+if 'EXTRA3000' in inputs:
     result_qty = inputs['EXTRA3000'].amount
 else:
     result_qty = worked_days['EXTRA3000'].amount
@@ -1777,7 +1777,7 @@ result = pt_get_overtime(contract.l10n_pt_overtime_first_hour_rate, result_rules
 result = 'EXTRA3100' in inputs or ('EXTRA3100' in worked_days and contract.l10n_pt_overtime_remaining_hours_rate)</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-if inputs['EXTRA3100']:
+if 'EXTRA3100' in inputs:
     result_qty = inputs['EXTRA3100'].amount
 else:
     result_qty = worked_days["EXTRA3100"].amount
@@ -1821,7 +1821,7 @@ result = pt_get_overtime(contract.l10n_pt_overtime_rest_days_rate, result_rules_
 result = 'EXTRA3300' in inputs or ('EXTRA3300' in worked_days and contract.l10n_pt_overtime_workdays_rate)</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-if inputs['EXTRA3300']:
+if 'EXTRA3300' in inputs:
     result_qty = inputs['EXTRA400'].amount
 else:
     result_qty = worked_days["EXTRA3300"].amount
@@ -1843,7 +1843,7 @@ result = pt_get_overtime(contract.l10n_pt_overtime_workdays_rate, result_rules_p
 result = 'EXTRA3400' in inputs or ('EXTRA3400' in worked_days and contract.l10n_pt_overtime_holidays_rate)</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-if inputs['EXTRA3400']:
+if 'EXTRA3400' in inputs:
     result_qty = inputs['EXTRA3400'].amount
 else:
     result_qty = worked_days["EXTRA3400"].amount
@@ -1865,7 +1865,7 @@ result = pt_get_overtime(contract.l10n_pt_overtime_holidays_rate, result_rules_p
 result = 'EXTRA3500' in inputs or ('EXTRA3500' in worked_days and contract.l10n_pt_overtime_saturday_and_holidays_rate)</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-if inputs['EXTRA3500']:
+if 'EXTRA3500' in inputs:
     result_qty = inputs['EXTRA3500'].amount
 else:
     result_qty = worked_days["EXTRA3500"].amount
@@ -1887,7 +1887,7 @@ result = pt_get_overtime(contract.l10n_pt_overtime_saturday_and_holidays_rate, r
 result = 'EXTRA3600' in inputs or ('EXTRA3600' in worked_days and contract.l10n_pt_overtime_sunday_rate)</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-if inputs['EXTRA3600']:
+if 'EXTRA3600' in inputs:
     result_qty = inputs['EXTRA3600'].amount
 else:
     result_qty = worked_days["EXTRA3600"].amount
@@ -1909,7 +1909,7 @@ result = pt_get_overtime(contract.l10n_pt_overtime_sunday_rate, result_rules_pt)
 result = 'TRAB_NOT' in inputs or ('TRAB_NOT' in worked_days and version.l10n_pt_night_work_rate)</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-if inputs['TRAB_NOT']:
+if 'TRAB_NOT' in inputs:
     result_qty = inputs['TRAB_NOT'].amount
     result = pt_get_night_work(version.l10n_pt_night_work_rate, result_rules_pt)
 else:
@@ -3618,7 +3618,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -3628,7 +3628,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -3638,7 +3638,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -3648,7 +3648,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -3658,7 +3658,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -3668,7 +3668,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -3678,7 +3678,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -3688,7 +3688,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -3698,7 +3698,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -3708,7 +3708,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -3718,7 +3718,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -3728,7 +3728,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -3738,7 +3738,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -3750,7 +3750,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -3765,7 +3765,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -3775,7 +3775,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -3785,7 +3785,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -3795,7 +3795,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -3805,7 +3805,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
     <record id="input_pt_prevention_prize" model="hr.payslip.input.type">
@@ -3814,7 +3814,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
     <record id="input_pt_productivity_bonus" model="hr.payslip.input.type">
@@ -3823,7 +3823,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
     <record id="input_pt_severance_pay" model="hr.payslip.input.type">
@@ -3834,7 +3834,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
     <record
@@ -3848,7 +3848,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
     <record
@@ -3862,7 +3862,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
     <record
@@ -3876,7 +3876,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -3891,7 +3891,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -3901,7 +3901,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -3916,7 +3916,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -3926,7 +3926,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -3936,7 +3936,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -3946,7 +3946,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -3961,7 +3961,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -3976,7 +3976,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -3986,7 +3986,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -3998,7 +3998,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -4013,7 +4013,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -4026,7 +4026,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -4036,7 +4036,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -4046,7 +4046,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -4056,7 +4056,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -4066,7 +4066,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -4076,7 +4076,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -4086,7 +4086,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -4096,7 +4096,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -4106,7 +4106,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -4116,7 +4116,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -4126,7 +4126,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -4136,7 +4136,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -4151,7 +4151,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -4161,7 +4161,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -4171,7 +4171,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -4181,7 +4181,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -4191,7 +4191,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -4201,7 +4201,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -4211,7 +4211,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -4221,7 +4221,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -4231,7 +4231,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -4241,7 +4241,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -4251,7 +4251,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -4261,7 +4261,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -4271,7 +4271,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -4281,7 +4281,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -4291,7 +4291,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -4301,7 +4301,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -4311,7 +4311,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -4321,7 +4321,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -4331,7 +4331,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -4341,7 +4341,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -4353,7 +4353,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -4363,7 +4363,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -4373,7 +4373,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -4383,7 +4383,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -4393,7 +4393,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -4403,7 +4403,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -4413,7 +4413,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -4423,7 +4423,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -4433,7 +4433,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -4443,7 +4443,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -4453,7 +4453,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -4463,7 +4463,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -4473,7 +4473,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -4483,7 +4483,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -4496,7 +4496,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -4506,7 +4506,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 
@@ -4516,7 +4516,7 @@ if result_rules["SS_EP"]["amount"]:
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
-            eval="[(4, ref('ptplus_payroll_ee.hr_payroll_structure_pt_monthly_pay'))]"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
         />
     </record>
 </odoo>
