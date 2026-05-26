@@ -2121,12 +2121,12 @@ msgstr ""
 #. module: ptplus_payroll
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_salary_complement_pt__description
 msgid "Description"
-msgstr "Descrição na Recibo de Vencimento"
+msgstr "Descrição"
 
 #. module: ptplus_payroll
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_salary_rule__l10n_pt_description_on_payslip
 msgid "Description on Payslip"
-msgstr "Descrição na Recibo de Vencimento"
+msgstr "Descrição no Recibo de Vencimento"
 
 #. module: ptplus_payroll
 #: model:hr.salary.rule,name:ptplus_payroll.rule_pt_kms_in_public_transport
@@ -3537,7 +3537,7 @@ msgstr "Informação"
 #. module: ptplus_payroll
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_salary_complement_pt__input_type_id
 msgid "Input Type"
-msgstr "Tipo do Seguro"
+msgstr "Tipo de Entrada"
 
 #. module: ptplus_payroll
 #: model:ir.model.fields,help:ptplus_payroll.field_payroll_statement_wizard_pt__log_on_close
@@ -6068,7 +6068,8 @@ msgstr "O código deve ser único!"
 #: code:addons/ptplus_payroll/models/hr_payslip.py:0
 msgid ""
 "The duration of the payslip is not accurate according to the structure type."
-msgstr "A duração do recibo não é correta de acordo com o tipo de estrutura."
+msgstr "A duração do recibo de vencimento não é precisa de acordo com o tipo de "
+"estrutura."
 
 #. module: ptplus_payroll
 #. odoo-python
