@@ -104,6 +104,7 @@
             'amount_select': 'code',
             'amount_python_compute': '''result = -abs(inputs['DEDUCTION'].amount)''',
             'l10n_pt_standard_rule': True,
+            'appears_on_payslip': True,
             }"
         />
     </function>
