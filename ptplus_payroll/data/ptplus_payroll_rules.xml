@@ -2033,7 +2033,7 @@ result = inputs['SUBS_FER_ANOS_ANT'].amount</field>
         <field name="sequence" eval="156" />
         <field name="condition_select">python</field>
         <field name="condition_python">
-if 'SUBS_FER' in inputs:
+if 'SUBS_FER' in inputs or 'SUBS_FER_TRIB_AUTO' in inputs:
     result = True
 elif (
     version.l10n_pt_holiday_allowance_payment_method == "without_twelfths"
@@ -2050,6 +2050,8 @@ else:
         <field name="amount_python_compute">
 if "SUBS_FER" in inputs:
     result = inputs["SUBS_FER"].amount
+elif "SUBS_FER_TRIB_AUTO" in inputs:
+    result = inputs["SUBS_FER_TRIB_AUTO"].amount
 else:
     result = pt_get_holiday_allowance(result_rules_pt, version)</field>
         <field name="struct_id" ref="hr_payroll_structure_pt_monthly_pay" />
@@ -2138,7 +2140,7 @@ result = holiday_allowance_50(result_rules_pt, version)</field>
         <field name="sequence" eval="161" />
         <field name="condition_select">python</field>
         <field name="condition_python">
-if "SUBS_NAT" in inputs:
+if "SUBS_NAT" in inputs or "SUBS_NAT_TRIB_AUTO" in inputs:
     result = True
 elif (
     version.l10n_pt_christmas_allowance_payment_method == "without_twelfths"
@@ -2155,6 +2157,8 @@ else:
         <field name="amount_python_compute">
 if "SUBS_NAT" in inputs:
     result = inputs["SUBS_NAT"].amount
+elif "SUBS_NAT_TRIB_AUTO" in inputs:
+    result = inputs["SUBS_NAT_TRIB_AUTO"].amount
 else:
     result = pt_get_christmas_allowance(result_rules_pt, version)
         </field>
@@ -2803,6 +2807,7 @@ result = -pt_get_proportional_allowance(rules["REG_5_TUR"], pt_get_result_rules(
         <field name="condition_select">python</field>
         <field name="condition_python">
 result = (
+    "SUBS_NAT_TRIB_AUTO" in inputs or
     ("SUBS_NAT" in rules or
     "SUBS_NAT_DUO" in rules or
     "SUBS_NAT_DUO_50" in rules or
@@ -2812,9 +2817,18 @@ result = (
 )</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-result = get_last_slip_rule_value("SUBS_NAT_TRIBUTAVEL", "amount") + result_rules["SUBS_NATAL_PROP"]["total"]
-if not payslip.l10n_pt_previous_payslip_id or payslip.l10n_pt_independent_slip == "christmas":
-    result += pt_get_christmas_allowance(result_rules_pt, version)
+if 'SUBS_NAT_TRIB_AUTO' in inputs:
+    result = (
+        get_last_slip_rule_value("SUBS_NAT_TRIBUTAVEL", "amount")
+        + pt_get_christmas_allowance(result_rules_pt, version)
+        + result_rules["SUBS_NATAL_PROP"]["total"]
+    )
+else:
+    result = (
+        get_last_slip_rule_value("SUBS_NAT_TRIBUTAVEL", "amount")
+        + result_rules["SUBS_NAT"]["total"]
+        + result_rules["SUBS_NATAL_PROP"]["total"]
+    )
 </field>
         <field name="struct_id" ref="hr_payroll_structure_pt_monthly_pay" />
         <field name="appears_on_payslip" eval="False" />
@@ -2828,22 +2842,25 @@ if not payslip.l10n_pt_previous_payslip_id or payslip.l10n_pt_independent_slip =
         <field name="sequence">251</field>
         <field name="condition_select">python</field>
         <field name="condition_python">
-result = ('SUBS_NAT_TRIBUTAVEL' in rules and ('SUBS_NATAL_PROP' in rules or 'SUBS_NAT' in rules)) or get_last_slip_rule_value("SUBS_NAT_TRIBUTADO", "amount")</field>
+result = ('SUBS_NAT_TRIBUTAVEL' in rules and ('SUBS_NATAL_PROP' in rules or 'SUBS_NAT' in rules or 'SUBS_NAT_TRIB_AUTO' in inputs)) or get_last_slip_rule_value("SUBS_NAT_TRIBUTADO", "amount")</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
 taxable_amount = result_rules["SUBS_NAT_TRIBUTAVEL"]["total"]
-if ('SUBS_NAT' in inputs or 'SUBS_NAT_TRIBUTADO' in inputs) and payslip.l10n_pt_payslip_type == "contract_termination":
-    taxable_amount = result_rules["SUBS_NATAL_PROP"]["total"] + result_rules["SUBS_NAT"]["total"] + get_last_slip_rule_value("SUBS_NAT_TRIBUTADO", "amount")
+paid_amount = (
+    result_rules["SUBS_NAT"]["total"]
+    + result_rules["SUBS_NATAL_PROP"]["total"]
+)
 result_rate = employee.get_irs(taxable_amount, payslip)
 if employee.pt_employee_has_youth_irs():
-    result = employee.pt_get_youth_irs_amount_subject_it(payslip, taxable_amount)
+    result = employee.pt_get_youth_irs_amount_subject_it(payslip, paid_amount)
 elif employee.pt_employee_has_return_program():
-    result = taxable_amount / 2
+    result = paid_amount / 2
 elif employee.l10n_pt_income_tax_region == "e":
     RMNG = payslip.rule_parameter("salario_minimo_nacional")
-    result = max(taxable_amount - RMNG, 0)
+    result = max(paid_amount - RMNG, 0)
 else:
-    result = taxable_amount
+    result = paid_amount
+result = result + get_last_slip_rule_value("SUBS_NAT_TRIBUTADO", "amount")
         </field>
         <field name="struct_id" ref="hr_payroll_structure_pt_monthly_pay" />
         <field name="appears_on_payslip" eval="False" />
@@ -2860,7 +2877,7 @@ else:
 result = 'SUBS_NAT_TRIBUTAVEL' in rules and 'SUBS_NAT_DUO' in rules</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-total_taxable_temr = result_rules["SUBS_NAT_TRIBUTAVEL"]["total"]
+total_taxable_temr = pt_get_christmas_allowance(result_rules_pt, version)
 result_rate = employee.get_irs(total_taxable_temr, payslip)
 if employee.pt_employee_has_youth_irs():
     result = employee.pt_get_youth_irs_amount_subject_it(payslip, result_rules["SUBS_NAT_DUO"]["total"], christ_or_holidays=True, code="SUBS_NAT_DUO")
@@ -2888,7 +2905,7 @@ else:
 result = 'SUBS_NAT_TRIBUTAVEL' in rules and 'SUBS_NAT_DUO_50' in rules</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-total_taxable_temr = result_rules["SUBS_NAT_TRIBUTAVEL"]["total"]
+total_taxable_temr = pt_get_christmas_allowance(result_rules_pt, version)
 result_rate = employee.get_irs(total_taxable_temr, payslip)
 if employee.pt_employee_has_youth_irs():
     result = employee.pt_get_youth_irs_amount_subject_it(payslip, result_rules["SUBS_NAT_DUO_50"]["total"], christ_or_holidays=True, code="SUBS_NAT_DUO_50")
@@ -2916,7 +2933,7 @@ else:
 result = 'SUBS_NAT_TRIBUTAVEL' in rules and 'SUBS_NAT_50' in rules</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-total_taxable_temr = result_rules["SUBS_NAT_TRIBUTAVEL"]["total"]
+total_taxable_temr = pt_get_christmas_allowance(result_rules_pt, version)
 result_rate = employee.get_irs(total_taxable_temr, payslip)
 if employee.pt_employee_has_youth_irs():
     result = employee.pt_get_youth_irs_amount_subject_it(payslip, result_rules["SUBS_NAT_50"]["total"], christ_or_holidays=True, code="SUBS_NAT_50")
@@ -2942,6 +2959,7 @@ else:
         <field name="condition_select">python</field>
         <field name="condition_python">
 result = (
+    'SUBS_FER_TRIB_AUTO' in inputs or
     'SUBS_FER' in rules or
     'SUBS_FER_DUO' in rules or
     'SUBS_FER_DUO_50' in rules or
@@ -2952,9 +2970,20 @@ result = (
 )</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-result = get_last_slip_rule_value("SUBS_FER_TRIBUTAVEL", "amount") + result_rules["SUBS_FER_PROP"]["total"] + result_rules["SUBS_FER_ANOS_ANT"]["total"]
-if not payslip.l10n_pt_previous_payslip_id or payslip.l10n_pt_independent_slip == "holidays":
-    result += pt_get_holiday_allowance(result_rules_pt, version)
+if 'SUBS_FER_TRIB_AUTO' in inputs:
+    result = (
+        get_last_slip_rule_value("SUBS_FER_TRIBUTAVEL", "amount")
+        + pt_get_holiday_allowance(result_rules_pt, version)
+        + result_rules["SUBS_FER_PROP"]["total"]
+        + result_rules["SUBS_FER_ANOS_ANT"]["total"]
+    )
+else:
+    result = (
+        get_last_slip_rule_value("SUBS_FER_TRIBUTAVEL", "amount")
+        + result_rules["SUBS_FER"]["total"]
+        + result_rules["SUBS_FER_PROP"]["total"]
+        + result_rules["SUBS_FER_ANOS_ANT"]["total"]
+    )
 </field>
         <field name="struct_id" ref="hr_payroll_structure_pt_monthly_pay" />
         <field name="appears_on_payslip" eval="False" />
@@ -2968,22 +2997,26 @@ if not payslip.l10n_pt_previous_payslip_id or payslip.l10n_pt_independent_slip =
         <field name="sequence">256</field>
         <field name="condition_select">python</field>
         <field name="condition_python">
-result = ("SUBS_FER_TRIBUTAVEL" in rules and ("SUBS_FER" in rules or "SUBS_FER_PROP" in rules or "SUBS_FER_ANOS_ANT" in rules)) or get_last_slip_rule_value("SUBS_FER_TRIBUTADO", "amount")</field>
+result = ("SUBS_FER_TRIBUTAVEL" in rules and ("SUBS_FER" in rules or "SUBS_FER_PROP" in rules or "SUBS_FER_ANOS_ANT" in rules or "SUBS_FER_TRIB_AUTO" in inputs)) or get_last_slip_rule_value("SUBS_FER_TRIBUTADO", "amount")</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
 taxable_amount = result_rules["SUBS_FER_TRIBUTAVEL"]["total"]
-if ('SUBS_FER' in inputs or 'SUBS_FER_PROP' in inputs or 'SUBS_FER_ANOS_ANT' in inputs) and payslip.l10n_pt_payslip_type == "contract_termination":
-    taxable_amount = result_rules["SUBS_FER_PROP"]["total"] + result_rules["SUBS_FER"]["total"] + result_rules["SUBS_FER_ANOS_ANT"]["total"] + get_last_slip_rule_value("SUBS_FER_TRIBUTADO", "amount")
+paid_amount = (
+    result_rules["SUBS_FER"]["total"]
+    + result_rules["SUBS_FER_PROP"]["total"]
+    + result_rules["SUBS_FER_ANOS_ANT"]["total"]
+)
 result_rate = employee.get_irs(taxable_amount, payslip)
 if employee.pt_employee_has_youth_irs():
-    result = employee.pt_get_youth_irs_amount_subject_it(payslip, taxable_amount)
+    result = employee.pt_get_youth_irs_amount_subject_it(payslip, paid_amount)
 elif employee.pt_employee_has_return_program():
-    result = taxable_amount / 2
+    result = paid_amount / 2
 elif employee.l10n_pt_income_tax_region == "e":
     RMNG = payslip.rule_parameter("salario_minimo_nacional")
-    result = max(taxable_amount - RMNG, 0)
+    result = max(paid_amount - RMNG, 0)
 else:
-    result = taxable_amount
+    result = paid_amount
+result = result + get_last_slip_rule_value("SUBS_FER_TRIBUTADO", "amount")
         </field>
         <field name="struct_id" ref="hr_payroll_structure_pt_monthly_pay" />
         <field name="appears_on_payslip" eval="False" />
@@ -3003,7 +3036,7 @@ else:
 result = 'SUBS_FER_TRIBUTAVEL' in rules and 'SUBS_FER_DUO' in rules</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-total_taxable_temr = result_rules["SUBS_FER_TRIBUTAVEL"]["total"]
+total_taxable_temr = pt_get_holiday_allowance(result_rules_pt, version)
 result_rate = employee.get_irs(total_taxable_temr, payslip)
 if employee.pt_employee_has_youth_irs():
     result = employee.pt_get_youth_irs_amount_subject_it(payslip, result_rules["SUBS_FER_DUO"]["total"], christ_or_holidays=True, code="SUBS_FER_DUO")
@@ -3034,7 +3067,7 @@ else:
 result = 'SUBS_FER_TRIBUTAVEL' in rules and 'SUBS_FER_DUO_50' in rules</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-total_taxable_temr = result_rules["SUBS_FER_TRIBUTAVEL"]["total"]
+total_taxable_temr = pt_get_holiday_allowance(result_rules_pt, version)
 result_rate = employee.get_irs(total_taxable_temr, payslip)
 if employee.pt_employee_has_youth_irs():
     result = employee.pt_get_youth_irs_amount_subject_it(payslip, result_rules["SUBS_FER_DUO_50"]["total"], christ_or_holidays=True, code="SUBS_FER_DUO_50")
@@ -3062,7 +3095,7 @@ else:
 result = 'SUBS_FER_TRIBUTAVEL' in rules and 'SUBS_FER_50' in rules</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-total_taxable_temr = result_rules["SUBS_FER_TRIBUTAVEL"]["total"]
+total_taxable_temr = pt_get_holiday_allowance(result_rules_pt, version)
 result_rate = employee.get_irs(total_taxable_temr, payslip)
 if employee.pt_employee_has_youth_irs():
     result = employee.pt_get_youth_irs_amount_subject_it(payslip, result_rules["SUBS_FER_50"]["total"], christ_or_holidays=True, code="SUBS_FER_50")
@@ -4112,6 +4145,26 @@ if result_rules["SS_EP"]["amount"]:
     <record id="input_pt_holiday_allowance" model="hr.payslip.input.type">
         <field name="name">Subsídio de Férias [valor]</field>
         <field name="code">SUBS_FER</field>
+        <field name="country_id" ref="base.pt" />
+        <field
+            name="struct_ids"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
+        />
+    </record>
+
+    <record id="input_pt_holiday_allowance_taxable" model="hr.payslip.input.type">
+        <field name="name">Subsídio de Férias - Tributável Automático [valor]</field>
+        <field name="code">SUBS_FER_TRIB_AUTO</field>
+        <field name="country_id" ref="base.pt" />
+        <field
+            name="struct_ids"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
+        />
+    </record>
+
+    <record id="input_pt_christmas_allowance_taxable" model="hr.payslip.input.type">
+        <field name="name">Subsídio de Natal - Tributável Automático [valor]</field>
+        <field name="code">SUBS_NAT_TRIB_AUTO</field>
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"
