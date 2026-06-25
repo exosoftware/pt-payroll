@@ -2850,17 +2850,25 @@ paid_amount = (
     result_rules["SUBS_NAT"]["total"]
     + result_rules["SUBS_NATAL_PROP"]["total"]
 )
+prev = get_last_slip_rule_value("SUBS_NAT_TRIBUTADO", "amount")
 result_rate = employee.get_irs(taxable_amount, payslip)
 if employee.pt_employee_has_youth_irs():
-    result = employee.pt_get_youth_irs_amount_subject_it(payslip, paid_amount)
+    prev_gross = employee.pt_get_youth_irs_amount_taxable_it(payslip, prev)
+    result = employee.pt_get_youth_irs_amount_subject_it(
+        payslip, paid_amount + prev_gross
+    )
 elif employee.pt_employee_has_return_program():
-    result = paid_amount / 2
+    # Aggregate the gross over the period (recover the previous slip's gross by
+    # inverting the halving) and apply the 50% reduction once on the total.
+    result = (paid_amount + prev * 2) / 2
 elif employee.l10n_pt_income_tax_region == "e":
-    RMNG = payslip.rule_parameter("salario_minimo_nacional")
-    result = max(paid_amount - RMNG, 0)
+    # Aggregate the gross over the period (recover the previous slip's gross by
+    # adding back the exempt minimum wage) and subtract the minimum wage once.
+    RMNG = payslip.rule_parameter("salario_minimo_nacional", payslip.date_to)
+    prev_gross = prev + RMNG if prev else 0
+    result = max(paid_amount + prev_gross - RMNG, 0)
 else:
-    result = paid_amount
-result = result + get_last_slip_rule_value("SUBS_NAT_TRIBUTADO", "amount")
+    result = paid_amount + prev
         </field>
         <field name="struct_id" ref="hr_payroll_structure_pt_monthly_pay" />
         <field name="appears_on_payslip" eval="False" />
@@ -2885,7 +2893,7 @@ elif employee.pt_employee_has_return_program():
     result = result_rules["SUBS_NAT_DUO"]["total"] / 2
 else:
     if employee.l10n_pt_income_tax_region == "e":
-        RMNG = payslip.rule_parameter("salario_minimo_nacional")
+        RMNG = payslip.rule_parameter("salario_minimo_nacional", payslip.date_to)
         result = max(result_rules["SUBS_NAT_DUO"]["total"] - (RMNG/12), 0)
     else:
         result = result_rules["SUBS_NAT_DUO"]["total"]
@@ -2913,7 +2921,7 @@ elif employee.pt_employee_has_return_program():
     result = result_rules["SUBS_NAT_DUO_50"]["total"] / 2
 else:
     if employee.l10n_pt_income_tax_region == "e":
-        RMNG = payslip.rule_parameter("salario_minimo_nacional")
+        RMNG = payslip.rule_parameter("salario_minimo_nacional", payslip.date_to)
         result = max(result_rules["SUBS_NAT_DUO_50"]["total"] - (RMNG/24), 0)
     else:
         result = result_rules["SUBS_NAT_DUO_50"]["total"]
@@ -2941,7 +2949,7 @@ elif employee.pt_employee_has_return_program():
     result = result_rules["SUBS_NAT_50"]["total"] / 2
 else:
     if employee.l10n_pt_income_tax_region == "e":
-        RMNG = payslip.rule_parameter("salario_minimo_nacional")
+        RMNG = payslip.rule_parameter("salario_minimo_nacional", payslip.date_to)
         result = max(result_rules["SUBS_NAT_50"]["total"] - (RMNG/2), 0)
     else:
         result = result_rules["SUBS_NAT_50"]["total"]
@@ -3006,17 +3014,25 @@ paid_amount = (
     + result_rules["SUBS_FER_PROP"]["total"]
     + result_rules["SUBS_FER_ANOS_ANT"]["total"]
 )
+prev = get_last_slip_rule_value("SUBS_FER_TRIBUTADO", "amount")
 result_rate = employee.get_irs(taxable_amount, payslip)
 if employee.pt_employee_has_youth_irs():
-    result = employee.pt_get_youth_irs_amount_subject_it(payslip, paid_amount)
+    prev_gross = employee.pt_get_youth_irs_amount_taxable_it(payslip, prev)
+    result = employee.pt_get_youth_irs_amount_subject_it(
+        payslip, paid_amount + prev_gross
+    )
 elif employee.pt_employee_has_return_program():
-    result = paid_amount / 2
+    # Aggregate the gross over the period (recover the previous slip's gross by
+    # inverting the halving) and apply the 50% reduction once on the total.
+    result = (paid_amount + prev * 2) / 2
 elif employee.l10n_pt_income_tax_region == "e":
-    RMNG = payslip.rule_parameter("salario_minimo_nacional")
-    result = max(paid_amount - RMNG, 0)
+    # Aggregate the gross over the period (recover the previous slip's gross by
+    # adding back the exempt minimum wage) and subtract the minimum wage once.
+    RMNG = payslip.rule_parameter("salario_minimo_nacional", payslip.date_to)
+    prev_gross = prev + RMNG if prev else 0
+    result = max(paid_amount + prev_gross - RMNG, 0)
 else:
-    result = paid_amount
-result = result + get_last_slip_rule_value("SUBS_FER_TRIBUTADO", "amount")
+    result = paid_amount + prev
         </field>
         <field name="struct_id" ref="hr_payroll_structure_pt_monthly_pay" />
         <field name="appears_on_payslip" eval="False" />
@@ -3044,7 +3060,7 @@ elif employee.pt_employee_has_return_program():
     result = result_rules["SUBS_FER_DUO"]["total"] / 2
 else:
     if employee.l10n_pt_income_tax_region == "e":
-        RMNG = payslip.rule_parameter("salario_minimo_nacional")
+        RMNG = payslip.rule_parameter("salario_minimo_nacional", payslip.date_to)
         result = max(result_rules["SUBS_FER_DUO"]["total"] - (RMNG/12), 0)
     else:
         result = result_rules["SUBS_FER_DUO"]["total"]
@@ -3075,7 +3091,7 @@ elif employee.pt_employee_has_return_program():
     result = result_rules["SUBS_FER_DUO_50"]["total"] / 2
 else:
     if employee.l10n_pt_income_tax_region == "e":
-        RMNG = payslip.rule_parameter("salario_minimo_nacional")
+        RMNG = payslip.rule_parameter("salario_minimo_nacional", payslip.date_to)
         result = max(result_rules["SUBS_FER_DUO_50"]["total"] - (RMNG/24), 0)
     else:
         result = result_rules["SUBS_FER_DUO_50"]["total"]
@@ -3103,7 +3119,7 @@ elif employee.pt_employee_has_return_program():
     result = result_rules["SUBS_FER_50"]["total"] / 2
 else:
     if employee.l10n_pt_income_tax_region == "e":
-        RMNG = payslip.rule_parameter("salario_minimo_nacional")
+        RMNG = payslip.rule_parameter("salario_minimo_nacional", payslip.date_to)
         result = max(result_rules["SUBS_FER_50"]["total"] - (RMNG/2), 0)
     else:
         result = result_rules["SUBS_FER_50"]["total"]
