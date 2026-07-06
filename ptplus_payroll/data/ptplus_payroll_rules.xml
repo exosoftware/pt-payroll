@@ -3158,6 +3158,7 @@ result = 'DED_SEG_S' in inputs</field>
 result = - inputs['DED_SEG_S'].amount</field>
         <field name="struct_id" ref="hr_payroll_structure_pt_monthly_pay" />
         <field name="l10n_pt_standard_rule">True</field>
+        <field name="l10n_pt_excluded_from_wage_garnishment_base">True</field>
     </record>
 
     <record id="rule_pt_tax_base_irs_adds_to_base_total" model="hr.salary.rule">
@@ -3389,8 +3390,10 @@ prev_slips = payslip._pt_get_prev_slips_same_reference_period()
 # total net amount for the period
 prev_total_equiv = sum(s._pt_get_total_net_equivalent_from_lines(attachments_codes) for s in prev_slips)
 
+excluded_amount = get_wage_garnishment_excluded_amount(result_rules)
+
 base = payslip.get_net_amount(categories, result_rules)
-net_equiv = base + categories["DES"] + prev_total_equiv
+net_equiv = base + categories["DES"] - excluded_amount + prev_total_equiv
 
 RMNG = rule_parameter("salario_minimo_nacional", payslip.date_to)
 if net_equiv &lt;= RMNG:

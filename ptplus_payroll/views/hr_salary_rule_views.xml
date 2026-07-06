@@ -31,6 +31,10 @@
                                 readonly="l10n_pt_standard_rule"
                             />
                             <field
+                                name="l10n_pt_excluded_from_wage_garnishment_base"
+                                invisible="l10n_pt_category_code != 'DES'"
+                            />
+                            <field
                                 name="l10n_pt_affects_holiday_allowance"
                                 invisible="l10n_pt_category_code != 'ABONO'"
                             />
@@ -140,6 +144,10 @@
                 <field name="l10n_pt_affects_hourly_wage" optional="hide" />
                 <field name="l10n_pt_affects_overtime_hourly_wage" optional="hide" />
                 <field name="l10n_pt_affects_holiday" optional="hide" />
+                <field
+                    name="l10n_pt_excluded_from_wage_garnishment_base"
+                    optional="hide"
+                />
                 <field name="l10n_pt_paid_in_kind" optional="hide" />
                 <field name="l10n_pt_account_debit_corporate_body" optional="hide" />
                 <field name="l10n_pt_account_credit_corporate_body" optional="hide" />
