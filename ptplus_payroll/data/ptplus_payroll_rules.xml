@@ -2824,11 +2824,18 @@ if 'SUBS_NAT_TRIB_AUTO' in inputs:
         + result_rules["SUBS_NATAL_PROP"]["total"]
     )
 else:
-    result = (
-        get_last_slip_rule_value("SUBS_NAT_TRIBUTAVEL", "amount")
-        + result_rules["SUBS_NAT"]["total"]
-        + result_rules["SUBS_NATAL_PROP"]["total"]
-    )
+    if version.contract_date_start.year &lt; payslip.date_to.year:
+        result = (
+            get_last_slip_rule_value("SUBS_NAT_TRIBUTAVEL", "amount")
+            + pt_get_christmas_allowance(result_rules_pt, version)
+            + result_rules["SUBS_NATAL_PROP"]["total"]
+        )
+    else:
+        result = (
+            get_last_slip_rule_value("SUBS_NAT_TRIBUTAVEL", "amount")
+            + result_rules["SUBS_NAT"]["total"]
+            + result_rules["SUBS_NATAL_PROP"]["total"]
+        )
 </field>
         <field name="struct_id" ref="hr_payroll_structure_pt_monthly_pay" />
         <field name="appears_on_payslip" eval="False" />
@@ -2986,12 +2993,20 @@ if 'SUBS_FER_TRIB_AUTO' in inputs:
         + result_rules["SUBS_FER_ANOS_ANT"]["total"]
     )
 else:
-    result = (
-        get_last_slip_rule_value("SUBS_FER_TRIBUTAVEL", "amount")
-        + result_rules["SUBS_FER"]["total"]
-        + result_rules["SUBS_FER_PROP"]["total"]
-        + result_rules["SUBS_FER_ANOS_ANT"]["total"]
-    )
+    if version.contract_date_start.year &lt; payslip.date_to.year:
+        result = (
+            get_last_slip_rule_value("SUBS_FER_TRIBUTAVEL", "amount")
+            + pt_get_holiday_allowance(result_rules_pt, version)
+            + result_rules["SUBS_FER_PROP"]["total"]
+            + result_rules["SUBS_FER_ANOS_ANT"]["total"]
+        )
+    else:
+        result = (
+            get_last_slip_rule_value("SUBS_FER_TRIBUTAVEL", "amount")
+            + result_rules["SUBS_FER"]["total"]
+            + result_rules["SUBS_FER_PROP"]["total"]
+            + result_rules["SUBS_FER_ANOS_ANT"]["total"]
+        )
 </field>
         <field name="struct_id" ref="hr_payroll_structure_pt_monthly_pay" />
         <field name="appears_on_payslip" eval="False" />
