@@ -1900,6 +1900,29 @@ result = pt_get_overtime(version.l10n_pt_overtime_sunday_rate, result_rules_pt)<
         <field name="l10n_pt_standard_rule">True</field>
     </record>
 
+    <record id="rule_pt_attendance_prev_month" model="hr.salary.rule">
+        <field name="category_id" ref="ABONO" />
+        <field name="name">Assiduidade (mês anterior)</field>
+        <field name="code">ASSID_ANT</field>
+        <field name="sequence">138</field>
+        <field name="condition_select">python</field>
+        <field name="condition_python">
+result = 'ASSID_ANT' in inputs</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">
+days = inputs['ASSID_ANT'].amount
+rate = get_prev_month_absence_hourly_rate(version)
+hours_per_day = version.resource_calendar_id.hours_per_day
+result = rate * hours_per_day
+result_qty = days</field>
+        <field name="struct_id" ref="hr_payroll_structure_pt_monthly_pay" />
+        <field name="l10n_pt_dri_subject_amount">P</field>
+        <field name="l10n_pt_dmr_subject_amount">A</field>
+        <field name="l10n_pt_dmr_exempt_amount">N/A</field>
+        <field name="l10n_pt_affects_income_tax">True</field>
+        <field name="l10n_pt_standard_rule">True</field>
+    </record>
+
     <record id="rule_pt_night_work_rate" model="hr.salary.rule">
         <field name="category_id" ref="ABONO" />
         <field name="name">Trabalho Noturno</field>
@@ -4516,6 +4539,16 @@ if result_rules["SS_EP"]["amount"]:
     <record id="input_pt_overtime3600" model="hr.payslip.input.type">
         <field name="name">Hora Extra Domingo (Mês Anterior)[h]</field>
         <field name="code">EXTRA3600</field>
+        <field name="country_id" ref="base.pt" />
+        <field
+            name="struct_ids"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
+        />
+    </record>
+
+    <record id="input_pt_attendance_prev_month" model="hr.payslip.input.type">
+        <field name="name">Assiduidade (mês anterior) [d]</field>
+        <field name="code">ASSID_ANT</field>
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"

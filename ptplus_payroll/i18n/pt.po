@@ -1435,6 +1435,11 @@ msgid "Assiduidade"
 msgstr "Assiduidade"
 
 #. module: ptplus_payroll
+#: model:hr.salary.rule,name:ptplus_payroll.rule_pt_attendance_prev_month
+msgid "Assiduidade (mês anterior)"
+msgstr "Assiduidade (mês anterior)"
+
+#. module: ptplus_payroll
 #: model:ir.model.fields.selection,name:ptplus_payroll.selection__res_company__l10n_pt_company_type__associacao
 msgid "Associação"
 msgstr "Associação"
