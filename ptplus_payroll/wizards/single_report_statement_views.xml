@@ -28,10 +28,7 @@
                     >
                         <separator string="2. Workers Posted Abroad" />
                         <group class="o_row">
-                            <field
-                                name="ru_posted_workers"
-                                string="No. of workers"
-                            />
+                            <field name="ru_posted_workers" string="No. of workers" />
                             <field
                                 name="ru_number_of_postings"
                                 string="No. of postings"
@@ -287,9 +284,7 @@
                             <field name="ru_european_social_fund" />
                             <field name="ru_other_funding_sources" />
                         </group>
-                        <separator
-                            string="4. Occupational health and safety charges"
-                        />
+                        <separator string="4. Occupational health and safety charges" />
                         <group class="o_row">
                             <field name="ru_health_safety_services_organization" />
                             <field name="ru_workspaces_organization_modification" />
@@ -541,4 +536,3 @@
         </field>
     </record>
 </odoo>
-

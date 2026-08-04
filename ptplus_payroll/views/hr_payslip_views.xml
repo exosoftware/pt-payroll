@@ -215,25 +215,6 @@
         </field>
     </record>
 
-    <record id="view_hr_payslip_tree_pt" model="ir.ui.view">
-        <field name="name">hr.payslip.tree.pt</field>
-        <field name="model">hr.payslip</field>
-        <field name="inherit_id" ref="hr_payroll.view_hr_payslip_tree" />
-        <field name="arch" type="xml">
-            <field name="net_wage" position="after">
-                <field name="country_code" invisible="1" />
-                <field
-                    name="l10n_pt_deduction"
-                    widget="monetary"
-                    options="{'currency_field': 'currency_id'}"
-                    decoration-bf="1"
-                    optional="hide"
-                    invisible="country_code != 'PT'"
-                />
-            </field>
-        </field>
-    </record>
-
     <record id="action_reset_salary_complements" model="ir.actions.server">
         <field name="name">Reset Salary Complements</field>
         <field name="model_id" ref="hr_payroll.model_hr_payslip" />

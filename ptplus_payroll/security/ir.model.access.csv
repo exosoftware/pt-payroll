@@ -21,3 +21,5 @@ access_hr_allowance_provision_correction_lines_pt_user,access.hr.allowance.provi
 access_hr_allowance_provision_correction_lines_pt_manager,access.hr.allowance.provision.correction.lines.pt,model_hr_allowance_provision_correction_lines_pt,hr.group_hr_manager,1,1,0,0
 access_dataport_log,dataport.log user,ptplus.model_dataport_log,hr_payroll.group_hr_payroll_user,1,0,0,0
 access_dataport_log_manager,dataport.log manager,ptplus.model_dataport_log,hr_payroll.group_hr_payroll_manager,1,1,1,1
+access_l10n_pt_dmr_statement_wizard,access.l10n.pt.dmr.statement.wizard,model_l10n_pt_dmr_statement_wizard,hr_payroll.group_hr_payroll_user,1,1,1,1
+access_l10n_pt_dmr_wizard_line6,access.l10n.pt.dmr.wizard.line6,model_l10n_pt_dmr_wizard_line6,hr_payroll.group_hr_payroll_user,1,1,1,1
