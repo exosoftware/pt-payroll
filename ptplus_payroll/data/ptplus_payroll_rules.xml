@@ -3265,12 +3265,12 @@ result = get_total_amount_affects_temr(result_rules_pt) + income_overtime + last
         <field name="sequence">380</field>
         <field name="condition_select">python</field>
         <field name="condition_python">
-result = "IRS_SOMA_BASE_TEMR" in rules and "IRS_SOMA_BASE_TRIBUTAVEL" in rules
+result = "IRS_SOMA_BASE_TEMR" in rules
         </field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
 result_rate = - employee.get_irs(result_rules["IRS_SOMA_BASE_TEMR"]["total"], payslip)
-result = get_especial_tax_sum_to_base(result_rules["IRS_SOMA_BASE_TRIBUTAVEL"]["total"], result_rules_pt)
+result = get_especial_tax_sum_to_base(result_rules["IRS_SOMA_BASE_TEMR"]["total"], result_rules_pt)
         </field>
         <field name="struct_id" ref="hr_payroll_structure_pt_monthly_pay" />
         <field name="appears_on_payslip" eval="False" />
