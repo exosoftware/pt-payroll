@@ -11,7 +11,7 @@
     "author": "Exo Software",
     "website": "https://github.com/exosoftware/portugal-payroll",
     "category": "Localization",
-    "version": "18.0.9.1.1",
+    "version": "18.0.9.2.0",
     "depends": [
         "hr_contract",
         "ptplus",

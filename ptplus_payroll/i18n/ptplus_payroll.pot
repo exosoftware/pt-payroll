@@ -1068,11 +1068,6 @@ msgid "April"
 msgstr ""
 
 #. module: ptplus_payroll
-#: model:hr.work.entry.type,name:ptplus_payroll.entry_type_pt_attendance
-msgid "Assiduidade"
-msgstr ""
-
-#. module: ptplus_payroll
 #: model:hr.salary.rule,name:ptplus_payroll.rule_pt_attendance_prev_month
 msgid "Assiduidade (mês anterior)"
 msgstr ""
@@ -1427,6 +1422,16 @@ msgstr ""
 #. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.relatorio_unico_statement_form
 msgid "December 31st"
+msgstr ""
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__d2_declaration_type
+msgid "Declaration Model"
+msgstr ""
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__declaration_type
+msgid "Declaration Type"
 msgstr ""
 
 #. module: ptplus_payroll
@@ -4044,8 +4049,91 @@ msgid "Total Contributions:"
 msgstr ""
 
 #. module: ptplus_payroll
+#: model:hr.salary.rule,name:ptplus_payroll.rule_pt_total_deduction
+#: model:hr.salary.rule.category,name:ptplus_payroll.T_DES
+msgid "Total Descontos"
+msgstr ""
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__d9_total_irs_retention
+msgid "Total IRS Retained"
+msgstr ""
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__d5_total_irs_retention
+msgid "Total IRS Withholding"
+msgstr ""
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__d5_total_income_value
+msgid "Total Income Amount"
+msgstr ""
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__d9_curr_income_total
+msgid "Total Income from Current Year"
+msgstr ""
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__d9_prev_income_total
+msgid "Total Income from Previous Years"
+msgstr ""
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__d5_total_social_security
+msgid "Total Mandatory Contributions"
+msgstr ""
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__d9_total_contrib
+msgid "Total Contributions Retained"
+msgstr ""
+
+#. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.report_dri_stmt_pt
 msgid "Total Salaries:"
+msgstr ""
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__d9_total_surtax
+msgid "Total Surtax Retained"
+msgstr ""
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__d5_total_surtax_retention
+msgid "Total Surtax Withholding"
+msgstr ""
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__d5_total_union_dues
+msgid "Total Union Dues"
+msgstr ""
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__d9_total_union_dues
+msgid "Total Union Dues Retained"
+msgstr ""
+
+#. module: ptplus_payroll
+#: model:hr.salary.rule.category,name:ptplus_payroll.T_RECEBER
+msgid "Total a Receber"
+msgstr ""
+
+#. module: ptplus_payroll
+#: model:hr.salary.rule,name:ptplus_payroll.rule_pt_total_receivable_in_kind
+#: model:hr.salary.rule.category,name:ptplus_payroll.T_RECEBER_ESP
+msgid "Total a Receber - Espécie"
+msgstr ""
+
+#. module: ptplus_payroll
+#: model:hr.salary.rule,name:ptplus_payroll.rule_pt_total_receivable_ticket
+#: model:hr.salary.rule.category,name:ptplus_payroll.T_RECEBER_TIC
+msgid "Total a Receber - Ticket"
+msgstr ""
+
+#. module: ptplus_payroll
+#: model:hr.salary.rule.category,name:ptplus_payroll.T_ABONOS
+msgid "Total de Abonos"
 msgstr ""
 
 #. module: ptplus_payroll
