@@ -9,7 +9,7 @@
         <field name="country_id" ref="base.pt" />
         <field
             name="default_work_entry_type_id"
-            ref="ptplus_payroll.entry_type_pt_attendance"
+            ref="hr_work_entry.work_entry_type_attendance"
         />
     </record>
 
@@ -32,10 +32,16 @@
         />
     </record>
 
-<!-- This code is commented out due to a pre-commit error. It is necessary to manually define the default_struct_id -->
-<!--    <record id="structure_type_employee_pt" model="hr.payroll.structure.type">-->
-<!--        <field name="default_struct_id" ref="hr_payroll_structure_pt_monthly_pay" />-->
-<!--    </record>-->
+    <!-- default_struct_id can't be set on the record above: it must reference
+    hr_payroll_structure_pt_monthly_pay, which is only declared afterwards.
+    A second <record> with the same id to set it hits the duplicate-id
+    pre-commit check, so it's set via <function> instead. -->
+    <function model="hr.payroll.structure.type" name="write">
+        <value eval="[ref('structure_type_employee_pt')]" />
+        <value
+            eval="{'default_struct_id': ref('hr_payroll_structure_pt_monthly_pay')}"
+        />
+    </function>
 
     <function model="hr.salary.rule" name="write">
         <value

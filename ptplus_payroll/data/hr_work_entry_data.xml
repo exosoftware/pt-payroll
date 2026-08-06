@@ -4,12 +4,6 @@
     <!-- when the employee does not work a full day, the number
     of days is rounded down to the next number -->
 
-    <record id="entry_type_pt_attendance" model="hr.work.entry.type">
-        <field name="name">Assiduidade</field>
-        <field name="color">0</field>
-        <field name="code">ASSIDUIDADE</field>
-    </record>
-
     <record
         id="entry_type_pt_missing_other_justified_absences"
         model="hr.work.entry.type"

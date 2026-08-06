@@ -19,6 +19,16 @@ Configuration
 Changelog
 =========
 
+9.2.0 (2026-08-05)
+~~~~~~~~~~~~~~~~~~
+**Improvement**
+
+- Regular attendance now uses Odoo's native "Attendance" work entry type
+  (displayed as "Assiduidade" in Portuguese) instead of a duplicate type
+  specific to this module. Existing payslips, working schedules and work
+  entries are converted automatically when the module is updated, and the
+  duplicate type is removed.
+
 8.2.2 (2026-01-22)
 ~~~~~~~~~~~~~~~~~~
 **Features**
