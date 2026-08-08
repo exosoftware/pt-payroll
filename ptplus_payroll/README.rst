@@ -19,6 +19,17 @@ Configuration
 Changelog
 =========
 
+9.3.0 (2026-08-06)
+~~~~~~~~~~~~~~~~~~
+**Features**
+
+- The Monthly Remuneration Statement (DMR-AT) can now be validated and
+  submitted directly to the Tax Authority online, from the same assistant used
+  to prepare it: after computing the statement you can send it, check its
+  status, download the Tax Authority receipt and review any errors, reusing the
+  DMR-AT file that is already generated. Exporting the file by hand remains
+  available.
+
 9.2.0 (2026-08-05)
 ~~~~~~~~~~~~~~~~~~
 **Improvement**

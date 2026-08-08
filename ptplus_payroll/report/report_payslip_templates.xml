@@ -38,7 +38,7 @@
             <!-- ========= BASIC SALARY ========= -->
             <t
                     t-set="basic_taxable_gross"
-                    t-value="round(o.get_tax_sum_to_base(o, line_ids=lines), 2)"
+                    t-value="round(o.get_total_amount_affects_temr(line_ids=lines), 2)"
                 />
 
             <t
