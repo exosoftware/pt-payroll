@@ -4,14 +4,13 @@
 #
 ##############################################################################
 # pylint: disable=license-allowed, manifest-required-author
-
 {
     "name": "Portugal - Payroll",
     "license": "OPL-1",
     "author": "Exo Software",
     "website": "https://github.com/exosoftware/portugal-payroll",
     "category": "Localization",
-    "version": "19.0.9.1.1",
+    "version": "19.0.9.5.0",
     "depends": [
         "ptplus",
         "ptplus_reports",
@@ -20,6 +19,7 @@
         "hr_payroll_account",
         "hr_payroll_expense",
         "ptplus_expense",
+        "accountant",
     ],
     "data": [
         "data/hr_marital_status_pt.xml",
@@ -65,7 +65,11 @@
         "report/payroll_dri_statement_report.xml",
         "wizards/payroll_statement.xml",
         "wizards/single_report_statement_views.xml",
+        "wizards/l10n_pt_single_report_statement_wizard_views.xml",
         "wizards/l10n_pt_dmr_statement_wizard.xml",
+        "wizards/l10n_pt_aggregate_salary_statement_wizard_views.xml",
+        "wizards/l10n_pt_annual_accumulated_wizard_views.xml",
+        "wizards/l10n_pt_holiday_sheets_wizard_views.xml",
         "wizards/hr_payroll_edit_payslip_lines_wizard_views.xml",
         "data/mail_template_data.xml",
     ],

@@ -8,6 +8,15 @@
             <field name="active" position="after">
                 <field name="country_code" invisible="1" />
             </field>
+            <field name="use_worked_day_lines" position="attributes">
+                <attribute name="readonly">country_code == 'PT'</attribute>
+            </field>
+            <field name="use_worked_day_lines" position="after">
+                <field
+                    name="l10n_pt_display_worked_days_table"
+                    invisible="country_code != 'PT'"
+                />
+            </field>
         </field>
     </record>
 </odoo>

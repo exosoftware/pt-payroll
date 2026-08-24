@@ -9,7 +9,7 @@
         <field name="country_id" ref="base.pt" />
         <field
             name="default_work_entry_type_id"
-            ref="ptplus_payroll.entry_type_pt_attendance"
+            ref="hr_work_entry.work_entry_type_attendance"
         />
     </record>
 
@@ -32,10 +32,16 @@
         />
     </record>
 
-    <!-- This code is commented out due to a pre-commit error. It is necessary to manually define the default_struct_id -->
-    <!--    <record id="structure_type_employee_pt" model="hr.payroll.structure.type">-->
-    <!--        <field name="default_struct_id" ref="hr_payroll_structure_pt_monthly_pay" />-->
-    <!--    </record>-->
+    <!-- default_struct_id can't be set on the record above: it must reference
+    hr_payroll_structure_pt_monthly_pay, which is only declared afterwards.
+    A second <record> with the same id to set it hits the duplicate-id
+    pre-commit check, so it's set via <function> instead. -->
+    <function model="hr.payroll.structure.type" name="write">
+        <value eval="[ref('structure_type_employee_pt')]" />
+        <value
+            eval="{'default_struct_id': ref('hr_payroll_structure_pt_monthly_pay')}"
+        />
+    </function>
 
     <function model="hr.salary.rule" name="write">
         <value
@@ -60,6 +66,7 @@
             'l10n_pt_standard_rule': True,
             'l10n_pt_affects_income_tax': True,
             'l10n_pt_affects_temr': True,
+            'color': '#00A09D',
             }"
         />
     </function>
@@ -82,6 +89,7 @@
             'amount_select': 'code',
             'amount_python_compute': '''result = categories['ABONO']''',
             'l10n_pt_standard_rule': True,
+            'color': '#00A09D',
             }"
         />
     </function>
@@ -127,6 +135,8 @@
             'amount_select': 'code',
             'amount_python_compute': '''result = get_net_amount(categories, result_rules)''',
             'l10n_pt_standard_rule': True,
+            'color': '#875A7B',
+            'bold': True,
             }"
         />
     </function>
@@ -1297,7 +1307,7 @@ result = 'EXTRA100' in inputs or ('EXTRA100' in worked_days and version.l10n_pt_
 if 'EXTRA100' in inputs:
     result_qty = inputs['EXTRA100'].amount
 else:
-    result_qty = worked_days['EXTRA100'].amount
+    result_qty = worked_days['EXTRA100'].number_of_hours
 result = pt_get_overtime(version.l10n_pt_overtime_first_hour_rate, result_rules_pt)</field>
         <field name="struct_id" ref="hr_payroll_structure_pt_monthly_pay" />
         <field name="l10n_pt_dri_subject_amount">S</field>
@@ -1319,7 +1329,7 @@ result = 'EXTRA200' in inputs or ('EXTRA200' in worked_days and version.l10n_pt_
 if 'EXTRA200' in inputs:
     result_qty = inputs['EXTRA200'].amount
 else:
-    result_qty = worked_days["EXTRA200"].amount
+    result_qty = worked_days["EXTRA200"].number_of_hours
 result = pt_get_overtime(version.l10n_pt_overtime_remaining_hours_rate, result_rules_pt)</field>
         <field name="struct_id" ref="hr_payroll_structure_pt_monthly_pay" />
         <field name="l10n_pt_dri_subject_amount">S</field>
@@ -1341,7 +1351,7 @@ result = 'EXTRA300' in inputs or ('EXTRA300' in worked_days and version.l10n_pt_
 if 'EXTRA300' in inputs:
     result_qty = inputs['EXTRA300'].amount
 else:
-    result_qty = worked_days["EXTRA300"].amount
+    result_qty = worked_days["EXTRA300"].number_of_hours
 result = pt_get_overtime(version.l10n_pt_overtime_rest_days_rate, result_rules_pt)</field>
         <field name="struct_id" ref="hr_payroll_structure_pt_monthly_pay" />
         <field name="l10n_pt_dri_subject_amount">S</field>
@@ -1363,7 +1373,7 @@ result = 'EXTRA400' in inputs or ('EXTRA400' in worked_days and version.l10n_pt_
 if 'EXTRA400' in inputs:
     result_qty = inputs['EXTRA400'].amount
 else:
-    result_qty = worked_days["EXTRA400"].amount
+    result_qty = worked_days["EXTRA400"].number_of_hours
 result = pt_get_overtime(version.l10n_pt_overtime_workdays_rate, result_rules_pt)</field>
         <field name="struct_id" ref="hr_payroll_structure_pt_monthly_pay" />
         <field name="l10n_pt_dri_subject_amount">S</field>
@@ -1385,7 +1395,7 @@ result = 'EXTRA500' in inputs or ('EXTRA500' in worked_days and version.l10n_pt_
 if 'EXTRA500' in inputs:
     result_qty = inputs['EXTRA500'].amount
 else:
-    result_qty = worked_days["EXTRA500"].amount
+    result_qty = worked_days["EXTRA500"].number_of_hours
 result = pt_get_overtime(version.l10n_pt_overtime_holidays_rate, result_rules_pt)</field>
         <field name="struct_id" ref="hr_payroll_structure_pt_monthly_pay" />
         <field name="l10n_pt_dri_subject_amount">S</field>
@@ -1407,7 +1417,7 @@ result = 'EXTRA600' in inputs or ('EXTRA600' in worked_days and version.l10n_pt_
 if 'EXTRA600' in inputs:
     result_qty = inputs['EXTRA600'].amount
 else:
-    result_qty = worked_days["EXTRA600"].amount
+    result_qty = worked_days["EXTRA600"].number_of_hours
 result = pt_get_overtime(version.l10n_pt_overtime_saturday_and_holidays_rate, result_rules_pt)</field>
         <field name="struct_id" ref="hr_payroll_structure_pt_monthly_pay" />
         <field name="l10n_pt_dri_subject_amount">S</field>
@@ -1429,7 +1439,7 @@ result = 'EXTRA700' in inputs or ('EXTRA700' in worked_days and version.l10n_pt_
 if 'EXTRA700' in inputs:
     result_qty = inputs['EXTRA700'].amount
 else:
-    result_qty = worked_days["EXTRA700"].amount
+    result_qty = worked_days["EXTRA700"].number_of_hours
 result = pt_get_overtime(version.l10n_pt_overtime_sunday_rate, result_rules_pt)</field>
         <field name="struct_id" ref="hr_payroll_structure_pt_monthly_pay" />
         <field name="l10n_pt_dri_subject_amount">S</field>
@@ -2848,9 +2858,29 @@ if 'SUBS_NAT_TRIB_AUTO' in inputs:
     )
 else:
     if version.contract_date_start.year &lt; payslip.date_to.year:
+        # The rate must be based on the full reference, not on how much of it
+        # is actually paid on any single slip. But if the slips already paid
+        # this period (e.g. an independent christmas receipt) add up to more
+        # than that reference, the base must follow the higher real amount
+        # instead of understating it.
+        previous_slip = payslip.l10n_pt_previous_payslip_id
+        previous_paid = 0
+        while previous_slip:
+            previous_paid += sum(
+                previous_slip.line_ids.filtered(
+                    lambda line: line.code
+                    in (
+                        "SUBS_NAT",
+                        "SUBS_NAT_DUO",
+                        "SUBS_NAT_DUO_50",
+                        "SUBS_NAT_50",
+                        "SUBS_NATAL_PROP",
+                    )
+                ).mapped("total")
+            )
+            previous_slip = previous_slip.l10n_pt_previous_payslip_id
         result = (
-            get_last_slip_rule_value("SUBS_NAT_TRIBUTAVEL", "amount")
-            + pt_get_christmas_allowance(result_rules_pt, version)
+            max(pt_get_christmas_allowance(result_rules_pt, version), previous_paid)
             + result_rules["SUBS_NATAL_PROP"]["total"]
         )
     else:
@@ -3017,9 +3047,30 @@ if 'SUBS_FER_TRIB_AUTO' in inputs:
     )
 else:
     if version.contract_date_start.year &lt; payslip.date_to.year:
+        # The rate must be based on the full reference, not on how much of it
+        # is actually paid on any single slip. But if the slips already paid
+        # this period (e.g. an independent holidays receipt) add up to more
+        # than that reference, the base must follow the higher real amount
+        # instead of understating it.
+        previous_slip = payslip.l10n_pt_previous_payslip_id
+        previous_paid = 0
+        while previous_slip:
+            previous_paid += sum(
+                previous_slip.line_ids.filtered(
+                    lambda line: line.code
+                    in (
+                        "SUBS_FER",
+                        "SUBS_FER_DUO",
+                        "SUBS_FER_DUO_50",
+                        "SUBS_FER_50",
+                        "SUBS_FER_PROP",
+                        "SUBS_FER_ANOS_ANT",
+                    )
+                ).mapped("total")
+            )
+            previous_slip = previous_slip.l10n_pt_previous_payslip_id
         result = (
-            get_last_slip_rule_value("SUBS_FER_TRIBUTAVEL", "amount")
-            + pt_get_holiday_allowance(result_rules_pt, version)
+            max(pt_get_holiday_allowance(result_rules_pt, version), previous_paid)
             + result_rules["SUBS_FER_PROP"]["total"]
             + result_rules["SUBS_FER_ANOS_ANT"]["total"]
         )
@@ -3266,12 +3317,12 @@ result = get_total_amount_affects_temr(result_rules_pt) + income_overtime + last
         <field name="sequence">380</field>
         <field name="condition_select">python</field>
         <field name="condition_python">
-result = "IRS_SOMA_BASE_TEMR" in rules and "IRS_SOMA_BASE_TRIBUTAVEL" in rules
+result = "IRS_SOMA_BASE_TEMR" in rules
         </field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
 result_rate = - employee.get_irs(result_rules["IRS_SOMA_BASE_TEMR"]["total"], payslip)
-result = get_especial_tax_sum_to_base(result_rules["IRS_SOMA_BASE_TRIBUTAVEL"]["total"], result_rules_pt)
+result = get_especial_tax_sum_to_base(result_rules["IRS_SOMA_BASE_TEMR"]["total"], result_rules_pt)
         </field>
         <field name="struct_id" ref="hr_payroll_structure_pt_monthly_pay" />
         <field name="appears_on_payslip" eval="False" />

@@ -4,7 +4,7 @@
     <record id="leave_type_pt_missing_other_justified_absences" model="hr.leave.type">
         <field name="name">Falta Outras Ausências Justificadas</field>
         <field name="request_unit">hour</field>
-        <field name="requires_allocation">no</field>
+        <field name="requires_allocation">False</field>
         <field name="responsible_ids" eval="[(4, ref('base.user_admin'))]" />
         <field name="color">1</field>
         <field
@@ -19,7 +19,7 @@
     >
         <field name="name">Falta Apenas com Desconto Subs. Alimentação</field>
         <field name="request_unit">day</field>
-        <field name="requires_allocation">no</field>
+        <field name="requires_allocation">False</field>
         <field name="responsible_ids" eval="[(4, ref('base.user_admin'))]" />
         <field name="color">1</field>
         <field
@@ -31,7 +31,7 @@
     <record id="leave_type_pt_holiday_days" model="hr.leave.type">
         <field name="name">Dias de Férias Gozadas (c/Desc. Subs. Alimentação)</field>
         <field name="request_unit">day</field>
-        <field name="requires_allocation">no</field>
+        <field name="requires_allocation">False</field>
         <field name="responsible_ids" eval="[(4, ref('base.user_admin'))]" />
         <field name="color">1</field>
         <field name="work_entry_type_id" ref="entry_type_pt_holiday_days" />
@@ -40,7 +40,7 @@
     <record id="leave_type_pt_absence_due_to_accident_at_work" model="hr.leave.type">
         <field name="name">Falta por Acidente de Trabalho</field>
         <field name="request_unit">hour</field>
-        <field name="requires_allocation">no</field>
+        <field name="requires_allocation">False</field>
         <field name="responsible_ids" eval="[(4, ref('base.user_admin'))]" />
         <field name="color">1</field>
         <field
@@ -55,7 +55,7 @@
     >
         <field name="name">Falta por Doença Profissional Certificada</field>
         <field name="request_unit">day</field>
-        <field name="requires_allocation">no</field>
+        <field name="requires_allocation">False</field>
         <field name="responsible_ids" eval="[(4, ref('base.user_admin'))]" />
         <field name="color">1</field>
         <field
@@ -70,7 +70,7 @@
     >
         <field name="name">Falta por Doença Profissional Não Certificada</field>
         <field name="request_unit">day</field>
-        <field name="requires_allocation">no</field>
+        <field name="requires_allocation">False</field>
         <field name="responsible_ids" eval="[(4, ref('base.user_admin'))]" />
         <field name="color">1</field>
         <field
@@ -82,7 +82,7 @@
     <record id="leave_type_pt_unprofessional_sick_leave" model="hr.leave.type">
         <field name="name">Falta por Doença Não Profissional</field>
         <field name="request_unit">day</field>
-        <field name="requires_allocation">no</field>
+        <field name="requires_allocation">False</field>
         <field name="responsible_ids" eval="[(4, ref('base.user_admin'))]" />
         <field name="color">1</field>
         <field
@@ -97,7 +97,7 @@
     >
         <field name="name">Falta p/ Assistência Inadiável a Agregado Familiar</field>
         <field name="request_unit">day</field>
-        <field name="requires_allocation">no</field>
+        <field name="requires_allocation">False</field>
         <field name="responsible_ids" eval="[(4, ref('base.user_admin'))]" />
         <field name="color">1</field>
         <field
@@ -109,7 +109,7 @@
     <record id="leave_type_pt_lack_of_student_workers" model="hr.leave.type">
         <field name="name">Falta de Trabalhadores Estudantes</field>
         <field name="request_unit">hour</field>
-        <field name="requires_allocation">no</field>
+        <field name="requires_allocation">False</field>
         <field name="responsible_ids" eval="[(4, ref('base.user_admin'))]" />
         <field name="color">1</field>
         <field name="work_entry_type_id" ref="entry_type_pt_lack_of_student_workers" />
@@ -121,7 +121,7 @@
     >
         <field name="name">Falta por Falecimento do Cônjuge, Parente ou Afim</field>
         <field name="request_unit">day</field>
-        <field name="requires_allocation">no</field>
+        <field name="requires_allocation">False</field>
         <field name="responsible_ids" eval="[(4, ref('base.user_admin'))]" />
         <field name="color">1</field>
         <field
@@ -133,7 +133,7 @@
     <record id="leave_type_pt_maternity_leave" model="hr.leave.type">
         <field name="name">Falta por Maternidade</field>
         <field name="request_unit">day</field>
-        <field name="requires_allocation">no</field>
+        <field name="requires_allocation">False</field>
         <field name="responsible_ids" eval="[(4, ref('base.user_admin'))]" />
         <field name="color">1</field>
         <field name="work_entry_type_id" ref="entry_type_pt_maternity_leave" />
@@ -142,7 +142,7 @@
     <record id="leave_type_pt_paternity_leave" model="hr.leave.type">
         <field name="name">Falta por Paternidade</field>
         <field name="request_unit">day</field>
-        <field name="requires_allocation">no</field>
+        <field name="requires_allocation">False</field>
         <field name="responsible_ids" eval="[(4, ref('base.user_admin'))]" />
         <field name="color">1</field>
         <field name="work_entry_type_id" ref="entry_type_pt_paternity_leave" />
@@ -154,7 +154,7 @@
     >
         <field name="name">Falta Candidatos a Eleições e Mesas Voto</field>
         <field name="request_unit">day</field>
-        <field name="requires_allocation">no</field>
+        <field name="requires_allocation">False</field>
         <field name="responsible_ids" eval="[(4, ref('base.user_admin'))]" />
         <field name="color">1</field>
         <field
@@ -166,7 +166,7 @@
     <record id="leave_type_pt_missing_by_strike" model="hr.leave.type">
         <field name="name">Falta por Greve</field>
         <field name="request_unit">hour</field>
-        <field name="requires_allocation">no</field>
+        <field name="requires_allocation">False</field>
         <field name="responsible_ids" eval="[(4, ref('base.user_admin'))]" />
         <field name="color">1</field>
         <field name="work_entry_type_id" ref="entry_type_pt_missing_by_strike" />
@@ -180,7 +180,7 @@
             name="name"
         >Falta p/ Exercício Funções de Membros Representação de Trab.</field>
         <field name="request_unit">day</field>
-        <field name="requires_allocation">no</field>
+        <field name="requires_allocation">False</field>
         <field name="responsible_ids" eval="[(4, ref('base.user_admin'))]" />
         <field name="color">1</field>
         <field
@@ -192,7 +192,7 @@
     <record id="leave_type_pt_missing_unjustified_absences" model="hr.leave.type">
         <field name="name">Falta Ausências Injustificadas</field>
         <field name="request_unit">hour</field>
-        <field name="requires_allocation">no</field>
+        <field name="requires_allocation">False</field>
         <field name="responsible_ids" eval="[(4, ref('base.user_admin'))]" />
         <field name="color">1</field>
         <field
@@ -209,7 +209,7 @@
             name="name"
         >Falta Ausências Autorizadas ou Aprovadas pelo Empregador</field>
         <field name="request_unit">hour</field>
-        <field name="requires_allocation">no</field>
+        <field name="requires_allocation">False</field>
         <field name="responsible_ids" eval="[(4, ref('base.user_admin'))]" />
         <field name="color">1</field>
         <field
@@ -221,7 +221,7 @@
     <record id="leave_type_pt_holiday" model="hr.leave.type">
         <field name="name">Férias</field>
         <field name="request_unit">day</field>
-        <field name="requires_allocation">no</field>
+        <field name="requires_allocation">False</field>
         <field name="responsible_ids" eval="[(4, ref('base.user_admin'))]" />
         <field name="color">1</field>
         <field name="work_entry_type_id" ref="entry_type_pt_holiday" />
@@ -230,7 +230,7 @@
     <record id="leave_type_pt_absence_by_start_end_of_contract" model="hr.leave.type">
         <field name="name">Desconto Dias por Início/Fim de Contrato</field>
         <field name="request_unit">day</field>
-        <field name="requires_allocation">no</field>
+        <field name="requires_allocation">False</field>
         <field name="responsible_ids" eval="[(4, ref('base.user_admin'))]" />
         <field name="color">1</field>
         <field
@@ -242,7 +242,7 @@
     <record id="leave_type_pt_marriage_license" model="hr.leave.type">
         <field name="name">Licença de Casamento</field>
         <field name="request_unit">day</field>
-        <field name="requires_allocation">no</field>
+        <field name="requires_allocation">False</field>
         <field name="responsible_ids" eval="[(4, ref('base.user_admin'))]" />
         <field name="color">1</field>
         <field name="work_entry_type_id" ref="entry_type_pt_marriage_license" />

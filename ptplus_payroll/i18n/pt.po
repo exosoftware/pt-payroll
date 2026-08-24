@@ -6,9 +6,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Tiago Rangel <tiago.rangel@exo.pt>\n"
-"Language-Team: Portuguese <https://translation.exosoftware.pt/projects/"
-"portugal-payroll-18-0/ptplus_payroll/pt/>\n"
+"POT-Creation-Date: 2026-08-11 12:23+0000\n"
+"Last-Translator: Tiago Rangel <diogo.pereira@exo.pt>\n"
+"Language-Team: Portuguese <https://translation.exosoftware.pt/projects/portugal-payroll-18-0/ptplus_payroll/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -59,7 +59,7 @@ msgstr ""
 "                                contribuinte nº"
 
 #. module: ptplus_payroll
-#: model_terms:ir.ui.view,arch_db:ptplus_payroll.line_name
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.report_payslip_pt_irs_details
 msgid ", TEMR:"
 msgstr ", TEMR:"
 
@@ -94,12 +94,12 @@ msgstr "01 - Filiação"
 #: model:ir.model.fields.selection,name:ptplus_payroll.selection__payroll_statement_wizard_pt__determines_fair_impediment__01
 msgid ""
 "01 - Falecimento de cônjuge não separado de pessoas e bens, de pessoa com "
-"quem viviam em condições análogas às dos cônjuges, ou de parente, ou afim no "
-"1º grau da linha reta"
+"quem viviam em condições análogas às dos cônjuges, ou de parente, ou afim no"
+" 1º grau da linha reta"
 msgstr ""
 "01 - Falecimento de cônjuge não separado de pessoas e bens, de pessoa com "
-"quem viviam em condições análogas às dos cônjuges, ou de parente, ou afim no "
-"1º grau da linha reta"
+"quem viviam em condições análogas às dos cônjuges, ou de parente, ou afim no"
+" 1º grau da linha reta"
 
 #. module: ptplus_payroll
 #: model:ir.model.fields.selection,name:ptplus_payroll.selection__ru_extra_data_employee__entry_reason__01
@@ -172,12 +172,12 @@ msgstr "04 - Situações de parentalidade"
 #: model:ir.model.fields.selection,name:ptplus_payroll.selection__ru_extra_data_employee__entry_reason__04
 msgid ""
 "04 - Substituição de trabalhador a tempo completo que passe a prestar "
-"trabalho a tempo parcial por período determinado (só aplicável para contrato "
-"a termo certo)"
+"trabalho a tempo parcial por período determinado (só aplicável para contrato"
+" a termo certo)"
 msgstr ""
 "04 - Substituição de trabalhador a tempo completo que passe a prestar "
-"trabalho a tempo parcial por período determinado (só aplicável para contrato "
-"a termo certo)"
+"trabalho a tempo parcial por período determinado (só aplicável para contrato"
+" a termo certo)"
 
 #. module: ptplus_payroll
 #: model:ir.model.fields.selection,name:ptplus_payroll.selection__ru_extra_data_employee__entry_reason__05
@@ -289,19 +289,20 @@ msgstr "1 Dependente"
 
 #. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.relatorio_unico_statement_form
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_single_report_statement_wizard_form
 msgid "1. Number of Temporary Workers"
 msgstr "1. Número de Trabalhadores Temporários"
 
 #. module: ptplus_payroll
 #: model:ir.model.fields.selection,name:ptplus_payroll.selection__ru_extra_data_employee__entry_reason__10
 msgid ""
-"10 - Contratação de trabalhadores à procura de primeiro emprego, em situação "
-"de desemprego de longa duração ou noutra prevista em legislação especial de "
-"política de emprego (só aplicável para contrato a termo certo)"
+"10 - Contratação de trabalhadores à procura de primeiro emprego, em situação"
+" de desemprego de longa duração ou noutra prevista em legislação especial de"
+" política de emprego (só aplicável para contrato a termo certo)"
 msgstr ""
-"10 - Contratação de trabalhadores à procura de primeiro emprego, em situação "
-"de desemprego de longa duração ou noutra prevista em legislação especial de "
-"política de emprego (só aplicável para contrato a termo certo)"
+"10 - Contratação de trabalhadores à procura de primeiro emprego, em situação"
+" de desemprego de longa duração ou noutra prevista em legislação especial de"
+" política de emprego (só aplicável para contrato a termo certo)"
 
 #. module: ptplus_payroll
 #: model:ir.model.fields.selection,name:ptplus_payroll.selection__hr_version__l10n_pt_contract_type_ru__10
@@ -493,57 +494,68 @@ msgstr "Regime de 2 Turnos"
 
 #. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.relatorio_unico_statement_form
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_single_report_statement_wizard_form
 msgid "2. Approval of Overtime by Workers Committee/Union"
 msgstr ""
 "2. Aprovação de Trabalho Suplementar pela Comissão de Trabalhadores/Sindicato"
 
 #. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.relatorio_unico_statement_form
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_single_report_statement_wizard_form
 msgid "2. Company Economic Activity (EAC) as of December 31"
 msgstr "2. Atividade Económica da Empresa (CAE) a 31 de Dezembro"
 
 #. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.relatorio_unico_statement_form
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_single_report_statement_wizard_form
 msgid "2. Distribution by Education"
 msgstr "2. Distribuição por Habilitações"
 
 #. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.relatorio_unico_statement_form
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_single_report_statement_wizard_form
 msgid "2. Share Capital Percentage"
 msgstr "2. Percentagem do Capital Social"
 
 #. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.relatorio_unico_statement_form
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_single_report_statement_wizard_form
 msgid "2. Temporary Workers In and Outflow Throughout the Year"
 msgstr "2. Entradas e Saídas de Trabalhadores Temporários ao Longo do Ano"
 
 #. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.relatorio_unico_statement_form
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_single_report_statement_wizard_form
 msgid "2. Workers Posted Abroad"
 msgstr "2. Trabalhadores Destacados no Estrangeiro"
 
 #. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.relatorio_unico_statement_form
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_single_report_statement_wizard_form
 msgid "2.1 Charges administered by the employer"
 msgstr "2.1 Encargos suportados pela entidade empregadora"
 
 #. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.relatorio_unico_statement_form
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_single_report_statement_wizard_form
 msgid "2.1 Entries"
 msgstr "2.1 Entradas"
 
 #. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.relatorio_unico_statement_form
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_single_report_statement_wizard_form
 msgid "2.2 Charges NOT administered by the employer"
 msgstr "2.2 Encargos NÃO suportados pela entidade empregadora"
 
 #. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.relatorio_unico_statement_form
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_single_report_statement_wizard_form
 msgid "2.2 Outs"
 msgstr "2.2 Saídas"
 
 #. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.relatorio_unico_statement_form
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_single_report_statement_wizard_form
 msgid "2.3 Social action and support expenses"
 msgstr "2.3 Despesas com ação social e apoio"
 
@@ -626,6 +638,7 @@ msgstr "Regime de 3 Turnos"
 
 #. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.relatorio_unico_statement_form
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_single_report_statement_wizard_form
 msgid "3. Professional Training Costs"
 msgstr "3. Custos com Formação Profissional"
 
@@ -680,6 +693,7 @@ msgstr "Regime de 4 Turnos"
 
 #. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.relatorio_unico_statement_form
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_single_report_statement_wizard_form
 msgid "4. Occupational health and safety charges"
 msgstr "4. Encargos com saúde e segurança no trabalho"
 
@@ -705,6 +719,7 @@ msgstr "5 ou Mais Dependentes"
 
 #. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.relatorio_unico_statement_form
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_single_report_statement_wizard_form
 msgid "5. Main Company Economic Activity (EAC)"
 msgstr "5. Atividade Económica Principal da Empresa (CAE)"
 
@@ -782,55 +797,60 @@ msgstr "800 - Outro motivo de saída"
 
 #. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.relatorio_unico_statement_form
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_single_report_statement_wizard_form
 msgid "<b>1.1 Incapacity Under 60%</b>"
 msgstr "<b>1.1 Incapacidade Inferior a 60%</b>"
 
 #. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.relatorio_unico_statement_form
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_single_report_statement_wizard_form
 msgid "<b>1.2 Incapacity Above 80%</b>"
 msgstr "<b>1.2 Incapacidade Superior a 80%</b>"
 
 #. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.relatorio_unico_statement_form
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_single_report_statement_wizard_form
 msgid "<b>1.2 Incapacity Between 60% and 80%</b>"
 msgstr "<b>1.2 Incapacidade Entre 60% e 80%</b>"
 
 #. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.relatorio_unico_statement_form
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_single_report_statement_wizard_form
 msgid "<b>Below Third Grade Basic</b>"
 msgstr "<b>Inferior ao 3.º Ciclo do Ensino Básico</b>"
 
 #. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.relatorio_unico_statement_form
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_single_report_statement_wizard_form
 msgid "<b>Post Secondary Education</b>"
 msgstr "<b>Ensino Pós-Secundário</b>"
 
 #. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.relatorio_unico_statement_form
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_single_report_statement_wizard_form
 msgid "<b>Secondary Education</b>"
 msgstr "<b>Ensino Secundário</b>"
 
 #. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.relatorio_unico_statement_form
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_single_report_statement_wizard_form
 msgid "<b>Superior Education</b>"
 msgstr "<b>Ensino Superior</b>"
 
 #. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.relatorio_unico_statement_form
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_single_report_statement_wizard_form
 msgid "<b>Third Grade Basic</b>"
 msgstr "<b>3.º Ciclo do Ensino Básico</b>"
 
 #. module: ptplus_payroll
 #: model:mail.template,body_html:ptplus_payroll.email_template_edi_hr_payroll_pt
 msgid ""
-"<div style=\"font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-"
-"serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; \">\n"
+"<div style=\"font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; \">\n"
 "                <p>Olá Caro(a) <t t-out=\"object.employee_id.name\"/>,</p>\n"
-"                <p>Por favor, encontre em anexo o seu <t t-out=\"object.name "
-"or ''\"/> da <t t-out=\"object.company_id.name\"/>.</p>\n"
+"                <p>Por favor, encontre em anexo o seu <t t-out=\"object.name or ''\"/> da <t t-out=\"object.company_id.name\"/>.</p>\n"
 "\n"
-"                <p>Se tiver alguma dúvida, não hesite em contactar o RH.</"
-"p>\n"
+"                <p>Se tiver alguma dúvida, não hesite em contactar o RH.</p>\n"
 "                <br/>\n"
 "                <p>Obrigado(a).</p>\n"
 "                <p>Departamento de RH.</p>\n"
@@ -840,14 +860,11 @@ msgid ""
 "            </div>\n"
 "        "
 msgstr ""
-"<div style=\"font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-"
-"serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; \">\n"
+"<div style=\"font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; \">\n"
 "                <p>Olá Caro(a) <t t-out=\"object.employee_id.name\"/>,</p>\n"
-"                <p>Por favor, encontre em anexo o seu <t t-out=\"object.name "
-"or ''\"/> da <t t-out=\"object.company_id.name\"/>.</p>\n"
+"                <p>Por favor, encontre em anexo o seu <t t-out=\"object.name or ''\"/> da <t t-out=\"object.company_id.name\"/>.</p>\n"
 "\n"
-"                <p>Se tiver alguma dúvida, não hesite em contactar o RH.</"
-"p>\n"
+"                <p>Se tiver alguma dúvida, não hesite em contactar o RH.</p>\n"
 "                <br/>\n"
 "                <p>Obrigado(a).</p>\n"
 "                <p>Departamento de RH.</p>\n"
@@ -860,16 +877,12 @@ msgstr ""
 #. module: ptplus_payroll
 #: model:mail.template,body_html:ptplus_payroll.email_template_income_statement
 msgid ""
-"<div style=\"font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-"
-"serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; \">\n"
+"<div style=\"font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; \">\n"
 "                <p>Olá Caro(a) <t t-out=\"object.name\"/>,</p>\n"
-"                <p>Por favor, encontre em anexo a sua Declaração Anual de "
-"Rendimentos,\n"
-"                    relativo à empresa <t t-out=\"object.company_id.name\"/>."
-"</p>\n"
+"                <p>Por favor, encontre em anexo a sua Declaração Anual de Rendimentos,\n"
+"                    relativo à empresa <t t-out=\"object.company_id.name\"/>.</p>\n"
 "\n"
-"                <p>Se tiver alguma dúvida, não hesite em contactar o RH.</"
-"p>\n"
+"                <p>Se tiver alguma dúvida, não hesite em contactar o RH.</p>\n"
 "                <br/>\n"
 "                <p>Obrigado(a).</p>\n"
 "                <p>Departamento de RH.</p>\n"
@@ -879,16 +892,12 @@ msgid ""
 "            </div>\n"
 "        "
 msgstr ""
-"<div style=\"font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-"
-"serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; \">\n"
+"<div style=\"font-family: 'Lucica Grande', Ubuntu, Arial, Verdana, sans-serif; font-size: 12px; color: rgb(34, 34, 34); background-color: #FFF; \">\n"
 "                <p>Olá Caro(a) <t t-out=\"object.name\"/>,</p>\n"
-"                <p>Por favor, encontre em anexo a sua Declaração Anual de "
-"Rendimentos,\n"
-"                    relativo à empresa <t t-out=\"object.company_id.name\"/>."
-"</p>\n"
+"                <p>Por favor, encontre em anexo a sua Declaração Anual de Rendimentos,\n"
+"                    relativo à empresa <t t-out=\"object.company_id.name\"/>.</p>\n"
 "\n"
-"                <p>Se tiver alguma dúvida, não hesite em contactar o RH.</"
-"p>\n"
+"                <p>Se tiver alguma dúvida, não hesite em contactar o RH.</p>\n"
 "                <br/>\n"
 "                <p>Obrigado(a).</p>\n"
 "                <p>Departamento de RH.</p>\n"
@@ -900,6 +909,7 @@ msgstr ""
 
 #. module: ptplus_payroll
 #. odoo-python
+#: code:addons/ptplus_payroll/wizards/l10n_pt_single_report_statement_wizard.py:0
 #: code:addons/ptplus_payroll/wizards/single_report_statement.py:0
 msgid ""
 "<p>Could not determine the correct P/L Calculation journal. No VAB has been "
@@ -910,6 +920,7 @@ msgstr ""
 
 #. module: ptplus_payroll
 #. odoo-python
+#: code:addons/ptplus_payroll/wizards/l10n_pt_single_report_statement_wizard.py:0
 #: code:addons/ptplus_payroll/wizards/single_report_statement.py:0
 msgid ""
 "<p>Could not determine the correct P/L Calculation journal. No turnover has "
@@ -919,14 +930,14 @@ msgstr ""
 "foi calculado volume de negócios para o ano indicado.<p/>"
 
 #. module: ptplus_payroll
-#: model_terms:ir.ui.view,arch_db:ptplus_payroll.line_name
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.report_payslip_pt_irs_details
 msgid "<span>(accumulated from the last payslips)</span>"
 msgstr "<span>(acumulado a partir dos últimos recibos de vencimento)</span>"
 
 #. module: ptplus_payroll
-#: model_terms:ir.ui.view,arch_db:ptplus_payroll.line_name
-msgid "<span>(cumulative total)</span> +"
-msgstr "<span>(total acumulado)</span> +"
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.report_payslip_pt_irs_details
+msgid "<span>(cumulative total)</span> -"
+msgstr "<span>(total acumulado)</span> -"
 
 #. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.view_employee_form_pt_payroll
@@ -944,69 +955,49 @@ msgid "<span>/ month</span>"
 msgstr "<span>/ mês</span>"
 
 #. module: ptplus_payroll
-#: model_terms:ir.ui.view,arch_db:ptplus_payroll.line_name
-msgid "<span>Internship Grant</span>"
-msgstr "<span>Bolsa de Estágio</span>"
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.report_payslip_pt
+msgid "<strong class=\"me-2\">Computed On:</strong>"
+msgstr "<strong class=\"me-2\">Calculado em:</strong>"
 
 #. module: ptplus_payroll
-#: model_terms:ir.ui.view,arch_db:ptplus_payroll.report_slip_pt
-msgid "<strong>Basic Salary</strong>"
-msgstr "<strong>Vencimento</strong>"
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.report_payslip_pt
+msgid "<strong class=\"me-2\">Hourly Wage:</strong>"
+msgstr "<strong class=\"me-2\">Salário Hora:</strong>"
 
 #. module: ptplus_payroll
-#: model_terms:ir.ui.view,arch_db:ptplus_payroll.report_slip_pt
-msgid "<strong>Computed on </strong>"
-msgstr "<strong>Calculado em </strong>"
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.report_payslip_pt
+msgid "<strong class=\"me-2\">Insurance:</strong>"
+msgstr "<strong class=\"me-2\">Seguro:</strong>"
 
 #. module: ptplus_payroll
-#: model_terms:ir.ui.view,arch_db:ptplus_payroll.report_slip_pt
-msgid "<strong>Employee</strong>"
-msgstr "<strong>Funcionário</strong>"
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.report_payslip_pt
+msgid "<strong class=\"me-2\">No. Beneficiary:</strong>"
+msgstr "<strong class=\"me-2\">N.º Beneficiário da SS:</strong>"
 
 #. module: ptplus_payroll
-#: model_terms:ir.ui.view,arch_db:ptplus_payroll.report_slip_pt
-msgid "<strong>Hourly wage</strong>"
-msgstr "<strong>Salário Hora</strong>"
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.report_payslip_pt
+msgid "<strong class=\"me-2\">No. Employee:</strong>"
+msgstr "<strong class=\"me-2\">Nº Mecanográfico:</strong>"
 
 #. module: ptplus_payroll
-#: model_terms:ir.ui.view,arch_db:ptplus_payroll.report_slip_pt
-msgid "<strong>Insurance</strong>"
-msgstr "<strong>Seguro</strong>"
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.report_payslip_pt
+msgid "<strong class=\"me-2\">No. Identification:</strong>"
+msgstr "<strong class=\"me-2\">N.º de Identificação Fiscal:</strong>"
 
 #. module: ptplus_payroll
-#: model_terms:ir.ui.view,arch_db:ptplus_payroll.report_slip_pt
-msgid "<strong>No. Beneficiary</strong>"
-msgstr "<strong>N.º Beneficiário da SS</strong>"
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.report_payslip_pt
+msgid "<strong class=\"me-2\">Pay Period:</strong>"
+msgstr "<strong class=\"me-2\">Período de Pagamento:</strong>"
 
 #. module: ptplus_payroll
-#: model_terms:ir.ui.view,arch_db:ptplus_payroll.report_slip_pt
-msgid "<strong>No. Employee</strong>"
-msgstr "<strong>Nº Mecanográfico</strong>"
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.report_payslip_pt
+msgid "<strong class=\"me-2\">Profession:</strong>"
+msgstr "<strong class=\"me-2\">Profissão:</strong>"
 
 #. module: ptplus_payroll
-#: model_terms:ir.ui.view,arch_db:ptplus_payroll.report_slip_pt
-msgid "<strong>No. Identification</strong>"
-msgstr "<strong>N.º de Identificação Fiscal</strong>"
-
-#. module: ptplus_payroll
-#: model_terms:ir.ui.view,arch_db:ptplus_payroll.report_slip_pt
-msgid "<strong>Pay Period</strong>"
-msgstr "<strong>Período de Pagamento</strong>"
-
-#. module: ptplus_payroll
-#: model_terms:ir.ui.view,arch_db:ptplus_payroll.report_slip_pt
-msgid "<strong>Profession</strong>"
-msgstr "<strong>Profissão</strong>"
-
-#. module: ptplus_payroll
-#: model_terms:ir.ui.view,arch_db:ptplus_payroll.report_slip_pt
-msgid "<strong>Professional Category</strong>"
-msgstr "<strong>Categoria Profissional</strong>"
-
-#. module: ptplus_payroll
-#: model_terms:ir.ui.view,arch_db:ptplus_payroll.report_slip_pt
-msgid "<strong>Working Schedule</strong>"
-msgstr "<strong>Horário de Trabalho</strong>"
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.report_payslip_pt
+msgid "<strong class=\"me-2\">Professional Category:</strong>"
+msgstr "<strong class=\"me-2\">Categoria Profissional:</strong>"
 
 #. module: ptplus_payroll
 #: model:ir.model.fields.selection,name:ptplus_payroll.selection__hr_employee__l10n_pt_contract_modality__atc_tc
@@ -1089,6 +1080,12 @@ msgid "A termo incerto, tempo parcial, trabalho temporário"
 msgstr "A termo incerto, tempo parcial, trabalho temporário"
 
 #. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_aggregate_salary_statement_wizard__ws_submission_ref
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__ws_submission_ref
+msgid "AT Declaration Id"
+msgstr "Id da Declaração na AT"
+
+#. module: ptplus_payroll
 #: model:hr.salary.rule.category,name:ptplus_payroll.ABONO
 msgid "Abono"
 msgstr "Abono"
@@ -1097,6 +1094,12 @@ msgstr "Abono"
 #: model:hr.salary.rule,name:ptplus_payroll.rule_pt_failures_allowance
 msgid "Abono para Falhas de Caixa"
 msgstr "Abono para Falhas de Caixa"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_aggregate_salary_statement_wizard__accept_alerts
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__accept_alerts
+msgid "Accept Alerts"
+msgstr "Aceitar Alertas"
 
 #. module: ptplus_payroll
 #: model:ir.model,name:ptplus_payroll.model_account_chart_template
@@ -1231,6 +1234,10 @@ msgid "After PaySlip"
 msgstr "Recibo Posterior"
 
 #. module: ptplus_payroll
+#. odoo-python
+#: code:addons/ptplus_payroll/wizards/aggregate_salary_statement_wizard.py:0
+#: model:ir.model.fields.selection,name:ptplus_payroll.selection__aggregate_salary_statement_wizard__statement_type__aggregate_salary_statement
+#: model:ir.model.fields.selection,name:ptplus_payroll.selection__dataport_log__type__aggregate_salary_statement
 #: model:ir.model.fields.selection,name:ptplus_payroll.selection__dataport_log__type__payroll_aggregate_salary_statement
 #: model:ir.model.fields.selection,name:ptplus_payroll.selection__payroll_statement_wizard_pt__statement_type__payroll_aggregate_salary_statement
 msgid "Aggregate Salary Statement"
@@ -1327,10 +1334,16 @@ msgid "Allowance Provision Correction (PT)"
 msgstr "Correção da Provisão de Abonos (PT)"
 
 #. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__is_alternate_accountant
+msgid "Altern. Accountant?"
+msgstr "Contabilista Alternativo?"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_wizard_line6__amount
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.report_dri_stmt_pt
-#: model_terms:ir.ui.view,arch_db:ptplus_payroll.report_slip_pt
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.report_payslip_pt
 msgid "Amount"
-msgstr "Montante"
+msgstr "Valor"
 
 #. module: ptplus_payroll
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_salary_complement_pt__amount_already_attached
@@ -1366,17 +1379,14 @@ msgid "Amount To Be Attached"
 msgstr "Parcela a Abater"
 
 #. module: ptplus_payroll
-#: model_terms:ir.ui.view,arch_db:ptplus_payroll.report_slip_pt
-msgid "Amount to be paid to"
-msgstr "Montante a pagar a"
-
-#. module: ptplus_payroll
 #: model:ir.model.fields.selection,name:ptplus_payroll.selection__payroll_statement_wizard_pt__single_report_type__annex_a
+#: model:ir.model.fields.selection,name:ptplus_payroll.selection__l10n_pt_single_report_statement_wizard_experimental__single_report_type__annex_a
 msgid "Annex A"
 msgstr "Anexo A"
 
 #. module: ptplus_payroll
 #: model:ir.model.fields.selection,name:ptplus_payroll.selection__payroll_statement_wizard_pt__single_report_type__annex_b
+#: model:ir.model.fields.selection,name:ptplus_payroll.selection__l10n_pt_single_report_statement_wizard_experimental__single_report_type__annex_b
 msgid "Annex B"
 msgstr "Anexo B"
 
@@ -1384,6 +1394,12 @@ msgstr "Anexo B"
 #: model:ir.model.fields.selection,name:ptplus_payroll.selection__payroll_statement_wizard_pt__single_report_type__annex_zero
 msgid "Annex Zero"
 msgstr "Anexo Zero"
+
+#. module: ptplus_payroll
+#. odoo-python
+#: code:addons/ptplus_payroll/models/hr_payslip.py:0
+msgid "Annual"
+msgstr "Anual"
 
 #. module: ptplus_payroll
 #: model:ir.model.fields.selection,name:ptplus_payroll.selection__dataport_log__type__payroll_annual_accumulated
@@ -1430,14 +1446,14 @@ msgid "Archived Contracts"
 msgstr "Contrato"
 
 #. module: ptplus_payroll
-#: model:hr.work.entry.type,name:ptplus_payroll.entry_type_pt_attendance
-msgid "Assiduidade"
-msgstr "Assiduidade"
-
-#. module: ptplus_payroll
 #: model:hr.salary.rule,name:ptplus_payroll.rule_pt_attendance_prev_month
 msgid "Assiduidade (mês anterior)"
 msgstr "Assiduidade (mês anterior)"
+
+#. module: ptplus_payroll
+#: model:hr.payslip.input.type,name:ptplus_payroll.input_pt_attendance_prev_month
+msgid "Assiduidade (mês anterior) [d]"
+msgstr ""
 
 #. module: ptplus_payroll
 #: model:ir.model.fields.selection,name:ptplus_payroll.selection__res_company__l10n_pt_company_type__associacao
@@ -1500,12 +1516,14 @@ msgstr "Auxiliar"
 
 #. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.relatorio_unico_statement_form
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_single_report_statement_wizard_form
 msgid "Average Throughout the Year"
 msgstr "Média ao Longo do Ano"
 
 #. module: ptplus_payroll
 #: model:ir.model.fields.selection,name:ptplus_payroll.selection__hr_employee__l10n_pt_income_tax_region__a
 #: model:ir.model.fields.selection,name:ptplus_payroll.selection__hr_income_tax_pt__region__a
+#: model:ir.model.fields.selection,name:ptplus_payroll.selection__l10n_pt_dmr_wizard_line6__d6_income_location__ra
 msgid "Azores Autonomous Region"
 msgstr "Região Autónoma dos Açores"
 
@@ -1520,9 +1538,21 @@ msgid "Base Salary"
 msgstr "Vencimento"
 
 #. module: ptplus_payroll
-#: model_terms:ir.ui.view,arch_db:ptplus_payroll.line_name
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.report_payslip_pt_irs_details
 msgid "Basic Salary and Other Income: (Incidence:"
 msgstr "Vencimento Base e Outros Rendimentos: (Incidência:"
+
+#. module: ptplus_payroll
+#. odoo-python
+#: code:addons/ptplus_payroll/models/hr_payslip.py:0
+msgid "Bi-monthly"
+msgstr "Bimestral"
+
+#. module: ptplus_payroll
+#. odoo-python
+#: code:addons/ptplus_payroll/models/hr_payslip.py:0
+msgid "Bi-weekly"
+msgstr "Quinzenal"
 
 #. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.report_dri_stmt_pt
@@ -1560,19 +1590,13 @@ msgstr "Cancelado"
 #. odoo-python
 #: code:addons/ptplus_payroll/models/hr_payslip.py:0
 msgid ""
-"Cannot compute the overtime hourly wage for employee '%(employee)s' because "
-"the working schedule '%(calendar)s' has no weekly working hours defined "
-"(field 'Full Time Required Hours').\n"
+"Cannot compute the overtime hourly wage for employee '%(employee)s' because the working schedule '%(calendar)s' has no weekly working hours defined (field 'Full Time Required Hours').\n"
 "\n"
-"Please set the weekly working hours on the working schedule linked to the "
-"contract and compute the payslip again."
+"Please set the weekly working hours on the working schedule linked to the contract and compute the payslip again."
 msgstr ""
-"Não é possível calcular o valor da hora extra para o trabalhador "
-"'%(employee)s' porque o horário de trabalho '%(calendar)s' não tem horas de "
-"trabalho semanais definidas (campo 'Horas Exigidas a Tempo Inteiro').\n"
+"Não é possível calcular o valor da hora extra para o trabalhador '%(employee)s' porque o horário de trabalho '%(calendar)s' não tem horas de trabalho semanais definidas (campo 'Horas Exigidas a Tempo Inteiro').\n"
 "\n"
-"Defina as horas de trabalho semanais no horário de trabalho associado ao "
-"contrato e calcule o recibo novamente."
+"Defina as horas de trabalho semanais no horário de trabalho associado ao contrato e calcule o recibo novamente."
 
 #. module: ptplus_payroll
 #: model:ir.model.fields.selection,name:ptplus_payroll.selection__hr_version__l10n_pt_meal_allowance_payment_method__cash
@@ -1584,6 +1608,17 @@ msgstr "Numerário"
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_salary_rule__l10n_pt_category_code
 msgid "Category Code"
 msgstr "Código do País"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__certified_accountant_vat
+msgid "Certified Accountant"
+msgstr "Contabilista Certificado"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_aggregate_salary_statement_wizard__representative_user_id
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__representative_user_id
+msgid "Certified Accountant User"
+msgstr "Utilizador Contabilista Certificado"
 
 #. module: ptplus_payroll
 #: model:ir.model.fields.selection,name:ptplus_payroll.selection__hr_payslip__l10n_pt_independent_slip__christmas
@@ -1613,7 +1648,7 @@ msgid "Christmas Allowance Payment Month"
 msgstr "Mês de Pagamento Subsídio de Natal"
 
 #. module: ptplus_payroll
-#: model_terms:ir.ui.view,arch_db:ptplus_payroll.line_name
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.report_payslip_pt_irs_details
 msgid "Christmas Allowance: (Incidence:"
 msgstr "Subsídio de Natal: (Incidência:"
 
@@ -1634,7 +1669,9 @@ msgstr "Cartão de Cidadão"
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_professional_category_pt__code
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_qualification_pt__code
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_special_fiscal_regime_pt__code
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_wizard_line6__code
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.relatorio_unico_statement_form
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_single_report_statement_wizard_form
 msgid "Code"
 msgstr "Código"
 
@@ -1659,13 +1696,17 @@ msgid "Companies"
 msgstr "Empresas"
 
 #. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_aggregate_salary_statement_wizard__company_id
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_allowance_provision_correction_pt__company_id
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_salary_complement_pt__company_id
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__company_id
 #: model:ir.model.fields,field_description:ptplus_payroll.field_payroll_statement_wizard_pt__company_id
 msgid "Company"
 msgstr "Empresa"
 
 #. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_aggregate_salary_statement_wizard__company_eac
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__company_eac
 #: model:ir.model.fields,field_description:ptplus_payroll.field_payroll_statement_wizard_pt__ru_company_eac
 msgid "Company EAC"
 msgstr "CAE da Empresa"
@@ -1735,6 +1776,11 @@ msgid "Continent"
 msgstr "Continente"
 
 #. module: ptplus_payroll
+#: model:ir.model.fields.selection,name:ptplus_payroll.selection__l10n_pt_dmr_wizard_line6__d6_income_location__c
+msgid "Continente"
+msgstr ""
+
+#. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.view_employee_form_pt_payroll
 msgid "Contract"
 msgstr "Contrato"
@@ -1759,6 +1805,11 @@ msgstr "Motivo do Contrato"
 #: model:ir.model.fields.selection,name:ptplus_payroll.selection__hr_payslip__l10n_pt_payslip_type__contract_starts
 msgid "Contract Start"
 msgstr "Início de Contrato"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields.selection,name:ptplus_payroll.selection__hr_payslip__l10n_pt_payslip_type__contract_start_termination
+msgid "Contract Start And Termination"
+msgstr "Início e Cessação de Contrato"
 
 #. module: ptplus_payroll
 #: model:ir.model.fields.selection,name:ptplus_payroll.selection__hr_payslip__l10n_pt_payslip_type__contract_termination
@@ -1822,6 +1873,7 @@ msgid "Country Code"
 msgstr "Código do País"
 
 #. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_aggregate_salary_statement_wizard__create_uid
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_allowance_provision_correction_lines_pt__create_uid
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_allowance_provision_correction_pt__create_uid
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_income_tax_pt__create_uid
@@ -1833,6 +1885,8 @@ msgstr "Código do País"
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_salary_complement_pt__create_uid
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_social_security_tax_pt__create_uid
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_special_fiscal_regime_pt__create_uid
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__create_uid
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_wizard_line6__create_uid
 #: model:ir.model.fields,field_description:ptplus_payroll.field_payroll_statement_wizard_pt__create_uid
 #: model:ir.model.fields,field_description:ptplus_payroll.field_ru_extra_data_employee__create_uid
 #: model:ir.model.fields,field_description:ptplus_payroll.field_ru_extra_data_establishment__create_uid
@@ -1840,6 +1894,7 @@ msgid "Created by"
 msgstr "Criado por"
 
 #. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_aggregate_salary_statement_wizard__create_date
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_allowance_provision_correction_lines_pt__create_date
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_allowance_provision_correction_pt__create_date
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_income_tax_pt__create_date
@@ -1851,6 +1906,8 @@ msgstr "Criado por"
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_salary_complement_pt__create_date
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_social_security_tax_pt__create_date
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_special_fiscal_regime_pt__create_date
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__create_date
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_wizard_line6__create_date
 #: model:ir.model.fields,field_description:ptplus_payroll.field_payroll_statement_wizard_pt__create_date
 #: model:ir.model.fields,field_description:ptplus_payroll.field_ru_extra_data_employee__create_date
 #: model:ir.model.fields,field_description:ptplus_payroll.field_ru_extra_data_establishment__create_date
@@ -1858,11 +1915,33 @@ msgid "Created on"
 msgstr "Criado em"
 
 #. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_aggregate_salary_statement_wizard__currency_id
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__currency_id
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_wizard_line6__currency_id
+msgid "Currency"
+msgstr "Moeda"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__d6_line_ids
+msgid "D6 Lines"
+msgstr "Linhas D6"
+
+#. module: ptplus_payroll
+#. odoo-python
+#: code:addons/ptplus_payroll/wizards/l10n_pt_dmr_statement_wizard.py:0
+#: model:ir.actions.act_window,name:ptplus_payroll.l10n_pt_dmr_statement_wizard_action
 #: model:ir.model.fields.selection,name:ptplus_payroll.selection__dataport_log__type__payroll_dmr
+#: model:ir.model.fields.selection,name:ptplus_payroll.selection__l10n_pt_dmr_statement_wizard__statement_type__dmr
 #: model:ir.model.fields.selection,name:ptplus_payroll.selection__payroll_statement_wizard_pt__statement_type__payroll_dmr
+#: model:ir.ui.menu,name:ptplus_payroll.l10n_pt_dmr_statement_wizard_menu
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.view_dataport_log_filter
 msgid "DMR"
 msgstr "DMR"
+
+#. module: ptplus_payroll
+#: model:ir.model,name:ptplus_payroll.model_l10n_pt_dmr_wizard_line6
+msgid "DMR - Line 6"
+msgstr ""
 
 #. module: ptplus_payroll
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_salary_rule__l10n_pt_dmr_exempt_amount
@@ -1873,6 +1952,11 @@ msgstr "Código DMR Isento"
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_salary_rule__l10n_pt_dmr_subject_amount
 msgid "DMR Code Subject"
 msgstr "Código DMR Sujeito"
+
+#. module: ptplus_payroll
+#: model:ir.model,name:ptplus_payroll.model_l10n_pt_dmr_statement_wizard
+msgid "DMR Statement Wizard"
+msgstr ""
 
 #. module: ptplus_payroll
 #: model:ir.model.fields.selection,name:ptplus_payroll.selection__dataport_log__type__payroll_dri
@@ -1892,6 +1976,12 @@ msgid "DRI Statement"
 msgstr "Tipo de Declaração"
 
 #. module: ptplus_payroll
+#. odoo-python
+#: code:addons/ptplus_payroll/models/hr_payslip.py:0
+msgid "Daily"
+msgstr "Diário"
+
+#. module: ptplus_payroll
 #: model:ir.actions.act_window,name:ptplus_payroll.action_dataport_log_tree
 #: model:ir.model,name:ptplus_payroll.model_dataport_log
 #: model:ir.ui.menu,name:ptplus_payroll.menu_pt_dataport_log
@@ -1899,7 +1989,9 @@ msgid "Dataport Log"
 msgstr "Registo de Dataports"
 
 #. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_aggregate_salary_statement_wizard__date_from
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_income_tax_pt__date_from
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__date_from
 #: model:ir.model.fields,field_description:ptplus_payroll.field_payroll_statement_wizard_pt__date_from
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.hr_income_tax_pt_view_search
 msgid "Date From"
@@ -1921,6 +2013,8 @@ msgid "Date Stop"
 msgstr "Data Final"
 
 #. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_aggregate_salary_statement_wizard__date_to
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__date_to
 #: model:ir.model.fields,field_description:ptplus_payroll.field_payroll_statement_wizard_pt__date_to
 msgid "Date To"
 msgstr "Data Final"
@@ -1938,8 +2032,8 @@ msgstr "Data da Ocorrência do Facto"
 #. module: ptplus_payroll
 #: model:ir.model.fields,field_description:ptplus_payroll.field_payroll_statement_wizard_pt__date_that_determined_the_obligation_to_declare
 msgid ""
-"Date of the event that determined the obligation to declare or change income "
-"already declared"
+"Date of the event that determined the obligation to declare or change income"
+" already declared"
 msgstr ""
 "Data do facto que determinou a obrigação de declarar ou alterar rendimentos "
 "já declarados"
@@ -1956,13 +2050,25 @@ msgstr "Dezembro"
 
 #. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.relatorio_unico_statement_form
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_single_report_statement_wizard_form
 msgid "December 31st"
 msgstr "31 de Dezembro"
 
 #. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__d2_declaration_type
+msgid "Declaration Model"
+msgstr "Tipo de Declaração"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__declaration_type
+msgid "Declaration Type"
+msgstr "Tipo de Declaração"
+
+#. module: ptplus_payroll
 #: model:ir.model.fields,field_description:ptplus_payroll.field_payroll_statement_wizard_pt__declaration_presented_under
 msgid "Declaration presented under the terms of al. d), n.º1, art. 119"
-msgstr "Declaração apresentada nos termos da alínea d), nº1, art. 119º do CIRS"
+msgstr ""
+"Declaração apresentada nos termos da alínea d), nº1, art. 119º do CIRS"
 
 #. module: ptplus_payroll
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_employee__l10n_pt_deducts_ss_from_another_company
@@ -2334,10 +2440,12 @@ msgstr "Cônjuge com Deficiência"
 #. module: ptplus_payroll
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_payslip__l10n_pt_min_wage_discounted_for_nonresidents
 msgid "Discount Minimum Wage for Non-Resident in Taxable Income"
-msgstr "Desconto do Salário Mínimo para Não Residente no Rendimento Tributável"
+msgstr ""
+"Desconto do Salário Mínimo para Não Residente no Rendimento Tributável"
 
 #. module: ptplus_payroll
 #: model:ir.model.fields,field_description:ptplus_payroll.field_account_chart_template__display_name
+#: model:ir.model.fields,field_description:ptplus_payroll.field_aggregate_salary_statement_wizard__display_name
 #: model:ir.model.fields,field_description:ptplus_payroll.field_dataport_log__display_name
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_allowance_provision_correction_lines_pt__display_name
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_allowance_provision_correction_pt__display_name
@@ -2364,12 +2472,13 @@ msgstr "Desconto do Salário Mínimo para Não Residente no Rendimento Tributáv
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_special_fiscal_regime_pt__display_name
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_version__display_name
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_work_entry__display_name
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__display_name
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_wizard_line6__display_name
 #: model:ir.model.fields,field_description:ptplus_payroll.field_payroll_statement_wizard_pt__display_name
 #: model:ir.model.fields,field_description:ptplus_payroll.field_res_company__display_name
 #: model:ir.model.fields,field_description:ptplus_payroll.field_res_config_settings__display_name
 #: model:ir.model.fields,field_description:ptplus_payroll.field_res_partner__display_name
 #: model:ir.model.fields,field_description:ptplus_payroll.field_resource_calendar__display_name
-#: model:ir.model.fields,field_description:ptplus_payroll.field_resource_calendar_attendance__display_name
 #: model:ir.model.fields,field_description:ptplus_payroll.field_ru_extra_data_employee__display_name
 #: model:ir.model.fields,field_description:ptplus_payroll.field_ru_extra_data_establishment__display_name
 msgid "Display Name"
@@ -2387,11 +2496,17 @@ msgid "Diuturnities"
 msgstr "Diuturnidades"
 
 #. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_wizard_line6__domain
+msgid "Domain"
+msgstr "Domínio"
+
+#. module: ptplus_payroll
 #: model:ir.model.fields.selection,name:ptplus_payroll.selection__hr_allowance_provision_correction_pt__state__done
 msgid "Done"
 msgstr "Concluído"
 
 #. module: ptplus_payroll
+#: model:ir.model.fields.selection,name:ptplus_payroll.selection__aggregate_salary_statement_wizard__payslip_state__draft
 #: model:ir.model.fields.selection,name:ptplus_payroll.selection__hr_allowance_provision_correction_pt__state__draft
 #: model:ir.model.fields.selection,name:ptplus_payroll.selection__payroll_statement_wizard_pt__payslip_state__draft
 msgid "Draft"
@@ -2427,6 +2542,7 @@ msgstr "Taxa Efetiva Mensal da Retenção no Limite do Escalão"
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_allowance_provision_correction_lines_pt__employee_id
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_allowance_provision_correction_pt__employee_ids
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_salary_complement_pt__employee_id
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_wizard_line6__d6_employee_id
 #: model:ir.model.fields,field_description:ptplus_payroll.field_ru_extra_data_employee__employee_id
 msgid "Employee"
 msgstr "Trabalhador"
@@ -2448,11 +2564,13 @@ msgstr "Declaração de Rendimentos do Trabalhador"
 
 #. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.relatorio_unico_statement_form
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_single_report_statement_wizard_form
 msgid "Employee Info"
 msgstr "Informação do Trabalhador"
 
 #. module: ptplus_payroll
 #. odoo-python
+#: code:addons/ptplus_payroll/wizards/aggregate_salary_statement_wizard.py:0
 #: code:addons/ptplus_payroll/wizards/payroll_statement.py:0
 msgid "Employee Name"
 msgstr "Nome do Funcionário"
@@ -2511,8 +2629,8 @@ msgid ""
 "Employer-supported sickness and occupational disease allowance (not "
 "administered)"
 msgstr ""
-"Subsídio de doença e doença profissional suportado pela entidade empregadora "
-"(não administrado)"
+"Subsídio de doença e doença profissional suportado pela entidade empregadora"
+" (não administrado)"
 
 #. module: ptplus_payroll
 #: model:ir.model.fields,field_description:ptplus_payroll.field_res_company__l10n_pt_employers_association
@@ -2532,14 +2650,44 @@ msgid "Enable Provisions"
 msgstr "Ativar Provisões"
 
 #. module: ptplus_payroll
+#: model:ir.model.fields,help:ptplus_payroll.field_aggregate_salary_statement_wizard__representative_user_status
+#: model:ir.model.fields,help:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__representative_user_status
+msgid ""
+"Enable when the certified accountant has full declarative powers for the "
+"taxpayer; the taxpayer password is then not required."
+msgstr ""
+"Ativar quando o contabilista certificado tem plenos poderes declarativos "
+"para o contribuinte; nesse caso a senha do contribuinte não é necessária."
+
+#. module: ptplus_payroll
 #: model:ir.model.fields,field_description:ptplus_payroll.field_ru_extra_data_employee__entry_reason
 msgid "Entry Reason"
 msgstr "Motivo da Entrada"
 
 #. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_aggregate_salary_statement_wizard__error
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__error
 #: model:ir.model.fields,field_description:ptplus_payroll.field_payroll_statement_wizard_pt__error
 msgid "Error"
 msgstr "Erro"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_aggregate_salary_statement_wizard__error_code
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__error_code
+msgid "Error Code"
+msgstr "Código de Erro"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_aggregate_salary_statement_wizard__error_detail
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__error_detail
+msgid "Error Detail"
+msgstr "Detalhe do Erro"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_aggregate_salary_statement_wizard__error_message
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__error_message
+msgid "Error Message"
+msgstr "Mensagem de Erro"
 
 #. module: ptplus_payroll
 #: model:ir.model.fields.selection,name:ptplus_payroll.selection__res_company__l10n_pt_company_type__e_i_r
@@ -2573,6 +2721,11 @@ msgid "Excluded Salary Complements"
 msgstr "Complementos Salariais Excluídos"
 
 #. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_hr_salary_rule__l10n_pt_excluded_from_wage_garnishment_base
+msgid "Excluded from Wage Garnishment Base"
+msgstr "Excluído da Base de Penhora"
+
+#. module: ptplus_payroll
 #: model:ir.model.fields.selection,name:ptplus_payroll.selection__hr_version__l10n_pt_contract_reason__e_d_o_p
 msgid "Execução de obra, projeto ou atividade definida e temporária"
 msgstr "Execução de obra, projeto ou atividade definida e temporária"
@@ -2581,6 +2734,41 @@ msgstr "Execução de obra, projeto ou atividade definida e temporária"
 #: model:ir.model.fields.selection,name:ptplus_payroll.selection__hr_version__l10n_pt_contract_reason__e_t_o
 msgid "Execução tarefa ocasional"
 msgstr "Execução tarefa ocasional"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields.selection,name:ptplus_payroll.selection__l10n_pt_dmr_wizard_line6__d6_irs_type__exempt
+msgid "Exempt"
+msgstr "Isento"
+
+#. module: ptplus_payroll
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_dmr_statement_wizard_form
+msgid "Exempt Income"
+msgstr "Rendimentos Isentos"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__d4_income_exempt_irs_retention
+msgid "Exempt Income - IRS Withholding"
+msgstr "Rendimentos Isentos - Retenção de IRS"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__d4_income_exempt_value
+msgid "Exempt Income - Income Amount"
+msgstr "Rendimentos Isentos - Valor do Rendimento"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__d4_income_exempt_social_security
+msgid "Exempt Income - Mandatory Contributions"
+msgstr "Rendimentos Isentos - Contribuições Obrigatórias"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__d4_income_exempt_surtax_retention
+msgid "Exempt Income - Surtax Withholding"
+msgstr "Rendimentos Isentos - Retenção de Sobretaxa"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__d4_income_exempt_union_dues
+msgid "Exempt Income - Union Dues"
+msgstr "Rendimentos Isentos - Quotizações Sindicais"
 
 #. module: ptplus_payroll
 #: model:ir.model,name:ptplus_payroll.model_hr_expense
@@ -2598,11 +2786,15 @@ msgid "Export Csv Button"
 msgstr "Botão Exportar CSV"
 
 #. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_aggregate_salary_statement_wizard__export_pdf_button
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__export_pdf_button
 #: model:ir.model.fields,field_description:ptplus_payroll.field_payroll_statement_wizard_pt__export_pdf_button
 msgid "Export Pdf Button"
 msgstr "Botão Exportar PDF"
 
 #. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_aggregate_salary_statement_wizard__export_txt_button
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__export_txt_button
 #: model:ir.model.fields,field_description:ptplus_payroll.field_payroll_statement_wizard_pt__export_txt_button
 msgid "Export Txt Button"
 msgstr "Botão Exportar TXT"
@@ -2618,12 +2810,14 @@ msgid "Export Xls Button"
 msgstr "Botão Exportar XLS"
 
 #. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_aggregate_salary_statement_wizard__export_xml_button
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__export_xml_button
 #: model:ir.model.fields,field_description:ptplus_payroll.field_payroll_statement_wizard_pt__export_xml_button
 msgid "Export Xml Button"
 msgstr "Botão Exportar XML"
 
 #. module: ptplus_payroll
-#: model_terms:ir.ui.view,arch_db:ptplus_payroll.line_name
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.report_payslip_pt_irs_details
 msgid "Extra Hours: (Incidence:"
 msgstr "Horas Extra: (Incidência:"
 
@@ -2766,6 +2960,7 @@ msgstr "Fevereiro"
 
 #. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.relatorio_unico_statement_form
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_single_report_statement_wizard_form
 msgid "Female"
 msgstr "Feminino"
 
@@ -2777,9 +2972,22 @@ msgstr "Feriado"
 
 #. module: ptplus_payroll
 #. odoo-python
+#: code:addons/ptplus_payroll/wizards/aggregate_salary_statement_wizard.py:0
 #: code:addons/ptplus_payroll/wizards/payroll_statement.py:0
 msgid "Feriados"
 msgstr "Feriados"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_aggregate_salary_statement_wizard__get_proof
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__get_proof
+msgid "Fetch Receipt"
+msgstr "Obter Comprovativo"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,help:ptplus_payroll.field_aggregate_salary_statement_wizard__get_proof
+#: model:ir.model.fields,help:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__get_proof
+msgid "Fetch the submission receipt after a successful submission."
+msgstr "Obter o comprovativo de entrega após uma submissão bem-sucedida."
 
 #. module: ptplus_payroll
 #. odoo-python
@@ -2788,11 +2996,25 @@ msgid "Field"
 msgstr "Campo"
 
 #. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_aggregate_salary_statement_wizard__data
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__data
 #: model:ir.model.fields,field_description:ptplus_payroll.field_payroll_statement_wizard_pt__data
 msgid "File"
 msgstr "Ficheiro"
 
 #. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__d1_file_type
+msgid "File Type"
+msgstr "Tipo de Ficheiro"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__d1_file_version
+msgid "File Version"
+msgstr "Versão do Ficheiro"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_aggregate_salary_statement_wizard__filename
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__filename
 #: model:ir.model.fields,field_description:ptplus_payroll.field_payroll_statement_wizard_pt__filename
 msgid "Filename"
 msgstr "Nome do Ficheiro"
@@ -2802,6 +3024,15 @@ msgstr "Nome do Ficheiro"
 #: code:addons/ptplus_payroll/wizards/payroll_statement.py:0
 msgid "Fill in the %s field in the previous menu"
 msgstr "Preencha o campo %s presente no menu anterior"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,help:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__justifiable_reason
+msgid ""
+"Fill only if the statement is past due and the reason is justifiable "
+"according to art.º 12.º-A do DL n.º 452/99, 5-nov"
+msgstr ""
+"Preencher apenas se a declaração está fora de prazo e o motivo é "
+"justificável nos termos do art.º 12.º-A do DL n.º 452/99, de 5 de novembro"
 
 #. module: ptplus_payroll
 #: model:ir.model.fields.selection,name:ptplus_payroll.selection__payroll_statement_wizard_pt__first_decl_replacement_decl__first_declaration
@@ -2817,6 +3048,11 @@ msgstr "1ª Declaração / Declaração de Substituição"
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.res_config_settings_view_form_pt
 msgid "Fiscal Data"
 msgstr "Dados Fiscais"
+
+#. module: ptplus_payroll
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_dmr_statement_wizard_form
+msgid "Fiscal Summary"
+msgstr "Resumo Fiscal"
 
 #. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.view_employee_form_pt
@@ -2842,15 +3078,11 @@ msgstr "Ícone Font Awesome, p.ex. fa-tasks"
 #: model:ir.model.fields,help:ptplus_payroll.field_res_company__l10n_pt_company_headquarters
 #: model:ir.model.fields,help:ptplus_payroll.field_res_config_settings__l10n_pt_company_headquarters
 msgid ""
-"For companies to appear in the selection, the work address field must be "
-"filled in on the employee's form.\n"
-"if this field is empty the company that will be used as headquarters is the "
-"current company"
+"For companies to appear in the selection, the work address field must be filled in on the employee's form.\n"
+"if this field is empty the company that will be used as headquarters is the current company"
 msgstr ""
-"Para que as empresas constem da seleção, o campo endereço do trabalho deve "
-"ser preenchido na ficha do funcionário.\n"
-"Se este campo estiver vazio a empresa que será utilizada como sede é a "
-"empresa atual"
+"Para que as empresas constem da seleção, o campo endereço do trabalho deve ser preenchido na ficha do funcionário.\n"
+"Se este campo estiver vazio a empresa que será utilizada como sede é a empresa atual"
 
 #. module: ptplus_payroll
 #: model:ir.model.fields,field_description:ptplus_payroll.field_payroll_statement_wizard_pt__ru_percent_foreign_share_capital
@@ -2859,18 +3091,27 @@ msgstr "Percentagem do Capital Social Estrangeiro"
 
 #. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.relatorio_unico_statement_form
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_single_report_statement_wizard_form
 msgid "Foreign:"
 msgstr "Estrangeiro:"
 
 #. module: ptplus_payroll
 #: model:ir.model.fields.selection,name:ptplus_payroll.selection__hr_employee__l10n_pt_income_tax_region__e
+#: model:ir.model.fields.selection,name:ptplus_payroll.selection__l10n_pt_dmr_wizard_line6__d6_income_location__e
 msgid "Foreigners"
 msgstr "Estrangeiros"
 
 #. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_aggregate_salary_statement_wizard__format
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__format
 #: model:ir.model.fields,field_description:ptplus_payroll.field_payroll_statement_wizard_pt__format
 msgid "Format"
 msgstr "Formato"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_wizard_line6__formula
+msgid "Formula"
+msgstr "Fórmula"
 
 #. module: ptplus_payroll
 #: model:ir.model.fields,field_description:ptplus_payroll.field_payroll_statement_wizard_pt__ru_other_funding_sources
@@ -2888,12 +3129,19 @@ msgid "Full Name"
 msgstr "Nome Completo"
 
 #. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_aggregate_salary_statement_wizard__representative_user_status
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__representative_user_status
+msgid "Full powers of Declaration"
+msgstr "Plenos Poderes Declarativos"
+
+#. module: ptplus_payroll
 #: model:ir.model.fields.selection,name:ptplus_payroll.selection__res_company__l10n_pt_company_type__fundacao
 msgid "Fundação"
 msgstr "Fundação"
 
 #. module: ptplus_payroll
 #. odoo-python
+#: code:addons/ptplus_payroll/wizards/aggregate_salary_statement_wizard.py:0
 #: code:addons/ptplus_payroll/wizards/payroll_statement.py:0
 #: model:hr.leave.type,name:ptplus_payroll.leave_type_pt_holiday
 #: model:hr.salary.rule,name:ptplus_payroll.rule_pt_holiday
@@ -2912,12 +3160,12 @@ msgid "Férias não Gozadas [d]"
 msgstr "Férias não Gozadas [d]"
 
 #. module: ptplus_payroll
-#: model_terms:ir.ui.view,arch_db:ptplus_payroll.line_name
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.report_payslip_pt_irs_details
 msgid "Global Basic Salary and Other Income: (Incidence:"
 msgstr "Acumulado do Vencimento Base e Outros Rendimentos: (Incidência:"
 
 #. module: ptplus_payroll
-#: model_terms:ir.ui.view,arch_db:ptplus_payroll.line_name
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.report_payslip_pt_irs_details
 msgid "Global Extra Hours: (Incidence:"
 msgstr "Horas Extra: (Incidência:"
 
@@ -2943,6 +3191,7 @@ msgstr "Gratificações ao Balanço Sujeitas [valor]"
 
 #. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.relatorio_unico_statement_form
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_single_report_statement_wizard_form
 msgid "H:"
 msgstr "H:"
 
@@ -2950,6 +3199,12 @@ msgstr "H:"
 #: model:ir.model,name:ptplus_payroll.model_hr_work_entry
 msgid "HR Work Entry"
 msgstr "Registo de Trabalho RH"
+
+#. module: ptplus_payroll
+#. odoo-python
+#: code:addons/ptplus_payroll/models/hr_payslip.py:0
+msgid "Half-yearly"
+msgstr "Semestral"
 
 #. module: ptplus_payroll
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_salary_complement_pt__has_message
@@ -2987,7 +3242,7 @@ msgid "Holiday Allowance Payment Month"
 msgstr "Mês de Pagamento Subs. Férias"
 
 #. module: ptplus_payroll
-#: model_terms:ir.ui.view,arch_db:ptplus_payroll.line_name
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.report_payslip_pt_irs_details
 msgid "Holiday Allowance: (Incidence:"
 msgstr "Subsídio de Férias: (Incidência:"
 
@@ -3324,6 +3579,12 @@ msgid "Hora Extra em período Noturno Sábado e Feriados [h]"
 msgstr "Hora Extra em período Noturno Sábado e Feriados [h]"
 
 #. module: ptplus_payroll
+#. odoo-python
+#: code:addons/ptplus_payroll/models/hr_payslip.py:0
+msgid "Hourly Wage"
+msgstr "Vencimento por Hora"
+
+#. module: ptplus_payroll
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_employee__l10n_pt_hours_to_count_for_daily_meal
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_version__l10n_pt_hours_to_count_for_daily_meal
 #: model:ir.model.fields,field_description:ptplus_payroll.field_res_company__l10n_pt_default_hours_to_count_for_daily_meal
@@ -3343,15 +3604,19 @@ msgstr "Horas ao abrigo do n.º 2 do art. 227.º da Lei 7/2009"
 
 #. module: ptplus_payroll
 #: model:ir.model.fields,field_description:ptplus_payroll.field_ru_extra_data_employee__h_1art227
-msgid "Hours under paragraph 1 of Article 227 of Law no. 7/2009 of February 12"
+msgid ""
+"Hours under paragraph 1 of Article 227 of Law no. 7/2009 of February 12"
 msgstr ""
-"Horas ao abrigo do n.º 1 do artigo 227.º da Lei n.º 7/2009 de 12 de Fevereiro"
+"Horas ao abrigo do n.º 1 do artigo 227.º da Lei n.º 7/2009 de 12 de "
+"Fevereiro"
 
 #. module: ptplus_payroll
 #: model:ir.model.fields,field_description:ptplus_payroll.field_ru_extra_data_employee__h_2art227
-msgid "Hours under paragraph 2 of Article 227 of Law no. 7/2009 of February 12"
+msgid ""
+"Hours under paragraph 2 of Article 227 of Law no. 7/2009 of February 12"
 msgstr ""
-"Horas ao abrigo do n.º 2 do artigo 227.º da Lei n.º 7/2009 de 12 de Fevereiro"
+"Horas ao abrigo do n.º 2 do artigo 227.º da Lei n.º 7/2009 de 12 de "
+"Fevereiro"
 
 #. module: ptplus_payroll
 #: model:ir.model,name:ptplus_payroll.model_hr_employee
@@ -3370,16 +3635,19 @@ msgstr "Regime Fiscal Especial Hr Pt"
 
 #. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.relatorio_unico_statement_form
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_single_report_statement_wizard_form
 msgid "I. Employer Identification"
 msgstr "I. Identificação da Entidade Empregadora"
 
 #. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.relatorio_unico_statement_form
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_single_report_statement_wizard_form
 msgid "I. Local Unit (Establishment)"
 msgstr "I. Unidade Local (Estabelecimento)"
 
 #. module: ptplus_payroll
 #: model:ir.model.fields,field_description:ptplus_payroll.field_account_chart_template__id
+#: model:ir.model.fields,field_description:ptplus_payroll.field_aggregate_salary_statement_wizard__id
 #: model:ir.model.fields,field_description:ptplus_payroll.field_dataport_log__id
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_allowance_provision_correction_lines_pt__id
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_allowance_provision_correction_pt__id
@@ -3406,12 +3674,13 @@ msgstr "I. Unidade Local (Estabelecimento)"
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_special_fiscal_regime_pt__id
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_version__id
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_work_entry__id
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__id
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_wizard_line6__id
 #: model:ir.model.fields,field_description:ptplus_payroll.field_payroll_statement_wizard_pt__id
 #: model:ir.model.fields,field_description:ptplus_payroll.field_res_company__id
 #: model:ir.model.fields,field_description:ptplus_payroll.field_res_config_settings__id
 #: model:ir.model.fields,field_description:ptplus_payroll.field_res_partner__id
 #: model:ir.model.fields,field_description:ptplus_payroll.field_resource_calendar__id
-#: model:ir.model.fields,field_description:ptplus_payroll.field_resource_calendar_attendance__id
 #: model:ir.model.fields,field_description:ptplus_payroll.field_ru_extra_data_employee__id
 #: model:ir.model.fields,field_description:ptplus_payroll.field_ru_extra_data_establishment__id
 msgid "ID"
@@ -3419,16 +3688,19 @@ msgstr "ID"
 
 #. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.relatorio_unico_statement_form
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_single_report_statement_wizard_form
 msgid "II. People at Work"
 msgstr "II. Pessoas ao Serviço"
 
 #. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.relatorio_unico_statement_form
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_single_report_statement_wizard_form
 msgid "II. Workers"
 msgstr "II. Trabalhadores"
 
 #. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.relatorio_unico_statement_form
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_single_report_statement_wizard_form
 msgid "III. People at Service"
 msgstr "III. Pessoas ao Serviço"
 
@@ -3488,12 +3760,24 @@ msgid "IRS Tributado"
 msgstr "IRS Tributado"
 
 #. module: ptplus_payroll
-#: model_terms:ir.ui.view,arch_db:ptplus_payroll.line_name
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_wizard_line6__d6_irs_type
+msgid "IRS Type"
+msgstr "Tipo de IRS"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_wizard_line6__d6_irs_retention
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_dmr_statement_wizard_form
+msgid "IRS Withholding"
+msgstr "Retenção de IRS"
+
+#. module: ptplus_payroll
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.report_payslip_pt_irs_details
 msgid "IRS differential:"
 msgstr "Diferencial IRS:"
 
 #. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.relatorio_unico_statement_form
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_single_report_statement_wizard_form
 msgid "IX. Complementary Data"
 msgstr "IX. Dados Complementares"
 
@@ -3513,6 +3797,11 @@ msgid "Identification Type"
 msgstr "Tipo de Identificação"
 
 #. module: ptplus_payroll
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_dmr_statement_wizard_form
+msgid "Identification of Declaration Responsible Parties"
+msgstr "Identificação dos Responsáveis pela Declaração"
+
+#. module: ptplus_payroll
 #: model:ir.model.fields,help:ptplus_payroll.field_hr_salary_complement_pt__message_needaction
 msgid "If checked, new messages require your attention."
 msgstr "Se assinalado, novas mensagens requerem a sua atenção."
@@ -3524,30 +3813,33 @@ msgid "If checked, some messages have a delivery error."
 msgstr "Se assinalado, algumas mensagens têm erro de entrega."
 
 #. module: ptplus_payroll
+#: model:ir.model.fields,help:ptplus_payroll.field_hr_salary_rule__l10n_pt_excluded_from_wage_garnishment_base
+msgid ""
+"If checked, this rule's amount is not considered when calculating the wage "
+"garnishment (penhora) attachable base, since it is not a legally mandatory "
+"deduction (art. 738º nº2 CPC)."
+msgstr ""
+"Se marcado, o valor desta regra não é considerado no cálculo da base "
+"penhorável da penhora de vencimento, por não ser um desconto legalmente "
+"obrigatório (art. 738.º n.º 2 CPC)."
+
+#. module: ptplus_payroll
 #: model:ir.model.fields,help:ptplus_payroll.field_hr_salary_rule__l10n_pt_proportional_allowance
 msgid ""
-"If this field is checked, the proportional amount of the employee's days off "
-"will be deducted from the total salary rule.\n"
-"Note: This field will only have an effect in companies using the 30 day base "
-"calculation method."
+"If this field is checked, the proportional amount of the employee's days off will be deducted from the total salary rule.\n"
+"Note: This field will only have an effect in companies using the 30 day base calculation method."
 msgstr ""
-"Se este campo estiver marcado, o valor proporcional dos dias de folga do "
-"funcionário será deduzido da regra do salário total.\n"
-"Nota: Este campo só terá efeito em empresas que usam o método de cálculo de "
-"base de 30 dias."
+"Se este campo estiver marcado, o valor proporcional dos dias de folga do funcionário será deduzido da regra do salário total.\n"
+"Nota: Este campo só terá efeito em empresas que usam o método de cálculo de base de 30 dias."
 
 #. module: ptplus_payroll
 #: model:ir.model.fields,help:ptplus_payroll.field_hr_salary_rule__l10n_pt_monthly_income
 msgid ""
-"If this field is checked, the total of this salary rule will be included in "
-"the total monthly income.\n"
-"The method used to calculate the total of the wage rules with this field "
-"checked is 'get_total_monthly_income(result_rules_pt)'."
+"If this field is checked, the total of this salary rule will be included in the total monthly income.\n"
+"The method used to calculate the total of the wage rules with this field checked is 'get_total_monthly_income(result_rules_pt)'."
 msgstr ""
-"Se este campo estiver marcado, o total desta regra salarial será incluído na "
-"rendimento mensal total.\n"
-"O método usado para calcular o total das regras salariais com este campo "
-"marcado é 'get_total_monthly_income(result_rules_pt)'."
+"Se este campo estiver marcado, o total desta regra salarial será incluído na rendimento mensal total.\n"
+"O método usado para calcular o total das regras salariais com este campo marcado é 'get_total_monthly_income(result_rules_pt)'."
 
 #. module: ptplus_payroll
 #: model:ir.model.fields,help:ptplus_payroll.field_hr_salary_complement_pt__date_stop
@@ -3565,6 +3857,17 @@ msgstr ""
 #: model:ir.model.fields.selection,name:ptplus_payroll.selection__res_company__l10n_pt_default_meal_allowance_payment_method__kind
 msgid "In kind"
 msgstr "Em espécie"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_wizard_line6__d6_income_value
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_dmr_statement_wizard_form
+msgid "Income Amount"
+msgstr "Valor do Rendimento"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_wizard_line6__d6_income_location
+msgid "Income Source Location"
+msgstr "Local de Obtenção do Rendimento"
 
 #. module: ptplus_payroll
 #: model:ir.actions.report,name:ptplus_payroll.action_report_annual_income_stmt_pt
@@ -3594,6 +3897,11 @@ msgstr "Região de IRS"
 #: model:ir.ui.menu,name:ptplus_payroll.menu_hr_income_tax_pt_action
 msgid "Income Taxes"
 msgstr "Rendimento das Pessoas Singulares"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_wizard_line6__d6_income_type
+msgid "Income Type"
+msgstr "Tipo de Rendimento"
 
 #. module: ptplus_payroll
 #: model:hr.salary.rule,name:ptplus_payroll.rule_pt_severance_pay_not_subj_to_ss_and_subj_irs
@@ -3632,6 +3940,11 @@ msgid "Indemnização por Cessação de Contrato sujeita a SS e IRS [valor]"
 msgstr "Indemnização por Cessação de Contrato sujeita a SS e IRS [valor]"
 
 #. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_wizard_line6__indentation
+msgid "Indentation"
+msgstr "Indentação"
+
+#. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.view_employee_form_pt_payroll
 msgid "Independent Receipt"
 msgstr "Recibo Independente"
@@ -3649,6 +3962,8 @@ msgid "Independent payslips do not load salary complements."
 msgstr "Os recibos independentes não carregam complementos salariais."
 
 #. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_aggregate_salary_statement_wizard__info
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__info
 #: model:ir.model.fields,field_description:ptplus_payroll.field_payroll_statement_wizard_pt__info
 msgid "Info"
 msgstr "Informação"
@@ -3659,6 +3974,8 @@ msgid "Input Type"
 msgstr "Tipo de Entrada"
 
 #. module: ptplus_payroll
+#: model:ir.model.fields,help:ptplus_payroll.field_aggregate_salary_statement_wizard__log_on_close
+#: model:ir.model.fields,help:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__log_on_close
 #: model:ir.model.fields,help:ptplus_payroll.field_payroll_statement_wizard_pt__log_on_close
 msgid ""
 "Insert a record in the dataport log together with a copy of the imported or "
@@ -3710,6 +4027,11 @@ msgstr "Seguros"
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_employee__l10n_pt_intern
 msgid "Intern"
 msgstr "Estagiário"
+
+#. module: ptplus_payroll
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.report_payslip_pt
+msgid "Internship Grant"
+msgstr "Bolsa de Estágio"
 
 #. module: ptplus_payroll
 #: model:ir.model.fields.selection,name:ptplus_payroll.selection__hr_version__l10n_pt_contract_reason__i_d_f_d_e
@@ -3783,6 +4105,8 @@ msgid "January"
 msgstr "Janeiro"
 
 #. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_aggregate_salary_statement_wizard__journal_ids
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__journal_ids
 #: model:ir.model.fields,field_description:ptplus_payroll.field_payroll_statement_wizard_pt__journal_ids
 msgid "Journals"
 msgstr "Diários"
@@ -3813,6 +4137,11 @@ msgid "Juridical Nature Code"
 msgstr "Código da Natureza Jurídica"
 
 #. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__justifiable_reason
+msgid "Justifiable Reason"
+msgstr "Motivo Justificável"
+
+#. module: ptplus_payroll
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_payslip__l10n_pt_attachment_count
 msgid "L10N Pt Attachment Count"
 msgstr "Contagem de Penhoras L10N PT"
@@ -3838,6 +4167,7 @@ msgid "Last Promotion Date"
 msgstr "Data da Última Promoção"
 
 #. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_aggregate_salary_statement_wizard__write_uid
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_allowance_provision_correction_lines_pt__write_uid
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_allowance_provision_correction_pt__write_uid
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_income_tax_pt__write_uid
@@ -3849,6 +4179,8 @@ msgstr "Data da Última Promoção"
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_salary_complement_pt__write_uid
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_social_security_tax_pt__write_uid
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_special_fiscal_regime_pt__write_uid
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__write_uid
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_wizard_line6__write_uid
 #: model:ir.model.fields,field_description:ptplus_payroll.field_payroll_statement_wizard_pt__write_uid
 #: model:ir.model.fields,field_description:ptplus_payroll.field_ru_extra_data_employee__write_uid
 #: model:ir.model.fields,field_description:ptplus_payroll.field_ru_extra_data_establishment__write_uid
@@ -3856,6 +4188,7 @@ msgid "Last Updated by"
 msgstr "Última Atualização por"
 
 #. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_aggregate_salary_statement_wizard__write_date
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_allowance_provision_correction_lines_pt__write_date
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_allowance_provision_correction_pt__write_date
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_income_tax_pt__write_date
@@ -3867,6 +4200,8 @@ msgstr "Última Atualização por"
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_salary_complement_pt__write_date
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_social_security_tax_pt__write_date
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_special_fiscal_regime_pt__write_date
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__write_date
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_wizard_line6__write_date
 #: model:ir.model.fields,field_description:ptplus_payroll.field_payroll_statement_wizard_pt__write_date
 #: model:ir.model.fields,field_description:ptplus_payroll.field_ru_extra_data_employee__write_date
 #: model:ir.model.fields,field_description:ptplus_payroll.field_ru_extra_data_establishment__write_date
@@ -3893,6 +4228,11 @@ msgid "Leave Reason"
 msgstr "Motivo da Ausência"
 
 #. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__legal_representative_vat
+msgid "Legal Representative"
+msgstr "Representante Legal"
+
+#. module: ptplus_payroll
 #: model:hr.leave.type,name:ptplus_payroll.leave_type_pt_marriage_license
 #: model:hr.salary.rule,name:ptplus_payroll.rule_pt_marriage_license
 #: model:hr.work.entry.type,name:ptplus_payroll.entry_type_pt_marriage_license
@@ -3900,30 +4240,68 @@ msgid "Licença de Casamento"
 msgstr "Licença de Casamento"
 
 #. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_aggregate_salary_statement_wizard__line_ids
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__line_ids
+msgid "Lines"
+msgstr "Linhas"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_aggregate_salary_statement_wizard__log_as_reported
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__log_as_reported
 #: model:ir.model.fields,field_description:ptplus_payroll.field_payroll_statement_wizard_pt__log_as_reported
 msgid "Log As Reported"
 msgstr "Registar como Submetido"
 
 #. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_aggregate_salary_statement_wizard__log_on_close
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__log_on_close
 #: model:ir.model.fields,field_description:ptplus_payroll.field_payroll_statement_wizard_pt__log_on_close
 msgid "Log On Close"
 msgstr "Registar ao Fechar"
 
 #. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.relatorio_unico_statement_form
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_single_report_statement_wizard_form
 msgid "M:"
 msgstr "M:"
 
 #. module: ptplus_payroll
 #: model:ir.model.fields.selection,name:ptplus_payroll.selection__hr_employee__l10n_pt_income_tax_region__m
 #: model:ir.model.fields.selection,name:ptplus_payroll.selection__hr_income_tax_pt__region__m
+#: model:ir.model.fields.selection,name:ptplus_payroll.selection__l10n_pt_dmr_wizard_line6__d6_income_location__rm
 msgid "Madeira Autonomous Region"
 msgstr "Região Autónoma da Madeira"
 
 #. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.relatorio_unico_statement_form
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_single_report_statement_wizard_form
 msgid "Male"
 msgstr "Masculino"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_wizard_line6__d6_mandatory_contrib_entity1
+msgid "Mandatory Contribution - Entity 1"
+msgstr "Contribuição Obrigatória - Entidade 1"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_wizard_line6__d6_mandatory_contrib_entity2
+msgid "Mandatory Contribution - Entity 2"
+msgstr "Contribuição Obrigatória - Entidade 2"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_wizard_line6__d6_mandatory_contrib_entity3
+msgid "Mandatory Contribution - Entity 3"
+msgstr "Contribuição Obrigatória - Entidade 3"
+
+#. module: ptplus_payroll
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_dmr_statement_wizard_form
+msgid "Mandatory Contributions"
+msgstr "Contribuições Obrigatórias"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_wizard_line6__d6_mandatory_contrib_value
+msgid "Mandatory Contributions Amount"
+msgstr "Valor das Contribuições Obrigatórias"
 
 #. module: ptplus_payroll
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_payslip_input__is_manual_amount
@@ -4022,7 +4400,8 @@ msgstr "Membro do Governo ou Equivalente"
 #. module: ptplus_payroll
 #: model:ir.model.fields,field_description:ptplus_payroll.field_payroll_statement_wizard_pt__ru_men_3_basic_disab_80
 msgid "Men 3º Grade Basic with 60% to 80% Disability"
-msgstr "Homens com 3.º Ciclo do Ensino Básico com Incapacidade Entre 60% e 80%"
+msgstr ""
+"Homens com 3.º Ciclo do Ensino Básico com Incapacidade Entre 60% e 80%"
 
 #. module: ptplus_payroll
 #: model:ir.model.fields,field_description:ptplus_payroll.field_payroll_statement_wizard_pt__ru_men_3_basic_disab_60
@@ -4186,6 +4565,11 @@ msgid "Messages"
 msgstr "Mensagens"
 
 #. module: ptplus_payroll
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_dmr_statement_wizard_form
+msgid "Miscellaneous"
+msgstr "Diversos"
+
+#. module: ptplus_payroll
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_payroll_edit_payslip_line__l10n_pt_missing_days_for_dri_curr_period
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_payroll_edit_payslip_worked_days_line__l10n_pt_missing_days_for_dri_curr_period
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_payslip_worked_days__l10n_pt_missing_days_for_dri_curr_period
@@ -4215,6 +4599,12 @@ msgstr "Valor em falta na empresa atual"
 #: model:hr.salary.rule,name:ptplus_payroll.rule_pt_wage_attachable_amount
 msgid "Montante Penhorável"
 msgstr "Montante Penhorável"
+
+#. module: ptplus_payroll
+#. odoo-python
+#: code:addons/ptplus_payroll/models/hr_payslip.py:0
+msgid "Monthly"
+msgstr "Mensal"
 
 #. module: ptplus_payroll
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_salary_rule__l10n_pt_monthly_income
@@ -4271,8 +4661,8 @@ msgstr "NISSEE"
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_qualification_pt__name
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_social_security_tax_pt__name
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_special_fiscal_regime_pt__name
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_wizard_line6__name
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.report_dri_stmt_pt
-#: model_terms:ir.ui.view,arch_db:ptplus_payroll.report_slip_pt
 msgid "Name"
 msgstr "Nome"
 
@@ -4395,6 +4785,10 @@ msgstr "Não"
 
 #. module: ptplus_payroll
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_salary_complement_pt__attachment_payslip_count
+msgid "No Attachment Payslips"
+msgstr "N.º de Recibos com Penhora"
+
+#. module: ptplus_payroll
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_salary_complement_pt__payslip_count
 msgid "No Payslips"
 msgstr "Sem Recibos"
@@ -4428,11 +4822,13 @@ msgstr "Nº de Dependentes com Deficiência Permanente >= 60%"
 
 #. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.relatorio_unico_statement_form
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_single_report_statement_wizard_form
 msgid "No. of postings"
 msgstr "N.º de destacamentos"
 
 #. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.relatorio_unico_statement_form
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_single_report_statement_wizard_form
 msgid "No. of workers"
 msgstr "N.º de trabalhadores"
 
@@ -4442,7 +4838,43 @@ msgid "Non Resident"
 msgstr "Não Residente"
 
 #. module: ptplus_payroll
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_dmr_statement_wizard_form
+msgid "Non-Taxable Income"
+msgstr "Rendimentos Não Sujeitos"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__d5_income_nontaxable_irs_retention
+msgid "Non-Taxable Income - IRS Withholding"
+msgstr "Rendimentos Não Sujeitos - Retenção de IRS"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__d5_income_nontaxable_value
+msgid "Non-Taxable Income - Income Amount"
+msgstr "Rendimentos Não Sujeitos - Valor do Rendimento"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__d5_income_nontaxable_social_security
+msgid "Non-Taxable Income - Mandatory Contributions"
+msgstr "Rendimentos Não Sujeitos - Contribuições Obrigatórias"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__d5_income_nontaxable_surtax_retention
+msgid "Non-Taxable Income - Surtax Withholding"
+msgstr "Rendimentos Não Sujeitos - Retenção de Sobretaxa"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__d5_income_nontaxable_union_dues
+msgid "Non-Taxable Income - Union Dues"
+msgstr "Rendimentos Não Sujeitos - Quotizações Sindicais"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields.selection,name:ptplus_payroll.selection__l10n_pt_dmr_wizard_line6__d6_irs_type__non_taxable
+msgid "Non-taxable"
+msgstr "Não sujeito"
+
+#. module: ptplus_payroll
 #. odoo-python
+#: code:addons/ptplus_payroll/wizards/aggregate_salary_statement_wizard.py:0
 #: code:addons/ptplus_payroll/wizards/payroll_statement.py:0
 msgid "None."
 msgstr "Nenhum."
@@ -4482,6 +4914,16 @@ msgstr "Número de Dias"
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_employee__l10n_pt_no_of_dependents_education_ticket
 msgid "Number of Dependents with an Education Ticket"
 msgstr "Nº de Dependentes com Ticket Educação"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__d99_file_record_count
+msgid "Number of Records (File Trailer)"
+msgstr "Número de Registos (Terminador do Ficheiro)"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__d999_summary_record_count
+msgid "Number of Records (Summary Trailer)"
+msgstr "Número de Registos (Terminador do Resumo)"
 
 #. module: ptplus_payroll
 #: model:ir.model.fields,field_description:ptplus_payroll.field_payroll_statement_wizard_pt__ru_no_temp_workers_31_dec
@@ -4530,12 +4972,14 @@ msgstr "Número de destacamentos de trabalhadores no estrangeiro"
 
 #. module: ptplus_payroll
 #. odoo-python
+#: code:addons/ptplus_payroll/wizards/aggregate_salary_statement_wizard.py:0
 #: code:addons/ptplus_payroll/wizards/payroll_statement.py:0
 msgid "OT Amount"
 msgstr "Montante Horas Extra"
 
 #. module: ptplus_payroll
 #. odoo-python
+#: code:addons/ptplus_payroll/wizards/aggregate_salary_statement_wizard.py:0
 #: code:addons/ptplus_payroll/wizards/payroll_statement.py:0
 msgid "OT Quantity"
 msgstr "Quantidade Horas Extra"
@@ -4552,6 +4996,7 @@ msgstr "Outubro"
 
 #. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.relatorio_unico_statement_form
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_single_report_statement_wizard_form
 msgid "October 31st"
 msgstr "31 de Outubro"
 
@@ -4607,6 +5052,7 @@ msgstr "Outros Subsídios Regulares"
 
 #. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.relatorio_unico_statement_form
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_single_report_statement_wizard_form
 msgid "Other Social Security Benefits"
 msgstr "Outras Prestações da Segurança Social"
 
@@ -4614,7 +5060,8 @@ msgstr "Outras Prestações da Segurança Social"
 #: model:ir.model.fields,field_description:ptplus_payroll.field_payroll_statement_wizard_pt__ru_admin_other_social_security_benefits
 msgid "Other employer-administered social security benefits"
 msgstr ""
-"Outras prestações da segurança social administradas pela entidade empregadora"
+"Outras prestações da segurança social administradas pela entidade "
+"empregadora"
 
 #. module: ptplus_payroll
 #: model:ir.model.fields,field_description:ptplus_payroll.field_payroll_statement_wizard_pt__ru_non_admin_other_social_security_benefits
@@ -4805,14 +5252,30 @@ msgid "PT: Recibo de Vencimento"
 msgstr "PT: Recibo de Vencimento"
 
 #. module: ptplus_payroll
+#: model:ir.model.fields.selection,name:ptplus_payroll.selection__aggregate_salary_statement_wizard__payslip_state__paid
 #: model:ir.model.fields.selection,name:ptplus_payroll.selection__payroll_statement_wizard_pt__payslip_state__paid
 msgid "Paid"
 msgstr "Pago"
 
 #. module: ptplus_payroll
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.report_payslip_pt
+msgid "Paid by bank transfer"
+msgstr "Pago por transferência bancária"
+
+#. module: ptplus_payroll
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.report_payslip_pt
+msgid "Paid by meal Ticket/Card"
+msgstr "Pago em Ticket/Cartão de refeição"
+
+#. module: ptplus_payroll
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_salary_rule__l10n_pt_paid_in_kind
 msgid "Paid in Kind"
 msgstr "Pago em Espécie"
+
+#. module: ptplus_payroll
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.report_payslip_pt
+msgid "Paid in kind"
+msgstr "Pago em espécie"
 
 #. module: ptplus_payroll
 #: model:ir.model.fields,field_description:ptplus_payroll.field_resource_calendar__l10n_pt_part_time
@@ -4861,6 +5324,11 @@ msgid "Payment Code"
 msgstr "Código de Pagamento"
 
 #. module: ptplus_payroll
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.report_payslip_pt
+msgid "Payment Information"
+msgstr "Informação do Pagamento"
+
+#. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.view_employee_form_pt_payroll
 msgid "Payment Method"
 msgstr "Método de Pagamento"
@@ -4888,8 +5356,9 @@ msgid "Payroll Wizard"
 msgstr "Assistente de Processamento Salarial"
 
 #. module: ptplus_payroll
+#. odoo-python
+#: code:addons/ptplus_payroll/models/hr_payslip.py:0
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_allowance_provision_correction_lines_pt__payslip_id
-#: model_terms:ir.ui.view,arch_db:ptplus_payroll.report_slip_pt
 msgid "Payslip"
 msgstr "Recibo de Vencimento"
 
@@ -4923,6 +5392,7 @@ msgid "Payslip Line"
 msgstr "Recibo de Vencimento"
 
 #. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_aggregate_salary_statement_wizard__payslip_state
 #: model:ir.model.fields,field_description:ptplus_payroll.field_payroll_statement_wizard_pt__payslip_state
 msgid "Payslip State"
 msgstr "Estado do Recibo de Vencimento"
@@ -4986,6 +5456,8 @@ msgid "Per Diem National"
 msgstr "Ajudas de Custo Nacional"
 
 #. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_aggregate_salary_statement_wizard__period
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__period
 #: model:ir.model.fields,field_description:ptplus_payroll.field_payroll_statement_wizard_pt__period
 msgid "Period"
 msgstr "Período"
@@ -5008,14 +5480,15 @@ msgid ""
 "Please enter the Date of Occurance of the Event and Date of Assignment of "
 "the Event fields."
 msgstr ""
-"Insira os campos Data de Ocorrência do Evento e Data de Atribuição do Evento."
+"Insira os campos Data de Ocorrência do Evento e Data de Atribuição do "
+"Evento."
 
 #. module: ptplus_payroll
 #. odoo-python
 #: code:addons/ptplus_payroll/wizards/payroll_statement.py:0
 msgid ""
-"Please enter the Date of the event that determined the obligation to declare "
-"or change income a field."
+"Please enter the Date of the event that determined the obligation to declare"
+" or change income a field."
 msgstr ""
 "Data do facto que determinou a obrigação de declarar ou alterar rendimentos "
 "já declarados"
@@ -5105,12 +5578,23 @@ msgid "Previous PaySlip"
 msgstr "Recibo Anterior"
 
 #. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_wizard_line6__d6_past_year_income_year
+msgid "Previous Year Reference"
+msgstr "Ano de Referência Anterior"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_wizard_line6__d6_past_year_income_value
+msgid "Previous Years' Income Amount"
+msgstr "Valor de Rendimentos de Anos Anteriores"
+
+#. module: ptplus_payroll
 #: model:ir.model.fields,field_description:ptplus_payroll.field_payroll_statement_wizard_pt__ru_percent_private_national_share_capital
 msgid "Private National Share Capital Percentage"
 msgstr "Percentagem do Capital Social Nacional Privado"
 
 #. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.relatorio_unico_statement_form
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_single_report_statement_wizard_form
 msgid "Private National:"
 msgstr "Nacional Privado:"
 
@@ -5150,6 +5634,12 @@ msgstr "Informação Profissional"
 #: model:ir.ui.menu,name:ptplus_payroll.menu_hr_profession_pt_action
 msgid "Professions"
 msgstr "Profissões"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_aggregate_salary_statement_wizard__proof_filename
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__proof_filename
+msgid "Proof Filename"
+msgstr "Nome do Ficheiro do Comprovativo"
 
 #. module: ptplus_payroll
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_salary_rule__l10n_pt_proportional_allowance
@@ -5254,6 +5744,7 @@ msgstr "Percentagem do Capital Social Nacional Público"
 
 #. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.relatorio_unico_statement_form
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_single_report_statement_wizard_form
 msgid "Public National:"
 msgstr "Nacional Público:"
 
@@ -5281,14 +5772,20 @@ msgid "Qualifications"
 msgstr "Habilitações"
 
 #. module: ptplus_payroll
-#: model_terms:ir.ui.view,arch_db:ptplus_payroll.report_slip_pt
-msgid "Quantity"
-msgstr "Quantidade"
+#. odoo-python
+#: code:addons/ptplus_payroll/models/hr_payslip.py:0
+msgid "Quarterly"
+msgstr "Trimestral"
 
 #. module: ptplus_payroll
 #: model:ir.model.fields.selection,name:ptplus_payroll.selection__hr_version__l10n_pt_work_schedule_exemption_option__rate
 msgid "Rate (%)"
 msgstr "Percentagem (%)"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_hr_salary_complement_pt__rating_ids
+msgid "Ratings"
+msgstr "Avaliações"
 
 #. module: ptplus_payroll
 #: model:ir.model.fields.selection,name:ptplus_payroll.selection__hr_version__l10n_pt_contract_reason__r_p_t
@@ -5306,6 +5803,16 @@ msgid "Reason"
 msgstr "Motivo"
 
 #. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__justifiable_reason_end_date
+msgid "Reason Fact End"
+msgstr "Fim do Facto Justificativo"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__justifiable_reason_start_date
+msgid "Reason Fact Start"
+msgstr "Início do Facto Justificativo"
+
+#. module: ptplus_payroll
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_employee__l10n_pt_reason_for_end_of_contract
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_version__l10n_pt_reason_for_end_of_contract
 msgid "Reason for End of Contract"
@@ -5320,6 +5827,16 @@ msgstr "Motivo do Pagamento Inferior ao Valor Devido"
 #: model:hr.payroll.structure,payslip_name:ptplus_payroll.hr_payroll_structure_pt_monthly_pay
 msgid "Recibo de Vencimento"
 msgstr "Recibo de Vencimento"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__d99_file_record_type
+msgid "Record Type (File Trailer)"
+msgstr "Tipo de Registo (Terminador do Ficheiro)"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__d999_summary_record_type
+msgid "Record Type (Summary Trailer)"
+msgstr "Tipo de Registo (Terminador do Resumo)"
 
 #. module: ptplus_payroll
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_employee__l10n_pt_red_of_wit_tax_form_home_loan_holders
@@ -5397,6 +5914,12 @@ msgstr "Regime de 5 Turnos [valor]"
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_income_tax_pt__region
 msgid "Region"
 msgstr "Região"
+
+#. module: ptplus_payroll
+#. odoo-python
+#: code:addons/ptplus_payroll/wizards/l10n_pt_single_report_statement_wizard.py:0
+msgid "Relatório Único"
+msgstr "Relatório Único"
 
 #. module: ptplus_payroll
 #: model:ir.model.fields,field_description:ptplus_payroll.field_payroll_statement_wizard_pt__ru_remaining_employer_funding
@@ -5481,6 +6004,7 @@ msgstr "Utilizador Responsável"
 
 #. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.relatorio_unico_statement_form
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_single_report_statement_wizard_form
 msgid "Retirement, Disability, and Survivor Pensions"
 msgstr "Pensões de Reforma, Invalidez e Sobrevivência"
 
@@ -5604,15 +6128,23 @@ msgid "Segurança Social Entidade Patronal (Utilização da Provisão)"
 msgstr "Segurança Social Entidade Patronal (Utilização da Provisão)"
 
 #. module: ptplus_payroll
+#: model:ir.model.fields,help:ptplus_payroll.field_aggregate_salary_statement_wizard__payslip_state
 #: model:ir.model.fields,help:ptplus_payroll.field_payroll_statement_wizard_pt__payslip_state
 msgid ""
 "Select the status of the payslips you want to obtain.\n"
-"Note: If this field is empty, receipts will be obtained in the paid and "
-"finalised status."
+"Note: If this field is empty, receipts will be obtained in the paid and finalised status."
 msgstr ""
 "Selecione o estado dos recibos de vencimento que deseja obter.\n"
-"Nota: Se este campo estiver vazio, os recibos obtidos estarão no estado pago "
-"ou concluído."
+"Nota: Se este campo estiver vazio, os recibos obtidos estarão no estado pago ou concluído."
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,help:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__declaration_type
+msgid ""
+"Select whether this is the first declaration for the given period or a "
+"replacement."
+msgstr ""
+"Indicar se é a primeira declaração para o período em causa ou uma declaração"
+" de substituição."
 
 #. module: ptplus_payroll
 #: model:ir.model.fields.selection,name:ptplus_payroll.selection__hr_employee__l10n_pt_contract_modality__st_tc
@@ -5665,6 +6197,12 @@ msgid "Sem termo, tempo parcial, trabalho temporário"
 msgstr "Sem termo, tempo parcial, trabalho temporário"
 
 #. module: ptplus_payroll
+#. odoo-python
+#: code:addons/ptplus_payroll/models/hr_payslip.py:0
+msgid "Semi-monthly"
+msgstr "Duas vezes por mês"
+
+#. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.wizard_payroll_statement_form
 msgid "Send PDF E-mail"
 msgstr "Enviar PDF por E-mail"
@@ -5695,10 +6233,18 @@ msgid "September"
 msgstr "Setembro"
 
 #. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_wizard_line6__sequence
+msgid "Sequence"
+msgstr "Sequência"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,help:ptplus_payroll.field_aggregate_salary_statement_wizard__log_as_reported
+#: model:ir.model.fields,help:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__log_as_reported
 #: model:ir.model.fields,help:ptplus_payroll.field_payroll_statement_wizard_pt__log_as_reported
 msgid ""
 "Set True if the file has been successfully submitted to the intended "
-"destination. In that case the dataport log record will be marked as Reported."
+"destination. In that case the dataport log record will be marked as "
+"Reported."
 msgstr ""
 "Indique Verdadeiro se o ficheiro foi devidamente submetido no destino "
 "pretendido. Nesse caso, a entrada no registo de dataports será assinalada "
@@ -5732,6 +6278,78 @@ msgid "Shift Regime Rate"
 msgstr "Percentagem do Regime por Turnos"
 
 #. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_aggregate_salary_statement_wizard__show_button_compute
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__show_button_compute
+msgid "Show Button Compute"
+msgstr ""
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_aggregate_salary_statement_wizard__show_button_export_csv
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__show_button_export_csv
+msgid "Show Button Export Csv"
+msgstr ""
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_aggregate_salary_statement_wizard__show_button_export_pdf
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__show_button_export_pdf
+msgid "Show Button Export Pdf"
+msgstr ""
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_aggregate_salary_statement_wizard__show_button_export_txt
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__show_button_export_txt
+msgid "Show Button Export Txt"
+msgstr ""
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_aggregate_salary_statement_wizard__show_button_export_webservice
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__show_button_export_webservice
+msgid "Show Button Export Webservice"
+msgstr ""
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_aggregate_salary_statement_wizard__show_button_export_xlsx
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__show_button_export_xlsx
+msgid "Show Button Export Xlsx"
+msgstr ""
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_aggregate_salary_statement_wizard__show_button_export_xml
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__show_button_export_xml
+msgid "Show Button Export Xml"
+msgstr ""
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_aggregate_salary_statement_wizard__show_button_mail
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__show_button_mail
+msgid "Show Button Mail"
+msgstr ""
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_aggregate_salary_statement_wizard__show_button_print
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__show_button_print
+msgid "Show Button Print"
+msgstr ""
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_aggregate_salary_statement_wizard__show_button_select_all
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__show_button_select_all
+msgid "Show Button Select All"
+msgstr ""
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_aggregate_salary_statement_wizard__show_button_select_none
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__show_button_select_none
+msgid "Show Button Select None"
+msgstr ""
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_aggregate_salary_statement_wizard__show_button_ws_oa
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__show_button_ws_oa
+msgid "Show Button Ws Oa"
+msgstr ""
+
+#. module: ptplus_payroll
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_payslip__l10n_pt_show_line_details
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.employee_send_email_button_view_pt
 msgid "Show Details"
@@ -5739,19 +6357,33 @@ msgstr "Mostrar Detalhes"
 
 #. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.relatorio_unico_statement_form
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_single_report_statement_wizard_form
 msgid "Sickness and Occupational Disease Allowance"
 msgstr "Subsídio de Doença e Doença Profissional"
 
 #. module: ptplus_payroll
+#: model:ir.actions.act_window,name:ptplus_payroll.l10n_pt_single_report_statement_wizard_action
 #: model:ir.model.fields.selection,name:ptplus_payroll.selection__dataport_log__type__payroll_single_report
+#: model:ir.model.fields.selection,name:ptplus_payroll.selection__dataport_log__type__single_report
 #: model:ir.model.fields.selection,name:ptplus_payroll.selection__payroll_statement_wizard_pt__statement_type__payroll_single_report
 msgid "Single Report"
 msgstr "Relatório Único"
 
 #. module: ptplus_payroll
+#: model:ir.model,name:ptplus_payroll.model_l10n_pt_single_report_statement_wizard_experimental
+msgid "Single Report Statement Wizard (RU)"
+msgstr "Assistente de Declaração do Relatório Único (RU)"
+
+#. module: ptplus_payroll
 #: model:ir.model.fields,field_description:ptplus_payroll.field_payroll_statement_wizard_pt__single_report_type
 msgid "Single Report Type"
 msgstr "Tipo de Relatório Único"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_ru_extra_data_employee__single_report_wizard_id
+#: model:ir.model.fields,field_description:ptplus_payroll.field_ru_extra_data_establishment__single_report_wizard_id
+msgid "Single Report Wizard"
+msgstr "Assistente de Relatório Único"
 
 #. module: ptplus_payroll
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_allowance_provision_correction_lines_pt__social_charges_correction_amount
@@ -5824,10 +6456,11 @@ msgstr "Sociedade por Quotas"
 #. module: ptplus_payroll
 #. odoo-python
 #: code:addons/ptplus_payroll/models/hr_payslip_run.py:0
-msgid "Some work entries could not be validated. Time intervals to look for:%s"
+msgid ""
+"Some work entries could not be validated. Time intervals to look for:%s"
 msgstr ""
-"Alguns registos de trabalho não puderam ser validados. Intervalos de tempo a "
-"verificar:%s"
+"Alguns registos de trabalho não puderam ser validados. Intervalos de tempo a"
+" verificar:%s"
 
 #. module: ptplus_payroll
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_employee__l10n_pt_special_fiscal_regime_id
@@ -5852,17 +6485,26 @@ msgid "Start of Contract"
 msgstr "Data de Primeiro Contrato"
 
 #. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_aggregate_salary_statement_wizard__state
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_allowance_provision_correction_lines_pt__payslip_state
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_allowance_provision_correction_pt__state
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_salary_complement_pt__state
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__state
 #: model:ir.model.fields,field_description:ptplus_payroll.field_payroll_statement_wizard_pt__state
 msgid "State"
 msgstr "Estado"
 
 #. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_aggregate_salary_statement_wizard__statement_type
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__statement_type
 #: model:ir.model.fields,field_description:ptplus_payroll.field_payroll_statement_wizard_pt__statement_type
 msgid "Statement Type"
 msgstr "Tipo de Declaração"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_wizard_line6__statement_id
+msgid "Statement Wizard"
+msgstr "Assistente da Declaração"
 
 #. module: ptplus_payroll
 #: model:ir.model.fields,help:ptplus_payroll.field_hr_salary_complement_pt__activity_state
@@ -5876,6 +6518,22 @@ msgstr ""
 "Em atraso: Data limite já passou\n"
 "Hoje: Data da atividade é hoje\n"
 "Planeadas: Atividades futuras."
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_aggregate_salary_statement_wizard__proof_data
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__proof_data
+msgid "Submission Proof"
+msgstr "Comprovativo de Entrega"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,help:ptplus_payroll.field_aggregate_salary_statement_wizard__accept_alerts
+#: model:ir.model.fields,help:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__accept_alerts
+msgid ""
+"Submit the declaration even if the AT reports non-blocking alerts "
+"(aceitaAlertas)."
+msgstr ""
+"Submeter a declaração mesmo que a AT devolva alertas não bloqueantes "
+"(aceitaAlertas)."
 
 #. module: ptplus_payroll
 #: model:hr.payslip.input.type,name:ptplus_payroll.input_pt_meal_allowance_not_taxed
@@ -5941,6 +6599,11 @@ msgstr "Subs. Natal Tributável (Base Independente)"
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.view_employee_form_pt_payroll
 msgid "Subsidy Amount"
 msgstr "Valor do Subsídio"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__subst_fact_date
+msgid "Subst. Fact Date"
+msgstr "Data do Facto da Substituição"
 
 #. module: ptplus_payroll
 #: model:ir.model.fields.selection,name:ptplus_payroll.selection__hr_version__l10n_pt_contract_reason__s_d_t_t_a
@@ -6036,6 +6699,11 @@ msgid "Subsídio de Férias - Proporcionais [valor]"
 msgstr "Subsídio de Férias - Proporcionais [valor]"
 
 #. module: ptplus_payroll
+#: model:hr.payslip.input.type,name:ptplus_payroll.input_pt_holiday_allowance_taxable
+msgid "Subsídio de Férias - Tributável Automático [valor]"
+msgstr ""
+
+#. module: ptplus_payroll
 #: model:hr.salary.rule.category,name:ptplus_payroll.SUBS_FER_TRIBUTAVEL
 msgid "Subsídio de Férias Tributável"
 msgstr "Subsídio de Férias Tributável"
@@ -6074,6 +6742,11 @@ msgstr "Subsídio de Natal - Proporcionais"
 #: model:hr.payslip.input.type,name:ptplus_payroll.input_pt_christmas_allowance_pro
 msgid "Subsídio de Natal - Proporcionais [valor]"
 msgstr "Subsídio de Natal - Proporcionais [valor]"
+
+#. module: ptplus_payroll
+#: model:hr.payslip.input.type,name:ptplus_payroll.input_pt_christmas_allowance_taxable
+msgid "Subsídio de Natal - Tributável Automático [valor]"
+msgstr ""
 
 #. module: ptplus_payroll
 #: model:hr.salary.rule.category,name:ptplus_payroll.SUBS_NAT_TRIBUTAVEL
@@ -6117,7 +6790,8 @@ msgstr "Subsídio transporte até ao valor passe social Art.46 2.t) do CC"
 
 #. module: ptplus_payroll
 #: model:hr.payslip.input.type,name:ptplus_payroll.input_pt_trans_all_up_to_the_value_of_the_social_pass
-msgid "Subsídio transporte até ao valor passe social Art.46 2.t) do CC [valor]"
+msgid ""
+"Subsídio transporte até ao valor passe social Art.46 2.t) do CC [valor]"
 msgstr ""
 "Subsídio transporte até ao valor passe social Art.46 2.t) do CC [valor]"
 
@@ -6130,6 +6804,12 @@ msgstr "Subsídio transporte tributável Art.46 2.t) do CC"
 #: model:hr.payslip.input.type,name:ptplus_payroll.input_pt_taxable_transportation_allowance
 msgid "Subsídio transporte tributável Art.46 2.t) do CC [valor]"
 msgstr "Subsídio transporte tributável Art.46 2.t) do CC [valor]"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_wizard_line6__d6_surtax_retention
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_dmr_statement_wizard_form
+msgid "Surtax Withholding"
+msgstr "Retenção de Sobretaxa"
 
 #. module: ptplus_payroll
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_employee__l10n_pt_syndicate
@@ -6156,13 +6836,70 @@ msgstr "Tabela"
 #: model:ir.actions.act_window,name:ptplus_payroll.hr_tax_office_pt_action
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_employee__l10n_pt_tax_office_id
 #: model:ir.ui.menu,name:ptplus_payroll.menu_hr_tax_office_pt_action
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_dmr_statement_wizard_form
 msgid "Tax Office"
 msgstr "Serviço de Finanças"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__tax_office_code
+msgid "Tax Office Code"
+msgstr "Código do Serviço de Finanças"
 
 #. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.report_dri_stmt_pt
 msgid "Tax:"
 msgstr "Imposto:"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields.selection,name:ptplus_payroll.selection__l10n_pt_dmr_wizard_line6__d6_irs_type__taxable
+msgid "Taxable"
+msgstr "Sujeito"
+
+#. module: ptplus_payroll
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_dmr_statement_wizard_form
+msgid "Taxable Income"
+msgstr "Rendimentos Sujeitos"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__d4_income_taxable_irs_retention
+msgid "Taxable Income - IRS Withholding"
+msgstr "Rendimentos Sujeitos - Retenção de IRS"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__d4_income_taxable_value
+msgid "Taxable Income - Income Amount"
+msgstr "Rendimentos Sujeitos - Valor do Rendimento"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__d4_income_taxable_social_security
+msgid "Taxable Income - Mandatory Contributions"
+msgstr "Rendimentos Sujeitos - Contribuições Obrigatórias"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__d4_income_taxable_surtax_retention
+msgid "Taxable Income - Surtax Withholding"
+msgstr "Rendimentos Sujeitos - Retenção de Sobretaxa"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__d4_income_taxable_union_dues
+msgid "Taxable Income - Union Dues"
+msgstr "Rendimentos Sujeitos - Quotizações Sindicais"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_aggregate_salary_statement_wizard__representative_user_password
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__representative_user_password
+msgid "Taxpayer Password"
+msgstr "Senha do Contribuinte"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_wizard_line6__d6_taxpayer_vat_number
+msgid "Taxpayer VAT Number"
+msgstr "NIF do Titular"
+
+#. module: ptplus_payroll
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_dmr_statement_wizard_form
+msgid "Taxpayers' Income"
+msgstr "Rendimentos dos Titulares"
 
 #. module: ptplus_payroll
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_employee__l10n_pt_temporary_worker
@@ -6208,18 +6945,13 @@ msgstr ""
 "Pode utilizar este campo para procura rápida."
 
 #. module: ptplus_payroll
-#: model_terms:ir.ui.view,arch_db:ptplus_payroll.report_slip_pt
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.report_payslip_pt
 msgid ""
 "The accumulated amount of income tax withheld from the various payslips for "
 "the month of processing is"
 msgstr ""
-"O montante acumulado de imposto sobre o rendimento retido nos vários recibos "
-"do mês de processamento é"
-
-#. module: ptplus_payroll
-#: model_terms:ir.ui.view,arch_db:ptplus_payroll.report_slip_pt
-msgid "The amount of"
-msgstr "O montante de"
+"O montante acumulado de imposto sobre o rendimento retido nos vários recibos"
+" do mês de processamento é"
 
 #. module: ptplus_payroll
 #. odoo-python
@@ -6248,29 +6980,18 @@ msgid ""
 "The following payslips already have an after payslip: \n"
 "{}. \n"
 "\n"
-"To make changes to these payslips, please delete the after payslip and "
-"recompute the sheet."
+"To make changes to these payslips, please delete the after payslip and recompute the sheet."
 msgstr ""
 "Os seguintes recibos já têm um recibo posterior: \n"
 "{}. \n"
 "\n"
-"Para efetuar alterações nestes recibos, elimine o recibo posterior e "
-"recalcule a folha."
+"Para efetuar alterações nestes recibos, elimine o recibo posterior e recalcule a folha."
 
 #. module: ptplus_payroll
 #. odoo-python
 #: code:addons/ptplus_payroll/wizards/ru_extra_data.py:0
 msgid "The juridical nature can only be changed at the headquarters!."
 msgstr "A natureza jurídica só pode ser alterada na sede!."
-
-#. module: ptplus_payroll
-#: model_terms:ir.ui.view,arch_db:ptplus_payroll.report_slip_pt
-msgid ""
-"The net amount will be recovered from the first positive remuneration "
-"established after this."
-msgstr ""
-"O montante líquido será recuperado da primeira remuneração positiva "
-"estabelecida após este."
 
 #. module: ptplus_payroll
 #. odoo-python
@@ -6286,6 +7007,7 @@ msgstr "As %s selecionadas devem cobrir um mês inteiro."
 
 #. module: ptplus_payroll
 #. odoo-python
+#: code:addons/ptplus_payroll/wizards/aggregate_salary_statement_wizard.py:0
 #: code:addons/ptplus_payroll/wizards/payroll_statement.py:0
 msgid "The selected dates must be in the same year. "
 msgstr "As datas selecionadas devem estar no mesmo ano. "
@@ -6344,8 +7066,8 @@ msgid ""
 "There are unresolved conflicts for employee %s. Resolve these conflicts "
 "first and recalculate the payslip."
 msgstr ""
-"Existem conflitos por resolver para o trabalhador %s. Resolva primeiro estes "
-"conflitos e recalcule o recibo."
+"Existem conflitos por resolver para o trabalhador %s. Resolva primeiro estes"
+" conflitos e recalcule o recibo."
 
 #. module: ptplus_payroll
 #. odoo-python
@@ -6364,8 +7086,8 @@ msgstr "Tem de existir pelo menos um recibo anterior no estado \"Validado\""
 #: code:addons/ptplus_payroll/models/hr_allowance_provision_correction_pt.py:0
 msgid "There must be exactly one payslip in draft state for employee %s"
 msgstr ""
-"Tem de existir exatamente um recibo em estado de rascunho para o trabalhador "
-"%s"
+"Tem de existir exatamente um recibo em estado de rascunho para o trabalhador"
+" %s"
 
 #. module: ptplus_payroll
 #. odoo-python
@@ -6422,13 +7144,10 @@ msgid "Ticket/Card"
 msgstr "Ticket/Cartão"
 
 #. module: ptplus_payroll
-#: model_terms:ir.ui.view,arch_db:ptplus_payroll.report_slip_pt
-msgid "To pay on"
-msgstr "<br/>Para pagar em"
-
-#. module: ptplus_payroll
 #. odoo-python
+#: code:addons/ptplus_payroll/wizards/aggregate_salary_statement_wizard.py:0
 #: code:addons/ptplus_payroll/wizards/payroll_statement.py:0
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_dmr_statement_wizard_form
 msgid "Total"
 msgstr "Total"
 
@@ -6444,9 +7163,64 @@ msgid "Total Descontos"
 msgstr "Total Descontos"
 
 #. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__d9_total_irs_retention
+msgid "Total IRS Retained"
+msgstr "Total de IRS Retido"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__d5_total_irs_retention
+msgid "Total IRS Withholding"
+msgstr "Total de Retenção de IRS"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__d5_total_income_value
+msgid "Total Income Amount"
+msgstr "Valor Total do Rendimento"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__d9_curr_income_total
+msgid "Total Income from Current Year"
+msgstr "Total de Rendimentos do Ano Corrente"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__d9_prev_income_total
+msgid "Total Income from Previous Years"
+msgstr "Total de Rendimentos de Anos Anteriores"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__d5_total_social_security
+msgid "Total Mandatory Contributions"
+msgstr "Total de Contribuições Obrigatórias"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__d9_total_contrib
+msgid "Total Contributions Retained"
+msgstr "Total de Contribuições Obrigatórias"
+
+#. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.report_dri_stmt_pt
 msgid "Total Salaries:"
 msgstr "Salários Totais:"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__d9_total_surtax
+msgid "Total Surtax Retained"
+msgstr "Total de Sobretaxa Retida"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__d5_total_surtax_retention
+msgid "Total Surtax Withholding"
+msgstr "Total de Retenção de Sobretaxa"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__d5_total_union_dues
+msgid "Total Union Dues"
+msgstr "Total de Quotizações Sindicais"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__d9_total_union_dues
+msgid "Total Union Dues Retained"
+msgstr "Total de Quotizações Sindicais"
 
 #. module: ptplus_payroll
 #: model:hr.salary.rule.category,name:ptplus_payroll.T_RECEBER
@@ -6508,6 +7282,7 @@ msgstr "Trabalho Noturno [h]"
 
 #. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.relatorio_unico_statement_form
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_single_report_statement_wizard_form
 msgid "Training Hours:"
 msgstr "Horas de Formação:"
 
@@ -6528,6 +7303,8 @@ msgid "Travel and Per Diems"
 msgstr "Viagens e Ajudas de Custo"
 
 #. module: ptplus_payroll
+#: model:ir.model.fields,help:ptplus_payroll.field_aggregate_salary_statement_wizard__error
+#: model:ir.model.fields,help:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__error
 #: model:ir.model.fields,help:ptplus_payroll.field_payroll_statement_wizard_pt__error
 msgid "True if there's an error or warning in the dataport operation"
 msgstr "Verdadeiro se houve um erro ou aviso na operação do dataport"
@@ -6540,8 +7317,14 @@ msgstr "Dois titulares"
 #. module: ptplus_payroll
 #: model:ir.model.fields,field_description:ptplus_payroll.field_dataport_log__type
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_allowance_provision_correction_pt__type
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_wizard_line6__type
 msgid "Type"
 msgstr "Tipo"
+
+#. module: ptplus_payroll
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_dmr_statement_wizard_form
+msgid "Type of Declaration"
+msgstr "Tipo de Declaração"
 
 #. module: ptplus_payroll
 #: model:ir.model.fields,help:ptplus_payroll.field_hr_salary_complement_pt__activity_exception_decoration
@@ -6549,9 +7332,15 @@ msgid "Type of the exception activity on record."
 msgstr "Tipo da atividade de exceção registada."
 
 #. module: ptplus_payroll
-#: model_terms:ir.ui.view,arch_db:ptplus_payroll.report_slip_pt
-msgid "Unit Value"
-msgstr "Valor Unitário"
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__is_under_art_119_1d
+msgid "Under art. 119º nº1-d?"
+msgstr "Ao abrigo do art. 119.º n.º 1-d?"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_wizard_line6__d6_union_dues
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_dmr_statement_wizard_form
+msgid "Union Dues"
+msgstr "Quotizações Sindicais"
 
 #. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.hr_salary_complement_pt_view_form
@@ -6564,6 +7353,17 @@ msgstr ""
 "tipo de entrada)."
 
 #. module: ptplus_payroll
+#: model:ir.model.fields,help:ptplus_payroll.field_aggregate_salary_statement_wizard__representative_user_id
+#: model:ir.model.fields,help:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__representative_user_id
+msgid ""
+"User holding the certified accountant (TOC) credentials used for webservice "
+"submission when the logged-in user is not the accountant."
+msgstr ""
+"Utilizador com as credenciais do contabilista certificado (TOC) usadas na "
+"submissão por webservice quando o utilizador autenticado não é o "
+"contabilista."
+
+#. module: ptplus_payroll
 #: model:hr.salary.rule,name:ptplus_payroll.rule_pt_personal_use_of_a_car
 msgid "Utilização Pessoal de Viatura Automóvel (com incidência de SS)"
 msgstr "Utilização Pessoal de Viatura Automóvel (com incidência de SS)"
@@ -6571,7 +7371,8 @@ msgstr "Utilização Pessoal de Viatura Automóvel (com incidência de SS)"
 #. module: ptplus_payroll
 #: model:hr.payslip.input.type,name:ptplus_payroll.input_pt_personal_use_of_a_car
 msgid "Utilização Pessoal de Viatura Automóvel (com incidência de SS) [valor]"
-msgstr "Utilização Pessoal de Viatura Automóvel (com incidência de SS) [valor]"
+msgstr ""
+"Utilização Pessoal de Viatura Automóvel (com incidência de SS) [valor]"
 
 #. module: ptplus_payroll
 #: model:hr.salary.rule,name:ptplus_payroll.rule_pt_personal_use_of_a_car_without_ss
@@ -6581,10 +7382,12 @@ msgstr "Utilização Pessoal de Viatura Automóvel (sem incidência de SS)"
 #. module: ptplus_payroll
 #: model:hr.payslip.input.type,name:ptplus_payroll.input_pt_personal_use_of_a_car_without_ss
 msgid "Utilização Pessoal de Viatura Automóvel (sem incidência de SS) [valor]"
-msgstr "Utilização Pessoal de Viatura Automóvel (sem incidência de SS) [valor]"
+msgstr ""
+"Utilização Pessoal de Viatura Automóvel (sem incidência de SS) [valor]"
 
 #. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.relatorio_unico_statement_form
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_single_report_statement_wizard_form
 msgid "V. Overtime Work"
 msgstr "V. Trabalho Suplementar"
 
@@ -6594,17 +7397,25 @@ msgid "VAT"
 msgstr "NIF"
 
 #. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__d2_vat_number
+msgid "VAT Number"
+msgstr "NIF"
+
+#. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.relatorio_unico_statement_form
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_single_report_statement_wizard_form
 msgid "VI. Temporary Workers"
 msgstr "VI. Trabalhadores Temporários"
 
 #. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.relatorio_unico_statement_form
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_single_report_statement_wizard_form
 msgid "VII. Workers With Impairments"
 msgstr "VII. Trabalhadores com Deficiência"
 
 #. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.relatorio_unico_statement_form
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_single_report_statement_wizard_form
 msgid "VIII. Employer Economic Data"
 msgstr "VIII. Dados Económicos da Entidade Empregadora"
 
@@ -6616,11 +7427,14 @@ msgstr ""
 "Vacatura posto de trabalho decorra processo recrutamento para preenchimento"
 
 #. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_aggregate_salary_statement_wizard__validate
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__validate
 #: model:ir.model.fields,field_description:ptplus_payroll.field_payroll_statement_wizard_pt__validate
 msgid "Validate"
 msgstr "Validar"
 
 #. module: ptplus_payroll
+#: model:ir.model.fields.selection,name:ptplus_payroll.selection__aggregate_salary_statement_wizard__payslip_state__validated
 #: model:ir.model.fields.selection,name:ptplus_payroll.selection__payroll_statement_wizard_pt__payslip_state__validated
 msgid "Validated"
 msgstr "Validar"
@@ -6658,6 +7472,8 @@ msgid "Value per Km in Public Transport"
 msgstr "Valor por Km em Transportes Públicos"
 
 #. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_aggregate_salary_statement_wizard__values
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__values
 #: model:ir.model.fields,field_description:ptplus_payroll.field_payroll_statement_wizard_pt__values
 msgid "Values"
 msgstr "Valores"
@@ -6669,6 +7485,17 @@ msgstr "Valores"
 #: model:ir.model.fields.selection,name:ptplus_payroll.selection__res_company__l10n_pt_default_holiday_allowance_payment_month__variable
 msgid "Variable"
 msgstr "Variável"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_aggregate_salary_statement_wizard__vat_legal_representative
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__vat_legal_representative
+msgid "Vat Legal Representative"
+msgstr "NIF do Representante Legal"
+
+#. module: ptplus_payroll
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_dmr_statement_wizard_form
+msgid "Vat Number"
+msgstr "NIF"
 
 #. module: ptplus_payroll
 #: model:hr.salary.rule.category,name:ptplus_payroll.BASIC_TRIBUTAVEL
@@ -6691,6 +7518,8 @@ msgid "Visible Payslip Lines"
 msgstr "Linhas de Recibo Visíveis"
 
 #. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_aggregate_salary_statement_wizard__warnings
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__warnings
 #: model:ir.model.fields,field_description:ptplus_payroll.field_payroll_statement_wizard_pt__warnings
 msgid "Warnings"
 msgstr "Avisos"
@@ -6706,26 +7535,30 @@ msgid "Website communication history"
 msgstr "Histórico de comunicação do website"
 
 #. module: ptplus_payroll
+#: model:ir.model.fields,help:ptplus_payroll.field_aggregate_salary_statement_wizard__validate
+#: model:ir.model.fields,help:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__validate
 #: model:ir.model.fields,help:ptplus_payroll.field_payroll_statement_wizard_pt__validate
 msgid ""
-"When enabled the file will undergo a technical inspection (XSD schema) "
-"before being delivered to the user. As it's a very time consuming task, you "
-"may want to disable it when a large file is expected.\n"
+"When enabled the file will undergo a technical inspection (XSD schema) before being delivered to the user. As it's a very time consuming task, you may want to disable it when a large file is expected.\n"
 "Uncheck when you prefer to use an external validator."
 msgstr ""
-"Quando ativado, o arquivo será submetido a uma inspeção técnica (esquema "
-"XSD) antes de ser entregue ao usuário. Como é uma tarefa muito demorada, "
-"você pode querer desativá-lo quando um arquivo grande é esperado.\n"
+"Quando ativado, o arquivo será submetido a uma inspeção técnica (esquema XSD) antes de ser entregue ao usuário. Como é uma tarefa muito demorada, você pode querer desativá-lo quando um arquivo grande é esperado.\n"
 "Desmarque quando preferir usar um validador externo."
 
 #. module: ptplus_payroll
 #: model:ir.model.fields,help:ptplus_payroll.field_hr_payslip__l10n_pt_min_wage_discounted_for_nonresidents
 msgid ""
-"When the employee is a non-resident, no amount is deducted up to the minimum "
-"wage."
+"When the employee is a non-resident, no amount is deducted up to the minimum"
+" wage."
 msgstr ""
 "Quando o funcionário é não residente, nenhum valor é descontado até o "
 "salário mínimo."
+
+#. module: ptplus_payroll
+#. odoo-python
+#: code:addons/ptplus_payroll/models/hr_payslip.py:0
+msgid "Weekly"
+msgstr "Semanal"
 
 #. module: ptplus_payroll
 #: model:ir.model.fields.selection,name:ptplus_payroll.selection__hr_version__l10n_pt_christmas_allowance_payment_method__twelfths_to_100
@@ -6782,7 +7615,8 @@ msgstr ""
 #. module: ptplus_payroll
 #: model:ir.model.fields,field_description:ptplus_payroll.field_payroll_statement_wizard_pt__ru_women_34_disab_80
 msgid "Women Age 18 to 34 with 60% to 80% Disability"
-msgstr "Mulheres Com Idade Entre 18 e 34 anos com Incapacidade Entre 60% e 80%"
+msgstr ""
+"Mulheres Com Idade Entre 18 e 34 anos com Incapacidade Entre 60% e 80%"
 
 #. module: ptplus_payroll
 #: model:ir.model.fields,field_description:ptplus_payroll.field_payroll_statement_wizard_pt__ru_women_34_disab_60
@@ -6797,7 +7631,8 @@ msgstr "Mulheres Com Idade Entre 18 e 34 anos com Incapacidade Superior a 80%"
 #. module: ptplus_payroll
 #: model:ir.model.fields,field_description:ptplus_payroll.field_payroll_statement_wizard_pt__ru_women_44_disab_80
 msgid "Women Age 34 to 44 with 60% to 80% Disability"
-msgstr "Mulheres Com Idade Entre 34 e 44 anos com Incapacidade Entre 60% e 80%"
+msgstr ""
+"Mulheres Com Idade Entre 34 e 44 anos com Incapacidade Entre 60% e 80%"
 
 #. module: ptplus_payroll
 #: model:ir.model.fields,field_description:ptplus_payroll.field_payroll_statement_wizard_pt__ru_women_44_disab_60
@@ -6812,7 +7647,8 @@ msgstr "Mulheres Com Idade Entre 34 e 44 anos com Incapacidade Superior a 80%"
 #. module: ptplus_payroll
 #: model:ir.model.fields,field_description:ptplus_payroll.field_payroll_statement_wizard_pt__ru_women_64_disab_80
 msgid "Women Age 44 to 64 with 60% to 80% Disability"
-msgstr "Mulheres Com Idade Entre 44 e 64 anos com Incapacidade Entre 60% e 80%"
+msgstr ""
+"Mulheres Com Idade Entre 44 e 64 anos com Incapacidade Entre 60% e 80%"
 
 #. module: ptplus_payroll
 #: model:ir.model.fields,field_description:ptplus_payroll.field_payroll_statement_wizard_pt__ru_women_64_disab_60
@@ -6827,7 +7663,8 @@ msgstr "Mulheres Com Idade Entre 44 e 64 anos com Incapacidade Superior a 80%"
 #. module: ptplus_payroll
 #: model:ir.model.fields,field_description:ptplus_payroll.field_payroll_statement_wizard_pt__ru_women_65_disab_80
 msgid "Women Age Above 65 with 60% to 80% Disability"
-msgstr "Mulheres Com Idade Superior a 65 anos com Incapacidade Entre 60% e 80%"
+msgstr ""
+"Mulheres Com Idade Superior a 65 anos com Incapacidade Entre 60% e 80%"
 
 #. module: ptplus_payroll
 #: model:ir.model.fields,field_description:ptplus_payroll.field_payroll_statement_wizard_pt__ru_women_65_disab_60
@@ -6921,11 +7758,6 @@ msgstr ""
 "Incapacidade Superior a 80%"
 
 #. module: ptplus_payroll
-#: model:ir.model,name:ptplus_payroll.model_resource_calendar_attendance
-msgid "Work Detail"
-msgstr "Detalhe de Trabalho"
-
-#. module: ptplus_payroll
 #: model:ir.model.fields,field_description:ptplus_payroll.field_ru_extra_data_employee__work_regime
 msgid "Work Duration Regime"
 msgstr "Regime de Duração do Trabalho"
@@ -6969,14 +7801,20 @@ msgid "Work Shedule Exemption Option"
 msgstr "Opção Isenção do Horário de Trabalho"
 
 #. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_aggregate_salary_statement_wizard__ws_operation
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_dmr_statement_wizard__ws_operation
+msgid "Ws Operation"
+msgstr ""
+
+#. module: ptplus_payroll
 #. odoo-python
 #: code:addons/ptplus_payroll/models/hr_payslip.py:0
 msgid ""
 "You can't make the change because the payslip has an after payslip. Remove "
 "the after payslip first and try again."
 msgstr ""
-"Não pode efetuar a alteração porque o recibo tem um recibo posterior. Remova "
-"primeiro o recibo posterior e tente novamente."
+"Não pode efetuar a alteração porque o recibo tem um recibo posterior. Remova"
+" primeiro o recibo posterior e tente novamente."
 
 #. module: ptplus_payroll
 #. odoo-python
@@ -7017,6 +7855,7 @@ msgstr "dependente/s, auferiu"
 
 #. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.relatorio_unico_statement_form
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.l10n_pt_single_report_statement_wizard_form
 msgid "e.g 1"
 msgstr "p.ex. 1"
 
@@ -7033,29 +7872,9 @@ msgid "id"
 msgstr "id"
 
 #. module: ptplus_payroll
-#: model_terms:ir.ui.view,arch_db:ptplus_payroll.report_slip_pt
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.report_payslip_pt
 msgid "insurance no"
 msgstr "Apólice de Seguro n.º"
-
-#. module: ptplus_payroll
-#: model_terms:ir.ui.view,arch_db:ptplus_payroll.report_slip_pt
-msgid "of"
-msgstr "de"
-
-#. module: ptplus_payroll
-#: model_terms:ir.ui.view,arch_db:ptplus_payroll.report_slip_pt
-msgid "was paid by bank transfer."
-msgstr "foi pago por transferência bancária."
-
-#. module: ptplus_payroll
-#: model_terms:ir.ui.view,arch_db:ptplus_payroll.report_slip_pt
-msgid "was paid by meal Ticket/Card."
-msgstr "foi pago em Ticket/Cartão de refeição."
-
-#. module: ptplus_payroll
-#: model_terms:ir.ui.view,arch_db:ptplus_payroll.report_slip_pt
-msgid "was paid in kind."
-msgstr "foi pago em espécie."
 
 #. module: ptplus_payroll
 #. odoo-python
@@ -7067,3 +7886,88 @@ msgstr "xml"
 #: model:mail.template,subject:ptplus_payroll.email_template_edi_hr_payroll_pt
 msgid "{{ object.employee_id.name }}, um novo recibo está disponível para si"
 msgstr "{{ object.employee_id.name }}, um novo recibo está disponível para si"
+
+#~ msgid "The amount of"
+#~ msgstr "O montante de"
+
+#~ msgid "was paid by bank transfer."
+#~ msgstr "foi pago por transferência bancária."
+
+#~ msgid "was paid by meal Ticket/Card."
+#~ msgstr "foi pago em Ticket/Cartão de refeição."
+
+#~ msgid "was paid in kind."
+#~ msgstr "foi pago em espécie."
+
+#~ msgid "Amount paid by meal Ticket/Card:"
+#~ msgstr "Valor pago em Ticket/Cartão de refeição:"
+
+#~ msgid "Amount paid in kind:"
+#~ msgstr "Valor pago em espécie:"
+
+#~ msgid "<span>Internship Grant</span>"
+#~ msgstr "<span>Bolsa de Estágio</span>"
+
+#~ msgid "<strong>Basic Salary</strong>"
+#~ msgstr "<strong>Vencimento</strong>"
+
+#~ msgid "<strong>Computed on </strong>"
+#~ msgstr "<strong>Calculado em </strong>"
+
+#~ msgid "<strong>Employee</strong>"
+#~ msgstr "<strong>Funcionário</strong>"
+
+#~ msgid "<strong>Hourly wage</strong>"
+#~ msgstr "<strong>Salário Hora</strong>"
+
+#~ msgid "<strong>Insurance</strong>"
+#~ msgstr "<strong>Seguro</strong>"
+
+#~ msgid "<strong>No. Beneficiary</strong>"
+#~ msgstr "<strong>N.º Beneficiário da SS</strong>"
+
+#~ msgid "<strong>No. Employee</strong>"
+#~ msgstr "<strong>Nº Mecanográfico</strong>"
+
+#~ msgid "<strong>No. Identification</strong>"
+#~ msgstr "<strong>N.º de Identificação Fiscal</strong>"
+
+#~ msgid "<strong>Pay Period</strong>"
+#~ msgstr "<strong>Período de Pagamento</strong>"
+
+#~ msgid "<strong>Profession</strong>"
+#~ msgstr "<strong>Profissão</strong>"
+
+#~ msgid "<strong>Professional Category</strong>"
+#~ msgstr "<strong>Categoria Profissional</strong>"
+
+#~ msgid "<strong>Working Schedule</strong>"
+#~ msgstr "<strong>Horário de Trabalho</strong>"
+
+#~ msgid "Amount to be paid to"
+#~ msgstr "Montante a pagar a"
+
+#~ msgid "Assiduidade"
+#~ msgstr "Assiduidade"
+
+#~ msgid "Quantity"
+#~ msgstr "Quantidade"
+
+#~ msgid ""
+#~ "The net amount will be recovered from the first positive remuneration "
+#~ "established after this."
+#~ msgstr ""
+#~ "O montante líquido será recuperado da primeira remuneração positiva "
+#~ "estabelecida após este."
+
+#~ msgid "To pay on"
+#~ msgstr "<br/>Para pagar em"
+
+#~ msgid "Unit Value"
+#~ msgstr "Valor Unitário"
+
+#~ msgid "Work Detail"
+#~ msgstr "Detalhe de Trabalho"
+
+#~ msgid "of"
+#~ msgstr "de"
