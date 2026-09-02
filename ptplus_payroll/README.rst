@@ -19,6 +19,37 @@ Configuration
 Changelog
 =========
 
+9.8.0 (2026-09-02)
+~~~~~~~~~~~~~~~~~~
+**Improvement**
+
+- Salary complements can now be searched by description and company, and
+  filtered and grouped by status, employee, input type and whether they
+  are an attachment. The list opens on the running ones.
+
+**Bugfixes**
+
+- Absences are now recognised by being a Time Off type, instead of by
+  having "FALTA" in their code. An absence type created directly on a
+  database, without following that naming convention, used to be counted
+  as a worked day - it now counts as an absence everywhere it should: in
+  the meal allowance, in the proportional allowances and in the previous
+  month's hourly wage.
+- Choosing a meal allowance payment method on an employee of a non-PT
+  company no longer overwrites the amount with a Portuguese default.
+
+9.7.0 (2026-08-27)
+~~~~~~~~~~~~~~~~~~
+**Features**
+
+- Payslip batches now have a "Regenerate Entry" button. If the accounting
+  entry generated for a batch turns out wrong - for example, a contract's
+  cost center was fixed after the batch was already confirmed - this
+  rebuilds the entry from the batch's current payslips without needing to
+  reopen or redo the payslips themselves. If the entry was already posted,
+  it is reset to draft first, kept in draft for review, and can be posted
+  again once checked.
+
 9.6.0 (2026-08-21)
 ~~~~~~~~~~~~~~~~~~
 **Bugfixes**

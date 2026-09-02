@@ -57,7 +57,7 @@
         id="l10n_pt_annual_accumulated_wizard_menu"
         name="Annual Accumulated per Employee"
         parent="payroll_menu_report_pt"
-        sequence="27"
+        sequence="60"
         groups="ptplus.group_experimental_features_pt"
         action="l10n_pt_annual_accumulated_wizard_action"
     />

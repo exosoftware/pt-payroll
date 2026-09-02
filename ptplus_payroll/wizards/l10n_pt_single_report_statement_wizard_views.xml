@@ -560,7 +560,7 @@
         id="l10n_pt_single_report_statement_wizard_menu"
         name="Single Report"
         parent="payroll_menu_report_pt"
-        sequence="25"
+        sequence="80"
         groups="ptplus.group_experimental_features_pt"
         action="l10n_pt_single_report_statement_wizard_action"
     />

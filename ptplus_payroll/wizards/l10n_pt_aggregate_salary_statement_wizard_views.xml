@@ -78,7 +78,7 @@
         id="l10n_pt_aggregate_salary_statement_wizard_menu"
         name="Aggregate Salary Statement"
         parent="payroll_menu_report_pt"
-        sequence="26"
+        sequence="50"
         groups="ptplus.group_experimental_features_pt"
         action="l10n_pt_aggregate_salary_statement_wizard_action"
     />

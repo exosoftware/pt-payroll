@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="hr_payslip_run_view_kanban_pt" model="ir.ui.view">
+        <field name="name">hr.payslip.run.kanban.pt</field>
+        <field name="model">hr.payslip.run</field>
+        <field name="inherit_id" ref="hr_payroll_account.hr_payslip_run_view_kanban" />
+        <field name="arch" type="xml">
+            <button name="action_draft" position="before">
+                <button
+                    name="action_regenerate_move"
+                    type="object"
+                    class="btn btn-secondary"
+                    string="Regenerate Entry"
+                    invisible="country_code != 'PT' or (state != '02_close' and not move_id)"
+                    confirm="This (re)builds the batch's journal entry from its validated payslips, resetting an existing entry to draft first if it was posted. The payslips themselves stay validated. Continue?"
+                />
+            </button>
+        </field>
+    </record>
+</odoo>

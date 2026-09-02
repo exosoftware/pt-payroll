@@ -7,11 +7,21 @@
         <field name="type">form</field>
         <field name="arch" type="xml">
             <group name="main_left" position="inside">
-                <field name="l10n_pt_insurance" readonly="state != 'select'" />
+                <field name="statement_type" invisible="True" />
+                <field
+                    name="l10n_pt_insurance"
+                    readonly="state != 'select'"
+                    invisible="statement_type != 'holiday_sheets'"
+                    required="statement_type == 'holiday_sheets'"
+                />
             </group>
             <notebook name="main_block" position="inside">
                 <page name="lines" string="Lines">
-                    <field name="line_ids" nolabel="1">
+                    <field
+                        name="line_ids"
+                        nolabel="1"
+                        invisible="statement_type != 'holiday_sheets'"
+                    >
                         <list>
                             <field name="currency_id" column_invisible="1" />
                             <field name="record_type" />
@@ -42,6 +52,28 @@
                             <field name="record_count" optional="hide" />
                         </list>
                     </field>
+                    <field
+                        name="line_ids"
+                        nolabel="1"
+                        invisible="statement_type != 'dri'"
+                    >
+                        <list>
+                            <field name="raw_line" optional="show" />
+                            <field name="social_security_number" optional="show" />
+                            <field name="employee_id" optional="show" />
+                            <field name="birth_date" optional="show" />
+                            <field name="reference_month" optional="show" />
+                            <field name="worked_days" sum="Total" optional="show" />
+                            <field name="remuneration_code" optional="show" />
+                            <field name="tax_rate" optional="hide" />
+                            <field name="amount" sum="Total" optional="show" />
+                            <field
+                                name="total_contributions"
+                                sum="Total"
+                                optional="hide"
+                            />
+                        </list>
+                    </field>
                 </page>
             </notebook>
         </field>
@@ -53,14 +85,33 @@
         <field name="view_mode">form</field>
         <field name="view_id" ref="l10n_pt_holiday_sheets_wizard_form" />
         <field name="target">new</field>
+        <field name="context">{'default_statement_type': 'holiday_sheets'}</field>
     </record>
 
     <menuitem
         id="l10n_pt_holiday_sheets_wizard_menu"
         name="Holiday Sheets"
         parent="payroll_menu_report_pt"
-        sequence="28"
+        sequence="40"
         groups="ptplus.group_experimental_features_pt"
         action="l10n_pt_holiday_sheets_wizard_action"
+    />
+
+    <record id="l10n_pt_dri_wizard_action" model="ir.actions.act_window">
+        <field name="name">DRI</field>
+        <field name="res_model">l10n_pt.holiday.sheets.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="l10n_pt_holiday_sheets_wizard_form" />
+        <field name="target">new</field>
+        <field name="context">{'default_statement_type': 'dri'}</field>
+    </record>
+
+    <menuitem
+        id="l10n_pt_dri_wizard_menu"
+        name="DRI"
+        parent="payroll_menu_report_pt"
+        sequence="30"
+        groups="ptplus.group_experimental_features_pt"
+        action="l10n_pt_dri_wizard_action"
     />
 </odoo>

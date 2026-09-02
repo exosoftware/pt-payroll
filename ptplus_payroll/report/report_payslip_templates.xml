@@ -8,6 +8,10 @@
             <!-- Normalize line sets -->
             <t t-set="lines" t-value="o.line_ids" />
             <t t-set="prev_lines" t-value="o.l10n_pt_previous_payslip_id.line_ids" />
+            <!-- Each block below is preceded by a line break, so the flag
+                 keeps the first block that actually renders from opening
+                 the details with an empty line. -->
+            <t t-set="pt_irs_detail_printed" t-value="False" />
 
             <!-- ========= BASIC SALARY ========= -->
             <t
@@ -57,6 +61,7 @@
                         t-out="round(abs(basic_tax_retained / basic_taxable_gross * 100), 2) if basic_taxable_gross else 0"
                     /> %)
                 </span>
+                <t t-set="pt_irs_detail_printed" t-value="True" />
             </t>
 
             <!-- ========= EXTRA HOURS ========= -->
@@ -91,7 +96,7 @@
             />
 
             <t t-if="overtime_taxable">
-                <br />
+                <br t-if="pt_irs_detail_printed" />
                 <span>
                     Extra Hours: (Incidence:
                     <span
@@ -103,6 +108,7 @@
                         t-out="round(abs(overtime_tax_retained / overtime_taxable * 100), 2) if overtime_taxable else 0"
                     /> %)
                 </span>
+                <t t-set="pt_irs_detail_printed" t-value="True" />
             </t>
 
             <!-- ========= HOLIDAY ALLOWANCE ========= -->
@@ -122,7 +128,7 @@
             />
 
             <t t-if="holiday_taxable">
-                <br />
+                <br t-if="pt_irs_detail_printed" />
                 <span>
                     Holiday Allowance: (Incidence:
                     <span
@@ -134,6 +140,7 @@
                         t-out="round(abs(holiday_tax_retained / holiday_taxable * 100), 2)"
                     /> %)
                 </span>
+                <t t-set="pt_irs_detail_printed" t-value="True" />
             </t>
 
             <!-- ========= CHRISTMAS ALLOWANCE ========= -->
@@ -153,7 +160,7 @@
             />
 
             <t t-if="christmas_taxable">
-                <br />
+                <br t-if="pt_irs_detail_printed" />
                 <span>
                     Christmas Allowance: (Incidence:
                     <span
@@ -165,6 +172,7 @@
                         t-out="round(abs(christmas_tax_retained / christmas_taxable * 100), 2)"
                     /> %)
                 </span>
+                <t t-set="pt_irs_detail_printed" t-value="True" />
             </t>
 
             <!-- ========= GLOBAL BASIC SALARY ========= -->
@@ -179,7 +187,7 @@
             />
 
             <t t-if="global_basic_taxable and o.l10n_pt_previous_payslip_id">
-                <br />
+                <br t-if="pt_irs_detail_printed" />
                 <span>
                     Global Basic Salary and Other Income: (Incidence:
                     <span
@@ -191,6 +199,7 @@
                         t-out="round(abs(global_basic_tax_retained / global_basic_taxable * 100), 2) if global_basic_taxable else 0"
                     /> %)
                 </span>
+                <t t-set="pt_irs_detail_printed" t-value="True" />
             </t>
 
             <!-- ========= GLOBAL EXTRA HOURS ========= -->
@@ -207,7 +216,7 @@
             />
 
             <t t-if="global_overtime_taxable and o.l10n_pt_previous_payslip_id">
-                <br />
+                <br t-if="pt_irs_detail_printed" />
                 <span>
                     Global Extra Hours: (Incidence:
                     <span
@@ -219,12 +228,13 @@
                         t-out="round(abs(global_overtime_tax_retained / global_overtime_taxable * 100), 2) if global_overtime_taxable else 0"
                     /> %)
                 </span>
+                <t t-set="pt_irs_detail_printed" t-value="True" />
             </t>
 
             <!-- ========= IRS DIFFERENTIAL ========= -->
             <t t-set="total_irs_last_slip" t-value="o.get_total_irs_last_slip(o)" />
             <t t-if="total_irs_last_slip">
-                <br />
+                <br t-if="pt_irs_detail_printed" />
                 <!-- The cumulative total already includes what was retained on
                      the previous slip(s), so this slip's own differential is
                      the cumulative total MINUS that previous amount, not a sum
@@ -253,6 +263,18 @@
              overlaps it. -->
         <xpath expr="//h2[@id='payslip_name']" position="attributes">
             <attribute name="style">margin-top: 0.5cm;</attribute>
+        </xpath>
+        <!-- The title just says "Payslip", not the full record name
+             (structure - employee - period). Sourced from a Python-side
+             translated string (pt_get_report_title) rather than static QWeb
+             text: a static replacement of this particular (originally
+             t-field-bound) span was not picked up by the arch_db pt_PT
+             translation. -->
+        <xpath expr="//h2[@id='payslip_name']/span" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </xpath>
+        <xpath expr="//h2[@id='payslip_name']/span" position="after">
+            <span t-out="o.pt_get_report_title()" />
         </xpath>
         <xpath expr="//div[@id='employee_name']/span" position="attributes">
             <attribute name="t-field" />
@@ -323,23 +345,13 @@
         <xpath expr="//div[@id='contract_type']" position="attributes">
             <attribute name="t-if">False</attribute>
         </xpath>
-        <!-- t-out on a selection field prints its raw technical value
-             ("monthly"), not a translated label. hr_payroll's own labels
-             ("month", "week", ...) have no Portuguese translation upstream
-             either (hr_payroll/i18n/pt.po ships them with an empty msgstr),
-             so pt_get_wage_period_label() supplies our own PT-translatable
-             text instead of relying on the native field's label. -->
-        <xpath
-            expr="//div[@id='wage']/strong/span[@class='text-capitalize']"
-            position="attributes"
-        >
+        <!-- Show only "Base Wage", without the payment-frequency
+             parenthetical hr_payroll shows next to it. -->
+        <xpath expr="//div[@id='wage']/strong" position="attributes">
             <attribute name="t-if">False</attribute>
         </xpath>
-        <xpath
-            expr="//div[@id='wage']/strong/span[@class='text-capitalize']"
-            position="after"
-        >
-            <span class="text-capitalize" t-out="o.pt_get_wage_period_label()" />
+        <xpath expr="//div[@id='wage']/strong" position="after">
+            <strong class="me-2">Base Wage:</strong>
         </xpath>
         <div id="wage" position="after">
             <div id="hourly_wage">
@@ -350,6 +362,21 @@
                 />
             </div>
         </div>
+        <!-- Show the number of weekly hours directly, without the redundant
+             "Hours / Week" unit and the schedule label. -->
+        <xpath expr="//div[@id='working_schedule']" position="attributes">
+            <attribute name="t-if">False</attribute>
+        </xpath>
+        <xpath expr="//div[@id='working_schedule']" position="after">
+            <div id="pt_working_schedule">
+                <strong class="me-2">No. of Weekly Hours:</strong>
+                <span
+                    t-if="o.version_id.resource_calendar_id.flexible_hours"
+                    t-field="o.version_id.resource_calendar_id.full_time_required_hours"
+                />
+                <span t-else="" t-field="o.version_id.hours_per_week" />
+            </div>
+        </xpath>
         <!-- The PT pay period follows the slip's reference month (subsidy and
              termination slips), not date_from/date_to. -->
         <xpath expr="//div[@id='pay_period']" position="attributes">
@@ -394,7 +421,7 @@
             />
             <t
                 t-set="pt_line_name_override"
-                t-value="bool(description_on_payslip) or line.code == 'SS' or (line.code == 'BASIC' and o.employee_id.l10n_pt_intern)"
+                t-value="bool(description_on_payslip) or (line.code == 'BASIC' and o.employee_id.l10n_pt_intern)"
             />
             <span t-if="pt_line_name_override" class="d-block">
                 <t t-if="line.code == 'BASIC' and o.employee_id.l10n_pt_intern">
@@ -402,17 +429,16 @@
                 </t>
                 <t t-elif="description_on_payslip" t-out="description_on_payslip" />
                 <span t-else="" t-field="line.name" />
-                <t t-if="line.code == 'SS'">
-                    (<span
-                        t-field="o.employee_id.l10n_pt_employee_type_id.employee_tax_rate"
-                    />%)
-                </t>
             </span>
         </xpath>
         <!-- The rate column is narrow, so "11.0 %" can wrap between the
-             number and the "%" sign. -->
+             number and the "%" sign. The SS rule stores a negative rate
+             (it's a deduction), but the payslip should show it as positive. -->
         <xpath expr="//td[@id='payslip_line_rate']/span" position="attributes">
             <attribute name="class">text-nowrap</attribute>
+            <attribute
+                name="t-out"
+            >str(round(abs(line.rate) if line.code == 'SS' else line.rate, 2)) + ' %'</attribute>
         </xpath>
         <!-- Absence/holiday lines show the number of days instead of the
              computed quantity, and no unit amount. -->

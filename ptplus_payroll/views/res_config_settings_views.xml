@@ -16,8 +16,8 @@
                     invisible="country_code != 'PT'"
                 >
                     <setting
-                        string="Default Values"
-                        help="Configure Default Values for Employee Contract"
+                        string="Meal Allowance"
+                        help="Default meal allowance values for new employee contracts"
                         company_dependent="1"
                     >
                         <div class="content-group">
@@ -66,17 +66,6 @@
                             </div>
                             <div class="row mt16">
                                 <label
-                                    string="Meal Allowance Amount Paid in Kind"
-                                    for="l10n_pt_default_hours_to_count_for_daily_meal"
-                                    class="col-lg-6 o_light_label"
-                                />
-                                <field
-                                    name="l10n_pt_default_hours_to_count_for_daily_meal"
-                                    widget="monetary"
-                                />
-                            </div>
-                            <div class="row mt16">
-                                <label
                                     string="Hours to Count for Daily Meal"
                                     for="l10n_pt_default_hours_to_count_for_daily_meal"
                                     class="col-lg-6 o_light_label"
@@ -85,16 +74,14 @@
                                     name="l10n_pt_default_hours_to_count_for_daily_meal"
                                 />
                             </div>
-                            <div class="row mt16">
-                                <label
-                                    string="Holiday Allowance Payment Method"
-                                    for="l10n_pt_default_holiday_allowance_payment_method"
-                                    class="col-lg-6 o_light_label"
-                                />
-                                <field
-                                    name="l10n_pt_default_holiday_allowance_payment_method"
-                                />
-                            </div>
+                        </div>
+                    </setting>
+                    <setting
+                        string="Holiday and Christmas Allowances"
+                        help="Default holiday and Christmas allowance values for new employee contracts"
+                        company_dependent="1"
+                    >
+                        <div class="content-group">
                             <div class="row mt16">
                                 <label
                                     string="Holiday Allowance Payment Method"
@@ -135,6 +122,14 @@
                                     name="l10n_pt_default_christmas_allowance_payment_month"
                                 />
                             </div>
+                        </div>
+                    </setting>
+                    <setting
+                        string="Overtime"
+                        help="Default overtime rates paid in cash, up to the 100th hour of the civil year"
+                        company_dependent="1"
+                    >
+                        <div class="content-group">
                             <div class="row mt16">
                                 <label
                                     string="Overtime First Hour Rate"
@@ -212,6 +207,184 @@
                                     widget="percentage"
                                 />
                             </div>
+                        </div>
+                    </setting>
+                    <setting
+                        string="Overtime From the 100th Hour"
+                        help="Default overtime rates from the 100th hour of the civil year onwards"
+                        company_dependent="1"
+                    >
+                        <div class="content-group">
+                            <div class="row mt16">
+                                <label
+                                    string="Overtime First Hour Rate From 100º Hour"
+                                    for="l10n_pt_default_overtime_first_hour_rate_100"
+                                    class="col-lg-6 o_light_label"
+                                />
+                                <field
+                                    name="l10n_pt_default_overtime_first_hour_rate_100"
+                                    widget="percentage"
+                                />
+                            </div>
+                            <div class="row mt16">
+                                <label
+                                    string="Overtime Remaining Hours Rate From 100º Hour"
+                                    for="l10n_pt_default_overtime_remaining_hours_rate_100"
+                                    class="col-lg-6 o_light_label"
+                                />
+                                <field
+                                    name="l10n_pt_default_overtime_remaining_hours_rate_100"
+                                    widget="percentage"
+                                />
+                            </div>
+                            <div class="row mt16">
+                                <label
+                                    string="Overtime Rest Days Rate From 100º Hour"
+                                    for="l10n_pt_default_overtime_rest_days_rate_100"
+                                    class="col-lg-6 o_light_label"
+                                />
+                                <field
+                                    name="l10n_pt_default_overtime_rest_days_rate_100"
+                                    widget="percentage"
+                                />
+                            </div>
+                            <div class="row mt16">
+                                <label
+                                    string="Overtime Workdays Rate From 100º Hour"
+                                    for="l10n_pt_default_overtime_workdays_rate_100"
+                                    class="col-lg-6 o_light_label"
+                                />
+                                <field
+                                    name="l10n_pt_default_overtime_workdays_rate_100"
+                                    widget="percentage"
+                                />
+                            </div>
+                            <div class="row mt16">
+                                <label
+                                    string="Overtime Holidays Rate From 100º Hour"
+                                    for="l10n_pt_default_overtime_holidays_rate_100"
+                                    class="col-lg-6 o_light_label"
+                                />
+                                <field
+                                    name="l10n_pt_default_overtime_holidays_rate_100"
+                                    widget="percentage"
+                                />
+                            </div>
+                            <div class="row mt16">
+                                <label
+                                    string="Overtime Saturday and Holidays Rate From 100º Hour"
+                                    for="l10n_pt_default_overtime_saturday_and_holidays_rate_100"
+                                    class="col-lg-6 o_light_label"
+                                />
+                                <field
+                                    name="l10n_pt_default_overtime_saturday_and_holidays_rate_100"
+                                    widget="percentage"
+                                />
+                            </div>
+                            <div class="row mt16">
+                                <label
+                                    string="Overtime Sunday Rate From 100º Hour"
+                                    for="l10n_pt_default_overtime_sunday_rate_100"
+                                    class="col-lg-6 o_light_label"
+                                />
+                                <field
+                                    name="l10n_pt_default_overtime_sunday_rate_100"
+                                    widget="percentage"
+                                />
+                            </div>
+                        </div>
+                    </setting>
+                    <setting
+                        string="Overtime - Conversion to Banco de Horas"
+                        help="Default rates converting overtime worked into Banco de Horas hours, independent from the cash-payment rates above"
+                        company_dependent="1"
+                    >
+                        <div class="content-group">
+                            <div class="row mt16">
+                                <label
+                                    string="Overtime First Hour Bank Rate"
+                                    for="l10n_pt_default_overtime_first_hour_bank_rate"
+                                    class="col-lg-6 o_light_label"
+                                />
+                                <field
+                                    name="l10n_pt_default_overtime_first_hour_bank_rate"
+                                    widget="percentage"
+                                />
+                            </div>
+                            <div class="row mt16">
+                                <label
+                                    string="Overtime Remaining Hours Bank Rate"
+                                    for="l10n_pt_default_overtime_remaining_hours_bank_rate"
+                                    class="col-lg-6 o_light_label"
+                                />
+                                <field
+                                    name="l10n_pt_default_overtime_remaining_hours_bank_rate"
+                                    widget="percentage"
+                                />
+                            </div>
+                            <div class="row mt16">
+                                <label
+                                    string="Overtime Rest Days Bank Rate"
+                                    for="l10n_pt_default_overtime_rest_days_bank_rate"
+                                    class="col-lg-6 o_light_label"
+                                />
+                                <field
+                                    name="l10n_pt_default_overtime_rest_days_bank_rate"
+                                    widget="percentage"
+                                />
+                            </div>
+                            <div class="row mt16">
+                                <label
+                                    string="Overtime Workdays Bank Rate"
+                                    for="l10n_pt_default_overtime_workdays_bank_rate"
+                                    class="col-lg-6 o_light_label"
+                                />
+                                <field
+                                    name="l10n_pt_default_overtime_workdays_bank_rate"
+                                    widget="percentage"
+                                />
+                            </div>
+                            <div class="row mt16">
+                                <label
+                                    string="Overtime Holidays Bank Rate"
+                                    for="l10n_pt_default_overtime_holidays_bank_rate"
+                                    class="col-lg-6 o_light_label"
+                                />
+                                <field
+                                    name="l10n_pt_default_overtime_holidays_bank_rate"
+                                    widget="percentage"
+                                />
+                            </div>
+                            <div class="row mt16">
+                                <label
+                                    string="Overtime Saturday and Holidays Bank Rate"
+                                    for="l10n_pt_default_overtime_saturday_and_holidays_bank_rate"
+                                    class="col-lg-6 o_light_label"
+                                />
+                                <field
+                                    name="l10n_pt_default_overtime_saturday_and_holidays_bank_rate"
+                                    widget="percentage"
+                                />
+                            </div>
+                            <div class="row mt16">
+                                <label
+                                    string="Overtime Sunday Bank Rate"
+                                    for="l10n_pt_default_overtime_sunday_bank_rate"
+                                    class="col-lg-6 o_light_label"
+                                />
+                                <field
+                                    name="l10n_pt_default_overtime_sunday_bank_rate"
+                                    widget="percentage"
+                                />
+                            </div>
+                        </div>
+                    </setting>
+                    <setting
+                        string="Night Overtime"
+                        help="Default rates for overtime worked at night"
+                        company_dependent="1"
+                    >
+                        <div class="content-group">
                             <div class="row mt16">
                                 <label
                                     string="Night Overtime First Hour Rate"
@@ -289,6 +462,14 @@
                                     widget="percentage"
                                 />
                             </div>
+                        </div>
+                    </setting>
+                    <setting
+                        string="Other Default Values"
+                        help="Night work, travel and remote-work default values for new employee contracts"
+                        company_dependent="1"
+                    >
+                        <div class="content-group">
                             <div class="row mt16">
                                 <label
                                     string="Night Work Rate"
@@ -344,7 +525,6 @@
                                     widget="monetary"
                                 />
                             </div>
-                            <!--Work Expense-->
                             <div class="row mt16">
                                 <label
                                     string="Remote Work Expense Electricity"
