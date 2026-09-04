@@ -16,8 +16,51 @@ Just do it
 Configuration
 =============
 
+Salary rules declared in the previous month (DRI)
+-------------------------------------------------
+
+Some amounts are paid on one month's payslip but belong to the previous
+month's remuneration: overtime, remuneration arrears, or a benefit the
+employee only used after the payslip of the month it relates to. In the DRI
+these must be declared under the previous month.
+
+To have a salary rule declared that way, **end its code in ``_MES_ANT``** (for
+example ``COVERFLEX_MES_ANT``). The rule is then declared under the month
+before the one being reported, with the same income code it would otherwise
+have - being paid later does not change the nature of the remuneration, so
+keep the "DRI Code Subject" of the original rule.
+
+The usual way to set one up is to duplicate the rule that already pays the
+amount, add "(mês anterior)" to its name so it can be told apart on the
+payslip, and give the copy a code ending in ``_MES_ANT``.
+
+Two things to keep in mind:
+
+- Only the ending counts: ``COVERFLEX_MES_ANT`` works, ``COVERFLEX_MES_ANT_2``
+  does not.
+- Do not put ``SUBS_REF`` in the code of such a rule. Codes containing it are
+  treated as a meal allowance and split between the exempt and the subject
+  amount, which takes precedence over the previous month.
+
+The overtime rules named "(Mês Anterior)" and "Acertos de Remunerações ou
+Retroativos" are already declared under the previous month and need no
+change.
+
 Changelog
 =========
+
+9.9.0 (2026-09-04)
+~~~~~~~~~~~~~~~~~~
+**Features**
+
+- Salary rules can now be declared in the DRI under the previous month by
+  ending their code in ``_MES_ANT``. Until now only the overtime rules named
+  "(Mês Anterior)" and "Acertos de Remunerações ou Retroativos" were declared
+  that way, and adding another one meant asking for a change to the module.
+  New ones can now be created directly on the database - by duplicating the
+  rule that pays the amount and giving the copy a code ending in ``_MES_ANT``
+  - which covers amounts an employee only receives after the month they relate
+  to. See the Configuration section.
 
 9.8.0 (2026-09-02)
 ~~~~~~~~~~~~~~~~~~
