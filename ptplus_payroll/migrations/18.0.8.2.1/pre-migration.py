@@ -24,11 +24,13 @@ def migrate(env, version):
     _logger.info("Temporary column added.")
 
     # Select id and JSON field from all hr_employee records with non-null professional category
-    env.cr.execute("""
+    env.cr.execute(
+        """
         SELECT id, l10n_pt_professional_category, company_id
         FROM hr_employee
         WHERE l10n_pt_professional_category IS NOT NULL
-    """)
+    """
+    )
     rows = env.cr.fetchall()
 
     for emp_id, prof_cat_json, company_id in rows:
@@ -44,14 +46,22 @@ def migrate(env, version):
                 value_to_set = next(iter(prof_cat_json.values()))
 
         if value_to_set:
-            env.cr.execute("""
+            env.cr.execute(
+                """
                 UPDATE hr_employee
                 SET l10n_pt_professional_category_tmp = %s
                 WHERE id = %s
-            """, (int(value_to_set), emp_id))
+            """,
+                (int(value_to_set), emp_id),
+            )
 
-    _logger.info("Clearing 'l10n_pt_professional_category' field on hr.employee to avoid post-migration errors...")
-    env.cr.execute("""
+    _logger.info(
+        "Clearing 'l10n_pt_professional_category' field on hr.employee to avoid "
+        "post-migration errors..."
+    )
+    env.cr.execute(
+        """
         UPDATE hr_employee SET l10n_pt_professional_category = NULL;
-    """)
+    """
+    )
     _logger.info("'l10n_pt_professional_category' field cleared.")

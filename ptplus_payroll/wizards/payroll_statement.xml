@@ -6,9 +6,14 @@
         <field name="type">form</field>
         <field name="inherit_id" ref="ptplus.dataport_export_form" />
         <field name="arch" type="xml">
-            <field name="company_id" position="after">
+            <xpath
+                expr="//group[@id='main_export_group']//field[@name='company_id']"
+                position="after"
+            >
                 <field name="export_csv_button" invisible="1" />
                 <field name="export_xls_button" invisible="1" />
+                <field name="send_pdf_email_button" invisible="1" />
+                <field name="is_documents_payroll_installed" invisible="1" />
                 <!--DMR fields-->
                 <field name="statement_type" />
                 <field
@@ -46,6 +51,10 @@
                     invisible="statement_type not in ['payroll.income_stmt', 'payroll.annual_accumulated']"
                     widget="many2many_tags"
                 />
+                <field
+                    name="save_to_documents"
+                    invisible="not is_documents_payroll_installed or statement_type != 'payroll.income_stmt'"
+                />
                 <!--Single Report-->
                 <field
                     name="single_report_type"
@@ -56,7 +65,7 @@
                     invisible="statement_type != 'payroll.aggregate_salary_statement'"
                 />
 
-            </field>
+            </xpath>
             <button name="export_txt" position="after">
                 <button
                     name="export_ass_xls"
@@ -72,7 +81,29 @@
                     string="Export CSV"
                     invisible="export_csv_button == False"
                 />
+                <button
+                    name="send_pdf_email"
+                    type="object"
+                    class="oe_highlight"
+                    string="Send PDF E-mail"
+                    invisible="not send_pdf_email_button"
+                />
             </button>
         </field>
     </record>
+
+    <record id="action_wizard_payroll_statement" model="ir.actions.act_window">
+        <field name="name">Payroll Statements</field>
+        <field name="res_model">payroll.statement.wizard.pt</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="wizard_payroll_statement_form" />
+        <field name="target">new</field>
+    </record>
+
+    <menuitem
+        id="wizard_payroll_statement_menu"
+        parent="payroll_menu_report_pt"
+        groups="hr_payroll.group_hr_payroll_user"
+        action="action_wizard_payroll_statement"
+    />
 </odoo>

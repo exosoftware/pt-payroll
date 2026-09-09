@@ -58,14 +58,17 @@
                         name="l10n_pt_holiday_allowance_payment_month"
                         string="Payment Month"
                     />
-                    <field
+                        <field
                         name="l10n_pt_holiday_allowance_independent_receipt"
                         string="Independent Receipt"
-                        invisible="1"
+                        invisible="not l10n_pt_holiday_allowance_payment_method or l10n_pt_holiday_allowance_payment_method == 'twelfths_to_100'"
                     />
-                </group>
-                <group string="Christmas Allowance" invisible="country_code != 'PT'">
-                    <field
+                    </group>
+                    <group
+                    string="Christmas Allowance"
+                    invisible="country_code != 'PT'"
+                >
+                        <field
                         name="l10n_pt_christmas_allowance_payment_method"
                         string="Payment Method"
                     />
@@ -73,14 +76,14 @@
                         name="l10n_pt_christmas_allowance_payment_month"
                         string="Payment Month"
                     />
-                    <field
+                        <field
                         name="l10n_pt_christmas_allowance_independent_receipt"
                         string="Independent Receipt"
-                        invisible="1"
+                        invisible="not l10n_pt_christmas_allowance_payment_method or l10n_pt_christmas_allowance_payment_method == 'twelfths_to_100'"
                     />
-                </group>
-                <group string="Overtime Work" invisible="country_code != 'PT'">
-                    <field
+                    </group>
+                    <group string="Overtime Work" invisible="country_code != 'PT'">
+                        <field
                         name="l10n_pt_overtime_first_hour_rate"
                         string="Overtime First Hour"
                         widget="percentage"
