@@ -34,6 +34,10 @@
             <!-- Normalize line sets -->
             <t t-set="lines" t-value="o.line_ids" />
             <t t-set="prev_lines" t-value="o.l10n_pt_previous_payslip_id.line_ids" />
+            <!-- Each block below is preceded by a line break, so the flag
+                 keeps the first block that actually renders from opening
+                 the details with an empty line. -->
+            <t t-set="pt_irs_detail_printed" t-value="False" />
 
             <!-- ========= BASIC SALARY ========= -->
             <t
@@ -83,6 +87,7 @@
                             t-out="round(abs(basic_tax_retained / basic_taxable_gross * 100), 2) if basic_taxable_gross else 0"
                         /> %)
                 </span>
+                <t t-set="pt_irs_detail_printed" t-value="True" />
             </t>
 
             <!-- ========= EXTRA HOURS ========= -->
@@ -117,7 +122,7 @@
                 />
 
             <t t-if="overtime_taxable">
-                <br />
+                <br t-if="pt_irs_detail_printed" />
                 <span>
                     Extra Hours: (Incidence:
                     <span
@@ -129,6 +134,7 @@
                             t-out="round(abs(overtime_tax_retained / overtime_taxable * 100), 2) if overtime_taxable else 0"
                         /> %)
                 </span>
+                <t t-set="pt_irs_detail_printed" t-value="True" />
             </t>
 
             <!-- ========= HOLIDAY ALLOWANCE ========= -->
@@ -148,7 +154,7 @@
                 />
 
             <t t-if="holiday_taxable">
-                <br />
+                <br t-if="pt_irs_detail_printed" />
                 <span>
                     Holiday Allowance: (Incidence:
                     <span
@@ -160,6 +166,7 @@
                             t-out="round(abs(holiday_tax_retained / holiday_taxable * 100), 2)"
                         /> %)
                 </span>
+                <t t-set="pt_irs_detail_printed" t-value="True" />
             </t>
 
             <!-- ========= CHRISTMAS ALLOWANCE ========= -->
@@ -179,7 +186,7 @@
                 />
 
             <t t-if="christmas_taxable">
-                <br />
+                <br t-if="pt_irs_detail_printed" />
                 <span>
                     Christmas Allowance: (Incidence:
                     <span
@@ -191,6 +198,7 @@
                             t-out="round(abs(christmas_tax_retained / christmas_taxable * 100), 2)"
                         /> %)
                 </span>
+                <t t-set="pt_irs_detail_printed" t-value="True" />
             </t>
 
             <!-- ========= GLOBAL BASIC SALARY ========= -->
@@ -205,7 +213,7 @@
                 />
 
             <t t-if="global_basic_taxable and o.l10n_pt_previous_payslip_id">
-                <br />
+                <br t-if="pt_irs_detail_printed" />
                 <span>
                     Global Basic Salary and Other Income: (Incidence:
                     <span
@@ -217,6 +225,7 @@
                             t-out="round(abs(global_basic_tax_retained / global_basic_taxable * 100), 2) if global_basic_taxable else 0"
                         /> %)
                 </span>
+                <t t-set="pt_irs_detail_printed" t-value="True" />
             </t>
 
             <!-- ========= GLOBAL EXTRA HOURS ========= -->
@@ -233,7 +242,7 @@
                 />
 
             <t t-if="global_overtime_taxable and o.l10n_pt_previous_payslip_id">
-                <br />
+                <br t-if="pt_irs_detail_printed" />
                 <span>
                     Global Extra Hours: (Incidence:
                     <span
@@ -245,17 +254,22 @@
                             t-out="round(abs(global_overtime_tax_retained / global_overtime_taxable * 100), 2) if global_overtime_taxable else 0"
                         /> %)
                 </span>
+                <t t-set="pt_irs_detail_printed" t-value="True" />
             </t>
 
             <!-- ========= IRS DIFFERENTIAL ========= -->
             <t t-set="total_irs_last_slip" t-value="o.get_total_irs_last_slip(o)" />
             <t t-if="total_irs_last_slip">
-                <br />
+                <br t-if="pt_irs_detail_printed" />
+                <!-- The cumulative total already includes what was retained on
+                     the previous slip(s), so this slip's own differential is
+                     the cumulative total MINUS that previous amount, not a sum
+                     of the two (which double-counted the previous amount). -->
                 <span>IRS differential:
                 <span
-                            t-out="line.total + total_irs_last_slip"
+                            t-out="abs(line.total + total_irs_last_slip)"
                             t-options="{'widget': 'monetary', 'display_currency': o.company_id.currency_id}"
-                        /> <span>(cumulative total)</span> +
+                        /> <span>(cumulative total)</span> -
                 <span
                             t-out="abs(total_irs_last_slip)"
                             t-options="{'widget': 'monetary', 'display_currency': o.company_id.currency_id}"

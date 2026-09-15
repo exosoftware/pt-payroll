@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="l10n_pt_annual_accumulated_wizard_form" model="ir.ui.view">
+        <field name="name">l10n_pt.annual.accumulated.wizard.form</field>
+        <field name="model">l10n_pt.annual.accumulated.wizard</field>
+        <field name="inherit_id" ref="ptplus_reports.l10n_pt_statement_wizard_form" />
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <group name="main_left" position="inside">
+                <field
+                    name="employee_ids"
+                    readonly="state != 'select'"
+                    widget="many2many_tags"
+                />
+                <field name="payslip_state" readonly="state != 'select'" />
+            </group>
+            <notebook name="main_block" position="inside">
+                <page name="lines" string="Lines">
+                    <field name="line_ids" nolabel="1">
+                        <list>
+                            <field name="currency_id" column_invisible="1" />
+                            <field name="employee_id" />
+                            <field name="salary_rule_id" />
+                            <field name="january_amount" sum="Total" optional="show" />
+                            <field name="february_amount" sum="Total" optional="show" />
+                            <field name="march_amount" sum="Total" optional="show" />
+                            <field name="april_amount" sum="Total" optional="show" />
+                            <field name="may_amount" sum="Total" optional="show" />
+                            <field name="june_amount" sum="Total" optional="show" />
+                            <field name="july_amount" sum="Total" optional="show" />
+                            <field name="august_amount" sum="Total" optional="show" />
+                            <field
+                                name="september_amount"
+                                sum="Total"
+                                optional="show"
+                            />
+                            <field name="october_amount" sum="Total" optional="show" />
+                            <field name="november_amount" sum="Total" optional="show" />
+                            <field name="december_amount" sum="Total" optional="show" />
+                            <field name="total_amount" sum="Total" optional="show" />
+                        </list>
+                    </field>
+                </page>
+            </notebook>
+        </field>
+    </record>
+
+    <record id="l10n_pt_annual_accumulated_wizard_action" model="ir.actions.act_window">
+        <field name="name">Annual Accumulated per Employee</field>
+        <field name="res_model">l10n_pt.annual.accumulated.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="l10n_pt_annual_accumulated_wizard_form" />
+        <field name="target">new</field>
+    </record>
+
+    <menuitem
+        id="l10n_pt_annual_accumulated_wizard_menu"
+        name="Annual Accumulated per Employee"
+        parent="payroll_menu_report_pt"
+        sequence="27"
+        groups="ptplus.group_experimental_features_pt"
+        action="l10n_pt_annual_accumulated_wizard_action"
+    />
+</odoo>

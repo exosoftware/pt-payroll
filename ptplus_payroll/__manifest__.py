@@ -4,14 +4,13 @@
 #
 ##############################################################################
 # pylint: disable=license-allowed, manifest-required-author
-
 {
     "name": "Portugal - Payroll",
     "license": "OPL-1",
     "author": "Exo Software",
     "website": "https://github.com/exosoftware/portugal-payroll",
     "category": "Localization",
-    "version": "18.0.9.3.0",
+    "version": "18.0.9.7.5",
     "depends": [
         "hr_contract",
         "ptplus",
@@ -22,6 +21,7 @@
         "hr_payroll_account",
         "hr_payroll_expense",
         "ptplus_expense",
+        "ptplus_accounting",
     ],
     "data": [
         "data/hr_marital_status_pt.xml",
@@ -61,17 +61,24 @@
         "views/hr_salary_rule_views.xml",
         "views/hr_payslip_views.xml",
         "views/hr_expense_views.xml",
+        "views/hr_payslip_run_views.xml",
         "views/email_template.xml",
         "views/employee_multiple_send_payslip.xml",
         "views/hr_allowance_provision_correction_views.xml",
         "report/report_payslip_templates.xml",
         "report/annual_income_stmt_report.xml",
         "report/payroll_dri_statement_report.xml",
+        "report/income_stmt_wizard_report.xml",
         "wizards/payroll_statement.xml",
         "wizards/single_report_statement_views.xml",
+        "wizards/l10n_pt_single_report_statement_wizard_views.xml",
         "wizards/l10n_pt_dmr_statement_wizard.xml",
+        "wizards/l10n_pt_aggregate_salary_statement_wizard_views.xml",
+        "wizards/l10n_pt_annual_accumulated_wizard_views.xml",
+        "wizards/l10n_pt_holiday_sheets_wizard_views.xml",
         "wizards/hr_payroll_edit_payslip_lines_wizard_views.xml",
         "wizards/hr_payroll_payslips_by_employees_views.xml",
+        "wizards/l10n_pt_income_stmt_wizard_views.xml",
         "data/mail_template_data.xml",
     ],
     "assets": {
