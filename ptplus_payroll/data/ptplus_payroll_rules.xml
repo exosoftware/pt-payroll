@@ -2289,6 +2289,29 @@ result = pt_hourly_wage(result_rules_pt, version)</field>
     </record>
 
     <!-- Desconto -->
+    <record id="rule_pt_temporary_partial_incapacity" model="hr.salary.rule">
+        <field name="category_id" ref="DES" />
+        <field name="name">Incapacidade Temporária Parcial</field>
+        <field name="code">ITP</field>
+        <field name="sequence">195</field>
+        <field name="condition_select">python</field>
+        <field name="condition_python">
+result = 'BASIC' in rules and ('ITP_VALOR' in inputs or bool(pt_get_incapacity_deduction(result_rules_pt, version)))</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">
+if 'ITP_VALOR' in inputs:
+    result = -abs(inputs['ITP_VALOR'].amount)
+else:
+    result = pt_get_incapacity_deduction(result_rules_pt, version)</field>
+        <field name="struct_id" ref="hr_payroll_structure_pt_monthly_pay" />
+        <field name="l10n_pt_dri_subject_amount">P</field>
+        <field name="l10n_pt_dmr_subject_amount">A</field>
+        <field name="l10n_pt_dmr_exempt_amount">N/A</field>
+        <field name="l10n_pt_standard_rule">True</field>
+        <field name="l10n_pt_affects_income_tax">True</field>
+        <field name="l10n_pt_affects_temr">True</field>
+    </record>
+
     <record
         id="rule_pt_unprofessional_missing_other_justified_absences"
         model="hr.salary.rule"
@@ -3364,7 +3387,15 @@ result = compute_irs_amount(categories["IRS_TRIBUTADO"], payslip)</field>
         <field name="l10n_pt_standard_rule">True</field>
     </record>
 
+    <!-- Archived. This rule returned to the employee the contribution that had
+    been withheld on days of the previous month that are only now deducted. That
+    reversal, however, is already made by the deduction itself: the absence lowers
+    the Social Security base of this very receipt, so the contribution withheld
+    drops by exactly the amount withheld in excess before. Paying the line on top
+    of that returned the same contribution twice, at the employer's expense. Kept
+    as an inactive record so the receipts that already carry the line stay intact. -->
     <record id="rule_pt_tax_base_ss_adjustment" model="hr.salary.rule">
+        <field name="active" eval="False" />
         <field name="category_id" ref="ABONO" />
         <field
             name="name"
@@ -3752,6 +3783,29 @@ if result_rules["SS_EP"]["amount"]:
     </data>
 
     <!-- Input Type -->
+    <record
+        id="input_pt_temporary_partial_incapacity_amount"
+        model="hr.payslip.input.type"
+    >
+        <field name="name">Incapacidade Temporária Parcial [valor]</field>
+        <field name="code">ITP_VALOR</field>
+        <field name="country_id" ref="base.pt" />
+        <field
+            name="struct_ids"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
+        />
+    </record>
+
+    <record id="input_pt_temporary_partial_incapacity" model="hr.payslip.input.type">
+        <field name="name">Incapacidade Temporária Parcial [%]</field>
+        <field name="code">ITP</field>
+        <field name="country_id" ref="base.pt" />
+        <field
+            name="struct_ids"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
+        />
+    </record>
+
     <record id="input_pt_kms_in_own_car" model="hr.payslip.input.type">
         <field name="name">Deslocação em viatura própria [Km's]</field>
         <field name="code">DES_VPROP</field>

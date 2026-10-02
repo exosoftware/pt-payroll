@@ -177,9 +177,16 @@
                                 readonly="state == 'completed'"
                                 domain="[('name', 'ilike', 'PENHORA')]"
                             />
+                            <field name="l10n_pt_is_incapacity" invisible="1" />
                             <field
                                 name="monthly_value"
-                                invisible="is_attachment"
+                                invisible="is_attachment or l10n_pt_is_incapacity"
+                                readonly="state == 'completed'"
+                            />
+                            <field
+                                name="l10n_pt_incapacity_degree"
+                                invisible="not l10n_pt_is_incapacity"
+                                required="l10n_pt_is_incapacity"
                                 readonly="state == 'completed'"
                             />
                             <field

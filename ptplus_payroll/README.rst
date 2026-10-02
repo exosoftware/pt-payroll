@@ -17,7 +17,7 @@ Configuration
 =============
 
 Salary rules declared in the previous month (DRI)
--------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Some amounts are paid on one month's payslip but belong to the previous
 month's remuneration: overtime, remuneration arrears, or a benefit the
@@ -48,6 +48,150 @@ change.
 
 Changelog
 =========
+
+9.9.10 (2026-10-01)
+~~~~~~~~~~~~~~~~~~~
+**Bugfixes**
+
+- When the dates of a saved receipt were moved to another month, it stayed
+  chained to the receipt of the month it left. The old receipt then took the
+  new month as its reference period, so the new receipt added its taxable base
+  to the IRS of the month and withheld IRS as if it were a second receipt of
+  that month, crediting the IRS of the other month. Moving a receipt to another
+  month now unchains it from the receipts it left behind, which are chained
+  again among themselves.
+
+9.9.9 (2026-09-29)
+~~~~~~~~~~~~~~~~~~
+**Features**
+
+- Temporary partial incapacity after an accident at work can now be recorded
+  as a salary complement of the type "Incapacidade Temporária Parcial [%]",
+  with the incapacity degree and the period it applies to. The payslip shows a
+  deduction line that takes that percentage off the base wage and the other
+  earnings that make up the hourly wage, only for the working hours inside the
+  period, so the employee is paid for the remaining capacity. Days already
+  discounted as unpaid absences are not discounted twice. When the degree
+  changes, close the current period and create a new one: several degrees in
+  the same month add up, and overlapping periods for the same employee are
+  refused.
+- To set that deduction by hand, add an input of the type "Incapacidade
+  Temporária Parcial [valor]" to the payslip with the amount to deduct. That
+  amount replaces the calculated one.
+
+9.9.8 (2026-09-29)
+~~~~~~~~~~~~~~~~~~
+**Bugfixes**
+
+- An employee who worked part of a day and was away for the rest of the month
+  was declared with 0 days of work next to the pay received for those hours,
+  in the DRI and in the holiday sheets file. That month now declares half a
+  day. A whole month away still declares 0 days.
+
+9.9.7 (2026-09-25)
+~~~~~~~~~~~~~~~~~~
+**Bugfixes**
+
+- The days of work declared to Segurança Social in the DRI, and in the
+  holiday sheets file sent to the work-accident insurer, are corrected in
+  months with 31 days and in February. A whole month away declares 0 days,
+  where it used to declare 1. In February, absences above half a month declare
+  the days actually worked: an employee who only worked two days declares 2
+  days instead of 4. Half days coming from absences registered in hours are
+  kept, including above one day.
+- An employee with more absences than days in the month could get a negative
+  number of days, which broke the line in the file and made the insurer reject
+  it. The days now always stay between 0 and 30, and the file can no longer be
+  generated with an invalid line.
+- When a payslip covers days of the previous month, the correction of that
+  month never removes more days than were declared for it, so the month cannot
+  end up below 0 days.
+- From January 2026, part-time and hourly work is declared as one day per
+  five hours, and one more day for any remaining hours, as set by Decreto
+  Regulamentar n.º 7/2025. Half days are no longer used for these contracts.
+
+9.9.6 (2026-09-14)
+~~~~~~~~~~~~~~~~~~
+**Improvement**
+
+- The "Overtime - Conversion to Banco de Horas" rates are gone from the
+  Portugal Localization settings and from the contract. Banco de Horas is
+  set up by the module that implements it, which has its own "Banco de
+  Horas (PT)" section in the same settings page; the rates here were a
+  second, unused copy that never affected any calculation, so whichever of
+  the two was filled in was a coin toss. Nothing to re-enter: the rates
+  actually in force are the ones already in that section.
+
+9.9.5 (2026-09-11)
+~~~~~~~~~~~~~~~~~~
+**Bugfixes**
+
+- In a month where the absences to be discounted exceed half of the working
+  time, the receipt pays what was worked and discounts the rest. That
+  calculation now measures the time worked on the employee's own work
+  schedule, minus the absences being discounted, instead of adding up the
+  hours registered on the receipt. Two situations were being paid wrongly. An
+  absence paid in full that was created directly as a work entry type, without
+  a corresponding time off type, was neither discounted nor paid: the employee
+  lost that money. And hours registered above the schedule, such as overtime,
+  reduced the discount of the absences, which paid them a second time on top
+  of their own line.
+
+9.9.4 (2026-09-11)
+~~~~~~~~~~~~~~~~~~
+**Bugfixes**
+
+- Absences that are paid in full - licença de casamento, falecimento de
+  familiar, trabalhador-estudante, ausências aprovadas pelo empregador,
+  férias gozadas, and any other absence listed as paid on the salary
+  structure - now count as time worked when the remaining absences are
+  valued. A month with many paid absences used to be read as a month mostly
+  absent: the absences that really are discounted were then valued by the
+  proportional calculation, which also took away the pay of the absences the
+  employer pays. Now only the discounted absences weigh on that decision and
+  on the calculation, so a paid absence no longer costs the employee money.
+  The hourly value used by "Assiduidade (mês anterior)" follows the same
+  rule.
+
+9.9.3 (2026-09-09)
+~~~~~~~~~~~~~~~~~~
+**Bugfixes**
+
+- A receipt with expenses attached no longer shows an error and can be
+  confirmed. Odoo expected the expenses to be paid by a single "Expenses"
+  salary rule, which the Portuguese receipt does not use: it pays them through
+  its own rules (ajudas de custo, deslocações em viatura própria, ...), each
+  with its own account.
+
+9.9.2 (2026-09-08)
+~~~~~~~~~~~~~~~~~~
+**Bugfixes**
+
+- Receipts that deduct absences from the previous month no longer add the
+  "Segurança Social (Acerto de Quotizações ao Funcionário)" amount. Deducting
+  the absence already lowers the receipt's Social Security base, so the
+  contribution withheld that month already falls by exactly what had been
+  withheld in excess on those days - the separate line was returning the same
+  contribution a second time and left the net higher than it should be. The
+  line is no longer processed; receipts already issued keep it and their values
+  do not change. In the rare receipt where the deductions exceed the month's
+  pay and no contribution is withheld at all, the previous month's contribution
+  now has to be returned by hand.
+
+9.9.1 (2026-09-08)
+~~~~~~~~~~~~~~~~~~
+**Bugfixes**
+
+- The DMR now declares the Social Security deducted over amounts that are
+  subject to Social Security but are not income for the AT - a correction to
+  the contribution base of an earlier month, for instance. That contribution
+  was being left out of the declaration, so the DMR reported less than the
+  receipt had deducted.
+- The IRS withheld on the receipt and the IRS declared on the DMR no longer
+  differ by one euro. When the withholding landed exactly on a whole euro the
+  receipt deducted one euro less than the amount the DMR declared; both now
+  show the same value. Withholdings are still declared in whole euros, cents
+  dropped, as before.
 
 9.9.0 (2026-09-04)
 ~~~~~~~~~~~~~~~~~~

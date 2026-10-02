@@ -557,6 +557,25 @@
         >
             <attribute name="t-if">False</attribute>
         </xpath>
+        <!-- A negative net is not a payment, so it stays out of the
+             "Payment Information" table; the sentence carries the amount. -->
+        <xpath
+            expr="//div[@id='to_pay']/p[@t-if='o.net_wage &lt; 0']"
+            position="attributes"
+        >
+            <attribute name="t-if">False</attribute>
+        </xpath>
+        <xpath expr="//div[@id='to_pay']" position="inside">
+            <p id="pt_negative_net" t-if="o.net_wage &lt; 0">
+                The net amount of
+                <span
+                    class="fw-bold"
+                    t-out="o.net_wage"
+                    t-options="{'widget': 'monetary', 'display_currency': o.company_id.currency_id}"
+                />
+                will be recovered from the first positive remuneration established after this.
+            </p>
+        </xpath>
     </template>
 
     <template id="report_payslip_pt_lang">
