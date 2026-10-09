@@ -49,6 +49,60 @@ change.
 Changelog
 =========
 
+9.9.15 (2026-10-07)
+~~~~~~~~~~~~~~~~~~~
+**Bugfixes**
+
+- Proportional holiday and Christmas allowances (and holiday allowance from
+  previous years) were added on top of a full month's allowance to pick the IRS
+  rate, so an exit payslip paying only the proportionals withheld at a much
+  higher rate than due. The rate now follows a full month's allowance, or what
+  was actually paid in the period when that is higher.
+
+9.9.14 (2026-10-06)
+~~~~~~~~~~~~~~~~~~~
+**Bugfixes**
+
+- Holiday and Christmas allowance twelfths withheld no IRS for employees whose
+  contract started in the current year, because the amount used to pick the
+  rate was left at zero. This also hit renewed and amended contracts of
+  employees admitted in earlier years. The rate now follows the whole
+  allowance, and only the year in which the employee was admitted counts as
+  the admission year.
+
+9.9.13 (2026-10-06)
+~~~~~~~~~~~~~~~~~~~
+**Bugfixes**
+
+- When an employee had two payslips in the same month and both paid holiday or
+  Christmas allowance twelfths, the second payslip gave back the IRS the first
+  one had withheld on its twelfth, instead of withholding on its own. The
+  payslips withheld less IRS than the DMR declared. Each payslip now withholds
+  the IRS on the twelfth it pays.
+
+9.9.12 (2026-10-06)
+~~~~~~~~~~~~~~~~~~~
+**Bugfixes**
+
+- The total of contributions in the Declaração de Remunerações (DRI) file is
+  now the declared remunerations times the contribution rate, rounded once.
+  It used to add up each payslip's contributions, each rounded to the cent on
+  its own, so the total could be a few cents off and Segurança Social accepted
+  the file with alert DS24 ("valor de contribuições diferente do total de
+  remuneração * taxa"). The contributions deducted on each payslip do not
+  change.
+
+9.9.11 (2026-10-02)
+~~~~~~~~~~~~~~~~~~~
+**Bugfixes**
+
+- With the holiday and Christmas allowance provisions active, a payslip could
+  not be computed for an employee whose first contract date was empty. The
+  provisions now take the start date of the employee's first contract instead.
+  The field and its label on the employee form are now called "Data do Primeiro
+  Contrato" and "Primeiro Contrato", so they no longer show the same label as
+  the contract dates right above them.
+
 9.9.10 (2026-10-01)
 ~~~~~~~~~~~~~~~~~~~
 **Bugfixes**

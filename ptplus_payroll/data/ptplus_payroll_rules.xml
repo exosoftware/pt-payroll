@@ -1284,7 +1284,7 @@ if 'FER_NAO_GOZ_AMOUNT' in inputs:
     result = inputs['FER_NAO_GOZ_AMOUNT'].amount
 else:
     result = get_total_affects_holiday_rules(result_rules_pt) / 22
-result_qty = inputs['FER_NAO_GOZ'].amount</field>
+result_qty = inputs['FER_NAO_GOZ'].amount if 'FER_NAO_GOZ' in inputs else 1</field>
         <field name="struct_id" ref="hr_payroll_structure_pt_monthly_pay" />
         <field name="l10n_pt_dri_subject_amount">2</field>
         <field name="l10n_pt_dmr_subject_amount">A</field>
@@ -2880,12 +2880,19 @@ if 'SUBS_NAT_TRIB_AUTO' in inputs:
         + result_rules["SUBS_NATAL_PROP"]["total"]
     )
 else:
-    if version.contract_date_start.year &lt; payslip.date_to.year:
+    # Each twelfth is taxed at the rate of the whole allowance (art. 99.º-C
+    # nº6 CIRS). In the admission year a full month's allowance is taken as
+    # the whole allowance, as in any other year.
+    if not pt_is_admission_year(payslip) or (
+        "SUBS_NAT_DUO" in rules or "SUBS_NAT_DUO_50" in rules
+    ):
         # The rate must be based on the full reference, not on how much of it
         # is actually paid on any single slip. But if the slips already paid
         # this period (e.g. an independent christmas receipt) add up to more
         # than that reference, the base must follow the higher real amount
-        # instead of understating it.
+        # instead of understating it. Proportionals are part of what is paid,
+        # not an extra on top of the reference: at an exit only the
+        # proportional allowance may be due (art. 263.º nº2 b) CT).
         previous_slip = payslip.l10n_pt_previous_payslip_id
         previous_paid = 0
         while previous_slip:
@@ -2903,8 +2910,20 @@ else:
             )
             previous_slip = previous_slip.l10n_pt_previous_payslip_id
         result = (
-            max(pt_get_christmas_allowance(result_rules_pt, version), previous_paid)
-            + result_rules["SUBS_NATAL_PROP"]["total"]
+            max(
+                pt_get_christmas_allowance(result_rules_pt, version),
+                previous_paid
+                + sum(
+                    result_rules[code]["total"]
+                    for code in (
+                        "SUBS_NAT",
+                        "SUBS_NAT_DUO",
+                        "SUBS_NAT_DUO_50",
+                        "SUBS_NAT_50",
+                        "SUBS_NATAL_PROP",
+                    )
+                ),
+            )
         )
     else:
         result = (
@@ -3069,12 +3088,19 @@ if 'SUBS_FER_TRIB_AUTO' in inputs:
         + result_rules["SUBS_FER_ANOS_ANT"]["total"]
     )
 else:
-    if version.contract_date_start.year &lt; payslip.date_to.year:
+    # Each twelfth is taxed at the rate of the whole allowance (art. 99.º-C
+    # nº6 CIRS). In the admission year a full month's allowance is taken as
+    # the whole allowance, as in any other year.
+    if not pt_is_admission_year(payslip) or (
+        "SUBS_FER_DUO" in rules or "SUBS_FER_DUO_50" in rules
+    ):
         # The rate must be based on the full reference, not on how much of it
         # is actually paid on any single slip. But if the slips already paid
         # this period (e.g. an independent holidays receipt) add up to more
         # than that reference, the base must follow the higher real amount
-        # instead of understating it.
+        # instead of understating it. Proportionals are part of what is paid,
+        # not an extra on top of the reference: at an exit only the
+        # proportional allowance may be due (art. 263.º nº2 b) CT).
         previous_slip = payslip.l10n_pt_previous_payslip_id
         previous_paid = 0
         while previous_slip:
@@ -3093,9 +3119,21 @@ else:
             )
             previous_slip = previous_slip.l10n_pt_previous_payslip_id
         result = (
-            max(pt_get_holiday_allowance(result_rules_pt, version), previous_paid)
-            + result_rules["SUBS_FER_PROP"]["total"]
-            + result_rules["SUBS_FER_ANOS_ANT"]["total"]
+            max(
+                pt_get_holiday_allowance(result_rules_pt, version),
+                previous_paid
+                + sum(
+                    result_rules[code]["total"]
+                    for code in (
+                        "SUBS_FER",
+                        "SUBS_FER_DUO",
+                        "SUBS_FER_DUO_50",
+                        "SUBS_FER_50",
+                        "SUBS_FER_PROP",
+                        "SUBS_FER_ANOS_ANT",
+                    )
+                ),
+            )
         )
     else:
         result = (

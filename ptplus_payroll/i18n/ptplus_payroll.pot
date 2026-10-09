@@ -1795,11 +1795,6 @@ msgstr ""
 
 #. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.view_employee_form_pt_payroll
-msgid "Contract"
-msgstr ""
-
-#. module: ptplus_payroll
-#: model_terms:ir.ui.view,arch_db:ptplus_payroll.view_employee_form_pt_payroll
 msgid "Contract Data"
 msgstr ""
 
@@ -3275,6 +3270,17 @@ msgstr ""
 msgid ""
 "Fill only if the statement is past due and the reason is justifiable "
 "according to art.º 12.º-A do DL n.º 452/99, 5-nov"
+msgstr ""
+
+#. module: ptplus_payroll
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.view_employee_form_pt_payroll
+msgid "First Contract"
+msgstr ""
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_hr_employee__l10n_pt_first_contract_date
+#: model:ir.model.fields,field_description:ptplus_payroll.field_hr_version__l10n_pt_first_contract_date
+msgid "First Contract Date"
 msgstr ""
 
 #. module: ptplus_payroll
@@ -7142,13 +7148,6 @@ msgstr ""
 #. module: ptplus_payroll
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_salary_rule__l10n_pt_standard_rule
 msgid "Standard Rule"
-msgstr ""
-
-#. module: ptplus_payroll
-#: model:ir.model.fields,field_description:ptplus_payroll.field_hr_employee__l10n_pt_first_contract_date
-#: model:ir.model.fields,field_description:ptplus_payroll.field_hr_version__l10n_pt_first_contract_date
-#: model_terms:ir.ui.view,arch_db:ptplus_payroll.view_employee_form_pt_payroll
-msgid "Start of Contract"
 msgstr ""
 
 #. module: ptplus_payroll

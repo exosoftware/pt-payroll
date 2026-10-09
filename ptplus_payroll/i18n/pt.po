@@ -1820,11 +1820,6 @@ msgstr ""
 
 #. module: ptplus_payroll
 #: model_terms:ir.ui.view,arch_db:ptplus_payroll.view_employee_form_pt_payroll
-msgid "Contract"
-msgstr "Contrato"
-
-#. module: ptplus_payroll
-#: model_terms:ir.ui.view,arch_db:ptplus_payroll.view_employee_form_pt_payroll
 msgid "Contract Data"
 msgstr "Dados do Contrato"
 
@@ -3325,6 +3320,17 @@ msgstr ""
 "justificável nos termos do art.º 12.º-A do DL n.º 452/99, de 5 de novembro"
 
 #. module: ptplus_payroll
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll.view_employee_form_pt_payroll
+msgid "First Contract"
+msgstr "Primeiro Contrato"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_hr_employee__l10n_pt_first_contract_date
+#: model:ir.model.fields,field_description:ptplus_payroll.field_hr_version__l10n_pt_first_contract_date
+msgid "First Contract Date"
+msgstr "Data do Primeiro Contrato"
+
+#. module: ptplus_payroll
 #: model:ir.model.fields.selection,name:ptplus_payroll.selection__payroll_statement_wizard_pt__first_decl_replacement_decl__first_declaration
 msgid "First Declaration"
 msgstr "1ª Declaração"
@@ -3536,7 +3542,7 @@ msgstr "Subsídio de Férias"
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_employee__l10n_pt_holiday_allowance_independent_receipt
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_version__l10n_pt_holiday_allowance_independent_receipt
 msgid "Holiday Allowance Independent Receipt"
-msgstr "Subsídio de Natal em Recibo Independente"
+msgstr "Subsídio de Férias em Recibo Independente"
 
 #. module: ptplus_payroll
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_employee__l10n_pt_holiday_allowance_payment_method
@@ -7223,13 +7229,6 @@ msgstr "Cônjuge não recebe renda da categoria A ou H"
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_salary_rule__l10n_pt_standard_rule
 msgid "Standard Rule"
 msgstr "Regra Padrão"
-
-#. module: ptplus_payroll
-#: model:ir.model.fields,field_description:ptplus_payroll.field_hr_employee__l10n_pt_first_contract_date
-#: model:ir.model.fields,field_description:ptplus_payroll.field_hr_version__l10n_pt_first_contract_date
-#: model_terms:ir.ui.view,arch_db:ptplus_payroll.view_employee_form_pt_payroll
-msgid "Start of Contract"
-msgstr "Data de Primeiro Contrato"
 
 #. module: ptplus_payroll
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_allowance_provision_correction_lines_pt__payslip_state

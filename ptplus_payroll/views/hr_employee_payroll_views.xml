@@ -325,11 +325,10 @@
                 </group>
             </xpath>
             <field name="wage_type" position="before">
-                <label for="l10n_pt_first_contract_date" string="Contract" />
+                <label for="l10n_pt_first_contract_date" string="First Contract" />
                 <div class="o_row" name="first_contract_date">
                     <field
                         name="l10n_pt_first_contract_date"
-                        string="Start of Contract"
                         invisible="country_code != 'PT'"
                         class="o_hr_narrow_field me-3"
                     />
