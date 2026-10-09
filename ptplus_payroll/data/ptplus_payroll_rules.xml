@@ -9,7 +9,7 @@
         <field name="country_id" ref="base.pt" />
         <field
             name="default_work_entry_type_id"
-            ref="ptplus_payroll.entry_type_pt_attendance"
+            ref="hr_work_entry.work_entry_type_attendance"
         />
     </record>
 
@@ -32,10 +32,16 @@
         />
     </record>
 
-<!-- This code is commented out due to a pre-commit error. It is necessary to manually define the default_struct_id -->
-<!--    <record id="structure_type_employee_pt" model="hr.payroll.structure.type">-->
-<!--        <field name="default_struct_id" ref="hr_payroll_structure_pt_monthly_pay" />-->
-<!--    </record>-->
+    <!-- default_struct_id can't be set on the record above: it must reference
+    hr_payroll_structure_pt_monthly_pay, which is only declared afterwards.
+    A second <record> with the same id to set it hits the duplicate-id
+    pre-commit check, so it's set via <function> instead. -->
+    <function model="hr.payroll.structure.type" name="write">
+        <value eval="[ref('structure_type_employee_pt')]" />
+        <value
+            eval="{'default_struct_id': ref('hr_payroll_structure_pt_monthly_pay')}"
+        />
+    </function>
 
     <function model="hr.salary.rule" name="write">
         <value
@@ -1157,7 +1163,7 @@ result = contract.l10n_pt_travel_allowance</field>
 result = (contract.l10n_pt_shift_regime_option == "two_shift_regime" or 'REG_2_TUR' in inputs) and 'BASIC' in rules</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-if inputs['REG_2_TUR']:
+if 'REG_2_TUR' in inputs:
     result = inputs['REG_2_TUR'].amount
 else:
     result = contract.l10n_pt_shift_regime_rate * contract.wage </field>
@@ -1180,7 +1186,7 @@ else:
 result = (contract.l10n_pt_shift_regime_option == "three_shift_regime" or 'REG_3_TUR' in inputs) and 'BASIC' in rules</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-if inputs['REG_3_TUR']:
+if 'REG_3_TUR' in inputs:
     result = inputs['REG_3_TUR'].amount
 else:
     result = contract.l10n_pt_shift_regime_rate * contract.wage </field>
@@ -1203,7 +1209,7 @@ else:
 result = (contract.l10n_pt_shift_regime_option == "four_shift_regime" or 'REG_4_TUR' in inputs) and 'BASIC' in rules</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-if inputs['REG_4_TUR']:
+if 'REG_4_TUR' in inputs:
     result = inputs['REG_4_TUR'].amount
 else:
     result = contract.l10n_pt_shift_regime_rate * contract.wage </field>
@@ -1226,7 +1232,7 @@ else:
 result = (contract.l10n_pt_shift_regime_option == "five_shift_regime" or 'REG_5_TUR' in inputs) and 'BASIC' in rules</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-if inputs['REG_5_TUR']:
+if 'REG_5_TUR' in inputs:
     result = inputs['REG_5_TUR'].amount
 else:
     result = contract.l10n_pt_shift_regime_rate * contract.wage </field>
@@ -1273,7 +1279,7 @@ if 'FER_NAO_GOZ_AMOUNT' in inputs:
     result = inputs['FER_NAO_GOZ_AMOUNT'].amount
 else:
     result = get_total_affects_holiday_rules(result_rules_pt) / 22
-result_qty = inputs['FER_NAO_GOZ'].amount</field>
+result_qty = inputs['FER_NAO_GOZ'].amount if 'FER_NAO_GOZ' in inputs else 1</field>
         <field name="struct_id" ref="hr_payroll_structure_pt_monthly_pay" />
         <field name="l10n_pt_dri_subject_amount">2</field>
         <field name="l10n_pt_dmr_subject_amount">A</field>
@@ -1293,10 +1299,10 @@ result_qty = inputs['FER_NAO_GOZ'].amount</field>
 result = 'EXTRA100' in inputs or ('EXTRA100' in worked_days and contract.l10n_pt_overtime_first_hour_rate)</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-if inputs['EXTRA100']:
+if 'EXTRA100' in inputs:
     result_qty = inputs['EXTRA100'].amount
 else:
-    result_qty = worked_days['EXTRA100'].amount
+    result_qty = worked_days['EXTRA100'].number_of_hours
 result = pt_get_overtime(contract.l10n_pt_overtime_first_hour_rate, result_rules_pt)</field>
         <field name="struct_id" ref="hr_payroll_structure_pt_monthly_pay" />
         <field name="l10n_pt_dri_subject_amount">S</field>
@@ -1315,10 +1321,10 @@ result = pt_get_overtime(contract.l10n_pt_overtime_first_hour_rate, result_rules
 result = 'EXTRA200' in inputs or ('EXTRA200' in worked_days and contract.l10n_pt_overtime_remaining_hours_rate)</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-if inputs['EXTRA200']:
+if 'EXTRA200' in inputs:
     result_qty = inputs['EXTRA200'].amount
 else:
-    result_qty = worked_days["EXTRA200"].amount
+    result_qty = worked_days["EXTRA200"].number_of_hours
 result = pt_get_overtime(contract.l10n_pt_overtime_remaining_hours_rate, result_rules_pt)</field>
         <field name="struct_id" ref="hr_payroll_structure_pt_monthly_pay" />
         <field name="l10n_pt_dri_subject_amount">S</field>
@@ -1340,7 +1346,7 @@ result = 'EXTRA300' in inputs or ('EXTRA300' in worked_days and contract.l10n_pt
 if 'EXTRA300' in inputs:
     result_qty = inputs['EXTRA300'].amount
 else:
-    result_qty = worked_days["EXTRA300"].amount
+    result_qty = worked_days["EXTRA300"].number_of_hours
 result = pt_get_overtime(contract.l10n_pt_overtime_rest_days_rate, result_rules_pt)</field>
         <field name="struct_id" ref="hr_payroll_structure_pt_monthly_pay" />
         <field name="l10n_pt_dri_subject_amount">S</field>
@@ -1359,10 +1365,10 @@ result = pt_get_overtime(contract.l10n_pt_overtime_rest_days_rate, result_rules_
 result = 'EXTRA400' in inputs or ('EXTRA400' in worked_days and contract.l10n_pt_overtime_workdays_rate)</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-if inputs['EXTRA400']:
+if 'EXTRA400' in inputs:
     result_qty = inputs['EXTRA400'].amount
 else:
-    result_qty = worked_days["EXTRA400"].amount
+    result_qty = worked_days["EXTRA400"].number_of_hours
 result = pt_get_overtime(contract.l10n_pt_overtime_workdays_rate, result_rules_pt)</field>
         <field name="struct_id" ref="hr_payroll_structure_pt_monthly_pay" />
         <field name="l10n_pt_dri_subject_amount">S</field>
@@ -1381,10 +1387,10 @@ result = pt_get_overtime(contract.l10n_pt_overtime_workdays_rate, result_rules_p
 result = 'EXTRA500' in inputs or ('EXTRA500' in worked_days and contract.l10n_pt_overtime_holidays_rate)</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-if inputs['EXTRA500']:
+if 'EXTRA500' in inputs:
     result_qty = inputs['EXTRA500'].amount
 else:
-    result_qty = worked_days["EXTRA500"].amount
+    result_qty = worked_days["EXTRA500"].number_of_hours
 result = pt_get_overtime(contract.l10n_pt_overtime_holidays_rate, result_rules_pt)</field>
         <field name="struct_id" ref="hr_payroll_structure_pt_monthly_pay" />
         <field name="l10n_pt_dri_subject_amount">S</field>
@@ -1403,10 +1409,10 @@ result = pt_get_overtime(contract.l10n_pt_overtime_holidays_rate, result_rules_p
 result = 'EXTRA600' in inputs or ('EXTRA600' in worked_days and contract.l10n_pt_overtime_saturday_and_holidays_rate)</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-if inputs['EXTRA600']:
+if 'EXTRA600' in inputs:
     result_qty = inputs['EXTRA600'].amount
 else:
-    result_qty = worked_days["EXTRA600"].amount
+    result_qty = worked_days["EXTRA600"].number_of_hours
 result = pt_get_overtime(contract.l10n_pt_overtime_saturday_and_holidays_rate, result_rules_pt)</field>
         <field name="struct_id" ref="hr_payroll_structure_pt_monthly_pay" />
         <field name="l10n_pt_dri_subject_amount">S</field>
@@ -1425,10 +1431,10 @@ result = pt_get_overtime(contract.l10n_pt_overtime_saturday_and_holidays_rate, r
 result = 'EXTRA700' in inputs or ('EXTRA700' in worked_days and contract.l10n_pt_overtime_sunday_rate)</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-if inputs['EXTRA700']:
+if 'EXTRA700' in inputs:
     result_qty = inputs['EXTRA700'].amount
 else:
-    result_qty = worked_days["EXTRA700"].amount
+    result_qty = worked_days["EXTRA700"].number_of_hours
 result = pt_get_overtime(contract.l10n_pt_overtime_sunday_rate, result_rules_pt)</field>
         <field name="struct_id" ref="hr_payroll_structure_pt_monthly_pay" />
         <field name="l10n_pt_dri_subject_amount">S</field>
@@ -1447,7 +1453,7 @@ result = pt_get_overtime(contract.l10n_pt_overtime_sunday_rate, result_rules_pt)
 result = 'EXTRA800' in inputs or ('EXTRA800' in worked_days and contract.l10n_pt_night_overtime_first_hour_rate and contract.l10n_pt_overtime_first_hour_rate)</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-if inputs['EXTRA800']:
+if 'EXTRA800' in inputs:
     result_qty = inputs['EXTRA800'].amount
 else:
     result_qty = worked_days["EXTRA800"].number_of_hours
@@ -1469,7 +1475,7 @@ result = pt_get_night_overtime(contract.l10n_pt_night_overtime_first_hour_rate, 
 result = 'EXTRA900' in inputs or ('EXTRA900' in worked_days and contract.l10n_pt_night_overtime_remaining_hours_rate and contract.l10n_pt_overtime_remaining_hours_rate)</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-if inputs['EXTRA900']:
+if 'EXTRA900' in inputs:
     result_qty = inputs['EXTRA900'].amount
 else:
     result_qty = worked_days["EXTRA900"].number_of_hours
@@ -1491,7 +1497,7 @@ result = pt_get_night_overtime(contract.l10n_pt_night_overtime_remaining_hours_r
 result = 'EXTRA1000' in inputs or ('EXTRA1000' in worked_days and contract.l10n_pt_night_overtime_rest_days_rate and contract.l10n_pt_overtime_rest_days_rate)</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-if inputs['EXTRA1000']:
+if 'EXTRA1000' in inputs:
     result_qty = inputs['EXTRA1000'].amount
 else:
     result_qty = worked_days["EXTRA1000"].number_of_hours
@@ -1513,7 +1519,7 @@ result = pt_get_night_overtime(contract.l10n_pt_night_overtime_rest_days_rate, c
 result = 'EXTRA1100' in inputs or ('EXTRA1100' in worked_days and contract.l10n_pt_night_overtime_workdays_rate and contract.l10n_pt_overtime_workdays_rate)</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-if inputs['EXTRA1100']:
+if 'EXTRA1100' in inputs:
     result_qty = inputs['EXTRA1100'].amount
 else:
     result_qty = worked_days["EXTRA1100"].number_of_hours
@@ -1535,7 +1541,7 @@ result = pt_get_night_overtime(contract.l10n_pt_night_overtime_workdays_rate, co
 result = 'EXTRA1200' in inputs or ('EXTRA1200' in worked_days and contract.l10n_pt_night_overtime_holidays_rate and contract.l10n_pt_overtime_holidays_rate)</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-if inputs['EXTRA1200']:
+if 'EXTRA1200' in inputs:
     result_qty = inputs['EXTRA1200'].amount
 else:
     result_qty = worked_days["EXTRA1200"].number_of_hours
@@ -1557,7 +1563,7 @@ result = pt_get_night_overtime(contract.l10n_pt_night_overtime_holidays_rate, co
 result = 'EXTRA1300' in inputs or ('EXTRA1300' in worked_days and contract.l10n_pt_night_overtime_saturday_and_holidays_rate and contract.l10n_pt_overtime_saturday_and_holidays_rate)</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-if inputs['EXTRA1300']:
+if 'EXTRA1300' in inputs:
     result_qty = inputs['EXTRA1300'].amount
 else:
     result_qty = worked_days["EXTRA1300"].number_of_hours
@@ -1579,7 +1585,7 @@ result = pt_get_night_overtime(contract.l10n_pt_night_overtime_holidays_rate, co
 result = 'EXTRA1400' in inputs or ('EXTRA1400' in worked_days and contract.l10n_pt_night_overtime_sunday_rate and contract.l10n_pt_overtime_sunday_rate)</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-if inputs['EXTRA1400']:
+if 'EXTRA1400' in inputs:
     result_qty = inputs['EXTRA1400'].amount
 else:
     result_qty = worked_days["EXTRA1400"].number_of_hours
@@ -1601,7 +1607,7 @@ result = pt_get_night_overtime(contract.l10n_pt_night_overtime_sunday_rate, cont
 result = 'EXTRA1500' in inputs or ('EXTRA1500' in worked_days and contract.l10n_pt_overtime_first_hour_rate_100)</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-if inputs['EXTRA1500']:
+if 'EXTRA1500' in inputs:
     result_qty = inputs['EXTRA1500'].amount
 else:
     result_qty = worked_days['EXTRA1500'].number_of_hours
@@ -1623,7 +1629,7 @@ result = pt_get_overtime(contract.l10n_pt_overtime_first_hour_rate_100, result_r
 result = 'EXTRA1600' in inputs or ('EXTRA1600' in worked_days and contract.l10n_pt_overtime_remaining_hours_rate_100)</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-if inputs['EXTRA1600']:
+if 'EXTRA1600' in inputs:
     result_qty = inputs['EXTRA1600'].amount
 else:
     result_qty = worked_days['EXTRA1600'].number_of_hours
@@ -1645,7 +1651,7 @@ result = pt_get_overtime(contract.l10n_pt_overtime_remaining_hours_rate_100, res
 result = 'EXTRA1700' in inputs or ('EXTRA1700' in worked_days and contract.l10n_pt_overtime_rest_days_rate_100)</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-if inputs['EXTRA1700']:
+if 'EXTRA1700' in inputs:
     result_qty = inputs['EXTRA1700'].amount
 else:
     result_qty = worked_days['EXTRA1700'].number_of_hours
@@ -1667,7 +1673,7 @@ result = pt_get_overtime(contract.l10n_pt_overtime_rest_days_rate_100, result_ru
 result = 'EXTRA1800' in inputs or ('EXTRA1800' in worked_days and contract.l10n_pt_overtime_workdays_rate_100)</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-if inputs['EXTRA1800']:
+if 'EXTRA1800' in inputs:
     result_qty = inputs['EXTRA1800'].amount
 else:
     result_qty = worked_days['EXTRA1800'].number_of_hours
@@ -1689,7 +1695,7 @@ result = pt_get_overtime(contract.l10n_pt_overtime_workdays_rate_100, result_rul
 result = 'EXTRA1900' in inputs or ('EXTRA1900' in worked_days and contract.l10n_pt_overtime_holidays_rate_100)</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-if inputs['EXTRA1900']:
+if 'EXTRA1900' in inputs:
     result_qty = inputs['EXTRA1900'].amount
 else:
     result_qty = worked_days['EXTRA1900'].number_of_hours
@@ -1711,7 +1717,7 @@ result = pt_get_overtime(contract.l10n_pt_overtime_holidays_rate_100, result_rul
 result = 'EXTRA2000' in inputs or ('EXTRA2000' in worked_days and contract.l10n_pt_overtime_saturday_and_holidays_rate_100)</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-if inputs['EXTRA2000']:
+if 'EXTRA2000' in inputs:
     result_qty = inputs['EXTRA2000'].amount
 else:
     result_qty = worked_days['EXTRA2000'].number_of_hours
@@ -1733,7 +1739,7 @@ result = pt_get_overtime(contract.l10n_pt_overtime_saturday_and_holidays_rate_10
 result = 'EXTRA2100' in inputs or ('EXTRA2100' in worked_days and contract.l10n_pt_overtime_sunday_rate_100)</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-if inputs['EXTRA2100']:
+if 'EXTRA2100' in inputs:
     result_qty = inputs['EXTRA2100'].amount
 else:
     result_qty = worked_days['EXTRA2100'].number_of_hours
@@ -1755,7 +1761,7 @@ result = pt_get_overtime(contract.l10n_pt_overtime_sunday_rate_100, result_rules
 result = 'EXTRA3000' in inputs or ('EXTRA3000' in worked_days and contract.l10n_pt_overtime_first_hour_rate)</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-if inputs['EXTRA3000']:
+if 'EXTRA3000' in inputs:
     result_qty = inputs['EXTRA3000'].amount
 else:
     result_qty = worked_days['EXTRA3000'].amount
@@ -1777,7 +1783,7 @@ result = pt_get_overtime(contract.l10n_pt_overtime_first_hour_rate, result_rules
 result = 'EXTRA3100' in inputs or ('EXTRA3100' in worked_days and contract.l10n_pt_overtime_remaining_hours_rate)</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-if inputs['EXTRA3100']:
+if 'EXTRA3100' in inputs:
     result_qty = inputs['EXTRA3100'].amount
 else:
     result_qty = worked_days["EXTRA3100"].amount
@@ -1821,7 +1827,7 @@ result = pt_get_overtime(contract.l10n_pt_overtime_rest_days_rate, result_rules_
 result = 'EXTRA3300' in inputs or ('EXTRA3300' in worked_days and contract.l10n_pt_overtime_workdays_rate)</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-if inputs['EXTRA3300']:
+if 'EXTRA3300' in inputs:
     result_qty = inputs['EXTRA400'].amount
 else:
     result_qty = worked_days["EXTRA3300"].amount
@@ -1843,7 +1849,7 @@ result = pt_get_overtime(contract.l10n_pt_overtime_workdays_rate, result_rules_p
 result = 'EXTRA3400' in inputs or ('EXTRA3400' in worked_days and contract.l10n_pt_overtime_holidays_rate)</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-if inputs['EXTRA3400']:
+if 'EXTRA3400' in inputs:
     result_qty = inputs['EXTRA3400'].amount
 else:
     result_qty = worked_days["EXTRA3400"].amount
@@ -1865,7 +1871,7 @@ result = pt_get_overtime(contract.l10n_pt_overtime_holidays_rate, result_rules_p
 result = 'EXTRA3500' in inputs or ('EXTRA3500' in worked_days and contract.l10n_pt_overtime_saturday_and_holidays_rate)</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-if inputs['EXTRA3500']:
+if 'EXTRA3500' in inputs:
     result_qty = inputs['EXTRA3500'].amount
 else:
     result_qty = worked_days["EXTRA3500"].amount
@@ -1887,7 +1893,7 @@ result = pt_get_overtime(contract.l10n_pt_overtime_saturday_and_holidays_rate, r
 result = 'EXTRA3600' in inputs or ('EXTRA3600' in worked_days and contract.l10n_pt_overtime_sunday_rate)</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-if inputs['EXTRA3600']:
+if 'EXTRA3600' in inputs:
     result_qty = inputs['EXTRA3600'].amount
 else:
     result_qty = worked_days["EXTRA3600"].amount
@@ -1896,6 +1902,29 @@ result = pt_get_overtime(contract.l10n_pt_overtime_sunday_rate, result_rules_pt)
         <field name="l10n_pt_dri_subject_amount">S</field>
         <field name="l10n_pt_dmr_subject_amount">A</field>
         <field name="l10n_pt_dmr_exempt_amount">N/A</field>
+        <field name="l10n_pt_standard_rule">True</field>
+    </record>
+
+    <record id="rule_pt_attendance_prev_month" model="hr.salary.rule">
+        <field name="category_id" ref="ABONO" />
+        <field name="name">Assiduidade (mês anterior)</field>
+        <field name="code">ASSID_ANT</field>
+        <field name="sequence">138</field>
+        <field name="condition_select">python</field>
+        <field name="condition_python">
+result = 'ASSID_ANT' in inputs</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">
+days = inputs['ASSID_ANT'].amount
+rate = get_prev_month_absence_hourly_rate(contract)
+hours_per_day = contract.resource_calendar_id.hours_per_day
+result = rate * hours_per_day
+result_qty = days</field>
+        <field name="struct_id" ref="hr_payroll_structure_pt_monthly_pay" />
+        <field name="l10n_pt_dri_subject_amount">P</field>
+        <field name="l10n_pt_dmr_subject_amount">A</field>
+        <field name="l10n_pt_dmr_exempt_amount">N/A</field>
+        <field name="l10n_pt_affects_income_tax">True</field>
         <field name="l10n_pt_standard_rule">True</field>
     </record>
 
@@ -1909,7 +1938,7 @@ result = pt_get_overtime(contract.l10n_pt_overtime_sunday_rate, result_rules_pt)
 result = 'TRAB_NOT' in inputs or ('TRAB_NOT' in worked_days and contract.l10n_pt_night_work_rate)</field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
-if inputs['TRAB_NOT']:
+if 'TRAB_NOT' in inputs:
     result_qty = inputs['TRAB_NOT'].amount
     result = pt_get_night_work(contract.l10n_pt_night_work_rate, result_rules_pt)
 else:
@@ -2255,6 +2284,29 @@ result = pt_hourly_wage(result_rules_pt, contract)</field>
     </record>
 
     <!-- Desconto -->
+    <record id="rule_pt_temporary_partial_incapacity" model="hr.salary.rule">
+        <field name="category_id" ref="DES" />
+        <field name="name">Incapacidade Temporária Parcial</field>
+        <field name="code">ITP</field>
+        <field name="sequence">195</field>
+        <field name="condition_select">python</field>
+        <field name="condition_python">
+result = 'BASIC' in rules and ('ITP_VALOR' in inputs or bool(pt_get_incapacity_deduction(result_rules_pt, contract)))</field>
+        <field name="amount_select">code</field>
+        <field name="amount_python_compute">
+if 'ITP_VALOR' in inputs:
+    result = -abs(inputs['ITP_VALOR'].amount)
+else:
+    result = pt_get_incapacity_deduction(result_rules_pt, contract)</field>
+        <field name="struct_id" ref="hr_payroll_structure_pt_monthly_pay" />
+        <field name="l10n_pt_dri_subject_amount">P</field>
+        <field name="l10n_pt_dmr_subject_amount">A</field>
+        <field name="l10n_pt_dmr_exempt_amount">N/A</field>
+        <field name="l10n_pt_standard_rule">True</field>
+        <field name="l10n_pt_affects_income_tax">True</field>
+        <field name="l10n_pt_affects_temr">True</field>
+    </record>
+
     <record
         id="rule_pt_unprofessional_missing_other_justified_absences"
         model="hr.salary.rule"
@@ -2823,11 +2875,57 @@ if 'SUBS_NAT_TRIB_AUTO' in inputs:
         + result_rules["SUBS_NATAL_PROP"]["total"]
     )
 else:
-    result = (
-        get_last_slip_rule_value("SUBS_NAT_TRIBUTAVEL", "amount")
-        + result_rules["SUBS_NAT"]["total"]
-        + result_rules["SUBS_NATAL_PROP"]["total"]
-    )
+    # Each twelfth is taxed at the rate of the whole allowance (art. 99.º-C
+    # nº6 CIRS). In the admission year a full month's allowance is taken as
+    # the whole allowance, as in any other year.
+    if not pt_is_admission_year(payslip) or (
+        "SUBS_NAT_DUO" in rules or "SUBS_NAT_DUO_50" in rules
+    ):
+        # The rate must be based on the full reference, not on how much of it
+        # is actually paid on any single slip. But if the slips already paid
+        # this period (e.g. an independent christmas receipt) add up to more
+        # than that reference, the base must follow the higher real amount
+        # instead of understating it. Proportionals are part of what is paid,
+        # not an extra on top of the reference: at an exit only the
+        # proportional allowance may be due (art. 263.º nº2 b) CT).
+        previous_slip = payslip.l10n_pt_previous_payslip_id
+        previous_paid = 0
+        while previous_slip:
+            previous_paid += sum(
+                previous_slip.line_ids.filtered(
+                    lambda line: line.code
+                    in (
+                        "SUBS_NAT",
+                        "SUBS_NAT_DUO",
+                        "SUBS_NAT_DUO_50",
+                        "SUBS_NAT_50",
+                        "SUBS_NATAL_PROP",
+                    )
+                ).mapped("total")
+            )
+            previous_slip = previous_slip.l10n_pt_previous_payslip_id
+        result = (
+            max(
+                pt_get_christmas_allowance(result_rules_pt, contract),
+                previous_paid
+                + sum(
+                    result_rules[code]["total"]
+                    for code in (
+                        "SUBS_NAT",
+                        "SUBS_NAT_DUO",
+                        "SUBS_NAT_DUO_50",
+                        "SUBS_NAT_50",
+                        "SUBS_NATAL_PROP",
+                    )
+                ),
+            )
+        )
+    else:
+        result = (
+            get_last_slip_rule_value("SUBS_NAT_TRIBUTAVEL", "amount")
+            + result_rules["SUBS_NAT"]["total"]
+            + result_rules["SUBS_NATAL_PROP"]["total"]
+        )
 </field>
         <field name="struct_id" ref="hr_payroll_structure_pt_monthly_pay" />
         <field name="appears_on_payslip" eval="False" />
@@ -2985,12 +3083,60 @@ if 'SUBS_FER_TRIB_AUTO' in inputs:
         + result_rules["SUBS_FER_ANOS_ANT"]["total"]
     )
 else:
-    result = (
-        get_last_slip_rule_value("SUBS_FER_TRIBUTAVEL", "amount")
-        + result_rules["SUBS_FER"]["total"]
-        + result_rules["SUBS_FER_PROP"]["total"]
-        + result_rules["SUBS_FER_ANOS_ANT"]["total"]
-    )
+    # Each twelfth is taxed at the rate of the whole allowance (art. 99.º-C
+    # nº6 CIRS). In the admission year a full month's allowance is taken as
+    # the whole allowance, as in any other year.
+    if not pt_is_admission_year(payslip) or (
+        "SUBS_FER_DUO" in rules or "SUBS_FER_DUO_50" in rules
+    ):
+        # The rate must be based on the full reference, not on how much of it
+        # is actually paid on any single slip. But if the slips already paid
+        # this period (e.g. an independent holidays receipt) add up to more
+        # than that reference, the base must follow the higher real amount
+        # instead of understating it. Proportionals are part of what is paid,
+        # not an extra on top of the reference: at an exit only the
+        # proportional allowance may be due (art. 263.º nº2 b) CT).
+        previous_slip = payslip.l10n_pt_previous_payslip_id
+        previous_paid = 0
+        while previous_slip:
+            previous_paid += sum(
+                previous_slip.line_ids.filtered(
+                    lambda line: line.code
+                    in (
+                        "SUBS_FER",
+                        "SUBS_FER_DUO",
+                        "SUBS_FER_DUO_50",
+                        "SUBS_FER_50",
+                        "SUBS_FER_PROP",
+                        "SUBS_FER_ANOS_ANT",
+                    )
+                ).mapped("total")
+            )
+            previous_slip = previous_slip.l10n_pt_previous_payslip_id
+        result = (
+            max(
+                pt_get_holiday_allowance(result_rules_pt, contract),
+                previous_paid
+                + sum(
+                    result_rules[code]["total"]
+                    for code in (
+                        "SUBS_FER",
+                        "SUBS_FER_DUO",
+                        "SUBS_FER_DUO_50",
+                        "SUBS_FER_50",
+                        "SUBS_FER_PROP",
+                        "SUBS_FER_ANOS_ANT",
+                    )
+                ),
+            )
+        )
+    else:
+        result = (
+            get_last_slip_rule_value("SUBS_FER_TRIBUTAVEL", "amount")
+            + result_rules["SUBS_FER"]["total"]
+            + result_rules["SUBS_FER_PROP"]["total"]
+            + result_rules["SUBS_FER_ANOS_ANT"]["total"]
+        )
 </field>
         <field name="struct_id" ref="hr_payroll_structure_pt_monthly_pay" />
         <field name="appears_on_payslip" eval="False" />
@@ -3227,12 +3373,12 @@ result = get_total_amount_affects_temr(result_rules_pt) + income_overtime + last
         <field name="sequence">380</field>
         <field name="condition_select">python</field>
         <field name="condition_python">
-result = "IRS_SOMA_BASE_TEMR" in rules and "IRS_SOMA_BASE_TRIBUTAVEL" in rules
+result = "IRS_SOMA_BASE_TEMR" in rules
         </field>
         <field name="amount_select">code</field>
         <field name="amount_python_compute">
 result_rate = - employee.get_irs(result_rules["IRS_SOMA_BASE_TEMR"]["total"], payslip)
-result = get_especial_tax_sum_to_base(result_rules["IRS_SOMA_BASE_TRIBUTAVEL"]["total"], result_rules_pt)
+result = get_especial_tax_sum_to_base(result_rules["IRS_SOMA_BASE_TEMR"]["total"], result_rules_pt)
         </field>
         <field name="struct_id" ref="hr_payroll_structure_pt_monthly_pay" />
         <field name="appears_on_payslip" eval="False" />
@@ -3274,7 +3420,15 @@ result = compute_irs_amount(categories["IRS_TRIBUTADO"], payslip)</field>
         <field name="l10n_pt_standard_rule">True</field>
     </record>
 
+    <!-- Archived. This rule returned to the employee the contribution that had
+    been withheld on days of the previous month that are only now deducted. That
+    reversal, however, is already made by the deduction itself: the absence lowers
+    the Social Security base of this very receipt, so the contribution withheld
+    drops by exactly the amount withheld in excess before. Paying the line on top
+    of that returned the same contribution twice, at the employer's expense. Kept
+    as an inactive record so the receipts that already carry the line stay intact. -->
     <record id="rule_pt_tax_base_ss_adjustment" model="hr.salary.rule">
+        <field name="active" eval="False" />
         <field name="category_id" ref="ABONO" />
         <field
             name="name"
@@ -3663,6 +3817,29 @@ if result_rules["SS_EP"]["amount"]:
 
 
      <!-- Input Type -->
+    <record
+        id="input_pt_temporary_partial_incapacity_amount"
+        model="hr.payslip.input.type"
+    >
+        <field name="name">Incapacidade Temporária Parcial [valor]</field>
+        <field name="code">ITP_VALOR</field>
+        <field name="country_id" ref="base.pt" />
+        <field
+            name="struct_ids"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
+        />
+    </record>
+
+    <record id="input_pt_temporary_partial_incapacity" model="hr.payslip.input.type">
+        <field name="name">Incapacidade Temporária Parcial [%]</field>
+        <field name="code">ITP</field>
+        <field name="country_id" ref="base.pt" />
+        <field
+            name="struct_ids"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
+        />
+    </record>
+
      <record id="input_pt_kms_in_own_car" model="hr.payslip.input.type">
         <field name="name">Deslocação em viatura própria [Km's]</field>
         <field name="code">DES_VPROP</field>
@@ -4502,6 +4679,16 @@ if result_rules["SS_EP"]["amount"]:
     <record id="input_pt_overtime3600" model="hr.payslip.input.type">
         <field name="name">Hora Extra Domingo (Mês Anterior)[h]</field>
         <field name="code">EXTRA3600</field>
+        <field name="country_id" ref="base.pt" />
+        <field
+            name="struct_ids"
+            eval="[(4, ref('ptplus_payroll.hr_payroll_structure_pt_monthly_pay'))]"
+        />
+    </record>
+
+    <record id="input_pt_attendance_prev_month" model="hr.payslip.input.type">
+        <field name="name">Assiduidade (mês anterior) [d]</field>
+        <field name="code">ASSID_ANT</field>
         <field name="country_id" ref="base.pt" />
         <field
             name="struct_ids"

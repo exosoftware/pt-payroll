@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="l10n_pt_aggregate_salary_statement_wizard_form" model="ir.ui.view">
+        <field name="name">l10n_pt.aggregate.salary.statement.wizard.form</field>
+        <field name="model">l10n_pt.aggregate.salary.statement.wizard</field>
+        <field name="inherit_id" ref="ptplus_reports.l10n_pt_statement_wizard_form" />
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <group name="main_left" position="inside">
+                <field name="payslip_state" readonly="state != 'select'" />
+            </group>
+            <notebook name="main_block" position="inside">
+                <page name="lines" string="Lines">
+                    <field name="line_ids" nolabel="1">
+                        <list>
+                            <field name="currency_id" column_invisible="1" />
+                            <field name="employee_name" />
+                            <field name="base_salary" sum="Total" optional="show" />
+                            <field name="hourly_wage" sum="Total" optional="show" />
+                            <field name="total_earnings" sum="Total" optional="show" />
+                            <field
+                                name="irs_taxable_base_accumulated"
+                                sum="Total"
+                                optional="show"
+                            />
+                            <field
+                                name="irs_temr_accumulated"
+                                sum="Total"
+                                optional="show"
+                            />
+                            <field name="irs_base_sum" sum="Total" optional="show" />
+                            <field
+                                name="income_tax_withheld"
+                                sum="Total"
+                                optional="show"
+                            />
+                            <field
+                                name="social_security_contribution"
+                                sum="Total"
+                                optional="show"
+                            />
+                            <field
+                                name="employer_social_security_contribution"
+                                sum="Total"
+                                optional="show"
+                            />
+                            <field
+                                name="total_deductions"
+                                sum="Total"
+                                optional="show"
+                            />
+                            <field name="net_amount" sum="Total" optional="show" />
+                            <field
+                                name="overtime_quantity"
+                                sum="Total"
+                                optional="show"
+                            />
+                            <field name="overtime_amount" sum="Total" optional="show" />
+                        </list>
+                    </field>
+                </page>
+            </notebook>
+        </field>
+    </record>
+
+    <record
+        id="l10n_pt_aggregate_salary_statement_wizard_action"
+        model="ir.actions.act_window"
+    >
+        <field name="name">Aggregate Salary Statement</field>
+        <field name="res_model">l10n_pt.aggregate.salary.statement.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="l10n_pt_aggregate_salary_statement_wizard_form" />
+        <field name="target">new</field>
+    </record>
+
+    <menuitem
+        id="l10n_pt_aggregate_salary_statement_wizard_menu"
+        name="Aggregate Salary Statement"
+        parent="payroll_menu_report_pt"
+        sequence="50"
+        groups="ptplus.group_experimental_features_pt"
+        action="l10n_pt_aggregate_salary_statement_wizard_action"
+    />
+</odoo>

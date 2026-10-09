@@ -56,8 +56,8 @@
                             <field name="ru_temporary_workers_usage" />
                         </group>
                         <group invisible="ru_temporary_workers_usage == False">
-                            <separator string="1. Number of Temporary Workers" />
-                            <group class="o_row">
+                            <group>
+                                <separator string="1. Number of Temporary Workers" />
                                 <field
                                     name="ru_no_temp_workers_31_oct"
                                     string="October 31st"
@@ -70,20 +70,16 @@
                                     name="ru_no_temp_workers_average"
                                     string="Average Throughout the Year"
                                 />
-                            </group>
-                            <separator
-                                string="2. Temporary Workers In and Outflow Throughout the Year"
-                            />
-                            <separator string="2.1 Entries" />
-                            <group class="o_row">
+                                <separator
+                                    string="2. Temporary Workers In and Outflow Throughout the Year"
+                                />
+                                <separator string="2.1 Entries" />
                                 <field name="ru_temp_workers_in_male" string="Male" />
                                 <field
                                     name="ru_temp_workers_in_female"
                                     string="Female"
                                 />
-                            </group>
-                            <separator string="2.2 Outs" />
-                            <group class="o_row">
+                                <separator string="2.2 Outs" />
                                 <field name="ru_temp_workers_out_male" string="Male" />
                                 <field
                                     name="ru_temp_workers_out_female"

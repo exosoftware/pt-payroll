@@ -4,12 +4,6 @@
     <!-- when the employee does not work a full day, the number
     of days is rounded down to the next number -->
 
-    <record id="entry_type_pt_attendance" model="hr.work.entry.type">
-        <field name="name">Assiduidade</field>
-        <field name="color">0</field>
-        <field name="code">ASSIDUIDADE</field>
-    </record>
-
     <record
         id="entry_type_pt_missing_other_justified_absences"
         model="hr.work.entry.type"
@@ -340,6 +334,68 @@
     >
         <field name="name">Hora Extra em período Dias Seguintes</field>
         <field name="code">EXTRA900</field>
+        <field name="is_leave">False</field>
+        <field name="color">8</field>
+        <field name="round_days">NO</field>
+    </record>
+
+    <!-- "+100" tier: hours above the 100h/year threshold, moved here from
+    ptplus_payroll_overtime (19.0.1.0.1) - see migrations/19.0.9.5.1 for the
+    ownership move of the pre-existing records. -->
+    <record id="entry_type_pt_overtime_first_hour_100" model="hr.work.entry.type">
+        <field name="name">Hora Extra 1º Hora (+100.ª hora)</field>
+        <field name="code">EXTRA1500</field>
+        <field name="is_leave">False</field>
+        <field name="color">8</field>
+        <field name="round_days">NO</field>
+    </record>
+
+    <record id="entry_type_pt_overtime_remaining_hours_100" model="hr.work.entry.type">
+        <field name="name">Hora Extra Horas Seguintes (+100.ª hora)</field>
+        <field name="code">EXTRA1600</field>
+        <field name="is_leave">False</field>
+        <field name="color">8</field>
+        <field name="round_days">NO</field>
+    </record>
+
+    <record id="entry_type_pt_overtime_rest_days_100" model="hr.work.entry.type">
+        <field name="name">Hora Extra Dias de Descanso (+100.ª hora)</field>
+        <field name="code">EXTRA1700</field>
+        <field name="is_leave">False</field>
+        <field name="color">8</field>
+        <field name="round_days">NO</field>
+    </record>
+
+    <record id="entry_type_pt_overtime_workdays_100" model="hr.work.entry.type">
+        <field name="name">Hora Extra Dias Úteis (+100.ª hora)</field>
+        <field name="code">EXTRA1800</field>
+        <field name="is_leave">False</field>
+        <field name="color">8</field>
+        <field name="round_days">NO</field>
+    </record>
+
+    <record id="entry_type_pt_overtime_holidays_100" model="hr.work.entry.type">
+        <field name="name">Hora Extra Feriados (+100.ª hora)</field>
+        <field name="code">EXTRA1900</field>
+        <field name="is_leave">False</field>
+        <field name="color">8</field>
+        <field name="round_days">NO</field>
+    </record>
+
+    <record
+        id="entry_type_pt_overtime_saturday_and_holidays_100"
+        model="hr.work.entry.type"
+    >
+        <field name="name">Hora Extra Sábado e Feriados (+100.ª hora)</field>
+        <field name="code">EXTRA2000</field>
+        <field name="is_leave">False</field>
+        <field name="color">8</field>
+        <field name="round_days">NO</field>
+    </record>
+
+    <record id="entry_type_pt_overtime_sunday_100" model="hr.work.entry.type">
+        <field name="name">Hora Extra Domingos (+100.ª hora)</field>
+        <field name="code">EXTRA2100</field>
         <field name="is_leave">False</field>
         <field name="color">8</field>
         <field name="round_days">NO</field>
