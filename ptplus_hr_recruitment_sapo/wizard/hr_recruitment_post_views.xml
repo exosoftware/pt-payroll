@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="hr_recruitment_post_job_wizard_view_form_sapo" model="ir.ui.view">
+        <field name="name">hr.recruitment.post.job.wizard.form.sapo</field>
+        <field name="model">hr.recruitment.post.job.wizard</field>
+        <field
+            name="inherit_id"
+            ref="hr_recruitment_integration_base.hr_recruitment_post_job_wizard_view_form"
+        />
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <!-- The condition reads platform_ids directly, which the
+                     form always carries. A helper field would have to be
+                     declared inside this page to be loaded, and a page that
+                     is invisible never instantiates its content: the field
+                     would stay unknown and the page invisible for good. -->
+                <page
+                    name="sapo"
+                    string="SAPO Emprego"
+                    invisible="%(ptplus_hr_recruitment_sapo.hr_recruitment_platform_sapo)d not in platform_ids"
+                >
+                    <group>
+                        <group string="Where">
+                            <field
+                                name="l10n_pt_sapo_country_id"
+                                string="Country"
+                                options="{'no_create': True, 'no_open': True}"
+                            />
+                            <field
+                                name="l10n_pt_sapo_district_ids"
+                                string="Districts"
+                                widget="many2many_tags"
+                                options="{'no_create': True, 'no_open': True}"
+                            />
+                            <field
+                                name="l10n_pt_sapo_municipality_id"
+                                string="Municipality"
+                                domain="[('code_type', '=', 'municipality'), ('parent_id', 'in', l10n_pt_sapo_district_ids)]"
+                                options="{'no_create': True, 'no_open': True}"
+                            />
+                        </group>
+                        <group string="What">
+                            <field
+                                name="l10n_pt_sapo_category_ids"
+                                string="Professional Categories"
+                                widget="many2many_tags"
+                                options="{'no_create': True, 'no_open': True}"
+                            />
+                            <field
+                                name="l10n_pt_sapo_work_hours_id"
+                                string="Work Hours"
+                                options="{'no_create': True, 'no_open': True}"
+                            />
+                            <field
+                                name="l10n_pt_sapo_contract_type_id"
+                                string="Contract Type"
+                                options="{'no_create': True, 'no_open': True}"
+                            />
+                            <field name="l10n_pt_sapo_work_model" string="Work Model" />
+                        </group>
+                        <group string="Who">
+                            <field
+                                name="l10n_pt_sapo_qualification_id"
+                                string="Qualification"
+                                options="{'no_create': True, 'no_open': True}"
+                            />
+                            <field
+                                name="l10n_pt_sapo_experience_id"
+                                string="Professional Experience"
+                                options="{'no_create': True, 'no_open': True}"
+                            />
+                            <field
+                                name="l10n_pt_sapo_available_positions_id"
+                                string="Available Positions"
+                                options="{'no_create': True, 'no_open': True}"
+                            />
+                            <field name="l10n_pt_sapo_cv_required" string="CV" />
+                        </group>
+                        <group string="How it is advertised">
+                            <field
+                                name="l10n_pt_sapo_salary_range_id"
+                                string="Annual Salary Range"
+                                options="{'no_create': True, 'no_open': True}"
+                            />
+                            <field name="l10n_pt_sapo_anonymous" string="Anonymous" />
+                        </group>
+                    </group>
+                    <group string="Wording of the advert">
+                        <field
+                            name="l10n_pt_sapo_pitch"
+                            placeholder="e.g. Junte-se à equipa que faz o nosso software"
+                        />
+                        <field
+                            name="l10n_pt_sapo_offer"
+                            placeholder="One benefit per line, e.g.&#10;Seguro de saúde&#10;Formação contínua"
+                        />
+                        <field
+                            name="l10n_pt_sapo_schedule"
+                            placeholder="e.g. Segunda a sexta, 9h-18h"
+                        />
+                        <field
+                            name="l10n_pt_sapo_observations"
+                            placeholder="e.g. Processo de seleção em duas fases"
+                        />
+                    </group>
+                    <div class="text-muted">
+                        <span
+                        >These describe the advert on SAPO Emprego. They come back filled from the last advert published for this job position, and clearing one of the last four takes its section off the advert.</span>
+                    </div>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

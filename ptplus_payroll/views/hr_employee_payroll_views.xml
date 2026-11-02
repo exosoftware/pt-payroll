@@ -5,12 +5,25 @@
         <field name="model">hr.employee</field>
         <field name="inherit_id" ref="hr_payroll.payroll_hr_employee_view_form" />
         <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="before">
+                <div
+                    class="alert alert-warning"
+                    role="alert"
+                    groups="hr_payroll.group_hr_payroll_user"
+                    invisible="company_country_code != 'PT' or not l10n_pt_scc_remuneration_pending"
+                >
+                    <field name="l10n_pt_scc_remuneration_pending" invisible="1" />
+                    This contract updates permanent remunerations
+                    (<field name="l10n_pt_scc_updated_remunerations" readonly="1" />)
+                    that were not communicated to Social Security yet.
+                </div>
+            </xpath>
             <xpath expr="//div[@name='button_box']" position="inside">
                 <button
                     name="action_open_archived_contracts"
                     type="object"
                     class="oe_stat_button"
-                    icon="fa-archive"
+                    icon="archive"
                     invisible="company_country_code != 'PT' or archived_contract_count == 0"
                 >
                     <field
@@ -19,9 +32,220 @@
                         string="Archived Contracts"
                     />
                 </button>
+                <button
+                    name="action_l10n_pt_scc_open_communications"
+                    type="object"
+                    class="oe_stat_button"
+                    icon="fa-exchange"
+                    groups="hr_payroll.group_hr_payroll_user"
+                    invisible="company_country_code != 'PT' or l10n_pt_scc_communication_count == 0"
+                >
+                    <field
+                        name="l10n_pt_scc_communication_count"
+                        widget="statinfo"
+                        string="SS Communications"
+                    />
+                </button>
             </xpath>
             <xpath expr="//field[@name='registration_number']" position="attributes">
                 <attribute name="groups">hr.group_hr_user</attribute>
+            </xpath>
+            <xpath expr="//page[@name='payroll_information']" position="after">
+                <page
+                    string="SS Communication"
+                    name="l10n_pt_scc"
+                    invisible="country_code != 'PT' or not l10n_pt_scc_active"
+                    groups="hr.group_hr_user"
+                >
+                    <!-- The conditions of the page and of its buttons read
+                         these fields, so they have to be part of the form. -->
+                    <field name="l10n_pt_scc_active" invisible="1" />
+                    <field name="l10n_pt_scc_remuneration_pending" invisible="1" />
+                    <field name="l10n_pt_scc_contracts_checked" invisible="1" />
+                    <field name="l10n_pt_scc_can_communicate_hiring" invisible="1" />
+                    <field name="l10n_pt_scc_can_change_contract" invisible="1" />
+                    <field name="l10n_pt_scc_can_communicate_cessation" invisible="1" />
+                    <field name="l10n_pt_scc_cessation_communicated" invisible="1" />
+                    <field
+                        name="l10n_pt_scc_workplace_transfer_pending"
+                        invisible="1"
+                    />
+                    <field name="contract_date_end" invisible="1" />
+                    <div
+                        class="alert alert-info"
+                        role="status"
+                        invisible="l10n_pt_scc_contracts_checked"
+                        groups="hr_payroll.group_hr_payroll_user"
+                    >
+                        Check the worker at Social Security first: the
+                        communications available follow what Social Security
+                        holds for the worker.
+                    </div>
+                    <div class="mb-3" groups="hr_payroll.group_hr_payroll_user">
+                        <!-- The communications offered follow the worker's
+                             last contracts query: the employment relationship
+                             when none is open at Social Security, a contract
+                             change when one is, the permanent remunerations
+                             whenever the contract updates any of them. -->
+                        <button
+                            name="action_l10n_pt_scc_communicate_hiring"
+                            type="object"
+                            string="Communicate Employment Relationship"
+                            class="btn-primary me-2"
+                            invisible="not l10n_pt_scc_can_communicate_hiring"
+                            confirm="The contract will be communicated to Social Security right away as an employment relationship (on the worker's first contract, if Social Security already knows the worker, the permanent remuneration is communicated instead). Continue?"
+                        />
+                        <!-- A change to the contract Social Security already
+                             holds (e.g. the renewal of a fixed term), from
+                             the date this version takes effect. -->
+                        <button
+                            name="action_l10n_pt_scc_communicate_contract_change"
+                            type="object"
+                            string="Communicate Contract Change"
+                            class="btn-primary me-2"
+                            invisible="not l10n_pt_scc_can_change_contract"
+                            confirm="This contract version will be communicated to Social Security right away as a change to the worker's current contract there. Continue?"
+                        />
+                        <button
+                            name="action_l10n_pt_scc_communicate_remuneration"
+                            type="object"
+                            string="Communicate Permanent Remuneration"
+                            class="btn-primary me-2"
+                            invisible="not l10n_pt_scc_contracts_checked or not l10n_pt_scc_remuneration_pending"
+                            confirm="The permanent remunerations this contract updates will be communicated to Social Security right away. Continue?"
+                        />
+                        <!-- The end of the employment relationship Social
+                             Security holds open: a contract ending, not a
+                             version replaced by an update of the contractual
+                             conditions (999), a suspension (2xx) or a
+                             renewal. -->
+                        <button
+                            name="action_l10n_pt_scc_communicate_cessation"
+                            type="object"
+                            string="Communicate Cessation"
+                            class="btn-primary me-2"
+                            invisible="not l10n_pt_scc_can_communicate_cessation"
+                            confirm="The end of the employment relationship will be communicated to Social Security right away. Continue?"
+                        />
+                        <!-- A version of the same contract at another
+                             establishment moves the worker there from the
+                             date it takes effect. -->
+                        <button
+                            name="action_l10n_pt_scc_communicate_workplace_transfer"
+                            type="object"
+                            string="Communicate Workplace Transfer"
+                            class="btn-primary me-2"
+                            invisible="not l10n_pt_scc_workplace_transfer_pending"
+                            confirm="The worker's move to this workplace will be communicated to Social Security right away. Continue?"
+                        />
+                        <button
+                            name="action_l10n_pt_scc_check_contract"
+                            type="object"
+                            string="Check at SS"
+                            class="btn-secondary"
+                        />
+                    </div>
+                    <group>
+                        <group name="l10n_pt_scc_communication">
+                            <field
+                                name="l10n_pt_scc_contract_at_ss"
+                                invisible="l10n_pt_corporate_body"
+                            />
+                            <field name="l10n_pt_scc_communicated" />
+                            <field
+                                name="l10n_pt_scc_relationship_state"
+                                widget="badge"
+                                decoration-info="l10n_pt_scc_relationship_state in ('sent', 'processing')"
+                                decoration-success="l10n_pt_scc_relationship_state == 'integrated'"
+                                decoration-danger="l10n_pt_scc_relationship_state == 'refused'"
+                                invisible="not l10n_pt_scc_relationship_state"
+                            />
+                            <field
+                                name="l10n_pt_scc_relationship_reason"
+                                invisible="not l10n_pt_scc_relationship_reason"
+                            />
+                            <field name="l10n_pt_ss_workplace_code" />
+                            <field name="l10n_pt_ss_framework" />
+                            <field name="l10n_pt_ss_replaced_worker_niss" />
+                        </group>
+                        <group
+                            name="l10n_pt_scc_cessation"
+                            string="Cessation"
+                            groups="hr_payroll.group_hr_payroll_user"
+                            invisible="not contract_date_end"
+                        >
+                            <field
+                                name="l10n_pt_scc_cessation_reason"
+                                readonly="l10n_pt_scc_cessation_communicated"
+                            />
+                            <field
+                                name="l10n_pt_scc_unemployment_communication"
+                                readonly="l10n_pt_scc_cessation_communicated"
+                            />
+                            <field
+                                name="l10n_pt_scc_cessation_justification"
+                                readonly="l10n_pt_scc_cessation_communicated"
+                                invisible="not l10n_pt_scc_unemployment_communication or l10n_pt_scc_cessation_reason not in ('RARC', 'RARD', 'RARE', 'RARR')"
+                            />
+                            <field
+                                name="l10n_pt_scc_cessation_communicated"
+                                invisible="not l10n_pt_scc_cessation_communicated"
+                            />
+                        </group>
+                    </group>
+                    <group
+                        name="l10n_pt_scc_ss_remunerations"
+                        string="Permanent Remunerations Registered at Social Security"
+                        groups="hr_payroll.group_hr_payroll_user"
+                        invisible="not l10n_pt_scc_remunerations_checked_on"
+                    >
+                        <field name="l10n_pt_scc_remunerations_checked_on" />
+                        <field
+                            name="l10n_pt_scc_ss_remuneration_ids"
+                            nolabel="1"
+                            colspan="2"
+                        >
+                            <list create="0" delete="0" edit="0">
+                                <field name="remuneration_type" />
+                                <field name="description" />
+                                <field name="start_date" />
+                                <field name="end_date" />
+                                <field name="value" />
+                                <field name="communication_date" optional="show" />
+                                <field name="currency_id" column_invisible="1" />
+                            </list>
+                        </field>
+                    </group>
+                    <group
+                        name="l10n_pt_scc_ss_contracts"
+                        string="Contracts Registered at Social Security"
+                        groups="hr_payroll.group_hr_payroll_user"
+                        invisible="not l10n_pt_scc_contracts_checked_on"
+                    >
+                        <field name="l10n_pt_scc_contracts_checked_on" />
+                        <field
+                            name="l10n_pt_scc_ss_contract_ids"
+                            nolabel="1"
+                            colspan="2"
+                        >
+                            <list create="0" delete="0" edit="0">
+                                <field name="start_date" />
+                                <field name="end_date" />
+                                <field name="modality" />
+                                <field name="reason" optional="show" />
+                                <field name="base_remuneration" />
+                                <field name="currency_id" column_invisible="1" />
+                                <field name="information_start_date" optional="show" />
+                                <field name="information_end_date" optional="show" />
+                                <field name="profession" optional="hide" />
+                                <field name="provision_of_work" optional="hide" />
+                                <field name="work_percentage" optional="hide" />
+                                <field name="weekly_hours" optional="hide" />
+                                <field name="work_days" optional="hide" />
+                            </list>
+                        </field>
+                    </group>
+                </page>
             </xpath>
             <xpath expr="//group[@name='contract']" position="after">
                 <group
@@ -334,12 +558,28 @@
                     />
                 </div>
             </field>
-            <field name="contract_type_id" position="after">
+            <field name="employee_type_id" position="after">
                 <field
                     name="l10n_pt_contract_type_ru"
                     invisible="country_code != 'PT'"
                 />
             </field>
         </field>
+    </record>
+
+    <!-- The contracts and permanent remunerations of the selected employees,
+         archived ones included,
+         checked at Social Security in a few searches. -->
+    <record id="action_l10n_pt_scc_check_contracts" model="ir.actions.server">
+        <field name="name">Check at SS</field>
+        <field name="model_id" ref="hr.model_hr_employee" />
+        <field name="binding_model_id" ref="hr.model_hr_employee" />
+        <field name="binding_view_types">list</field>
+        <field
+            name="group_ids"
+            eval="[Command.link(ref('hr_payroll.group_hr_payroll_user'))]"
+        />
+        <field name="state">code</field>
+        <field name="code">action = records.action_l10n_pt_scc_check_contract()</field>
     </record>
 </odoo>

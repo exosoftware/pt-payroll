@@ -5,7 +5,6 @@
         <field name="model">l10n_pt.payroll.income.stmt.wizard</field>
         <field name="report_type">qweb-pdf</field>
         <field name="report_name">ptplus_payroll.report_income_stmt_wizard_pt</field>
-        <field name="report_file">ptplus_payroll.report_income_stmt_wizard_pt</field>
         <field name="attachment_use">False</field>
         <field
             name="print_report_name"
@@ -33,14 +32,14 @@
 
                 <p>
                     Nos termos do nº 1, alinea b) do art. 119º, do CIRS, <span
-                        t-esc="employee.l10n_pt_full_name"
-                    />, com residência em <span t-esc="employee.private_street" />,
-                    contribuinte nº <span t-esc="employee.l10n_pt_vat" />, <span
-                        t-esc="marital_status"
-                    />, com <span t-esc="employee.children" /> dependente/s, auferiu
+                    t-out="employee.l10n_pt_full_name"
+                />, com residência em <span t-out="employee.private_street" />,
+                    contribuinte nº <span t-out="employee.l10n_pt_vat" />, <span
+                    t-out="marital_status"
+                />, com <span t-out="employee.children" /> dependente/s, auferiu
                     <t t-if="statement.date_from">, no ano de <span
-                            t-esc="statement.date_from.year"
-                        /></t>
+                    t-out="statement.date_from.year"
+                /></t>
                     , os seguintes rendimentos relativos a trabalho dependente -
                     Categoria A:
                 </p>
@@ -65,20 +64,20 @@
                 <p>
                     <strong>Total de Rendimentos Ilíquidos Sujeitos referentes a
                         <t t-if="statement.date_from">
-                            <span t-esc="statement.date_from.year" />
-                        </t> <br />
+                        <span t-out="statement.date_from.year" />
+                    </t> <br />
                         <t
-                            t-esc="sum(taxable_lines.mapped('income_amount'))"
-                            t-options='{"widget": "monetary", "display_currency": statement.currency_id}'
-                        />
+                        t-out="sum(taxable_lines.mapped('income_amount'))"
+                        t-options='{"widget": "monetary", "display_currency": statement.currency_id}'
+                    />
                     </strong>
                 </p>
                 <t t-foreach="taxable_lines" t-as="line">
                     <p style="margin-left: 25px;">
-                        <span t-esc="line.salary_rule_description" />
+                        <span t-out="line.salary_rule_description" />
                         <br />
                         <span
-                            t-esc="line.income_amount"
+                            t-out="line.income_amount"
                             t-options='{"widget": "monetary", "display_currency": statement.currency_id}'
                         />
                     </p>
@@ -87,20 +86,20 @@
                 <p>
                     <strong>Total de Rendimentos Ilíquidos Não Sujeitos referentes a
                         <t t-if="statement.date_from">
-                            <span t-esc="statement.date_from.year" />
-                        </t> <br />
+                        <span t-out="statement.date_from.year" />
+                    </t> <br />
                         <t
-                            t-esc="sum(exempt_lines.mapped('income_amount'))"
-                            t-options='{"widget": "monetary", "display_currency": statement.currency_id}'
-                        />
+                        t-out="sum(exempt_lines.mapped('income_amount'))"
+                        t-options='{"widget": "monetary", "display_currency": statement.currency_id}'
+                    />
                     </strong>
                 </p>
                 <t t-foreach="exempt_lines" t-as="line">
                     <p style="margin-left: 25px;">
-                        <span t-esc="line.salary_rule_description" />
+                        <span t-out="line.salary_rule_description" />
                         <br />
                         <span
-                            t-esc="line.income_amount"
+                            t-out="line.income_amount"
                             t-options='{"widget": "monetary", "display_currency": statement.currency_id}'
                         />
                     </p>
@@ -109,20 +108,20 @@
                 <p>
                     <strong>Total de Descontos referentes a
                         <t t-if="statement.date_from">
-                            <span t-esc="statement.date_from.year" />
-                        </t> <br />
+                        <span t-out="statement.date_from.year" />
+                    </t> <br />
                         <t
-                            t-esc="sum(deduction_lines.mapped('income_amount'))"
-                            t-options='{"widget": "monetary", "display_currency": statement.currency_id}'
-                        />
+                        t-out="sum(deduction_lines.mapped('income_amount'))"
+                        t-options='{"widget": "monetary", "display_currency": statement.currency_id}'
+                    />
                     </strong>
                 </p>
                 <t t-foreach="deduction_lines" t-as="line">
                     <p style="margin-left: 25px;">
-                        <span t-esc="line.salary_rule_description" />
+                        <span t-out="line.salary_rule_description" />
                         <br />
                         <span
-                            t-esc="line.income_amount"
+                            t-out="line.income_amount"
                             t-options='{"widget": "monetary", "display_currency": statement.currency_id}'
                         />
                     </p>

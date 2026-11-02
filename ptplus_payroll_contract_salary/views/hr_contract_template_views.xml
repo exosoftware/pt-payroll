@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="hr_contract_template_form_view" model="ir.ui.view">
+        <field
+            name="name"
+        >hr.contract.template.form.inherit.ptplus_payroll_contract_salary</field>
+        <field name="model">hr.version</field>
+        <field name="inherit_id" ref="hr.hr_contract_template_form_view" />
+        <field name="arch" type="xml">
+            <group name="salary_info" position="inside">
+                <group
+                    name="l10n_pt_salary_simulation"
+                    string="Salary Simulation (PT)"
+                    invisible="country_code != 'PT'"
+                    groups="hr_payroll.group_hr_payroll_user"
+                >
+                    <field name="country_code" invisible="1" />
+                    <field name="l10n_pt_simulation_income_tax_region" />
+                    <field name="l10n_pt_simulation_employee_type_id" />
+                </group>
+            </group>
+        </field>
+    </record>
+
+    <record id="hr_contract_template_form_view_employer_cost" model="ir.ui.view">
+        <field
+            name="name"
+        >hr.contract.template.form.employer.cost.inherit.ptplus_payroll_contract_salary</field>
+        <field name="model">hr.version</field>
+        <field
+            name="inherit_id"
+            ref="hr_contract_salary.hr_contract_template_form_view"
+        />
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='wage']" position="after">
+                <field
+                    name="l10n_pt_work_schedule_exemption_option"
+                    string="Work Schedule Exemption"
+                    invisible="country_code != 'PT'"
+                />
+                <label
+                    for="l10n_pt_work_schedule_exemption_value"
+                    invisible="l10n_pt_work_schedule_exemption_option != 'value'"
+                />
+                <div
+                    class="o_row"
+                    invisible="l10n_pt_work_schedule_exemption_option != 'value'"
+                >
+                    <field
+                        name="l10n_pt_work_schedule_exemption_value"
+                        widget="monetary"
+                        class="o_hr_narrow_field"
+                    />
+                    <span>/ month</span>
+                </div>
+                <label
+                    for="l10n_pt_work_schedule_exemption_rate"
+                    invisible="l10n_pt_work_schedule_exemption_option != 'rate'"
+                />
+                <div
+                    class="o_row"
+                    invisible="l10n_pt_work_schedule_exemption_option != 'rate'"
+                >
+                    <field
+                        name="l10n_pt_work_schedule_exemption_rate"
+                        widget="percentage"
+                        class="o_hr_narrow_field"
+                    />
+                    <span>/ month</span>
+                </div>
+                <field
+                    name="l10n_pt_meal_allowance_payment_method"
+                    string="Meal Allowance"
+                    invisible="country_code != 'PT'"
+                />
+                <label
+                    for="l10n_pt_meal_allowance_amount"
+                    string="Meal Allowance Amount"
+                    invisible="country_code != 'PT'"
+                />
+                <div class="o_row" invisible="country_code != 'PT'">
+                    <field
+                        name="l10n_pt_meal_allowance_amount"
+                        widget="monetary"
+                        class="o_hr_narrow_field"
+                    />
+                    <span>/ day</span>
+                </div>
+                <field
+                    name="l10n_pt_meal_allowance_yearly_days"
+                    class="o_hr_narrow_field"
+                    invisible="country_code != 'PT'"
+                />
+            </xpath>
+            <xpath expr="//label[@name='final_yearly_costs']" position="before">
+                <field
+                    name="l10n_pt_insurance_rate"
+                    widget="percentage"
+                    class="o_hr_narrow_field"
+                    invisible="country_code != 'PT'"
+                />
+            </xpath>
+        </field>
+    </record>
+</odoo>

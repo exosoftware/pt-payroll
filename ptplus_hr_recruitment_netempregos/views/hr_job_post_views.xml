@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="hr_job_post_view_form_netempregos" model="ir.ui.view">
+        <field name="name">hr.job.post.form.netempregos</field>
+        <field name="model">hr.job.post</field>
+        <field
+            name="inherit_id"
+            ref="hr_recruitment_integration_base.hr_job_post_view_form"
+        />
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page
+                    name="netempregos"
+                    string="Net-Empregos"
+                    invisible="platform_id != %(ptplus_hr_recruitment_netempregos.hr_recruitment_platform_netempregos)d"
+                >
+                    <group>
+                        <field
+                            name="l10n_pt_netempregos_zone_id"
+                            string="Zone"
+                            options="{'no_create': True, 'no_open': True}"
+                        />
+                        <field
+                            name="l10n_pt_netempregos_category_id"
+                            string="Category"
+                            options="{'no_create': True, 'no_open': True}"
+                        />
+                        <field
+                            name="l10n_pt_netempregos_job_type_id"
+                            string="Job Type"
+                            options="{'no_create': True, 'no_open': True}"
+                        />
+                    </group>
+                    <div class="text-muted">
+                        <span
+                        >This is how Net-Empregos files the advert. Use Update to send a change to the platform.</span>
+                    </div>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

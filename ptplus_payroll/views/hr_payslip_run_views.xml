@@ -3,7 +3,10 @@
     <record id="hr_payslip_run_view_kanban_pt" model="ir.ui.view">
         <field name="name">hr.payslip.run.kanban.pt</field>
         <field name="model">hr.payslip.run</field>
-        <field name="inherit_id" ref="hr_payroll_account.hr_payslip_run_view_kanban" />
+        <field
+            name="inherit_id"
+            ref="hr_payroll_account.hr_payrun_payslip_kanban_card_view"
+        />
         <field name="arch" type="xml">
             <button name="action_draft" position="before">
                 <button

@@ -1,0 +1,293 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* ptplus_payroll_contract_salary
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-21 10:30+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: ptplus_payroll_contract_salary
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll_contract_salary.hr_contract_template_form_view_employer_cost
+msgid "<span>/ day</span>"
+msgstr "<span>/ dia</span>"
+
+#. module: ptplus_payroll_contract_salary
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll_contract_salary.hr_contract_template_form_view_employer_cost
+msgid "<span>/ month</span>"
+msgstr "<span>/ mês</span>"
+
+#. module: ptplus_payroll_contract_salary
+#: model:hr.contract.salary.personal.info.value,name:ptplus_payroll_contract_salary.personal_info_region_a
+#: model:ir.model.fields.selection,name:ptplus_payroll_contract_salary.selection__hr_version__l10n_pt_simulation_income_tax_region__a
+msgid "Azores Autonomous Region"
+msgstr "Região Autónoma dos Açores"
+
+#. module: ptplus_payroll_contract_salary
+#: model:ir.model.fields,help:ptplus_payroll_contract_salary.field_hr_employee__l10n_pt_insurance_rate
+#: model:ir.model.fields,help:ptplus_payroll_contract_salary.field_hr_version__l10n_pt_insurance_rate
+msgid ""
+"Charged on the wage and on the work schedule exemption, never on the meal "
+"allowance."
+msgstr ""
+"Incide sobre o vencimento e sobre a isenção de horário de trabalho, nunca "
+"sobre o subsídio de refeição."
+
+#. module: ptplus_payroll_contract_salary
+#: model:hr.contract.salary.personal.info.value,name:ptplus_payroll_contract_salary.personal_info_region_c
+#: model:ir.model.fields.selection,name:ptplus_payroll_contract_salary.selection__hr_version__l10n_pt_simulation_income_tax_region__c
+msgid "Continent"
+msgstr "Continente"
+
+#. module: ptplus_payroll_contract_salary
+#: model:hr.contract.salary.personal.info,name:ptplus_payroll_contract_salary.personal_info_children
+msgid "Dependent Children"
+msgstr "Filhos dependentes"
+
+#. module: ptplus_payroll_contract_salary
+#: model:hr.contract.salary.personal.info,name:ptplus_payroll_contract_salary.personal_info_disability
+msgid "Disability"
+msgstr "Deficiente"
+
+#. module: ptplus_payroll_contract_salary
+#: model:hr.contract.salary.personal.info,name:ptplus_payroll_contract_salary.personal_info_disability_degree
+msgid "Disability Degree (%)"
+msgstr "Grau de Incapacidade (%)"
+
+#. module: ptplus_payroll_contract_salary
+#: model:hr.contract.salary.personal.info,name:ptplus_payroll_contract_salary.personal_info_disability_armed_forces
+msgid "Disability Incurred in the Armed Forces"
+msgstr "Deficiência das Forças Armadas"
+
+#. module: ptplus_payroll_contract_salary
+#: model:ir.model.fields,field_description:ptplus_payroll_contract_salary.field_hr_version__display_name
+msgid "Display Name"
+msgstr "Nome a Apresentar"
+
+#. module: ptplus_payroll_contract_salary
+#: model:hr.contract.salary.personal.info.value,name:ptplus_payroll_contract_salary.personal_info_marital_divorced
+msgid "Divorced"
+msgstr "Divorciado"
+
+#. module: ptplus_payroll_contract_salary
+#: model:ir.model,name:ptplus_payroll_contract_salary.model_hr_version
+msgid "Employee Contract"
+msgstr "Contrato do Funcionário"
+
+#. module: ptplus_payroll_contract_salary
+#: model:hr.contract.salary.personal.info.type,name:ptplus_payroll_contract_salary.personal_info_type_family
+msgid "Family Situation"
+msgstr "Situação familiar"
+
+#. module: ptplus_payroll_contract_salary
+#: model:hr.contract.salary.personal.info.value,name:ptplus_payroll_contract_salary.personal_info_region_e
+#: model:ir.model.fields.selection,name:ptplus_payroll_contract_salary.selection__hr_version__l10n_pt_simulation_income_tax_region__e
+msgid "Foreigners"
+msgstr "Estrangeiros"
+
+#. module: ptplus_payroll_contract_salary
+#: model:hr.contract.salary.resume,name:ptplus_payroll_contract_salary.hr_contract_salary_resume_gross_pt
+msgid "Gross"
+msgstr "Bruto"
+
+#. module: ptplus_payroll_contract_salary
+#: model:ir.model.fields,field_description:ptplus_payroll_contract_salary.field_hr_version__id
+msgid "ID"
+msgstr "ID"
+
+#. module: ptplus_payroll_contract_salary
+#: model:hr.contract.salary.personal.info,name:ptplus_payroll_contract_salary.personal_info_income_tax_region
+msgid "Income Tax Region"
+msgstr "Região de IRS"
+
+#. module: ptplus_payroll_contract_salary
+#: model:ir.model.fields,help:ptplus_payroll_contract_salary.field_hr_employee__l10n_pt_simulation_income_tax_region
+#: model:ir.model.fields,help:ptplus_payroll_contract_salary.field_hr_version__l10n_pt_simulation_income_tax_region
+msgid ""
+"Income tax region assumed for the candidate while an offer is being "
+"simulated. It is never written on a hired employee: once the employee "
+"exists, the region on their record is the one that counts."
+msgstr ""
+"Região de IRS assumida para o candidato durante a simulação de uma oferta. "
+"Nunca é escrita num funcionário contratado: a partir do momento em que o "
+"funcionário existe, vale a região da ficha dele."
+
+#. module: ptplus_payroll_contract_salary
+#: model:hr.contract.salary.personal.info.value,name:ptplus_payroll_contract_salary.personal_info_marital_cohabitant
+msgid "Legal Cohabitant"
+msgstr "União de facto"
+
+#. module: ptplus_payroll_contract_salary
+#: model:hr.contract.salary.personal.info.value,name:ptplus_payroll_contract_salary.personal_info_region_m
+#: model:ir.model.fields.selection,name:ptplus_payroll_contract_salary.selection__hr_version__l10n_pt_simulation_income_tax_region__m
+msgid "Madeira Autonomous Region"
+msgstr "Região Autónoma da Madeira"
+
+#. module: ptplus_payroll_contract_salary
+#: model:hr.contract.salary.personal.info,name:ptplus_payroll_contract_salary.personal_info_marital
+msgid "Marital Status"
+msgstr "Estado civil"
+
+#. module: ptplus_payroll_contract_salary
+#: model:hr.contract.salary.personal.info.value,name:ptplus_payroll_contract_salary.personal_info_marital_married
+msgid "Married"
+msgstr "Casado"
+
+#. module: ptplus_payroll_contract_salary
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll_contract_salary.hr_contract_template_form_view_employer_cost
+msgid "Meal Allowance"
+msgstr "Subsídio de Refeição"
+
+#. module: ptplus_payroll_contract_salary
+#: model:ir.model.fields,field_description:ptplus_payroll_contract_salary.field_hr_employee__l10n_pt_meal_allowance_amount
+#: model:ir.model.fields,field_description:ptplus_payroll_contract_salary.field_hr_version__l10n_pt_meal_allowance_amount
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll_contract_salary.hr_contract_template_form_view_employer_cost
+msgid "Meal Allowance Amount"
+msgstr "Valor do Subsídio de Refeição"
+
+#. module: ptplus_payroll_contract_salary
+#: model:ir.model.fields,field_description:ptplus_payroll_contract_salary.field_hr_employee__l10n_pt_meal_allowance_yearly_days
+#: model:ir.model.fields,field_description:ptplus_payroll_contract_salary.field_hr_version__l10n_pt_meal_allowance_yearly_days
+msgid "Meal Allowance Days per Year"
+msgstr "Dias de Subsídio de Refeição por Ano"
+
+#. module: ptplus_payroll_contract_salary
+#: model:hr.contract.salary.resume,name:ptplus_payroll_contract_salary.hr_contract_salary_resume_net_pt
+msgid "Net"
+msgstr "Líquido"
+
+#. module: ptplus_payroll_contract_salary
+#: model:hr.contract.salary.personal.info,name:ptplus_payroll_contract_salary.personal_info_no_of_holders
+msgid "Number of Holders"
+msgstr "Número de titulares"
+
+#. module: ptplus_payroll_contract_salary
+#: model:hr.contract.salary.personal.info.value,name:ptplus_payroll_contract_salary.personal_info_holders_one
+msgid "One holder"
+msgstr "Um titular"
+
+#. module: ptplus_payroll_contract_salary
+#: model:hr.contract.salary.personal.info,name:ptplus_payroll_contract_salary.personal_info_pensioner
+msgid "Pensioner"
+msgstr "Pensionista"
+
+#. module: ptplus_payroll_contract_salary
+#: model:ir.module.module,shortdesc:base.module_ptplus_payroll_contract_salary
+msgid "Portugal - Payroll Salary Configurator"
+msgstr ""
+
+#. module: ptplus_payroll_contract_salary
+#: model:ir.module.module,summary:base.module_ptplus_payroll_contract_salary
+msgid "Portuguese fiscal profile used by the salary configurator previews"
+msgstr ""
+
+#. module: ptplus_payroll_contract_salary
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll_contract_salary.hr_contract_template_form_view
+msgid "Salary Simulation (PT)"
+msgstr "Simulação Salarial (PT)"
+
+#. module: ptplus_payroll_contract_salary
+#: model:hr.contract.salary.personal.info,placeholder:ptplus_payroll_contract_salary.personal_info_income_tax_region
+msgid "Select a region"
+msgstr "Escolha uma região"
+
+#. module: ptplus_payroll_contract_salary
+#: model:hr.contract.salary.personal.info,placeholder:ptplus_payroll_contract_salary.personal_info_marital
+msgid "Select a status"
+msgstr "Escolha um estado civil"
+
+#. module: ptplus_payroll_contract_salary
+#: model:hr.contract.salary.personal.info,placeholder:ptplus_payroll_contract_salary.personal_info_no_of_holders
+msgid "Select an option"
+msgstr "Escolha uma opção"
+
+#. module: ptplus_payroll_contract_salary
+#: model:ir.model.fields,field_description:ptplus_payroll_contract_salary.field_hr_employee__l10n_pt_simulation_employee_type_id
+#: model:ir.model.fields,field_description:ptplus_payroll_contract_salary.field_hr_version__l10n_pt_simulation_employee_type_id
+msgid "Simulated Employee Type for SS"
+msgstr "Tipo de Trabalhador para SS Simulado"
+
+#. module: ptplus_payroll_contract_salary
+#: model:ir.model.fields,field_description:ptplus_payroll_contract_salary.field_hr_employee__l10n_pt_simulation_income_tax_region
+#: model:ir.model.fields,field_description:ptplus_payroll_contract_salary.field_hr_version__l10n_pt_simulation_income_tax_region
+msgid "Simulated Income Tax Region"
+msgstr "Região de IRS Simulada"
+
+#. module: ptplus_payroll_contract_salary
+#: model:hr.contract.salary.personal.info.value,name:ptplus_payroll_contract_salary.personal_info_marital_single
+msgid "Single"
+msgstr "Solteiro"
+
+#. module: ptplus_payroll_contract_salary
+#: model:hr.contract.salary.personal.info,name:ptplus_payroll_contract_salary.personal_info_ssnid
+msgid "Social Security Number"
+msgstr "N.º de Segurança Social"
+
+#. module: ptplus_payroll_contract_salary
+#: model:ir.model.fields,help:ptplus_payroll_contract_salary.field_hr_employee__l10n_pt_simulation_employee_type_id
+#: model:ir.model.fields,help:ptplus_payroll_contract_salary.field_hr_version__l10n_pt_simulation_employee_type_id
+msgid ""
+"Social security contribution rates assumed for the candidate while an offer "
+"is being simulated. It is never written on a hired employee."
+msgstr ""
+"Taxas contributivas da Segurança Social assumidas para o candidato durante a "
+"simulação de uma oferta. Nunca são escritas num funcionário contratado."
+
+#. module: ptplus_payroll_contract_salary
+#: model:hr.contract.salary.personal.info,name:ptplus_payroll_contract_salary.personal_info_spouse_birthdate
+msgid "Spouse Birthdate"
+msgstr "Data de nascimento do cônjuge"
+
+#. module: ptplus_payroll_contract_salary
+#: model:hr.contract.salary.personal.info,name:ptplus_payroll_contract_salary.personal_info_spouse_name
+msgid "Spouse Legal Name"
+msgstr "Nome legal do cônjuge"
+
+#. module: ptplus_payroll_contract_salary
+#: model:hr.contract.salary.personal.info,name:ptplus_payroll_contract_salary.personal_info_vat
+msgid "Tax ID"
+msgstr "NIF"
+
+#. module: ptplus_payroll_contract_salary
+#: model:hr.contract.salary.personal.info.type,name:ptplus_payroll_contract_salary.personal_info_type_tax
+msgid "Tax Information"
+msgstr "Dados fiscais"
+
+#. module: ptplus_payroll_contract_salary
+#: model:hr.contract.salary.personal.info.value,name:ptplus_payroll_contract_salary.personal_info_holders_two
+msgid "Two holders"
+msgstr "Dois titulares"
+
+#. module: ptplus_payroll_contract_salary
+#: model:hr.contract.salary.personal.info.value,name:ptplus_payroll_contract_salary.personal_info_marital_widower
+msgid "Widower"
+msgstr "Viúvo"
+
+#. module: ptplus_payroll_contract_salary
+#: model:ir.model.fields,field_description:ptplus_payroll_contract_salary.field_hr_employee__l10n_pt_insurance_rate
+#: model:ir.model.fields,field_description:ptplus_payroll_contract_salary.field_hr_version__l10n_pt_insurance_rate
+msgid "Work Accident Insurance Rate"
+msgstr "Taxa do Seguro de Acidentes de Trabalho"
+
+#. module: ptplus_payroll_contract_salary
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll_contract_salary.hr_contract_template_form_view_employer_cost
+msgid "Work Schedule Exemption"
+msgstr "Isenção do Horário de Trabalho"
+
+#. module: ptplus_payroll_contract_salary
+#: model:ir.model.fields,help:ptplus_payroll_contract_salary.field_hr_employee__l10n_pt_meal_allowance_yearly_days
+#: model:ir.model.fields,help:ptplus_payroll_contract_salary.field_hr_version__l10n_pt_meal_allowance_yearly_days
+msgid ""
+"Working days the meal allowance is paid on over a year, used to estimate the "
+"yearly employer cost."
+msgstr ""
+"Dias úteis em que o subsídio de refeição é pago ao longo de um ano, usados "
+"para estimar o custo anual para a empresa."

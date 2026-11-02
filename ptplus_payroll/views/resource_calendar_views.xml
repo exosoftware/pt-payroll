@@ -5,12 +5,9 @@
         <field name="model">resource.calendar</field>
         <field name="inherit_id" ref="resource.resource_calendar_form" />
         <field name="arch" type="xml">
-            <label for="full_time_required_hours" position="before">
-                <label for="l10n_pt_part_time" />
-                <div>
-                    <field name="l10n_pt_part_time" />
-                </div>
-            </label>
+            <field name="reference_calendar_id" position="before">
+                <field name="l10n_pt_part_time" />
+            </field>
         </field>
     </record>
 </odoo>

@@ -22,8 +22,8 @@
             >
                 <p>Olá Caro(a) <t t-out="object.employee_id.name" />,</p>
                 <p>Por favor, encontre em anexo o seu <t
-                        t-out="object.name or ''"
-                    /> da <t t-out="object.company_id.name" />.</p>
+                    t-out="object.name or ''"
+                /> da <t t-out="object.company_id.name" />.</p>
 
                 <p>Se tiver alguma dúvida, não hesite em contactar o RH.</p>
                 <br />

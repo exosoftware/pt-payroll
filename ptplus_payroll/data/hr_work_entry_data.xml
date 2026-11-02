@@ -10,9 +10,11 @@
     >
         <field name="name">Falta Outras Ausências Justificadas</field>
         <field name="code">FALTA110</field>
-        <field name="is_leave">True</field>
+        <field name="count_as">absence</field>
         <field name="color">5</field>
-        <field name="round_days">NO</field>
+        <field name="request_unit">hour</field>
+        <field name="requires_allocation">False</field>
+        <field name="country_id" ref="base.pt" />
     </record>
 
     <record
@@ -21,17 +23,21 @@
     >
         <field name="name">Falta Apenas com Desconto Subs. Alimentação</field>
         <field name="code">SUBS_ALIM120</field>
-        <field name="is_leave">True</field>
+        <field name="count_as">absence</field>
         <field name="color">5</field>
-        <field name="round_days">NO</field>
+        <field name="request_unit">day</field>
+        <field name="requires_allocation">False</field>
+        <field name="country_id" ref="base.pt" />
     </record>
 
     <record id="entry_type_pt_holiday_days" model="hr.work.entry.type">
         <field name="name">Dias de Férias Gozadas (c/Desc. Subs. Alimentação)</field>
         <field name="code">FERIAS130</field>
-        <field name="is_leave">True</field>
+        <field name="count_as">absence</field>
         <field name="color">2</field>
-        <field name="round_days">NO</field>
+        <field name="request_unit">day</field>
+        <field name="requires_allocation">False</field>
+        <field name="country_id" ref="base.pt" />
     </record>
 
     <record
@@ -40,9 +46,11 @@
     >
         <field name="name">Falta por Acidente de Trabalho</field>
         <field name="code">FALTA140</field>
-        <field name="is_leave">True</field>
+        <field name="count_as">absence</field>
         <field name="color">5</field>
-        <field name="round_days">NO</field>
+        <field name="request_unit">hour</field>
+        <field name="requires_allocation">False</field>
+        <field name="country_id" ref="base.pt" />
     </record>
 
     <record
@@ -51,9 +59,11 @@
     >
         <field name="name">Falta por Doença Profissional Certificada</field>
         <field name="code">FALTA150</field>
-        <field name="is_leave">True</field>
+        <field name="count_as">absence</field>
         <field name="color">5</field>
-        <field name="round_days">NO</field>
+        <field name="request_unit">day</field>
+        <field name="requires_allocation">False</field>
+        <field name="country_id" ref="base.pt" />
     </record>
 
     <record
@@ -62,17 +72,21 @@
     >
         <field name="name">Falta por Doença Profissional Não Certificada</field>
         <field name="code">FALTA160</field>
-        <field name="is_leave">True</field>
+        <field name="count_as">absence</field>
         <field name="color">5</field>
-        <field name="round_days">NO</field>
+        <field name="request_unit">day</field>
+        <field name="requires_allocation">False</field>
+        <field name="country_id" ref="base.pt" />
     </record>
 
     <record id="entry_type_pt_unprofessional_sick_leave" model="hr.work.entry.type">
         <field name="name">Falta por Doença Não Profissional</field>
         <field name="code">FALTA170</field>
-        <field name="is_leave">True</field>
+        <field name="count_as">absence</field>
         <field name="color">5</field>
-        <field name="round_days">NO</field>
+        <field name="request_unit">day</field>
+        <field name="requires_allocation">False</field>
+        <field name="country_id" ref="base.pt" />
     </record>
 
     <record
@@ -81,17 +95,22 @@
     >
         <field name="name">Falta p/ Assistência Inadiável a Agregado Familiar</field>
         <field name="code">FALTA180</field>
-        <field name="is_leave">True</field>
+        <field name="count_as">absence</field>
         <field name="color">5</field>
-        <field name="round_days">NO</field>
+        <field name="request_unit">day</field>
+        <field name="requires_allocation">False</field>
+        <field name="country_id" ref="base.pt" />
     </record>
 
     <record id="entry_type_pt_lack_of_student_workers" model="hr.work.entry.type">
         <field name="name">Falta de Trabalhadores Estudantes</field>
         <field name="code">FALTA190</field>
-        <field name="is_leave">True</field>
+        <field name="count_as">absence</field>
         <field name="color">5</field>
-        <field name="round_days">NO</field>
+        <field name="request_unit">hour</field>
+        <field name="requires_allocation">False</field>
+        <field name="amount_rate">0.0</field>
+        <field name="country_id" ref="base.pt" />
     </record>
 
     <record
@@ -100,25 +119,32 @@
     >
         <field name="name">Falta por Falecimento do Cônjuge, Parente ou Afim</field>
         <field name="code">FALTA200</field>
-        <field name="is_leave">True</field>
+        <field name="count_as">absence</field>
         <field name="color">5</field>
-        <field name="round_days">NO</field>
+        <field name="request_unit">day</field>
+        <field name="requires_allocation">False</field>
+        <field name="amount_rate">0.0</field>
+        <field name="country_id" ref="base.pt" />
     </record>
 
     <record id="entry_type_pt_maternity_leave" model="hr.work.entry.type">
         <field name="name">Falta por Maternidade</field>
         <field name="code">FALTA210</field>
-        <field name="is_leave">True</field>
+        <field name="count_as">absence</field>
         <field name="color">5</field>
-        <field name="round_days">NO</field>
+        <field name="request_unit">day</field>
+        <field name="requires_allocation">False</field>
+        <field name="country_id" ref="base.pt" />
     </record>
 
     <record id="entry_type_pt_paternity_leave" model="hr.work.entry.type">
         <field name="name">Falta por Paternidade</field>
         <field name="code">FALTA220</field>
-        <field name="is_leave">True</field>
+        <field name="count_as">absence</field>
         <field name="color">5</field>
-        <field name="round_days">NO</field>
+        <field name="request_unit">day</field>
+        <field name="requires_allocation">False</field>
+        <field name="country_id" ref="base.pt" />
     </record>
 
     <record
@@ -127,17 +153,22 @@
     >
         <field name="name">Falta Candidatos a Eleições e Mesas Voto</field>
         <field name="code">FALTA230</field>
-        <field name="is_leave">True</field>
+        <field name="count_as">absence</field>
         <field name="color">5</field>
-        <field name="round_days">NO</field>
+        <field name="request_unit">day</field>
+        <field name="requires_allocation">False</field>
+        <field name="amount_rate">0.0</field>
+        <field name="country_id" ref="base.pt" />
     </record>
 
     <record id="entry_type_pt_missing_by_strike" model="hr.work.entry.type">
         <field name="name">Falta por Greve</field>
         <field name="code">FALTA240</field>
-        <field name="is_leave">True</field>
+        <field name="count_as">absence</field>
         <field name="color">5</field>
-        <field name="round_days">NO</field>
+        <field name="request_unit">hour</field>
+        <field name="requires_allocation">False</field>
+        <field name="country_id" ref="base.pt" />
     </record>
 
     <record
@@ -148,17 +179,21 @@
             name="name"
         >Falta p/ Exercício Funções de Membros Representação de Trab.</field>
         <field name="code">FALTA250</field>
-        <field name="is_leave">True</field>
+        <field name="count_as">absence</field>
         <field name="color">5</field>
-        <field name="round_days">NO</field>
+        <field name="request_unit">day</field>
+        <field name="requires_allocation">False</field>
+        <field name="country_id" ref="base.pt" />
     </record>
 
     <record id="entry_type_pt_missing_unjustified_absences" model="hr.work.entry.type">
         <field name="name">Falta Ausências Injustificadas</field>
         <field name="code">FALTA260</field>
-        <field name="is_leave">True</field>
+        <field name="count_as">absence</field>
         <field name="color">5</field>
-        <field name="round_days">NO</field>
+        <field name="request_unit">hour</field>
+        <field name="requires_allocation">False</field>
+        <field name="country_id" ref="base.pt" />
     </record>
 
     <record
@@ -169,9 +204,12 @@
             name="name"
         >Falta Ausências Autorizadas ou Aprovadas pelo Empregador</field>
         <field name="code">FALTA270</field>
-        <field name="is_leave">True</field>
+        <field name="count_as">absence</field>
         <field name="color">5</field>
-        <field name="round_days">NO</field>
+        <field name="request_unit">hour</field>
+        <field name="requires_allocation">False</field>
+        <field name="amount_rate">0.0</field>
+        <field name="country_id" ref="base.pt" />
     </record>
 
     <record
@@ -181,65 +219,82 @@
         <field name="name">Desconto Dias por Início/Fim de Contrato</field>
         <field name="color">3</field>
         <field name="code">FALTA280</field>
-        <field name="is_leave" eval="False" />
-        <field name="round_days">HALF</field>
+        <field name="count_as">working_time</field>
         <field name="round_days_type">HALF-UP</field>
+        <field name="request_unit">day</field>
+        <field name="requires_allocation">False</field>
+        <field name="country_id" ref="base.pt" />
     </record>
 
     <record id="entry_type_pt_holiday" model="hr.work.entry.type">
         <field name="name">Férias</field>
         <field name="code">FERIAS300</field>
-        <field name="is_leave">True</field>
+        <field name="count_as">absence</field>
         <field name="color">2</field>
-        <field name="round_days">NO</field>
+        <field name="request_unit">day</field>
+        <field name="requires_allocation">False</field>
+        <field name="country_id" ref="base.pt" />
     </record>
 
     <record id="entry_type_pt_public_holiday" model="hr.work.entry.type">
         <field name="name">Feriado</field>
         <field name="code">FERIADO</field>
-        <field name="is_leave">False</field>
+        <field name="count_as">working_time</field>
+        <field name="requires_allocation">False</field>
         <field name="color">4</field>
-        <field name="round_days">FULL</field>
+        <field name="time_off_selectable">False</field>
+        <field name="amount_rate">0.0</field>
+        <field name="country_id" ref="base.pt" />
     </record>
 
     <record id="entry_type_pt_overtime_first_hour" model="hr.work.entry.type">
         <field name="name">Hora Extra 1º Hora</field>
         <field name="code">EXTRA100</field>
-        <field name="is_leave">False</field>
+        <field name="count_as">working_time</field>
+        <field name="requires_allocation">False</field>
         <field name="color">8</field>
-        <field name="round_days">NO</field>
+        <field name="time_off_selectable">False</field>
+        <field name="country_id" ref="base.pt" />
     </record>
 
     <record id="entry_type_pt_overtime_remaining_hours" model="hr.work.entry.type">
         <field name="name">Hora Extra Horas Seguintes</field>
         <field name="code">EXTRA200</field>
-        <field name="is_leave">False</field>
+        <field name="count_as">working_time</field>
+        <field name="requires_allocation">False</field>
         <field name="color">8</field>
-        <field name="round_days">NO</field>
+        <field name="time_off_selectable">False</field>
+        <field name="country_id" ref="base.pt" />
     </record>
 
     <record id="entry_type_pt_overtime_rest_days" model="hr.work.entry.type">
         <field name="name">Hora Extra Dias de Descanso</field>
         <field name="code">EXTRA300</field>
-        <field name="is_leave">False</field>
+        <field name="count_as">working_time</field>
+        <field name="requires_allocation">False</field>
         <field name="color">8</field>
-        <field name="round_days">NO</field>
+        <field name="time_off_selectable">False</field>
+        <field name="country_id" ref="base.pt" />
     </record>
 
     <record id="entry_type_pt_overtime_workdays" model="hr.work.entry.type">
         <field name="name">Hora Extra Dias Úteis</field>
         <field name="code">EXTRA400</field>
-        <field name="is_leave">False</field>
+        <field name="count_as">working_time</field>
+        <field name="requires_allocation">False</field>
         <field name="color">8</field>
-        <field name="round_days">NO</field>
+        <field name="time_off_selectable">False</field>
+        <field name="country_id" ref="base.pt" />
     </record>
 
     <record id="entry_type_pt_night_overtime_sunday" model="hr.work.entry.type">
         <field name="name">Hora Extra em período Noturno Domingos</field>
         <field name="code">EXTRA1400</field>
-        <field name="is_leave">False</field>
+        <field name="count_as">working_time</field>
+        <field name="requires_allocation">False</field>
         <field name="color">8</field>
-        <field name="round_days">NO</field>
+        <field name="time_off_selectable">False</field>
+        <field name="country_id" ref="base.pt" />
     </record>
 
     <record
@@ -248,25 +303,31 @@
     >
         <field name="name">Hora Extra em período Noturno Sábado e Feriados</field>
         <field name="code">EXTRA1300</field>
-        <field name="is_leave">False</field>
+        <field name="count_as">working_time</field>
+        <field name="requires_allocation">False</field>
         <field name="color">8</field>
-        <field name="round_days">NO</field>
+        <field name="time_off_selectable">False</field>
+        <field name="country_id" ref="base.pt" />
     </record>
 
     <record id="entry_type_pt_night_overtime_workdays" model="hr.work.entry.type">
         <field name="name">Hora Extra em período Noturno Dias Úteis</field>
         <field name="code">EXTRA1100</field>
-        <field name="is_leave">False</field>
+        <field name="count_as">working_time</field>
+        <field name="requires_allocation">False</field>
         <field name="color">8</field>
-        <field name="round_days">NO</field>
+        <field name="time_off_selectable">False</field>
+        <field name="country_id" ref="base.pt" />
     </record>
 
     <record id="entry_type_pt_overtime_sunday" model="hr.work.entry.type">
         <field name="name">Hora Extra Domingos</field>
         <field name="code">EXTRA700</field>
-        <field name="is_leave">False</field>
+        <field name="count_as">working_time</field>
+        <field name="requires_allocation">False</field>
         <field name="color">8</field>
-        <field name="round_days">NO</field>
+        <field name="time_off_selectable">False</field>
+        <field name="country_id" ref="base.pt" />
     </record>
 
     <record
@@ -275,57 +336,72 @@
     >
         <field name="name">Hora Extra Sábado e Feriados</field>
         <field name="code">EXTRA600</field>
-        <field name="is_leave">False</field>
+        <field name="count_as">working_time</field>
+        <field name="requires_allocation">False</field>
         <field name="color">8</field>
-        <field name="round_days">NO</field>
+        <field name="time_off_selectable">False</field>
+        <field name="country_id" ref="base.pt" />
     </record>
 
     <record id="entry_type_pt_night_work" model="hr.work.entry.type">
         <field name="name">Trabalho Noturno</field>
         <field name="code">TRAB_NOT</field>
-        <field name="is_leave">False</field>
+        <field name="count_as">working_time</field>
+        <field name="requires_allocation">False</field>
         <field name="color">8</field>
-        <field name="round_days">NO</field>
+        <field name="time_off_selectable">False</field>
+        <field name="country_id" ref="base.pt" />
     </record>
 
     <record id="entry_type_pt_night_overtime_rest_days" model="hr.work.entry.type">
         <field name="name">Hora Extra em período Nortuno Dias de Descanso</field>
         <field name="code">EXTRA1000</field>
-        <field name="is_leave">False</field>
+        <field name="count_as">working_time</field>
+        <field name="requires_allocation">False</field>
         <field name="color">8</field>
-        <field name="round_days">NO</field>
+        <field name="time_off_selectable">False</field>
+        <field name="country_id" ref="base.pt" />
     </record>
 
     <record id="entry_type_pt_night_overtime_holidays" model="hr.work.entry.type">
         <field name="name">Hora Extra em período Nortuno Feriados</field>
         <field name="code">EXTRA1200</field>
-        <field name="is_leave">False</field>
+        <field name="count_as">working_time</field>
+        <field name="requires_allocation">False</field>
         <field name="color">8</field>
-        <field name="round_days">NO</field>
+        <field name="time_off_selectable">False</field>
+        <field name="country_id" ref="base.pt" />
     </record>
 
     <record id="entry_type_pt_marriage_license" model="hr.work.entry.type">
         <field name="name">Licença de Casamento</field>
         <field name="code">FALTA310</field>
-        <field name="is_leave">True</field>
+        <field name="count_as">absence</field>
         <field name="color">5</field>
-        <field name="round_days">NO</field>
+        <field name="request_unit">day</field>
+        <field name="requires_allocation">False</field>
+        <field name="amount_rate">0.0</field>
+        <field name="country_id" ref="base.pt" />
     </record>
 
     <record id="entry_type_pt_overtime_holidays" model="hr.work.entry.type">
         <field name="name">Hora Extra Feriados</field>
         <field name="code">EXTRA500</field>
-        <field name="is_leave">False</field>
+        <field name="count_as">working_time</field>
+        <field name="requires_allocation">False</field>
         <field name="color">8</field>
-        <field name="round_days">NO</field>
+        <field name="time_off_selectable">False</field>
+        <field name="country_id" ref="base.pt" />
     </record>
 
     <record id="entry_type_pt_night_overtime_first_hour" model="hr.work.entry.type">
         <field name="name">Hora Extra em período Noturno 1º Hora</field>
         <field name="code">EXTRA800</field>
-        <field name="is_leave">False</field>
+        <field name="count_as">working_time</field>
+        <field name="requires_allocation">False</field>
         <field name="color">8</field>
-        <field name="round_days">NO</field>
+        <field name="time_off_selectable">False</field>
+        <field name="country_id" ref="base.pt" />
     </record>
 
     <record
@@ -334,9 +410,11 @@
     >
         <field name="name">Hora Extra em período Dias Seguintes</field>
         <field name="code">EXTRA900</field>
-        <field name="is_leave">False</field>
+        <field name="count_as">working_time</field>
+        <field name="requires_allocation">False</field>
         <field name="color">8</field>
-        <field name="round_days">NO</field>
+        <field name="time_off_selectable">False</field>
+        <field name="country_id" ref="base.pt" />
     </record>
 
     <!-- "+100" tier: hours above the 100h/year threshold, moved here from
@@ -345,41 +423,51 @@
     <record id="entry_type_pt_overtime_first_hour_100" model="hr.work.entry.type">
         <field name="name">Hora Extra 1º Hora (+100.ª hora)</field>
         <field name="code">EXTRA1500</field>
-        <field name="is_leave">False</field>
+        <field name="count_as">working_time</field>
+        <field name="requires_allocation">False</field>
         <field name="color">8</field>
-        <field name="round_days">NO</field>
+        <field name="time_off_selectable">False</field>
+        <field name="country_id" ref="base.pt" />
     </record>
 
     <record id="entry_type_pt_overtime_remaining_hours_100" model="hr.work.entry.type">
         <field name="name">Hora Extra Horas Seguintes (+100.ª hora)</field>
         <field name="code">EXTRA1600</field>
-        <field name="is_leave">False</field>
+        <field name="count_as">working_time</field>
+        <field name="requires_allocation">False</field>
         <field name="color">8</field>
-        <field name="round_days">NO</field>
+        <field name="time_off_selectable">False</field>
+        <field name="country_id" ref="base.pt" />
     </record>
 
     <record id="entry_type_pt_overtime_rest_days_100" model="hr.work.entry.type">
         <field name="name">Hora Extra Dias de Descanso (+100.ª hora)</field>
         <field name="code">EXTRA1700</field>
-        <field name="is_leave">False</field>
+        <field name="count_as">working_time</field>
+        <field name="requires_allocation">False</field>
         <field name="color">8</field>
-        <field name="round_days">NO</field>
+        <field name="time_off_selectable">False</field>
+        <field name="country_id" ref="base.pt" />
     </record>
 
     <record id="entry_type_pt_overtime_workdays_100" model="hr.work.entry.type">
         <field name="name">Hora Extra Dias Úteis (+100.ª hora)</field>
         <field name="code">EXTRA1800</field>
-        <field name="is_leave">False</field>
+        <field name="count_as">working_time</field>
+        <field name="requires_allocation">False</field>
         <field name="color">8</field>
-        <field name="round_days">NO</field>
+        <field name="time_off_selectable">False</field>
+        <field name="country_id" ref="base.pt" />
     </record>
 
     <record id="entry_type_pt_overtime_holidays_100" model="hr.work.entry.type">
         <field name="name">Hora Extra Feriados (+100.ª hora)</field>
         <field name="code">EXTRA1900</field>
-        <field name="is_leave">False</field>
+        <field name="count_as">working_time</field>
+        <field name="requires_allocation">False</field>
         <field name="color">8</field>
-        <field name="round_days">NO</field>
+        <field name="time_off_selectable">False</field>
+        <field name="country_id" ref="base.pt" />
     </record>
 
     <record
@@ -388,16 +476,20 @@
     >
         <field name="name">Hora Extra Sábado e Feriados (+100.ª hora)</field>
         <field name="code">EXTRA2000</field>
-        <field name="is_leave">False</field>
+        <field name="count_as">working_time</field>
+        <field name="requires_allocation">False</field>
         <field name="color">8</field>
-        <field name="round_days">NO</field>
+        <field name="time_off_selectable">False</field>
+        <field name="country_id" ref="base.pt" />
     </record>
 
     <record id="entry_type_pt_overtime_sunday_100" model="hr.work.entry.type">
         <field name="name">Hora Extra Domingos (+100.ª hora)</field>
         <field name="code">EXTRA2100</field>
-        <field name="is_leave">False</field>
+        <field name="count_as">working_time</field>
+        <field name="requires_allocation">False</field>
         <field name="color">8</field>
-        <field name="round_days">NO</field>
+        <field name="time_off_selectable">False</field>
+        <field name="country_id" ref="base.pt" />
     </record>
 </odoo>

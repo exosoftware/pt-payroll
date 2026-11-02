@@ -1,0 +1,284 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* ptplus_payroll_contract_salary
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-21 10:30+0000\n"
+"PO-Revision-Date: 2026-10-21 10:30+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: ptplus_payroll_contract_salary
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll_contract_salary.hr_contract_template_form_view_employer_cost
+msgid "<span>/ day</span>"
+msgstr ""
+
+#. module: ptplus_payroll_contract_salary
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll_contract_salary.hr_contract_template_form_view_employer_cost
+msgid "<span>/ month</span>"
+msgstr ""
+
+#. module: ptplus_payroll_contract_salary
+#: model:hr.contract.salary.personal.info.value,name:ptplus_payroll_contract_salary.personal_info_region_a
+#: model:ir.model.fields.selection,name:ptplus_payroll_contract_salary.selection__hr_version__l10n_pt_simulation_income_tax_region__a
+msgid "Azores Autonomous Region"
+msgstr ""
+
+#. module: ptplus_payroll_contract_salary
+#: model:ir.model.fields,help:ptplus_payroll_contract_salary.field_hr_employee__l10n_pt_insurance_rate
+#: model:ir.model.fields,help:ptplus_payroll_contract_salary.field_hr_version__l10n_pt_insurance_rate
+msgid ""
+"Charged on the wage and on the work schedule exemption, never on the meal "
+"allowance."
+msgstr ""
+
+#. module: ptplus_payroll_contract_salary
+#: model:hr.contract.salary.personal.info.value,name:ptplus_payroll_contract_salary.personal_info_region_c
+#: model:ir.model.fields.selection,name:ptplus_payroll_contract_salary.selection__hr_version__l10n_pt_simulation_income_tax_region__c
+msgid "Continent"
+msgstr ""
+
+#. module: ptplus_payroll_contract_salary
+#: model:hr.contract.salary.personal.info,name:ptplus_payroll_contract_salary.personal_info_children
+msgid "Dependent Children"
+msgstr ""
+
+#. module: ptplus_payroll_contract_salary
+#: model:hr.contract.salary.personal.info,name:ptplus_payroll_contract_salary.personal_info_disability
+msgid "Disability"
+msgstr ""
+
+#. module: ptplus_payroll_contract_salary
+#: model:hr.contract.salary.personal.info,name:ptplus_payroll_contract_salary.personal_info_disability_degree
+msgid "Disability Degree (%)"
+msgstr ""
+
+#. module: ptplus_payroll_contract_salary
+#: model:hr.contract.salary.personal.info,name:ptplus_payroll_contract_salary.personal_info_disability_armed_forces
+msgid "Disability Incurred in the Armed Forces"
+msgstr ""
+
+#. module: ptplus_payroll_contract_salary
+#: model:ir.model.fields,field_description:ptplus_payroll_contract_salary.field_hr_version__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: ptplus_payroll_contract_salary
+#: model:hr.contract.salary.personal.info.value,name:ptplus_payroll_contract_salary.personal_info_marital_divorced
+msgid "Divorced"
+msgstr ""
+
+#. module: ptplus_payroll_contract_salary
+#: model:ir.model,name:ptplus_payroll_contract_salary.model_hr_version
+msgid "Employee Contract"
+msgstr ""
+
+#. module: ptplus_payroll_contract_salary
+#: model:hr.contract.salary.personal.info.type,name:ptplus_payroll_contract_salary.personal_info_type_family
+msgid "Family Situation"
+msgstr ""
+
+#. module: ptplus_payroll_contract_salary
+#: model:hr.contract.salary.personal.info.value,name:ptplus_payroll_contract_salary.personal_info_region_e
+#: model:ir.model.fields.selection,name:ptplus_payroll_contract_salary.selection__hr_version__l10n_pt_simulation_income_tax_region__e
+msgid "Foreigners"
+msgstr ""
+
+#. module: ptplus_payroll_contract_salary
+#: model:hr.contract.salary.resume,name:ptplus_payroll_contract_salary.hr_contract_salary_resume_gross_pt
+msgid "Gross"
+msgstr ""
+
+#. module: ptplus_payroll_contract_salary
+#: model:ir.model.fields,field_description:ptplus_payroll_contract_salary.field_hr_version__id
+msgid "ID"
+msgstr ""
+
+#. module: ptplus_payroll_contract_salary
+#: model:hr.contract.salary.personal.info,name:ptplus_payroll_contract_salary.personal_info_income_tax_region
+msgid "Income Tax Region"
+msgstr ""
+
+#. module: ptplus_payroll_contract_salary
+#: model:ir.model.fields,help:ptplus_payroll_contract_salary.field_hr_employee__l10n_pt_simulation_income_tax_region
+#: model:ir.model.fields,help:ptplus_payroll_contract_salary.field_hr_version__l10n_pt_simulation_income_tax_region
+msgid ""
+"Income tax region assumed for the candidate while an offer is being "
+"simulated. It is never written on a hired employee: once the employee "
+"exists, the region on their record is the one that counts."
+msgstr ""
+
+#. module: ptplus_payroll_contract_salary
+#: model:hr.contract.salary.personal.info.value,name:ptplus_payroll_contract_salary.personal_info_marital_cohabitant
+msgid "Legal Cohabitant"
+msgstr ""
+
+#. module: ptplus_payroll_contract_salary
+#: model:hr.contract.salary.personal.info.value,name:ptplus_payroll_contract_salary.personal_info_region_m
+#: model:ir.model.fields.selection,name:ptplus_payroll_contract_salary.selection__hr_version__l10n_pt_simulation_income_tax_region__m
+msgid "Madeira Autonomous Region"
+msgstr ""
+
+#. module: ptplus_payroll_contract_salary
+#: model:hr.contract.salary.personal.info,name:ptplus_payroll_contract_salary.personal_info_marital
+msgid "Marital Status"
+msgstr ""
+
+#. module: ptplus_payroll_contract_salary
+#: model:hr.contract.salary.personal.info.value,name:ptplus_payroll_contract_salary.personal_info_marital_married
+msgid "Married"
+msgstr ""
+
+#. module: ptplus_payroll_contract_salary
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll_contract_salary.hr_contract_template_form_view_employer_cost
+msgid "Meal Allowance"
+msgstr ""
+
+#. module: ptplus_payroll_contract_salary
+#: model:ir.model.fields,field_description:ptplus_payroll_contract_salary.field_hr_employee__l10n_pt_meal_allowance_amount
+#: model:ir.model.fields,field_description:ptplus_payroll_contract_salary.field_hr_version__l10n_pt_meal_allowance_amount
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll_contract_salary.hr_contract_template_form_view_employer_cost
+msgid "Meal Allowance Amount"
+msgstr ""
+
+#. module: ptplus_payroll_contract_salary
+#: model:ir.model.fields,field_description:ptplus_payroll_contract_salary.field_hr_employee__l10n_pt_meal_allowance_yearly_days
+#: model:ir.model.fields,field_description:ptplus_payroll_contract_salary.field_hr_version__l10n_pt_meal_allowance_yearly_days
+msgid "Meal Allowance Days per Year"
+msgstr ""
+
+#. module: ptplus_payroll_contract_salary
+#: model:hr.contract.salary.resume,name:ptplus_payroll_contract_salary.hr_contract_salary_resume_net_pt
+msgid "Net"
+msgstr ""
+
+#. module: ptplus_payroll_contract_salary
+#: model:hr.contract.salary.personal.info,name:ptplus_payroll_contract_salary.personal_info_no_of_holders
+msgid "Number of Holders"
+msgstr ""
+
+#. module: ptplus_payroll_contract_salary
+#: model:hr.contract.salary.personal.info.value,name:ptplus_payroll_contract_salary.personal_info_holders_one
+msgid "One holder"
+msgstr ""
+
+#. module: ptplus_payroll_contract_salary
+#: model:hr.contract.salary.personal.info,name:ptplus_payroll_contract_salary.personal_info_pensioner
+msgid "Pensioner"
+msgstr ""
+
+#. module: ptplus_payroll_contract_salary
+#: model:ir.module.module,shortdesc:base.module_ptplus_payroll_contract_salary
+msgid "Portugal - Payroll Salary Configurator"
+msgstr ""
+
+#. module: ptplus_payroll_contract_salary
+#: model:ir.module.module,summary:base.module_ptplus_payroll_contract_salary
+msgid "Portuguese fiscal profile used by the salary configurator previews"
+msgstr ""
+
+#. module: ptplus_payroll_contract_salary
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll_contract_salary.hr_contract_template_form_view
+msgid "Salary Simulation (PT)"
+msgstr ""
+
+#. module: ptplus_payroll_contract_salary
+#: model:hr.contract.salary.personal.info,placeholder:ptplus_payroll_contract_salary.personal_info_income_tax_region
+msgid "Select a region"
+msgstr ""
+
+#. module: ptplus_payroll_contract_salary
+#: model:hr.contract.salary.personal.info,placeholder:ptplus_payroll_contract_salary.personal_info_marital
+msgid "Select a status"
+msgstr ""
+
+#. module: ptplus_payroll_contract_salary
+#: model:hr.contract.salary.personal.info,placeholder:ptplus_payroll_contract_salary.personal_info_no_of_holders
+msgid "Select an option"
+msgstr ""
+
+#. module: ptplus_payroll_contract_salary
+#: model:ir.model.fields,field_description:ptplus_payroll_contract_salary.field_hr_employee__l10n_pt_simulation_employee_type_id
+#: model:ir.model.fields,field_description:ptplus_payroll_contract_salary.field_hr_version__l10n_pt_simulation_employee_type_id
+msgid "Simulated Employee Type for SS"
+msgstr ""
+
+#. module: ptplus_payroll_contract_salary
+#: model:ir.model.fields,field_description:ptplus_payroll_contract_salary.field_hr_employee__l10n_pt_simulation_income_tax_region
+#: model:ir.model.fields,field_description:ptplus_payroll_contract_salary.field_hr_version__l10n_pt_simulation_income_tax_region
+msgid "Simulated Income Tax Region"
+msgstr ""
+
+#. module: ptplus_payroll_contract_salary
+#: model:hr.contract.salary.personal.info.value,name:ptplus_payroll_contract_salary.personal_info_marital_single
+msgid "Single"
+msgstr ""
+
+#. module: ptplus_payroll_contract_salary
+#: model:hr.contract.salary.personal.info,name:ptplus_payroll_contract_salary.personal_info_ssnid
+msgid "Social Security Number"
+msgstr ""
+
+#. module: ptplus_payroll_contract_salary
+#: model:ir.model.fields,help:ptplus_payroll_contract_salary.field_hr_employee__l10n_pt_simulation_employee_type_id
+#: model:ir.model.fields,help:ptplus_payroll_contract_salary.field_hr_version__l10n_pt_simulation_employee_type_id
+msgid ""
+"Social security contribution rates assumed for the candidate while an offer "
+"is being simulated. It is never written on a hired employee."
+msgstr ""
+
+#. module: ptplus_payroll_contract_salary
+#: model:hr.contract.salary.personal.info,name:ptplus_payroll_contract_salary.personal_info_spouse_birthdate
+msgid "Spouse Birthdate"
+msgstr ""
+
+#. module: ptplus_payroll_contract_salary
+#: model:hr.contract.salary.personal.info,name:ptplus_payroll_contract_salary.personal_info_spouse_name
+msgid "Spouse Legal Name"
+msgstr ""
+
+#. module: ptplus_payroll_contract_salary
+#: model:hr.contract.salary.personal.info,name:ptplus_payroll_contract_salary.personal_info_vat
+msgid "Tax ID"
+msgstr ""
+
+#. module: ptplus_payroll_contract_salary
+#: model:hr.contract.salary.personal.info.type,name:ptplus_payroll_contract_salary.personal_info_type_tax
+msgid "Tax Information"
+msgstr ""
+
+#. module: ptplus_payroll_contract_salary
+#: model:hr.contract.salary.personal.info.value,name:ptplus_payroll_contract_salary.personal_info_holders_two
+msgid "Two holders"
+msgstr ""
+
+#. module: ptplus_payroll_contract_salary
+#: model:hr.contract.salary.personal.info.value,name:ptplus_payroll_contract_salary.personal_info_marital_widower
+msgid "Widower"
+msgstr ""
+
+#. module: ptplus_payroll_contract_salary
+#: model:ir.model.fields,field_description:ptplus_payroll_contract_salary.field_hr_employee__l10n_pt_insurance_rate
+#: model:ir.model.fields,field_description:ptplus_payroll_contract_salary.field_hr_version__l10n_pt_insurance_rate
+msgid "Work Accident Insurance Rate"
+msgstr ""
+
+#. module: ptplus_payroll_contract_salary
+#: model_terms:ir.ui.view,arch_db:ptplus_payroll_contract_salary.hr_contract_template_form_view_employer_cost
+msgid "Work Schedule Exemption"
+msgstr ""
+
+#. module: ptplus_payroll_contract_salary
+#: model:ir.model.fields,help:ptplus_payroll_contract_salary.field_hr_employee__l10n_pt_meal_allowance_yearly_days
+#: model:ir.model.fields,help:ptplus_payroll_contract_salary.field_hr_version__l10n_pt_meal_allowance_yearly_days
+msgid ""
+"Working days the meal allowance is paid on over a year, used to estimate the"
+" yearly employer cost."
+msgstr ""

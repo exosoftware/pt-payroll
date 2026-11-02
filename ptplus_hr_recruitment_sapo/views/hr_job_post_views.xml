@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="hr_job_post_view_form_sapo" model="ir.ui.view">
+        <field name="name">hr.job.post.form.sapo</field>
+        <field name="model">hr.job.post</field>
+        <field
+            name="inherit_id"
+            ref="hr_recruitment_integration_base.hr_job_post_view_form"
+        />
+        <field name="arch" type="xml">
+            <field name="recruiter_id" position="after">
+                <field
+                    name="l10n_pt_sapo_url"
+                    widget="url"
+                    invisible="not l10n_pt_sapo_url"
+                />
+            </field>
+            <xpath expr="//notebook" position="inside">
+                <page
+                    name="sapo"
+                    string="SAPO Emprego"
+                    invisible="platform_id != %(ptplus_hr_recruitment_sapo.hr_recruitment_platform_sapo)d"
+                >
+                    <group>
+                        <group string="Where">
+                            <field
+                                name="l10n_pt_sapo_country_id"
+                                string="Country"
+                                options="{'no_create': True, 'no_open': True}"
+                            />
+                            <field
+                                name="l10n_pt_sapo_district_ids"
+                                string="Districts"
+                                widget="many2many_tags"
+                                options="{'no_create': True, 'no_open': True}"
+                            />
+                            <field
+                                name="l10n_pt_sapo_municipality_id"
+                                string="Municipality"
+                                options="{'no_create': True, 'no_open': True}"
+                            />
+                        </group>
+                        <group string="What">
+                            <field
+                                name="l10n_pt_sapo_category_ids"
+                                string="Professional Categories"
+                                widget="many2many_tags"
+                                options="{'no_create': True, 'no_open': True}"
+                            />
+                            <field
+                                name="l10n_pt_sapo_work_hours_id"
+                                string="Work Hours"
+                                options="{'no_create': True, 'no_open': True}"
+                            />
+                            <field
+                                name="l10n_pt_sapo_contract_type_id"
+                                string="Contract Type"
+                                options="{'no_create': True, 'no_open': True}"
+                            />
+                            <field name="l10n_pt_sapo_work_model" string="Work Model" />
+                        </group>
+                        <group string="Who">
+                            <field
+                                name="l10n_pt_sapo_qualification_id"
+                                string="Qualification"
+                                options="{'no_create': True, 'no_open': True}"
+                            />
+                            <field
+                                name="l10n_pt_sapo_experience_id"
+                                string="Professional Experience"
+                                options="{'no_create': True, 'no_open': True}"
+                            />
+                            <field
+                                name="l10n_pt_sapo_available_positions_id"
+                                string="Available Positions"
+                                options="{'no_create': True, 'no_open': True}"
+                            />
+                            <field name="l10n_pt_sapo_cv_required" string="CV" />
+                        </group>
+                        <group string="How it is advertised">
+                            <field
+                                name="l10n_pt_sapo_salary_range_id"
+                                string="Annual Salary Range"
+                                options="{'no_create': True, 'no_open': True}"
+                            />
+                            <field name="l10n_pt_sapo_anonymous" string="Anonymous" />
+                        </group>
+                    </group>
+                    <group string="Wording of the advert">
+                        <field name="l10n_pt_sapo_pitch" />
+                        <field name="l10n_pt_sapo_offer" />
+                        <field name="l10n_pt_sapo_schedule" />
+                        <field name="l10n_pt_sapo_observations" />
+                    </group>
+                    <div class="text-muted">
+                        <span
+                        >This is how SAPO Emprego files the advert. Use Update to send a change to the platform.</span>
+                    </div>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

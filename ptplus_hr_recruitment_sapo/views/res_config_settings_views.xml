@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="res_config_settings_view_form_sapo" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.sapo</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="76" />
+        <field name="inherit_id" ref="hr_recruitment.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//block[@name='online_posting_setting_container']//setting[@id='publish_available_jobs_setting']"
+                position="after"
+            >
+                <setting
+                    id="sapo_credentials"
+                    string="SAPO Emprego"
+                    help="Publish job offers on emprego.sapo.pt"
+                    invisible="company_country_code != 'PT'"
+                >
+                    <div class="content-group">
+                        <div class="row mt16">
+                            <label
+                                for="l10n_pt_sapo_environment"
+                                string="Environment"
+                                class="col-lg-3 o_light_label"
+                            />
+                            <field name="l10n_pt_sapo_environment" />
+                        </div>
+                        <div class="row">
+                            <label
+                                for="l10n_pt_sapo_api_token"
+                                string="API Token"
+                                class="col-lg-3 o_light_label"
+                            />
+                            <field name="l10n_pt_sapo_api_token" password="True" />
+                        </div>
+                        <div class="mt8">
+                            <button
+                                name="action_l10n_pt_sapo_sync_codes"
+                                type="object"
+                                string="Refresh from SAPO Emprego"
+                                class="btn-link"
+                                icon="fa-refresh"
+                            />
+                        </div>
+                        <div class="row mt8" invisible="not l10n_pt_sapo_account_name">
+                            <label
+                                for="l10n_pt_sapo_account_name"
+                                string="Account"
+                                class="col-lg-3 o_light_label"
+                            />
+                            <field name="l10n_pt_sapo_account_name" readonly="1" />
+                        </div>
+                        <div class="row" invisible="not l10n_pt_sapo_account_name">
+                            <label
+                                for="l10n_pt_sapo_company_level"
+                                string="Account level"
+                                class="col-lg-3 o_light_label"
+                            />
+                            <field name="l10n_pt_sapo_company_level" readonly="1" />
+                        </div>
+                        <div class="row" invisible="not l10n_pt_sapo_premium_services">
+                            <label
+                                for="l10n_pt_sapo_premium_services"
+                                string="Premium services"
+                                class="col-lg-3 o_light_label"
+                            />
+                            <field name="l10n_pt_sapo_premium_services" readonly="1" />
+                        </div>
+                        <div
+                            class="text-muted mt4"
+                            invisible="l10n_pt_sapo_can_redirect_applications or not l10n_pt_sapo_account_name"
+                        >
+                            <span
+                            >Without a premium service, candidates apply on SAPO Emprego itself and each application is mailed to the email alias of the job position.</span>
+                        </div>
+                    </div>
+                </setting>
+            </xpath>
+        </field>
+    </record>
+</odoo>

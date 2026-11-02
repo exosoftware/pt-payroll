@@ -1,0 +1,467 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* ptplus_hr_recruitment_netempregos
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 20.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-10-21 10:35+0000\n"
+"PO-Revision-Date: 2026-10-21 10:35+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: ptplus_hr_recruitment_netempregos
+#: model:ir.module.module,description:base.module_ptplus_hr_recruitment_netempregos
+msgid ""
+"\n"
+"Portugal - Net-Empregos Job Board\n"
+"=================================\n"
+"\n"
+"Publishes your Odoo job offers on `Net-Empregos <https://www.net-empregos.com>`_,\n"
+"one of the largest job boards in Portugal.\n"
+"\n"
+"\n"
+"Installation\n"
+"============\n"
+"\n"
+"Just do it\n"
+"\n"
+"Configuration\n"
+"=============\n"
+"\n"
+"#. In Odoo, go to *Recruitment > Configuration > Settings*, section\n"
+"   *Net-Empregos*, and paste the API key you generated in the company area of\n"
+"   net-empregos.com under \"Chave API\". The key belongs to the company it is\n"
+"   entered in, so put it in the company whose job positions are to be\n"
+"   advertised.\n"
+"#. To save typing, set the job type once on each employment type\n"
+"   (*Employees > Configuration > Employment Types*): the first advert of a\n"
+"   position then arrives already proposing it.\n"
+"#. Publish a job offer. Choose Net-Empregos as the job board and fill in the\n"
+"   *Net-Empregos* tab that appears: the zone, the professional category and the\n"
+"   job type are required by the platform.\n"
+"\n"
+"Changelog\n"
+"=========\n"
+"\n"
+"1.0.0 (2026-08-28)\n"
+"~~~~~~~~~~~~~~~~~~\n"
+"**Features**\n"
+"\n"
+"- New job board: publish, change and remove job offers on Net-Empregos.\n"
+"- The zone, professional category and job type Net-Empregos advertises an offer\n"
+"  under are asked for when publishing, on a *Net-Empregos* tab that only\n"
+"  appears once that job board is chosen. So the job position stays free of a\n"
+"  block of fields per job board, and two adverts for the same position can\n"
+"  differ.\n"
+"- Publishing the same position again starts from the last advert published for\n"
+"  it on Net-Empregos, so only the very first advert is any typing. The job type\n"
+"  is proposed from the employment type -- full-time, part-time and internship\n"
+"  offers arrive already filled in -- when there is no earlier advert to go by.\n"
+"- What an advert was published under is kept on the job board post and shown\n"
+"  there, so it stays visible and can be changed with Update.\n"
+"- The advert is published on the Net-Empregos account of the company the job\n"
+"  position belongs to, and taken down from that same account. A position shared\n"
+"  across companies uses the account of the company being worked in.\n"
+"\n"
+"Credits\n"
+"========\n"
+"\n"
+"Contributors\n"
+"~~~~~~~~~~~~\n"
+"\n"
+"* `Exo Software <https://exosoftware.pt>`_:\n"
+"\n"
+"  * Pedro Pereira <pedro.pereira@exo.pt>\n"
+"\n"
+"Maintainer\n"
+"~~~~~~~~~~\n"
+"\n"
+"This module is maintained by Exo Software, Lda.\n"
+"\n"
+".. image:: https://exosoftware.pt/logo.png\n"
+"   :alt: Exo Software\n"
+"   :target: https://exosoftware.pt\n"
+"   :width: 100px\n"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_netempregos
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_netempregos.hr_recruitment_post_job_wizard_view_form_netempregos
+msgid ""
+"<span>Net-Empregos advertises the offer under these three. They come back "
+"filled from the last advert published for this job position.</span>"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_netempregos
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_netempregos.hr_job_post_view_form_netempregos
+msgid ""
+"<span>This is how Net-Empregos files the advert. Use Update to send a change"
+" to the platform.</span>"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_netempregos
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_netempregos.res_config_settings_view_form_netempregos
+msgid "API Key"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_netempregos
+#: model:ir.model.fields,help:ptplus_hr_recruitment_netempregos.field_res_company__l10n_pt_netempregos_api_key
+#: model:ir.model.fields,help:ptplus_hr_recruitment_netempregos.field_res_config_settings__l10n_pt_netempregos_api_key
+msgid ""
+"Access key used to publish job offers on Net-Empregos. Generate it in the "
+"company area of net-empregos.com, under 'Chave API'."
+msgstr ""
+
+#. module: ptplus_hr_recruitment_netempregos
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_netempregos.field_ptplus_netempregos_code__active
+msgid "Active"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_netempregos
+#. odoo-python
+#: code:addons/ptplus_hr_recruitment_netempregos/wizard/hr_recruitment_post.py:0
+msgid "Apply now"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_netempregos
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_netempregos.hr_job_post_view_form_netempregos
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_netempregos.hr_recruitment_post_job_wizard_view_form_netempregos
+msgid "Category"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_netempregos
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_netempregos.field_ptplus_netempregos_code__code
+msgid "Code"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_netempregos
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_netempregos.field_ptplus_netempregos_code__code_type
+msgid "Code Type"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_netempregos
+#: model:ir.model,name:ptplus_hr_recruitment_netempregos.model_res_company
+msgid "Company"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_netempregos
+#: model:ir.model,name:ptplus_hr_recruitment_netempregos.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_netempregos
+#. odoo-python
+#: code:addons/ptplus_hr_recruitment_netempregos/webservice.py:0
+msgid "Could not reach Net-Empregos: %(error)s"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_netempregos
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_netempregos.field_ptplus_netempregos_code__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_netempregos
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_netempregos.field_ptplus_netempregos_code__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_netempregos
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_netempregos.field_hr_employee_type__display_name
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_netempregos.field_hr_job_post__display_name
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_netempregos.field_hr_recruitment_platform__display_name
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_netempregos.field_hr_recruitment_post_job_wizard__display_name
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_netempregos.field_ptplus_netempregos_code__display_name
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_netempregos.field_res_company__display_name
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_netempregos.field_res_config_settings__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_netempregos
+#: model:ir.model.fields,help:ptplus_hr_recruitment_netempregos.field_hr_job_post__l10n_pt_netempregos_zone_id
+#: model:ir.model.fields,help:ptplus_hr_recruitment_netempregos.field_hr_recruitment_post_job_wizard__l10n_pt_netempregos_zone_id
+msgid "District or country the offer is advertised under on Net-Empregos."
+msgstr ""
+
+#. module: ptplus_hr_recruitment_netempregos
+#: model:ir.model.constraint,message:ptplus_hr_recruitment_netempregos.constraint_ptplus_netempregos_code_code_uniq
+msgid "Each Net-Empregos code may only be defined once per list."
+msgstr ""
+
+#. module: ptplus_hr_recruitment_netempregos
+#: model:ir.model,name:ptplus_hr_recruitment_netempregos.model_hr_employee_type
+msgid "Employee Type"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_netempregos
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_netempregos.field_hr_employee_type__id
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_netempregos.field_hr_job_post__id
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_netempregos.field_hr_recruitment_platform__id
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_netempregos.field_hr_recruitment_post_job_wizard__id
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_netempregos.field_ptplus_netempregos_code__id
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_netempregos.field_res_company__id
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_netempregos.field_res_config_settings__id
+msgid "ID"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_netempregos
+#: model:ir.model,name:ptplus_hr_recruitment_netempregos.model_hr_job_post
+msgid "Job Post"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_netempregos
+#: model:ir.model.fields.selection,name:ptplus_hr_recruitment_netempregos.selection__ptplus_netempregos_code__code_type__job_type
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_netempregos.hr_job_post_view_form_netempregos
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_netempregos.hr_recruitment_post_job_wizard_view_form_netempregos
+msgid "Job Type"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_netempregos
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_netempregos.ptplus_netempregos_code_view_search
+msgid "Job Types"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_netempregos
+#: model:ir.model.fields,help:ptplus_hr_recruitment_netempregos.field_hr_employee_type__l10n_pt_netempregos_job_type_id
+msgid ""
+"Job type proposed on Net-Empregos for offers using this employment type."
+msgstr ""
+
+#. module: ptplus_hr_recruitment_netempregos
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_netempregos.field_ptplus_netempregos_code__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_netempregos
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_netempregos.field_ptplus_netempregos_code__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_netempregos
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_netempregos.ptplus_netempregos_code_view_search
+msgid "List"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_netempregos
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_netempregos.field_ptplus_netempregos_code__name
+msgid "Name"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_netempregos
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_netempregos.hr_job_post_view_form_netempregos
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_netempregos.hr_recruitment_post_job_wizard_view_form_netempregos
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_netempregos.res_config_settings_view_form_netempregos
+msgid "Net-Empregos"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_netempregos
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_netempregos.field_res_company__l10n_pt_netempregos_api_key
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_netempregos.field_res_config_settings__l10n_pt_netempregos_api_key
+msgid "Net-Empregos API Key"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_netempregos
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_netempregos.field_hr_job_post__l10n_pt_netempregos_category_id
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_netempregos.field_hr_recruitment_post_job_wizard__l10n_pt_netempregos_category_id
+msgid "Net-Empregos Category"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_netempregos
+#: model:ir.model,name:ptplus_hr_recruitment_netempregos.model_ptplus_netempregos_code
+msgid "Net-Empregos Code"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_netempregos
+#: model:ir.actions.act_window,name:ptplus_hr_recruitment_netempregos.ptplus_netempregos_code_action
+#: model:ir.ui.menu,name:ptplus_hr_recruitment_netempregos.menu_ptplus_netempregos_code
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_netempregos.ptplus_netempregos_code_view_list
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_netempregos.ptplus_netempregos_code_view_search
+msgid "Net-Empregos Codes"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_netempregos
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_netempregos.field_hr_employee_type__l10n_pt_netempregos_job_type_id
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_netempregos.field_hr_job_post__l10n_pt_netempregos_job_type_id
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_netempregos.field_hr_recruitment_post_job_wizard__l10n_pt_netempregos_job_type_id
+msgid "Net-Empregos Job Type"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_netempregos
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_netempregos.field_hr_job_post__l10n_pt_netempregos_zone_id
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_netempregos.field_hr_recruitment_post_job_wizard__l10n_pt_netempregos_zone_id
+msgid "Net-Empregos Zone"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_netempregos
+#. odoo-python
+#: code:addons/ptplus_hr_recruitment_netempregos/webservice.py:0
+msgid ""
+"Net-Empregos answered with an unexpected HTTP status (%(status)s). The "
+"service may be down; try again later."
+msgstr ""
+
+#. module: ptplus_hr_recruitment_netempregos
+#. odoo-python
+#: code:addons/ptplus_hr_recruitment_netempregos/webservice.py:0
+msgid ""
+"Net-Empregos did not answer. The advert may or may not have gone through; "
+"check the platform before retrying."
+msgstr ""
+
+#. module: ptplus_hr_recruitment_netempregos
+#. odoo-python
+#: code:addons/ptplus_hr_recruitment_netempregos/webservice.py:0
+msgid ""
+"Net-Empregos has no advert under this reference. It has expired or was "
+"already taken down."
+msgstr ""
+
+#. module: ptplus_hr_recruitment_netempregos
+#. odoo-python
+#: code:addons/ptplus_hr_recruitment_netempregos/wizard/hr_recruitment_post.py:0
+msgid ""
+"Net-Empregos needs the %(fields)s of this advert. Fill them in on the Net-"
+"Empregos tab and post again.\n"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_netempregos
+#. odoo-python
+#: code:addons/ptplus_hr_recruitment_netempregos/webservice.py:0
+msgid "Net-Empregos rejected the API key of %(company)s."
+msgstr ""
+
+#. module: ptplus_hr_recruitment_netempregos
+#. odoo-python
+#: code:addons/ptplus_hr_recruitment_netempregos/webservice.py:0
+msgid "Net-Empregos returned an empty answer."
+msgstr ""
+
+#. module: ptplus_hr_recruitment_netempregos
+#. odoo-python
+#: code:addons/ptplus_hr_recruitment_netempregos/webservice.py:0
+msgid ""
+"No Net-Empregos API key is set for %(company)s. Add it under Recruitment > "
+"Configuration > Settings."
+msgstr ""
+
+#. module: ptplus_hr_recruitment_netempregos
+#: model_terms:ir.actions.act_window,help:ptplus_hr_recruitment_netempregos.ptplus_netempregos_code_action
+msgid "No Net-Empregos codes found"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_netempregos
+#. odoo-python
+#: code:addons/ptplus_hr_recruitment_netempregos/models/hr_job_post.py:0
+msgid ""
+"Nothing was published on Net-Empregos under this post, so there was nothing "
+"to take down."
+msgstr ""
+
+#. module: ptplus_hr_recruitment_netempregos
+#: model:ir.model.fields,help:ptplus_hr_recruitment_netempregos.field_ptplus_netempregos_code__code
+msgid "Numeric value sent to Net-Empregos for this entry."
+msgstr ""
+
+#. module: ptplus_hr_recruitment_netempregos
+#: model:ir.module.module,shortdesc:base.module_ptplus_hr_recruitment_netempregos
+msgid "Portugal - Net-Empregos Job Board"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_netempregos
+#: model:ir.model,name:ptplus_hr_recruitment_netempregos.model_hr_recruitment_post_job_wizard
+msgid "Post Job"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_netempregos
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_netempregos.ptplus_netempregos_code_view_search
+msgid "Professional Categories"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_netempregos
+#: model:ir.model.fields.selection,name:ptplus_hr_recruitment_netempregos.selection__ptplus_netempregos_code__code_type__category
+msgid "Professional Category"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_netempregos
+#: model:ir.model.fields,help:ptplus_hr_recruitment_netempregos.field_hr_job_post__l10n_pt_netempregos_category_id
+#: model:ir.model.fields,help:ptplus_hr_recruitment_netempregos.field_hr_recruitment_post_job_wizard__l10n_pt_netempregos_category_id
+msgid "Professional category the offer is listed under on Net-Empregos."
+msgstr ""
+
+#. module: ptplus_hr_recruitment_netempregos
+#: model:ir.model.fields,help:ptplus_hr_recruitment_netempregos.field_hr_recruitment_post_job_wizard__l10n_pt_netempregos_job_type_id
+msgid ""
+"Proposed from the employment type of the job position; remote work is not an"
+" employment type, so it always has to be picked by hand."
+msgstr ""
+
+#. module: ptplus_hr_recruitment_netempregos
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_netempregos.res_config_settings_view_form_netempregos
+msgid "Publish job offers on net-empregos.com"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_netempregos
+#: model:ir.module.module,summary:base.module_ptplus_hr_recruitment_netempregos
+msgid "Publish your job offers on the Net-Empregos platform"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_netempregos
+#. odoo-python
+#: code:addons/ptplus_hr_recruitment_netempregos/webservice.py:0
+msgid "Published on Net-Empregos as advert %(advert_id)s."
+msgstr ""
+
+#. module: ptplus_hr_recruitment_netempregos
+#: model:ir.model,name:ptplus_hr_recruitment_netempregos.model_hr_recruitment_platform
+msgid "Recruitment Platform"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_netempregos
+#. odoo-python
+#: code:addons/ptplus_hr_recruitment_netempregos/wizard/hr_recruitment_post.py:0
+msgid ""
+"The description is too short for Net-Empregos, which asks for at least "
+"%(minimum)s characters.\n"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_netempregos
+#: model_terms:ir.actions.act_window,help:ptplus_hr_recruitment_netempregos.ptplus_netempregos_code_action
+msgid ""
+"These are the zones, professional categories and job types\n"
+"                published by Net-Empregos. An offer is advertised under one of\n"
+"                each."
+msgstr ""
+
+#. module: ptplus_hr_recruitment_netempregos
+#: model:ir.model.fields.selection,name:ptplus_hr_recruitment_netempregos.selection__ptplus_netempregos_code__code_type__zone
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_netempregos.hr_job_post_view_form_netempregos
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_netempregos.hr_recruitment_post_job_wizard_view_form_netempregos
+msgid "Zone"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_netempregos
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_netempregos.ptplus_netempregos_code_view_search
+msgid "Zones"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_netempregos
+#. odoo-python
+#: code:addons/ptplus_hr_recruitment_netempregos/wizard/hr_recruitment_post.py:0
+msgid "job type"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_netempregos
+#. odoo-python
+#: code:addons/ptplus_hr_recruitment_netempregos/wizard/hr_recruitment_post.py:0
+msgid "professional category"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_netempregos
+#. odoo-python
+#: code:addons/ptplus_hr_recruitment_netempregos/wizard/hr_recruitment_post.py:0
+msgid "zone"
+msgstr ""

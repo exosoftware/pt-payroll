@@ -53,13 +53,13 @@
                 <span>
                     Basic Salary and Other Income: (Incidence:
                     <span
-                        t-out="basic_taxable_gross"
-                        t-options="{'widget': 'monetary','display_currency': o.company_id.currency_id}"
-                    />
+                    t-out="basic_taxable_gross"
+                    t-options="{'widget': 'monetary','display_currency': o.company_id.currency_id}"
+                />
                     , TEMR:
                     <span
-                        t-out="round(abs(basic_tax_retained / basic_taxable_gross * 100), 2) if basic_taxable_gross else 0"
-                    /> %)
+                    t-out="round(abs(basic_tax_retained / basic_taxable_gross * 100), 2) if basic_taxable_gross else 0"
+                /> %)
                 </span>
                 <t t-set="pt_irs_detail_printed" t-value="True" />
             </t>
@@ -100,13 +100,13 @@
                 <span>
                     Extra Hours: (Incidence:
                     <span
-                        t-out="overtime_taxable"
-                        t-options="{'widget': 'monetary','display_currency': o.company_id.currency_id}"
-                    />
+                    t-out="overtime_taxable"
+                    t-options="{'widget': 'monetary','display_currency': o.company_id.currency_id}"
+                />
                     , TEMR:
                     <span
-                        t-out="round(abs(overtime_tax_retained / overtime_taxable * 100), 2) if overtime_taxable else 0"
-                    /> %)
+                    t-out="round(abs(overtime_tax_retained / overtime_taxable * 100), 2) if overtime_taxable else 0"
+                /> %)
                 </span>
                 <t t-set="pt_irs_detail_printed" t-value="True" />
             </t>
@@ -132,13 +132,13 @@
                 <span>
                     Holiday Allowance: (Incidence:
                     <span
-                        t-out="holiday_taxable"
-                        t-options="{'widget': 'monetary','display_currency': o.company_id.currency_id}"
-                    />
+                    t-out="holiday_taxable"
+                    t-options="{'widget': 'monetary','display_currency': o.company_id.currency_id}"
+                />
                     , TEMR:
                     <span
-                        t-out="round(abs(holiday_tax_retained / holiday_taxable * 100), 2)"
-                    /> %)
+                    t-out="round(abs(holiday_tax_retained / holiday_taxable * 100), 2)"
+                /> %)
                 </span>
                 <t t-set="pt_irs_detail_printed" t-value="True" />
             </t>
@@ -164,13 +164,13 @@
                 <span>
                     Christmas Allowance: (Incidence:
                     <span
-                        t-out="christmas_taxable"
-                        t-options="{'widget': 'monetary','display_currency': o.company_id.currency_id}"
-                    />
+                    t-out="christmas_taxable"
+                    t-options="{'widget': 'monetary','display_currency': o.company_id.currency_id}"
+                />
                     , TEMR:
                     <span
-                        t-out="round(abs(christmas_tax_retained / christmas_taxable * 100), 2)"
-                    /> %)
+                    t-out="round(abs(christmas_tax_retained / christmas_taxable * 100), 2)"
+                /> %)
                 </span>
                 <t t-set="pt_irs_detail_printed" t-value="True" />
             </t>
@@ -191,13 +191,13 @@
                 <span>
                     Global Basic Salary and Other Income: (Incidence:
                     <span
-                        t-out="global_basic_taxable"
-                        t-options="{'widget': 'monetary','display_currency': o.company_id.currency_id}"
-                    />
+                    t-out="global_basic_taxable"
+                    t-options="{'widget': 'monetary','display_currency': o.company_id.currency_id}"
+                />
                     , TEMR:
                     <span
-                        t-out="round(abs(global_basic_tax_retained / global_basic_taxable * 100), 2) if global_basic_taxable else 0"
-                    /> %)
+                    t-out="round(abs(global_basic_tax_retained / global_basic_taxable * 100), 2) if global_basic_taxable else 0"
+                /> %)
                 </span>
                 <t t-set="pt_irs_detail_printed" t-value="True" />
             </t>
@@ -220,13 +220,13 @@
                 <span>
                     Global Extra Hours: (Incidence:
                     <span
-                        t-out="global_overtime_taxable"
-                        t-options="{'widget': 'monetary','display_currency': o.company_id.currency_id}"
-                    />
+                    t-out="global_overtime_taxable"
+                    t-options="{'widget': 'monetary','display_currency': o.company_id.currency_id}"
+                />
                     , TEMR:
                     <span
-                        t-out="round(abs(global_overtime_tax_retained / global_overtime_taxable * 100), 2) if global_overtime_taxable else 0"
-                    /> %)
+                    t-out="round(abs(global_overtime_tax_retained / global_overtime_taxable * 100), 2) if global_overtime_taxable else 0"
+                /> %)
                 </span>
                 <t t-set="pt_irs_detail_printed" t-value="True" />
             </t>
@@ -241,13 +241,13 @@
                      of the two (which double-counted the previous amount). -->
                 <span>IRS differential:
                 <span
-                        t-out="abs(line.total + total_irs_last_slip)"
-                        t-options="{'widget': 'monetary', 'display_currency': o.company_id.currency_id}"
-                    /> <span>(cumulative total)</span> -
+                    t-out="abs(line.total + total_irs_last_slip)"
+                    t-options="{'widget': 'monetary', 'display_currency': o.company_id.currency_id}"
+                /> <span>(cumulative total)</span> -
                     <span
-                        t-out="abs(total_irs_last_slip)"
-                        t-options="{'widget': 'monetary', 'display_currency': o.company_id.currency_id}"
-                    /></span>
+                    t-out="abs(total_irs_last_slip)"
+                    t-options="{'widget': 'monetary', 'display_currency': o.company_id.currency_id}"
+                /></span>
                 <span>(accumulated from the last payslips)</span>
             </t>
         </div>
@@ -299,7 +299,7 @@
             </div>
             <div id="employee_ssnid">
                 <strong class="me-2">No. Beneficiary:</strong>
-                <span t-field="o.employee_id.ssnid" />
+                <span t-field="o.employee_id.l10n_pt_ssn" />
             </div>
             <div id="employee_vat">
                 <strong class="me-2">No. Identification:</strong>
@@ -403,7 +403,7 @@
         <xpath expr="//tbody[@id='payslip_lines']/span" position="attributes">
             <attribute
                 name="t-foreach"
-            >o.line_ids.filtered(lambda line: line.appears_on_payslip and (not o.l10n_pt_independent_slip or (line.quantity and line.amount)))</attribute>
+            >o.line_ids.filtered(lambda line: line.appears_on_payslip != 'never' and (not o.l10n_pt_independent_slip or (line.quantity and line.amount)))</attribute>
         </xpath>
         <xpath expr="//td[@id='payslip_line_name']/span[1]" position="attributes">
             <attribute name="t-if">not pt_line_name_override</attribute>
@@ -488,9 +488,9 @@
                 >
                     The accumulated amount of income tax withheld from the various payslips for the month of processing is
                     <span
-                        t-out="abs(total_irs + total_irs_last_slip)"
-                        t-options="{'widget': 'monetary', 'display_currency': o.company_id.currency_id}"
-                    />
+                    t-out="abs(total_irs + total_irs_last_slip)"
+                    t-options="{'widget': 'monetary', 'display_currency': o.company_id.currency_id}"
+                />
                     .
                 </p>
                 <t
@@ -552,27 +552,25 @@
             </div>
         </xpath>
         <xpath
-            expr="//div[@id='to_pay']//t[@t-if='not allocations']"
+            expr="//div[@id='to_pay']//t[@t-if='not payments']"
             position="attributes"
         >
             <attribute name="t-if">False</attribute>
         </xpath>
         <!-- A negative net is not a payment, so it stays out of the
              "Payment Information" table; the sentence carries the amount. -->
-        <xpath
-            expr="//div[@id='to_pay']/p[@t-if='o.net_wage &lt; 0']"
-            position="attributes"
-        >
-            <attribute name="t-if">False</attribute>
+        <xpath expr="//div[@id='to_pay']/p[@t-else='']" position="attributes">
+            <attribute name="t-else" />
+            <attribute name="t-elif">False</attribute>
         </xpath>
         <xpath expr="//div[@id='to_pay']" position="inside">
             <p id="pt_negative_net" t-if="o.net_wage &lt; 0">
                 The net amount of
                 <span
-                    class="fw-bold"
-                    t-out="o.net_wage"
-                    t-options="{'widget': 'monetary', 'display_currency': o.company_id.currency_id}"
-                />
+                class="fw-bold"
+                t-out="o.net_wage"
+                t-options="{'widget': 'monetary', 'display_currency': o.company_id.currency_id}"
+            />
                 will be recovered from the first positive remuneration established after this.
             </p>
         </xpath>

@@ -3,7 +3,7 @@
     <menuitem
         id="ptplus_payroll_settings_menu"
         name="Portugal"
-        parent="hr_work_entry_enterprise.menu_hr_payroll_configuration"
+        parent="hr_payroll.menu_hr_payroll_configuration"
         sequence="999"
         groups="hr_payroll.group_hr_payroll_user"
     />

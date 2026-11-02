@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="hr_recruitment_degree_form_sapo" model="ir.ui.view">
+        <field name="name">hr.recruitment.degree.form.sapo</field>
+        <field name="model">hr.recruitment.degree</field>
+        <field name="inherit_id" ref="hr_recruitment.hr_recruitment_degree_form" />
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field
+                    name="l10n_pt_sapo_qualification_id"
+                    options="{'no_create': True, 'no_open': True}"
+                />
+            </field>
+        </field>
+    </record>
+</odoo>

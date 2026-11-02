@@ -5,7 +5,6 @@
         <field name="model">hr.payslip</field>
         <field name="report_type">qweb-pdf</field>
         <field name="report_name">ptplus_payroll.report_payslip_pt_lang</field>
-        <field name="report_file">ptplus_payroll.report_payslip_pt_lang</field>
         <field
             name="print_report_name"
         >'Recibo de Vencimento - %s' % (object.employee_id.name)</field>
