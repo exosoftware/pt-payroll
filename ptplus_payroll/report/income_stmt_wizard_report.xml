@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="action_report_income_stmt_wizard_pt" model="ir.actions.report">
+        <field name="name">Declaração Anual de Rendimentos</field>
+        <field name="model">l10n_pt.payroll.income.stmt.wizard</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">ptplus_payroll.report_income_stmt_wizard_pt</field>
+        <field name="report_file">ptplus_payroll.report_income_stmt_wizard_pt</field>
+        <field name="attachment_use">False</field>
+        <field
+            name="print_report_name"
+        >'Income Statement %s - %s' % (object.date_to.year if object.date_to else '', object.company_id.name)</field>
+    </record>
+
+    <template id="report_income_stmt_wizard_pt_document">
+        <t t-set="statement" t-value="docs[0]" />
+        <t
+            t-set="employees"
+            t-value="docs.env.context.get('employee', False) or statement.employee_ids"
+        />
+        <t t-call="web.external_layout" t-foreach="employees" t-as="employee">
+            <div class="page">
+                <t t-set="marital_status" t-value="employee._pt_get_marital_status()" />
+                <t t-if="marital_status == 'not_married_pt'">
+                    <t t-set="marital_status" t-value="'solteiro(a)'" />
+                </t>
+                <t t-elif="marital_status == 'married_one_holder_pt'">
+                    <t t-set="marital_status" t-value="'casado(a) um titular'" />
+                </t>
+                <t t-else="">
+                    <t t-set="marital_status" t-value="'casado(a) dois titulares'" />
+                </t>
+
+                <p>
+                    Nos termos do nº 1, alinea b) do art. 119º, do CIRS, <span
+                        t-esc="employee.l10n_pt_full_name"
+                    />, com residência em <span t-esc="employee.private_street" />,
+                    contribuinte nº <span t-esc="employee.l10n_pt_vat" />, <span
+                        t-esc="marital_status"
+                    />, com <span t-esc="employee.children" /> dependente/s, auferiu
+                    <t t-if="statement.date_from">, no ano de <span
+                            t-esc="statement.date_from.year"
+                        /></t>
+                    , os seguintes rendimentos relativos a trabalho dependente -
+                    Categoria A:
+                </p>
+
+                <t
+                    t-set="lines"
+                    t-value="statement.income_stmt_line_ids.filtered(lambda l: l.employee_id == employee)"
+                />
+                <t
+                    t-set="taxable_lines"
+                    t-value="lines.filtered(lambda l: l.income_category == 'taxable_income')"
+                />
+                <t
+                    t-set="exempt_lines"
+                    t-value="lines.filtered(lambda l: l.income_category == 'exempt_income')"
+                />
+                <t
+                    t-set="deduction_lines"
+                    t-value="lines.filtered(lambda l: l.income_category == 'withholding_deduction')"
+                />
+
+                <p>
+                    <strong>Total de Rendimentos Ilíquidos Sujeitos referentes a
+                        <t t-if="statement.date_from">
+                            <span t-esc="statement.date_from.year" />
+                        </t> <br />
+                        <t
+                            t-esc="sum(taxable_lines.mapped('income_amount'))"
+                            t-options='{"widget": "monetary", "display_currency": statement.currency_id}'
+                        />
+                    </strong>
+                </p>
+                <t t-foreach="taxable_lines" t-as="line">
+                    <p style="margin-left: 25px;">
+                        <span t-esc="line.salary_rule_description" />
+                        <br />
+                        <span
+                            t-esc="line.income_amount"
+                            t-options='{"widget": "monetary", "display_currency": statement.currency_id}'
+                        />
+                    </p>
+                </t>
+
+                <p>
+                    <strong>Total de Rendimentos Ilíquidos Não Sujeitos referentes a
+                        <t t-if="statement.date_from">
+                            <span t-esc="statement.date_from.year" />
+                        </t> <br />
+                        <t
+                            t-esc="sum(exempt_lines.mapped('income_amount'))"
+                            t-options='{"widget": "monetary", "display_currency": statement.currency_id}'
+                        />
+                    </strong>
+                </p>
+                <t t-foreach="exempt_lines" t-as="line">
+                    <p style="margin-left: 25px;">
+                        <span t-esc="line.salary_rule_description" />
+                        <br />
+                        <span
+                            t-esc="line.income_amount"
+                            t-options='{"widget": "monetary", "display_currency": statement.currency_id}'
+                        />
+                    </p>
+                </t>
+
+                <p>
+                    <strong>Total de Descontos referentes a
+                        <t t-if="statement.date_from">
+                            <span t-esc="statement.date_from.year" />
+                        </t> <br />
+                        <t
+                            t-esc="sum(deduction_lines.mapped('income_amount'))"
+                            t-options='{"widget": "monetary", "display_currency": statement.currency_id}'
+                        />
+                    </strong>
+                </p>
+                <t t-foreach="deduction_lines" t-as="line">
+                    <p style="margin-left: 25px;">
+                        <span t-esc="line.salary_rule_description" />
+                        <br />
+                        <span
+                            t-esc="line.income_amount"
+                            t-options='{"widget": "monetary", "display_currency": statement.currency_id}'
+                        />
+                    </p>
+                </t>
+            </div>
+        </t>
+    </template>
+
+    <template id="report_income_stmt_wizard_pt">
+        <t t-call="web.html_container">
+            <t t-call="ptplus_payroll.report_income_stmt_wizard_pt_document" />
+        </t>
+    </template>
+</odoo>

@@ -9,6 +9,22 @@
                 <field name="company_country_id" invisible="1" />
                 <field name="company_country_code" invisible="1" />
             </field>
+            <div name="button_box" position="inside">
+                <button
+                    name="action_l10n_pt_scc_open_communications"
+                    type="object"
+                    class="oe_stat_button"
+                    icon="fa-exchange"
+                    groups="hr_payroll.group_hr_payroll_user"
+                    invisible="company_country_code != 'PT' or l10n_pt_scc_communication_count == 0"
+                >
+                    <field
+                        name="l10n_pt_scc_communication_count"
+                        widget="statinfo"
+                        string="SS Communications"
+                    />
+                </button>
+            </div>
             <xpath expr="//field[@name='passport_id']" position="attributes">
                 <attribute name="invisible">company_country_code == 'PT'</attribute>
             </xpath>
@@ -129,5 +145,21 @@
                 <field name="l10n_pt_insurance_policy_no" optional="hide" />
             </field>
         </field>
+    </record>
+
+    <!-- The contracts and permanent remunerations of the selected employees,
+         archived ones included,
+         checked at Social Security in a few searches. -->
+    <record id="action_l10n_pt_scc_check_contracts" model="ir.actions.server">
+        <field name="name">Check at SS</field>
+        <field name="model_id" ref="hr.model_hr_employee" />
+        <field name="binding_model_id" ref="hr.model_hr_employee" />
+        <field name="binding_view_types">list</field>
+        <field
+            name="groups_id"
+            eval="[Command.link(ref('hr_payroll.group_hr_payroll_user'))]"
+        />
+        <field name="state">code</field>
+        <field name="code">action = records.action_l10n_pt_scc_check_contract()</field>
     </record>
 </odoo>

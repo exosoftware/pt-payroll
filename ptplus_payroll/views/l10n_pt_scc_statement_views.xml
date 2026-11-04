@@ -1,0 +1,678 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="l10n_pt_scc_statement_view_list" model="ir.ui.view">
+        <field name="name">l10n_pt.scc.statement.list</field>
+        <field name="model">l10n_pt.scc.statement</field>
+        <field name="arch" type="xml">
+            <tree decoration-danger="has_divergence">
+                <field name="year_month" />
+                <field
+                    name="activity_exception_decoration"
+                    widget="activity_exception"
+                />
+                <field name="company_id" groups="base.group_multi_company" />
+                <field name="user_id" widget="many2one_avatar_user" optional="show" />
+                <field name="declared_worker_count" />
+                <field name="declared_total_amount" />
+                <field name="assessed_total_remuneration" />
+                <field name="assessed_total_obligation" />
+                <field name="has_divergence" />
+                <field name="needs_resend" />
+                <field name="confirmation_deadline" />
+                <field
+                    name="state"
+                    widget="badge"
+                    decoration-danger="state in ('alert', 'not_confirmed')"
+                    decoration-info="state in ('sent', 'integrated')"
+                    decoration-warning="state == 'assessed'"
+                    decoration-success="state == 'confirmed'"
+                />
+                <field
+                    name="payment_state"
+                    widget="badge"
+                    optional="show"
+                    decoration-info="payment_state == 'requested'"
+                    decoration-warning="payment_state == 'pending'"
+                    decoration-success="payment_state == 'paid'"
+                    decoration-danger="payment_state == 'expired'"
+                />
+                <field name="currency_id" column_invisible="1" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="l10n_pt_scc_statement_view_form" model="ir.ui.view">
+        <field name="name">l10n_pt.scc.statement.form</field>
+        <field name="model">l10n_pt.scc.statement</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button
+                        name="action_compute_lines"
+                        type="object"
+                        string="Compute"
+                        class="btn-primary"
+                        invisible="state == 'confirmed'"
+                    />
+                    <button
+                        name="action_send_values"
+                        type="object"
+                        string="Send to Social Security"
+                        class="btn-primary"
+                        invisible="state == 'confirmed'"
+                        confirm="The remuneration values of the whole month will be sent to Social Security (a re-send substitutes the previous communication). Continue?"
+                    />
+                    <button
+                        name="action_refresh_status"
+                        type="object"
+                        string="Refresh Status"
+                        invisible="state in ('draft', 'confirmed')"
+                    />
+                    <button
+                        name="action_confirm"
+                        type="object"
+                        string="Confirm"
+                        class="btn-primary"
+                        invisible="state not in ('assessed', 'not_confirmed') or has_divergence"
+                        confirm="Confirm the values assessed by Social Security for the month in window?"
+                    />
+                    <!-- With divergences the confirmation is a deliberate act,
+                         so the dialog states what is being assumed. -->
+                    <button
+                        name="action_confirm"
+                        type="object"
+                        string="Confirm"
+                        class="btn-primary"
+                        invisible="state not in ('assessed', 'not_confirmed') or not has_divergence"
+                        confirm="There are divergences between the declared and the assessed values. Confirming assumes they were reviewed and that the values assessed by Social Security are accepted as they are. Continue?"
+                    />
+                    <button
+                        name="action_download_confirmation_receipt"
+                        type="object"
+                        string="Confirmation Receipt"
+                        invisible="state != 'confirmed'"
+                    />
+                    <button
+                        name="action_reopen"
+                        type="object"
+                        string="Reopen"
+                        invisible="state != 'confirmed'"
+                        groups="hr_payroll.group_hr_payroll_manager"
+                        confirm="The version confirmed to Social Security stays in force until a new communication replaces it and is confirmed again. Reopen the month for correction?"
+                    />
+                    <button
+                        name="action_reset_to_draft"
+                        type="object"
+                        string="Reset to Draft"
+                        invisible="state not in ('sent', 'alert')"
+                    />
+                    <field
+                        name="state"
+                        widget="statusbar"
+                        statusbar_visible="draft,sent,integrated,assessed,confirmed"
+                    />
+                </header>
+                <sheet>
+                    <div
+                        class="alert alert-warning"
+                        role="alert"
+                        invisible="not payslips_changed_after_compute"
+                    >
+                        Payslips changed after the values were computed. Compute again before sending.
+                    </div>
+                    <div
+                        class="alert alert-danger"
+                        role="alert"
+                        invisible="not has_divergence"
+                    >
+                        The values assessed by Social Security differ from the declared ones. Review the comparison by worker below.
+                    </div>
+                    <div
+                        class="alert alert-warning"
+                        role="alert"
+                        invisible="not needs_resend"
+                    >
+                        Later payslips correct this month. Compute the values again and send the month to Social Security.
+                    </div>
+                    <div
+                        class="alert alert-danger"
+                        role="alert"
+                        invisible="state != 'not_confirmed'"
+                    >
+                        Social Security did not confirm the values:
+                        <field name="confirmation_code" class="oe_inline" /> -
+                        <field name="confirmation_message" class="oe_inline" />
+                    </div>
+                    <div
+                        class="alert alert-warning"
+                        role="alert"
+                        invisible="payment_state != 'expired'"
+                    >
+                        The Social Security payment document expired unpaid. Request a new one in the Payment tab.
+                    </div>
+                    <div
+                        class="alert alert-warning"
+                        role="alert"
+                        invisible="not remuneration_pending_employees"
+                    >
+                        Social Security assesses the month from the permanent remunerations it holds, and these employees have new ones still to communicate (SS Communication tab of the contract):
+                        <field
+                            name="remuneration_pending_employees"
+                            class="oe_inline"
+                        />
+                    </div>
+                    <div class="oe_button_box" name="button_box">
+                        <button
+                            name="action_open_lines"
+                            type="object"
+                            class="oe_stat_button"
+                            icon="fa-list"
+                            invisible="not line_count"
+                        >
+                            <field
+                                name="line_count"
+                                widget="statinfo"
+                                string="Statement Lines"
+                            />
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1><field name="name" /></h1>
+                    </div>
+                    <group>
+                        <group string="Period">
+                            <field
+                                name="company_id"
+                                groups="base.group_multi_company"
+                            />
+                            <field name="date_from" readonly="state != 'draft'" />
+                            <field name="date_to" />
+                            <field name="user_id" widget="many2one_avatar_user" />
+                            <field name="year_month" invisible="1" />
+                            <field name="confirmation_deadline" />
+                            <field name="lines_computed_on" />
+                            <field name="needs_resend" invisible="1" />
+                            <field
+                                name="payslips_changed_after_compute"
+                                invisible="1"
+                            />
+                            <field name="currency_id" invisible="1" />
+                        </group>
+                        <group string="Declared (Payslips)">
+                            <field name="declared_worker_count" />
+                            <field name="declared_total_amount" />
+                            <field name="expected_obligation" />
+                            <field
+                                name="correction_note"
+                                invisible="not correction_note"
+                            />
+                        </group>
+                        <group string="Assessed (Social Security)">
+                            <field name="assessed_state" />
+                            <field name="assessed_total_workers" />
+                            <field name="assessed_total_remuneration" />
+                            <field name="assessed_total_contribution" />
+                            <field name="assessed_total_reduction" />
+                            <field name="assessed_total_obligation" />
+                        </group>
+                        <group string="Differences" invisible="not assessed_state">
+                            <field name="amount_difference" />
+                            <field name="obligation_difference" />
+                            <field name="has_divergence" />
+                        </group>
+                        <!-- A refused confirmation is announced in the banner
+                             above, so this group carries the accepted one. -->
+                        <group string="Confirmation" invisible="state != 'confirmed'">
+                            <field name="confirmation_code" />
+                            <field name="confirmation_message" />
+                            <field name="confirmation_date" />
+                            <field
+                                name="confirmation_user_id"
+                                widget="many2one_avatar_user"
+                            />
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Declared Values" name="declared_values">
+                            <field name="line_ids" readonly="state == 'confirmed'">
+                                <tree
+                                    decoration-danger="ss_state == 'alert'"
+                                    decoration-muted="ss_state == 'substituted'"
+                                >
+                                    <field
+                                        name="employee_id"
+                                        widget="many2one_avatar_employee"
+                                    />
+                                    <field name="niss" />
+                                    <field name="nature" />
+                                    <field name="days" />
+                                    <field name="amount" />
+                                    <field
+                                        name="correction_amount"
+                                        optional="show"
+                                        decoration-warning="correction_amount != 0"
+                                    />
+                                    <field
+                                        name="ss_state"
+                                        widget="badge"
+                                        decoration-danger="ss_state == 'alert'"
+                                        decoration-success="ss_state == 'integrated'"
+                                    />
+                                    <field name="alert_message" />
+                                    <field name="currency_id" column_invisible="1" />
+                                </tree>
+                            </field>
+                        </page>
+                        <page
+                            string="Comparison by Worker"
+                            name="comparison_worker"
+                            invisible="not assessed_state"
+                        >
+                            <field name="comparison_worker_line_ids">
+                                <tree decoration-danger="status != 'ok'">
+                                    <field
+                                        name="employee_id"
+                                        widget="many2one_avatar_employee"
+                                    />
+                                    <field name="niss" optional="hide" />
+                                    <field name="declared_days" optional="show" />
+                                    <field name="assessed_days" optional="show" />
+                                    <field name="declared_amount" optional="show" />
+                                    <field name="assessed_amount" optional="show" />
+                                    <field name="difference" optional="show" />
+                                    <field name="declared_obligation" optional="show" />
+                                    <field name="assessed_obligation" optional="show" />
+                                    <field
+                                        name="obligation_difference"
+                                        optional="show"
+                                        decoration-danger="obligation_difference != 0"
+                                    />
+                                    <field
+                                        name="status"
+                                        widget="badge"
+                                        decoration-success="status == 'ok'"
+                                        decoration-danger="status != 'ok'"
+                                    />
+                                    <button
+                                        name="action_open_worker_detail"
+                                        type="object"
+                                        string="Detail"
+                                        icon="fa-search-plus"
+                                    />
+                                    <field name="currency_id" column_invisible="1" />
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Submissions" name="submissions">
+                            <field name="submission_ids">
+                                <tree decoration-muted="state == 'substituted'">
+                                    <field name="send_date" />
+                                    <field name="delivery_receipt_uuid" />
+                                    <field name="record_count" />
+                                    <field name="total_amount" />
+                                    <field
+                                        name="state"
+                                        widget="badge"
+                                        decoration-danger="state == 'alert'"
+                                        decoration-success="state == 'integrated'"
+                                    />
+                                    <field name="currency_id" column_invisible="1" />
+                                </tree>
+                            </field>
+                        </page>
+                        <!-- Social Security issues the payment document for what
+                             the employer owes once the month is assessed; the
+                             services take no month, so the documents are kept
+                             on the statement they were requested from. -->
+                        <page
+                            string="Payment"
+                            name="payment"
+                            invisible="state in ('draft', 'sent', 'alert', 'integrated')"
+                        >
+                            <!-- No document yet: the tab is the call to
+                                 action, nothing else. -->
+                            <div invisible="payment_document_ids">
+                                <p class="text-muted">
+                                    Social Security issues the payment document, with the Multibanco reference and the IBAN, for the employer contributions it has assessed.
+                                </p>
+                                <button
+                                    name="action_request_payment_document"
+                                    type="object"
+                                    string="Request Payment Document"
+                                    class="btn btn-primary"
+                                    confirm="Social Security will issue the payment document for the employer contributions currently owed. Continue?"
+                                />
+                            </div>
+                            <!-- The current document (to pay, else the latest
+                                 paid) with what the treasurer needs; the full
+                                 history is the list below. -->
+                            <div invisible="not payment_document_ids">
+                                <div
+                                    class="d-flex justify-content-between align-items-center mb-3"
+                                >
+                                    <div class="d-flex align-items-center">
+                                        <span class="fs-5 me-2">
+                                            <field
+                                                name="payment_document_id"
+                                                class="oe_inline"
+                                            />
+                                        </span>
+                                        <field
+                                            name="payment_state"
+                                            widget="badge"
+                                            decoration-info="payment_state == 'requested'"
+                                            decoration-warning="payment_state == 'pending'"
+                                            decoration-success="payment_state == 'paid'"
+                                            decoration-danger="payment_state == 'expired'"
+                                        />
+                                    </div>
+                                    <div>
+                                        <button
+                                            name="action_request_payment_document"
+                                            type="object"
+                                            string="Request New Document"
+                                            class="btn btn-primary"
+                                            invisible="payment_state != 'expired'"
+                                            confirm="Social Security will issue the payment document for the employer contributions currently owed. Continue?"
+                                        />
+                                        <button
+                                            name="action_refresh_payment_documents"
+                                            type="object"
+                                            string="Refresh"
+                                            class="btn btn-secondary"
+                                        />
+                                    </div>
+                                </div>
+                                <group invisible="not payment_document_id">
+                                    <group string="Document">
+                                        <field name="payment_document_amount" />
+                                        <field name="payment_document_due_date" />
+                                        <field
+                                            name="payment_document_paid_date"
+                                            invisible="not payment_document_paid_date"
+                                        />
+                                    </group>
+                                    <group string="Payment References">
+                                        <field
+                                            name="payment_document_iban"
+                                            widget="CopyClipboardChar"
+                                        />
+                                        <field
+                                            name="payment_document_mb_entity"
+                                            widget="CopyClipboardChar"
+                                            invisible="not payment_document_mb_entity"
+                                        />
+                                        <field
+                                            name="payment_document_mb_reference"
+                                            widget="CopyClipboardChar"
+                                            invisible="not payment_document_mb_reference"
+                                        />
+                                    </group>
+                                </group>
+                                <separator string="History" />
+                            </div>
+                            <field
+                                name="payment_document_ids"
+                                invisible="not payment_document_ids"
+                                context="{'form_view_ref': 'ptplus_payroll.l10n_pt_scc_payment_document_view_form'}"
+                            >
+                                <tree
+                                    create="0"
+                                    delete="0"
+                                    decoration-muted="state == 'expired'"
+                                    decoration-success="state == 'paid'"
+                                >
+                                    <field name="request_date" optional="hide" />
+                                    <!-- A pending request has no number yet:
+                                         the name shows the request key and
+                                         the amounts stay blank. -->
+                                    <field name="display_name" string="Document" />
+                                    <field name="number" column_invisible="1" />
+                                    <field name="document_subtype" optional="show" />
+                                    <field
+                                        name="amount"
+                                        invisible="state == 'requested'"
+                                    />
+                                    <field name="due_date" />
+                                    <field name="mb_entity" />
+                                    <field name="mb_reference" />
+                                    <field name="iban" optional="hide" />
+                                    <field
+                                        name="state"
+                                        widget="badge"
+                                        decoration-info="state == 'requested'"
+                                        decoration-warning="state == 'available'"
+                                        decoration-success="state == 'paid'"
+                                        decoration-danger="state == 'expired'"
+                                    />
+                                    <field name="paid_date" optional="show" />
+                                    <field
+                                        name="paid_amount"
+                                        optional="show"
+                                        invisible="state != 'paid'"
+                                    />
+                                    <field name="payment_method" optional="hide" />
+                                    <field name="payment_source" optional="hide" />
+                                    <field name="currency_id" column_invisible="1" />
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" />
+                    <field name="activity_ids" />
+                    <field name="message_ids" />
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="l10n_pt_scc_submission_view_form" model="ir.ui.view">
+        <field name="name">l10n_pt.scc.submission.form</field>
+        <field name="model">l10n_pt.scc.submission</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="send_date" />
+                            <field name="delivery_receipt_uuid" />
+                            <field name="state" widget="badge" />
+                        </group>
+                        <group>
+                            <field name="record_count" />
+                            <field name="total_amount" />
+                            <field name="currency_id" invisible="1" />
+                        </group>
+                    </group>
+                    <field name="line_ids">
+                        <tree
+                            decoration-danger="ss_state == 'alert'"
+                            decoration-muted="ss_state == 'substituted'"
+                        >
+                            <field
+                                name="employee_id"
+                                widget="many2one_avatar_employee"
+                            />
+                            <field name="niss" />
+                            <field name="nature" />
+                            <field name="days" />
+                            <field name="amount" />
+                            <field
+                                name="ss_state"
+                                widget="badge"
+                                decoration-danger="ss_state == 'alert'"
+                                decoration-success="ss_state == 'integrated'"
+                            />
+                            <field name="alert_message" />
+                            <field name="currency_id" column_invisible="1" />
+                        </tree>
+                    </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="l10n_pt_scc_statement_view_search" model="ir.ui.view">
+        <field name="name">l10n_pt.scc.statement.search</field>
+        <field name="model">l10n_pt.scc.statement</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="year_month" />
+                <field name="company_id" />
+                <field name="user_id" />
+                <filter
+                    string="With Divergences"
+                    name="has_divergence"
+                    domain="[('has_divergence', '=', True)]"
+                />
+                <filter
+                    string="To Confirm"
+                    name="to_confirm"
+                    domain="[('state', 'in', ('assessed', 'not_confirmed'))]"
+                />
+                <filter
+                    string="To Send Again"
+                    name="needs_resend"
+                    domain="[('needs_resend', '=', True)]"
+                />
+                <filter
+                    string="To Pay"
+                    name="to_pay"
+                    domain="[('payment_state', '=', 'pending')]"
+                />
+                <separator />
+                <filter
+                    string="State"
+                    name="group_by_state"
+                    context="{'group_by': 'state'}"
+                />
+                <filter
+                    string="Company"
+                    name="group_by_company"
+                    context="{'group_by': 'company_id'}"
+                />
+            </search>
+        </field>
+    </record>
+
+    <record id="l10n_pt_scc_statement_line_view_list" model="ir.ui.view">
+        <field name="name">l10n_pt.scc.statement.line.list</field>
+        <field name="model">l10n_pt.scc.statement.line</field>
+        <field name="arch" type="xml">
+            <tree
+                create="0"
+                edit="0"
+                delete="0"
+                decoration-danger="ss_state == 'alert'"
+                decoration-muted="ss_state == 'substituted'"
+            >
+                <field name="employee_id" widget="many2one_avatar_employee" />
+                <field name="niss" />
+                <field name="year_month" optional="show" />
+                <field name="qualification_type" optional="hide" />
+                <field name="nature" />
+                <field name="days" sum="Total" />
+                <field name="amount" sum="Total" />
+                <field
+                    name="correction_amount"
+                    optional="show"
+                    sum="Total"
+                    decoration-warning="correction_amount != 0"
+                />
+                <field
+                    name="ss_state"
+                    widget="badge"
+                    decoration-danger="ss_state == 'alert'"
+                    decoration-success="ss_state == 'integrated'"
+                />
+                <field name="alert_message" optional="show" />
+                <field name="currency_id" column_invisible="1" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="l10n_pt_scc_statement_line_view_search" model="ir.ui.view">
+        <field name="name">l10n_pt.scc.statement.line.search</field>
+        <field name="model">l10n_pt.scc.statement.line</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="employee_id" />
+                <field name="niss" />
+                <field name="nature" />
+                <field name="year_month" />
+                <filter
+                    string="With Alerts"
+                    name="with_alert"
+                    domain="[('ss_state', '=', 'alert')]"
+                />
+                <filter
+                    string="With Later-Month Corrections"
+                    name="with_corrections"
+                    domain="[('correction_amount', '!=', 0)]"
+                />
+                <filter
+                    string="With Days"
+                    name="with_days"
+                    domain="[('days', '!=', 0)]"
+                />
+                <separator />
+                <filter
+                    string="Employee"
+                    name="group_by_employee"
+                    context="{'group_by': 'employee_id'}"
+                />
+                <filter
+                    string="Nature"
+                    name="group_by_nature"
+                    context="{'group_by': 'nature'}"
+                />
+                <filter
+                    string="Year-Month"
+                    name="group_by_year_month"
+                    context="{'group_by': 'year_month'}"
+                />
+                <filter
+                    string="Qualification"
+                    name="group_by_qualification"
+                    context="{'group_by': 'qualification_type'}"
+                />
+                <filter
+                    string="Social Security State"
+                    name="group_by_ss_state"
+                    context="{'group_by': 'ss_state'}"
+                />
+            </search>
+        </field>
+    </record>
+
+    <record id="action_l10n_pt_scc_statement" model="ir.actions.act_window">
+        <field name="name">SCC Statements</field>
+        <field name="res_model">l10n_pt.scc.statement</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create the monthly SCC statement
+            </p>
+            <p>
+                Send the remuneration values to Social Security, follow their
+                processing, compare the assessed values with the payslips and
+                confirm the monthly contributory obligation.
+            </p>
+        </field>
+    </record>
+
+    <menuitem
+        id="menu_l10n_pt_scc_root"
+        name="Social Security SCC"
+        sequence="4"
+        parent="payroll_menu_report_pt"
+    >
+        <menuitem
+            id="menu_l10n_pt_scc_statement"
+            sequence="1"
+            action="action_l10n_pt_scc_statement"
+        />
+    </menuitem>
+</odoo>

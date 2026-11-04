@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="l10n_pt_dmr_statement_wizard_form" model="ir.ui.view">
+        <field name="name">l10n_pt.dmr.statement.wizard.form</field>
+        <field name="model">l10n_pt.dmr.statement.wizard</field>
+        <field name="inherit_id" ref="ptplus_reports.l10n_pt_statement_wizard_form" />
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <notebook name="main_block" position="inside">
+                <page name="Miscellaneous" string="Miscellaneous">
+                    <group>
+                        <group string="Tax Office">
+                            <field name="tax_office_code" />
+                        </group>
+                        <group string="Vat Number">
+                            <field name="d2_vat_number" />
+                        </group>
+                        <group string="Type of Declaration">
+                            <field name="declaration_type" />
+                            <field name="is_under_art_119_1d" />
+                            <field
+                                name="subst_fact_date"
+                                invisible="not is_under_art_119_1d"
+                                required="is_under_art_119_1d"
+                            />
+                        </group>
+                        <group
+                            string="Identification of Declaration Responsible Parties"
+                        >
+                            <field name="certified_accountant_vat" />
+                            <field name="legal_representative_vat" />
+                            <field name="justifiable_reason" />
+                            <field
+                                name="justifiable_reason_start_date"
+                                invisible="not justifiable_reason"
+                                required="justifiable_reason"
+                            />
+                            <field
+                                name="justifiable_reason_end_date"
+                                invisible="not justifiable_reason"
+                                required="justifiable_reason"
+                            />
+                        </group>
+                    </group>
+                </page>
+
+                <page name="Fiscal Summary" string="Fiscal Summary">
+                    <group>
+                        <group string="Taxable Income">
+                            <field
+                                name="d4_income_taxable_value"
+                                string="Income Amount"
+                            />
+                            <field
+                                name="d4_income_taxable_irs_retention"
+                                string="IRS Withholding"
+                            />
+                            <field
+                                name="d4_income_taxable_social_security"
+                                string="Mandatory Contributions"
+                            />
+                            <field
+                                name="d4_income_taxable_union_dues"
+                                string="Union Dues"
+                            />
+                            <field
+                                name="d4_income_taxable_surtax_retention"
+                                string="Surtax Withholding"
+                            />
+                        </group>
+                        <group string="Exempt Income">
+                            <field
+                                name="d4_income_exempt_value"
+                                string="Income Amount"
+                            />
+                            <field
+                                name="d4_income_exempt_irs_retention"
+                                string="IRS Withholding"
+                            />
+                            <field
+                                name="d4_income_exempt_social_security"
+                                string="Mandatory Contributions"
+                            />
+                            <field
+                                name="d4_income_exempt_union_dues"
+                                string="Union Dues"
+                            />
+                            <field
+                                name="d4_income_exempt_surtax_retention"
+                                string="Surtax Withholding"
+                            />
+                        </group>
+                        <group string="Non-Taxable Income">
+                            <field
+                                name="d5_income_nontaxable_value"
+                                string="Income Amount"
+                            />
+                            <field
+                                name="d5_income_nontaxable_irs_retention"
+                                string="IRS Withholding"
+                            />
+                            <field
+                                name="d5_income_nontaxable_social_security"
+                                string="Mandatory Contributions"
+                            />
+                            <field
+                                name="d5_income_nontaxable_union_dues"
+                                string="Union Dues"
+                            />
+                            <field
+                                name="d5_income_nontaxable_surtax_retention"
+                                string="Surtax Withholding"
+                            />
+                        </group>
+                        <group string="Total">
+                            <field name="d5_total_income_value" />
+                            <field name="d5_total_irs_retention" />
+                            <field name="d5_total_social_security" />
+                            <field name="d5_total_union_dues" />
+                            <field name="d5_total_surtax_retention" />
+                        </group>
+                    </group>
+                </page>
+                <page name="Taxpayers' Income" string="Taxpayers' Income">
+                    <field name="d6_line_ids" nolabel="1" colspan="3">
+                        <tree editable="bottom">
+                            <field name="d6_employee_id" readonly="1" />
+                            <field name="d6_taxpayer_vat_number" />
+                            <field name="d6_past_year_income_value" optional="hide" />
+                            <field name="d6_past_year_income_year" optional="hide" />
+                            <field name="d6_income_value" />
+                            <field name="d6_income_type" />
+                            <field name="d6_income_location" />
+                            <field name="d6_irs_retention" />
+                            <field name="d6_mandatory_contrib_value" />
+                            <field
+                                name="d6_mandatory_contrib_entity1"
+                                optional="hide"
+                            />
+                            <field
+                                name="d6_mandatory_contrib_entity2"
+                                optional="hide"
+                            />
+                            <field
+                                name="d6_mandatory_contrib_entity3"
+                                optional="hide"
+                            />
+                            <field name="d6_union_dues" optional="hide" />
+                            <field name="d6_surtax_retention" optional="hide" />
+                        </tree>
+                    </field>
+                </page>
+            </notebook>
+        </field>
+    </record>
+
+    <record id="l10n_pt_dmr_statement_wizard_action" model="ir.actions.act_window">
+        <field name="name">DMR</field>
+        <field name="res_model">l10n_pt.dmr.statement.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="l10n_pt_dmr_statement_wizard_form" />
+        <field name="target">new</field>
+    </record>
+
+    <menuitem
+        id="l10n_pt_dmr_statement_wizard_menu"
+        name="DMR"
+        parent="payroll_menu_report_pt"
+        sequence="20"
+        groups="ptplus.group_experimental_features_pt"
+        action="l10n_pt_dmr_statement_wizard_action"
+    />
+</odoo>
