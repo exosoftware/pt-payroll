@@ -49,6 +49,227 @@ change.
 Changelog
 =========
 
+9.13.2 (2026-11-04)
+~~~~~~~~~~~~~~~~~~~
+**Bugfixes**
+
+- A payslip with deductions but nothing paid by bank, such as an independent
+  receipt that only deducts a health insurance, showed 0 to receive and the
+  deductions were never recovered. It now shows the negative amount to
+  receive, as a payslip whose deductions exceed the salary already did. Once
+  the payslip is confirmed, that amount can be reported on the employee's
+  next payslip.
+
+9.13.1 (2026-11-03)
+~~~~~~~~~~~~~~~~~~~
+**Improvement**
+
+- The "Contracts Registered at Social Security" table of the employee form
+  now shows one line per contract, with the terms in force. Social Security
+  answers one record for each change of a contract's terms (for instance each
+  raise), so a contract with several changes used to show as several
+  contracts. The number of changes is shown on each line, and the
+  "Information Periods" button lists all of them, grouped by contract.
+
+9.13.0 (2026-10-26)
+~~~~~~~~~~~~~~~~~~~
+**Features**
+
+- Time off types have a new "Social Security Leave" option, for the absences
+  paid by Social Security (sickness, parenthood, family assistance). A time off
+  type with this option must also have "Ignore Public Holidays" enabled, so
+  public holidays count in the leave duration.
+- The payroll treats every time off type with this option as a Social Security
+  leave, also the ones you create: public holidays inside the leave count as
+  days of absence on the DRI, the work entries keep the leave on those days,
+  and a batch that spans two months extends the payslip up to the end of the
+  leave within the month.
+- The localization's time off types for sickness, occupational illness, family
+  assistance, maternity and paternity now have both options enabled, also on
+  existing databases. Their "Social Security Leave" option cannot be disabled.
+
+9.12.1 (2026-10-23)
+~~~~~~~~~~~~~~~~~~~
+**Bugfixes**
+
+- On the employee form, the Social Security SCC check that tells whether
+  Social Security holds the contract as it is in Odoo is now named "Contract
+  Up to Date at SS". It had the same name as the indicator of a contract
+  already communicated, so the two could not be told apart.
+- Installing the module on a new database no longer fails when the link
+  between time off and work entries is not installed yet: it is now
+  installed together with the module.
+
+9.12.0 (2026-10-23)
+~~~~~~~~~~~~~~~~~~~
+**Features**
+
+- New Social Security SCC integration (Plataforma de Serviços de
+  Interoperabilidade): companies that joined the new contributory cycle can
+  now send the monthly remuneration values online, follow their processing
+  and alerts, compare the values assessed by the Segurança Social with the
+  payroll figures, worker by worker, and confirm the
+  monthly contributory obligation - all from Payroll > Reporting > Portugal >
+  Social Security SCC. A daily synchronization keeps the statements up to
+  date and reminds the payroll managers before the confirmation deadline
+  (the 20th of the following month); "Refresh Status" does the same for one
+  statement on demand - the processing state of what was sent and, once the
+  month is over, the values Social Security assessed. A month is only sent
+  once Social Security holds the contracts of its payslips as they are in
+  Odoo: otherwise the statement lists the employees whose contract has to be
+  checked or communicated first. A new permanent remuneration still to
+  communicate does not stop the month, but the statement names the employees
+  concerned, since Social Security assesses the month from the remunerations
+  it holds. The "Statement Lines" button opens the
+  lines of a statement in a list of their own, to filter, group and export
+  them. The expected obligation shown next to
+  the assessed one is computed on the declared values, so each month carries
+  the obligation of what it declares even when a payslip withholds
+  contributions on values declared with the previous month. Once a month is
+  confirmed, its values are locked and the confirmation receipt issued by
+  Social Security can be downloaded from the statement; while Social Security
+  still takes new communications, a payroll manager can reopen the month to
+  correct and send it again. When Social Security refuses the
+  confirmation - for instance because the deadline has passed - the month is
+  marked as not confirmed and shows the answer it returned, so the month can
+  be confirmed again once the situation is settled.
+- Absences and overtime of the payslips are declared as Social Security
+  expects them: absences reduce the days and the base remuneration of the
+  month, and every value is declared with the month it belongs to - overtime
+  worked in one month and paid in the next is declared with the month in which
+  it was worked, and an absence of an earlier month corrected in this payslip
+  is not declared here. Since Social Security replaces values instead of
+  adding them up, both cases are handled by declaring the month they belong
+  to: that month is flagged as to be sent again, and computing it again
+  includes what the later payslips brought, ready to be sent to Social
+  Security. Until a month is confirmed its values can be computed and sent
+  again at any time - each communication replaces the previous one - so a
+  disagreement with the values assessed by Social Security is settled by
+  fixing the payslips and sending the month again. Every communication keeps
+  its own history: opening a submission shows the exact values it sent and
+  the state and alert Social Security reported for each of them, even after
+  the month is recomputed and sent again. A month only moves to
+  Assessed when Social Security makes its final assessment, after the month
+  ends - until then the values it returns are provisional. Each statement
+  has a responsible user (by default whoever created it): the reminders and
+  warnings the statement raises - month to send again, confirmation
+  deadline approaching, payment document expired - are addressed to that
+  user.
+- New Payroll settings: SCC membership and the credentials of the Social
+  Security interoperability platform (PSI) - the Segurança Social Direta
+  NISS and password - with the password stored encrypted and a connection
+  test button.
+- After joining the SCC, exporting the classic DRI file is blocked, since
+  Social Security rejects it for member companies.
+- New worker communications to Social Security, sent on demand from the
+  employee's contract: "Communicate Employment Relationship" sends each new
+  contract of the worker - the first one and any later contract, such as the
+  one following a fixed term - due before the contract starts; "Communicate
+  Contract Change" updates instead the contract Social Security already
+  holds - the renewal of a fixed term, a new modality or remuneration - from
+  the date the contract version takes effect, which is what Social Security
+  expects while the worker's employment relationship is still open there
+  (it refuses a new one for the same period); "Communicate Cessation" ends
+  the worker's employment relationship at Social Security at the contract's
+  end date - legally due by the 10th of the following month - with the
+  Social Security reason derived from the reason for the end of contract
+  when it maps to a single one, whether it is communicated for unemployment
+  purposes, and the justification Social Security requires for some
+  termination agreements; "Communicate Workplace Transfer" moves the worker
+  at Social Security to another of the employer's workplaces, from the date
+  of the contract version that changes it; "Communicate
+  Permanent Remuneration" sends the
+  remunerations the contract updates - base wage, cash allowance, seniority
+  payments, working schedule exemption and the holiday and Christmas
+  allowance twelfths - legally due by the 10th of the month following the
+  change. Whenever a contract changes one of those and it was not
+  communicated yet, the employee form warns about it. Each contract is
+  communicated once: further changes require a new contract. Since Social
+  Security issues no receipt for these, every accepted communication is kept
+  with what was sent, who sent it and when, listed in the employee's
+  communication history. "Check at SS" - on the employee form, or for many
+  employees at once from the employees list - keeps on the employee form, in
+  two tables, the contracts Social Security has registered for the worker
+  (dates, modality, base remuneration, reason) and the permanent
+  remunerations it has on record over all of them (type, dates, value). The
+  contract is marked as communicated when Social Security holds it as it is
+  in Odoo, and the remunerations when it holds exactly the ones the contract
+  defines - for instance communicated directly at Segurança Social Direta;
+  when it holds other values, they are offered to communicate. The check
+  also reads back the state of
+  the employment relationships communicated: Social Security accepts them
+  at entry and processes them later, so each one shows as being processed,
+  integrated or refused with the reason - a refusal, also checked daily, is
+  raised to whoever sent it and lets the contract be communicated again.
+  The communications offered follow that query: until the worker is checked
+  only the two queries are available; afterwards the employment relationship
+  is offered when Social Security has none open, a contract change when it
+  holds an open relationship from another contract or this contract with
+  another end, and the cessation once the contract it holds ends (not when
+  another contract follows right away). A contract change is offered on the
+  contract's latest version only, and in the order Social Security takes
+  them: a contract it does not know yet goes from its start date with that
+  version's terms, one it holds with another end changes from the date the
+  version takes effect.
+  Every communication checks the worker at Social Security again right
+  before sending, and when Social Security is no longer in the expected
+  state nothing is sent and the user is told what to communicate instead.
+  Once Social Security accepts a contract change or a cessation, the
+  contracts are read back on their own, so the form shows them up to date.
+- Paying the contributions: once Social Security has assessed a month, the
+  new Payment tab of the SCC statement requests the payment document from
+  Social Security and shows what it issued - document number, amount,
+  validity, Multibanco entity and reference, IBAN. Social Security issues the
+  document for the employer contributions currently owed, so a request may
+  bring more than one document, each followed on its own. A document is
+  marked as paid when Social Security reports the payment in its receipts
+  (checked daily), or by hand when it was paid before that; a document that
+  expires unpaid is flagged on the statement and whoever confirmed the month
+  is asked to request a new one. The statements list shows the payment
+  situation of each month. Nothing is posted in accounting: the bank
+  statement reconciliation stays as it is today.
+
+9.11.0 (2026-10-19)
+~~~~~~~~~~~~~~~~~~~
+**Improvement**
+
+- In November 2026 the IRS withheld on salaries and pensions is half the value
+  of the withholding tables, for employees of the Mainland and the Azores
+  (Despacho n.º 12523-A/2026 and Despacho n.º 12610-A/2026). The reduction also
+  applies to the holiday and Christmas allowances paid in that month, including
+  independent receipts. Employees whose monthly pay falls in the last bracket
+  of the tables, employees of Madeira, non-residents and employees with a fixed
+  withholding rate keep the full withholding. From December 2026 the tables
+  apply in full again.
+
+9.10.0 (2026-10-19)
+~~~~~~~~~~~~~~~~~~~
+**Bugfixes**
+
+- Absences, including the days before an admission or after a termination in
+  the middle of the month, were deducted at the hourly wage of the base wage
+  alone, while the hourly wage shown on the payslip also counts the other
+  rules marked "Affects Hourly Wage" (diuturnities, work schedule exemption).
+  Absences are now deducted at that same hourly wage.
+
+**Improvement**
+
+- The shift regime allowances now affect the hourly wage, so their share is
+  deducted with the absence itself. The "Proportional Allowance" option on
+  salary rules and the "Desconto Isenção Horário de Trabalho" / "Desconto
+  Regime de N Turnos" lines are no longer needed and have been removed; rules
+  that had the option checked now affect the hourly wage instead. Past
+  payslips keep their discount lines.
+
+9.9.16 (2026-10-13)
+~~~~~~~~~~~~~~~~~~~
+**Bugfixes**
+
+- The DMR and the DRI now include the payslips of the company's branches,
+  since both are filed once per employer. Until now the DMR only reported the
+  payslips of the main company, and the DRI those of the companies enabled in
+  the company selector.
+
 9.9.15 (2026-10-07)
 ~~~~~~~~~~~~~~~~~~~
 **Bugfixes**

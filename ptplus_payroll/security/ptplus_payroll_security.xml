@@ -21,6 +21,41 @@
         <field name="perm_unlink" eval="False" />
     </record>
 
+    <record id="l10n_pt_scc_statement_rule_multi_company" model="ir.rule">
+        <field name="name">SCC Statement: multi company rule</field>
+        <field name="model_id" ref="model_l10n_pt_scc_statement" />
+        <field name="global" eval="True" />
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="l10n_pt_scc_payment_document_rule_multi_company" model="ir.rule">
+        <field name="name">SCC Payment Document: multi company rule</field>
+        <field name="model_id" ref="model_l10n_pt_scc_payment_document" />
+        <field name="global" eval="True" />
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="l10n_pt_scc_worker_communication_rule_multi_company" model="ir.rule">
+        <field name="name">SCC Worker Communication: multi company rule</field>
+        <field name="model_id" ref="model_l10n_pt_scc_worker_communication" />
+        <field name="global" eval="True" />
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="l10n_pt_scc_ss_contract_rule_multi_company" model="ir.rule">
+        <field name="name">SCC Contract Registered at SS: multi company rule</field>
+        <field name="model_id" ref="model_l10n_pt_scc_ss_contract" />
+        <field name="global" eval="True" />
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+
+    <record id="l10n_pt_scc_ss_remuneration_rule_multi_company" model="ir.rule">
+        <field name="name">SCC Remuneration Registered at SS: multi company rule</field>
+        <field name="model_id" ref="model_l10n_pt_scc_ss_remuneration" />
+        <field name="global" eval="True" />
+        <field name="domain_force">[('company_id', 'in', company_ids)]</field>
+    </record>
+
     <record id="hr_allowance_provision_correction_multi_company" model="ir.rule">
         <field name="name">HR Allowance Provision Correction: Multi Company</field>
         <field name="model_id" ref="model_hr_allowance_provision_correction_pt" />

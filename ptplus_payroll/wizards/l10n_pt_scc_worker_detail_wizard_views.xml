@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="l10n_pt_scc_worker_detail_wizard_form" model="ir.ui.view">
+        <field name="name">l10n_pt.scc.worker.detail.wizard.form</field>
+        <field name="model">l10n_pt.scc.worker.detail.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="statement_id" />
+                        <field name="employee_id" />
+                        <field name="niss" />
+                        <field name="currency_id" invisible="1" />
+                    </group>
+                    <group>
+                        <field name="total_remuneration" />
+                        <field name="total_contribution" />
+                        <field name="total_reduction" />
+                        <field name="total_obligation" />
+                    </group>
+                </group>
+                <notebook>
+                    <page string="Remunerations" name="remunerations">
+                        <field name="remuneration_line_ids">
+                            <list>
+                                <field name="nature" />
+                                <field name="amount" />
+                                <field name="days" />
+                                <field name="origin" />
+                                <field name="date_from" />
+                                <field name="date_to" />
+                                <field name="inactivity_days" />
+                                <field name="currency_id" column_invisible="1" />
+                            </list>
+                        </field>
+                    </page>
+                    <page string="Contributions" name="contributions">
+                        <field name="contribution_line_ids">
+                            <list>
+                                <field name="framework" />
+                                <field name="quotation_rate" />
+                                <field name="quotation_amount" />
+                                <field name="contribution_rate" />
+                                <field name="contribution_amount" />
+                                <field name="obligation" />
+                                <field name="currency_id" column_invisible="1" />
+                            </list>
+                        </field>
+                    </page>
+                </notebook>
+                <footer>
+                    <button string="Close" class="btn-secondary" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

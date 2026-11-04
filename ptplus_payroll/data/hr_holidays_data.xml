@@ -56,6 +56,7 @@
         <field name="name">Falta por Doença Profissional Certificada</field>
         <field name="request_unit">day</field>
         <field name="requires_allocation">False</field>
+        <field name="include_public_holidays_in_duration" eval="True" />
         <field name="responsible_ids" eval="[(4, ref('base.user_admin'))]" />
         <field name="color">1</field>
         <field
@@ -71,6 +72,7 @@
         <field name="name">Falta por Doença Profissional Não Certificada</field>
         <field name="request_unit">day</field>
         <field name="requires_allocation">False</field>
+        <field name="include_public_holidays_in_duration" eval="True" />
         <field name="responsible_ids" eval="[(4, ref('base.user_admin'))]" />
         <field name="color">1</field>
         <field
@@ -83,6 +85,7 @@
         <field name="name">Falta por Doença Não Profissional</field>
         <field name="request_unit">day</field>
         <field name="requires_allocation">False</field>
+        <field name="include_public_holidays_in_duration" eval="True" />
         <field name="responsible_ids" eval="[(4, ref('base.user_admin'))]" />
         <field name="color">1</field>
         <field
@@ -98,6 +101,7 @@
         <field name="name">Falta p/ Assistência Inadiável a Agregado Familiar</field>
         <field name="request_unit">day</field>
         <field name="requires_allocation">False</field>
+        <field name="include_public_holidays_in_duration" eval="True" />
         <field name="responsible_ids" eval="[(4, ref('base.user_admin'))]" />
         <field name="color">1</field>
         <field
@@ -134,6 +138,7 @@
         <field name="name">Falta por Maternidade</field>
         <field name="request_unit">day</field>
         <field name="requires_allocation">False</field>
+        <field name="include_public_holidays_in_duration" eval="True" />
         <field name="responsible_ids" eval="[(4, ref('base.user_admin'))]" />
         <field name="color">1</field>
         <field name="work_entry_type_id" ref="entry_type_pt_maternity_leave" />
@@ -143,6 +148,7 @@
         <field name="name">Falta por Paternidade</field>
         <field name="request_unit">day</field>
         <field name="requires_allocation">False</field>
+        <field name="include_public_holidays_in_duration" eval="True" />
         <field name="responsible_ids" eval="[(4, ref('base.user_admin'))]" />
         <field name="color">1</field>
         <field name="work_entry_type_id" ref="entry_type_pt_paternity_leave" />
