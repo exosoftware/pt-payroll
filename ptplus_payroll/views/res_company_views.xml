@@ -121,6 +121,7 @@
                     name="l10n_pt_employers_association"
                     invisible="country_code != 'PT'"
                 />
+                <field name="l10n_pt_scc_active" invisible="country_code != 'PT'" />
             </xpath>
         </field>
     </record>

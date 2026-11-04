@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="l10n_pt_scc_worker_communication_view_list" model="ir.ui.view">
+        <field name="name">l10n_pt.scc.worker.communication.list</field>
+        <field name="model">l10n_pt.scc.worker.communication</field>
+        <field name="arch" type="xml">
+            <list create="0" edit="0">
+                <field name="sent_date" />
+                <field name="employee_id" />
+                <field name="company_id" groups="base.group_multi_company" />
+                <field name="communication_type" />
+                <field name="contract_id" />
+                <field name="user_id" widget="many2one_avatar_user" />
+                <field
+                    name="ss_state"
+                    widget="badge"
+                    decoration-info="ss_state in ('sent', 'processing')"
+                    decoration-success="ss_state == 'integrated'"
+                    decoration-danger="ss_state == 'refused'"
+                />
+                <field name="ss_reason" optional="show" />
+            </list>
+        </field>
+    </record>
+
+    <record id="l10n_pt_scc_worker_communication_view_form" model="ir.ui.view">
+        <field name="name">l10n_pt.scc.worker.communication.form</field>
+        <field name="model">l10n_pt.scc.worker.communication</field>
+        <field name="arch" type="xml">
+            <form create="0" edit="0">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="employee_id" />
+                            <field
+                                name="company_id"
+                                groups="base.group_multi_company"
+                            />
+                            <field name="communication_type" />
+                            <field name="contract_id" />
+                        </group>
+                        <group>
+                            <field name="sent_date" />
+                            <field name="user_id" />
+                            <field
+                                name="ss_state"
+                                widget="badge"
+                                invisible="not ss_state"
+                            />
+                            <field name="ss_reason" invisible="not ss_reason" />
+                            <field name="ss_checked_on" invisible="not ss_checked_on" />
+                        </group>
+                    </group>
+                    <separator string="Sent Content" />
+                    <field name="payload_json" nolabel="1" />
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="l10n_pt_scc_worker_communication_view_search" model="ir.ui.view">
+        <field name="name">l10n_pt.scc.worker.communication.search</field>
+        <field name="model">l10n_pt.scc.worker.communication</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="employee_id" />
+                <filter
+                    string="Permanent Remuneration"
+                    name="permanent_remuneration"
+                    domain="[('communication_type', '=', 'permanent_remuneration')]"
+                />
+                <filter
+                    string="Employment Relationship"
+                    name="hiring"
+                    domain="[('communication_type', '=', 'hiring')]"
+                />
+                <filter
+                    string="Refused by SS"
+                    name="refused"
+                    domain="[('ss_state', '=', 'refused')]"
+                />
+                <separator />
+                <filter
+                    string="Employee"
+                    name="group_by_employee"
+                    context="{'group_by': 'employee_id'}"
+                />
+                <filter
+                    string="Type"
+                    name="group_by_type"
+                    context="{'group_by': 'communication_type'}"
+                />
+            </search>
+        </field>
+    </record>
+</odoo>

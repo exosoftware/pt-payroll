@@ -507,6 +507,52 @@
                     </setting>
 
                     <setting
+                        string="Social Security SCC (PSI)"
+                        help="New Social Security contributory cycle: send the monthly remuneration values through the interoperability platform"
+                        company_dependent="1"
+                    >
+                        <field name="l10n_pt_scc_active" />
+                        <div class="content-group" invisible="not l10n_pt_scc_active">
+                            <div class="row mt16">
+                                <label
+                                    for="l10n_pt_nissee"
+                                    class="col-lg-6 o_light_label"
+                                />
+                                <field name="l10n_pt_nissee" />
+                            </div>
+                            <div class="row mt16">
+                                <label
+                                    for="l10n_pt_ss_auth_niss"
+                                    class="col-lg-6 o_light_label"
+                                />
+                                <field name="l10n_pt_ss_auth_niss" />
+                            </div>
+                            <div
+                                class="row mt16"
+                                groups="hr_payroll.group_hr_payroll_manager"
+                            >
+                                <label
+                                    for="l10n_pt_ss_auth_password"
+                                    class="col-lg-6 o_light_label"
+                                />
+                                <field
+                                    name="l10n_pt_ss_auth_password"
+                                    password="True"
+                                />
+                            </div>
+                            <div class="mt16">
+                                <button
+                                    name="action_l10n_pt_scc_test_connection"
+                                    type="object"
+                                    string="Test Connection"
+                                    class="btn-link"
+                                    icon="fa-plug"
+                                />
+                            </div>
+                        </div>
+                    </setting>
+
+                    <setting
                         id="enable_provisions"
                         title="Enable Provisions"
                         help="Provision monthly specialization"

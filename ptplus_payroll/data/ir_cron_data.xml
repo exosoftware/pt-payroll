@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
+    <record id="ir_cron_scc_sync" model="ir.cron">
+        <field name="name">PT Payroll: SCC Social Security Synchronization</field>
+        <field name="model_id" ref="model_l10n_pt_scc_statement" />
+        <field name="state">code</field>
+        <field name="code">model._cron_scc_sync()</field>
+        <field name="active" eval="True" />
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+        <field
+            name="nextcall"
+            eval="(DateTime.now() + timedelta(days=1)).replace(hour=7, minute=0, second=0)"
+        />
+    </record>
+
     <record id="ir_cron_pt_send_payslips" model="ir.cron">
         <field name="name">PT Payroll: Send Payslips</field>
         <field name="model_id" ref="hr_payroll.model_hr_payslip" />

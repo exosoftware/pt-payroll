@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="l10n_pt_scc_payment_document_view_form" model="ir.ui.view">
+        <field name="name">l10n_pt.scc.payment.document.form</field>
+        <field name="model">l10n_pt.scc.payment.document</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button
+                        name="action_mark_paid"
+                        type="object"
+                        string="Mark as Paid"
+                        class="btn-primary"
+                        invisible="state not in ('available', 'expired')"
+                        confirm="Record this document as paid, ahead of what Social Security has reported so far?"
+                    />
+                    <button
+                        name="action_refresh"
+                        type="object"
+                        string="Refresh"
+                        invisible="state == 'paid'"
+                    />
+                    <field
+                        name="state"
+                        widget="statusbar"
+                        statusbar_visible="requested,available,paid"
+                    />
+                </header>
+                <sheet>
+                    <div
+                        class="alert alert-info"
+                        role="alert"
+                        invisible="not mb_unavailable"
+                    >
+                        Social Security issued no Multibanco reference for this document: pay it by bank transfer.
+                    </div>
+                    <div class="oe_title">
+                        <h1><field name="display_name" /></h1>
+                    </div>
+                    <group>
+                        <group string="Document">
+                            <field name="statement_id" />
+                            <field name="number" />
+                            <field name="document_type" />
+                            <field name="document_subtype" />
+                            <field name="description" />
+                            <field name="amount" />
+                            <field name="due_date" />
+                            <field name="request_date" />
+                            <field
+                                name="request_key"
+                                invisible="state != 'requested'"
+                            />
+                            <field name="currency_id" invisible="1" />
+                            <field name="mb_unavailable" invisible="1" />
+                        </group>
+                        <group
+                            string="Payment References"
+                            invisible="state == 'requested'"
+                        >
+                            <field name="iban" widget="CopyClipboardChar" />
+                            <field name="swift" />
+                            <field
+                                name="mb_entity"
+                                widget="CopyClipboardChar"
+                                invisible="mb_unavailable"
+                            />
+                            <field
+                                name="mb_reference"
+                                widget="CopyClipboardChar"
+                                invisible="mb_unavailable"
+                            />
+                            <field name="treasury_payable" />
+                            <field
+                                name="direct_debit_authorization"
+                                invisible="not direct_debit_authorization"
+                            />
+                            <field
+                                name="direct_debit_date"
+                                invisible="not direct_debit_authorization"
+                            />
+                        </group>
+                        <!-- Filled in before "Mark as Paid", or by Social
+                             Security through the yearly payment receipts. -->
+                        <group string="Payment" invisible="state == 'requested'">
+                            <field name="paid_date" readonly="state == 'paid'" />
+                            <field name="paid_amount" readonly="state == 'paid'" />
+                            <field
+                                name="payment_method"
+                                readonly="payment_source == 'ss'"
+                            />
+                            <field
+                                name="payment_source"
+                                invisible="not payment_source"
+                            />
+                            <field
+                                name="payment_message"
+                                invisible="not payment_message"
+                            />
+                        </group>
+                    </group>
+                </sheet>
+                <chatter />
+            </form>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="hr_leave_type_form_pt" model="ir.ui.view">
+        <field name="name">hr.leave.type.form.pt</field>
+        <field name="model">hr.leave.type</field>
+        <field
+            name="inherit_id"
+            ref="hr_work_entry_holidays.work_entry_type_leave_form_inherit"
+        />
+        <field name="arch" type="xml">
+            <field name="work_entry_type_id" position="after">
+                <field name="l10n_pt_standard_social_security_leave" invisible="1" />
+                <field
+                    name="l10n_pt_social_security_leave"
+                    invisible="country_code != 'PT'"
+                    readonly="l10n_pt_standard_social_security_leave"
+                />
+            </field>
+        </field>
+    </record>
+</odoo>
