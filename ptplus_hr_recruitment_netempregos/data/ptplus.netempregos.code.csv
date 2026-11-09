@@ -1,0 +1,78 @@
+id,code_type,code,name
+netempregos_zone_0,zone,0,(Todas as Zonas)
+netempregos_zone_1,zone,1,Lisboa
+netempregos_zone_2,zone,2,Porto
+netempregos_zone_3,zone,3,Braga
+netempregos_zone_4,zone,4,Aveiro
+netempregos_zone_5,zone,5,Bragança
+netempregos_zone_6,zone,6,Vila Real
+netempregos_zone_7,zone,7,Guarda
+netempregos_zone_8,zone,8,Viseu
+netempregos_zone_9,zone,9,Coimbra
+netempregos_zone_10,zone,10,Castelo Branco
+netempregos_zone_11,zone,11,Leiria
+netempregos_zone_12,zone,12,Santarém
+netempregos_zone_13,zone,13,Setúbal
+netempregos_zone_14,zone,14,Évora
+netempregos_zone_15,zone,15,Beja
+netempregos_zone_16,zone,16,Portalegre
+netempregos_zone_17,zone,17,Faro
+netempregos_zone_18,zone,18,Estrangeiro - Brasil
+netempregos_zone_20,zone,20,Estrangeiro - Angola
+netempregos_zone_21,zone,21,Estrangeiro - Moçambique
+netempregos_zone_22,zone,22,Estrangeiro - Guiné-Bissau
+netempregos_zone_23,zone,23,Estrangeiro - São Tomé e Príncipe
+netempregos_zone_24,zone,24,Estrangeiro - Cabo Verde
+netempregos_zone_25,zone,25,Açores
+netempregos_zone_26,zone,26,Madeira
+netempregos_zone_27,zone,27,Estrangeiro - Timor
+netempregos_zone_28,zone,28,Viana do Castelo
+netempregos_zone_29,zone,29,Outros Locais - Estrangeiro
+netempregos_category_1,category,1,Telecomunicações
+netempregos_category_5,category,5,Informática (Programação)
+netempregos_category_6,category,6,Indústria / Produção
+netempregos_category_8,category,8,Comunicação Social / Media
+netempregos_category_9,category,9,Hotelaria / Turismo
+netempregos_category_11,category,11,Educação / Formação
+netempregos_category_12,category,12,Imobiliário
+netempregos_category_14,category,14,Saúde / Medicina / Enfermagem
+netempregos_category_15,category,15,Contabilidade / Finanças
+netempregos_category_16,category,16,Banca / Seguros / Serviços Financeiros
+netempregos_category_18,category,18,Relações Públicas
+netempregos_category_19,category,19,Publicidade / Marketing
+netempregos_category_22,category,22,Arquitectura / Design
+netempregos_category_23,category,23,Construção Civil
+netempregos_category_24,category,24,Engenharia (Mecânica)
+netempregos_category_26,category,26,Gestão de Empresas / Economia
+netempregos_category_28,category,28,Desporto / Ginásios
+netempregos_category_29,category,29,Secretariado / Administração
+netempregos_category_30,category,30,Lojas / Comércio / Balcão
+netempregos_category_32,category,32,Gestão RH
+netempregos_category_34,category,34,Informática (Formação)
+netempregos_category_35,category,35,Informática (Internet)
+netempregos_category_36,category,36,Informática (Multimédia)
+netempregos_category_37,category,37,Informática (Gestão de Redes)
+netempregos_category_38,category,38,Informática (Análise de Sistemas)
+netempregos_category_39,category,39,Agricultura / Florestas / Pescas
+netempregos_category_40,category,40,Artes / Entretenimento / Media
+netempregos_category_41,category,41,Farmácia / Biotecnologia
+netempregos_category_42,category,42,Restauração / Bares / Pastelarias
+netempregos_category_43,category,43,Transportes / Logística
+netempregos_category_44,category,44,Direito / Justiça
+netempregos_category_45,category,45,Engenharia (Civil)
+netempregos_category_46,category,46,Engenharia (Eletrotécnica)
+netempregos_category_47,category,47,Beleza / Moda / Bem Estar
+netempregos_category_49,category,49,Informática (Técnico de Hardware)
+netempregos_category_50,category,50,Engenharia (Química / Biologia)
+netempregos_category_51,category,51,Conservação / Manutenção / Técnica
+netempregos_category_52,category,52,Serviços Técnicos
+netempregos_category_53,category,53,Comercial / Vendas
+netempregos_category_54,category,54,Engenharia (Ambiente)
+netempregos_category_55,category,55,Serviços Sociais
+netempregos_category_56,category,56,Informática (Comercial / Gestor de Conta)
+netempregos_category_57,category,57,Call Center / Help Desk
+netempregos_category_58,category,58,Limpezas / Domésticas
+netempregos_job_type_1,job_type,1,Tempo Inteiro
+netempregos_job_type_2,job_type,2,Part-Time
+netempregos_job_type_3,job_type,3,Estágio
+netempregos_job_type_4,job_type,4,Teletrabalho

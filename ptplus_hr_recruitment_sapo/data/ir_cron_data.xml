@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- SAPO Emprego publishes the lists an offer is described with on its
+         own endpoints and states that a daily refresh is enough to stay
+         current, so this is the cadence they ask for. -->
+    <record id="ir_cron_sapo_sync_codes" model="ir.cron">
+        <field name="name">SAPO Emprego: refresh the account and the offer lists</field>
+        <field name="model_id" ref="model_ptplus_sapo_code" />
+        <field name="state">code</field>
+        <field name="code">model._sync_all()
+env["res.company"]._l10n_pt_sapo_refresh_accounts()</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">days</field>
+    </record>
+</odoo>

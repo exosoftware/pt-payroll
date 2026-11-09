@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo noupdate="1">
+    <record id="seq_sapo_reference" model="ir.sequence">
+        <field name="name">SAPO Emprego Advert Reference</field>
+        <field name="code">ptplus.sapo.reference</field>
+        <field name="padding">6</field>
+        <field name="company_id" eval="False" />
+    </record>
+</odoo>

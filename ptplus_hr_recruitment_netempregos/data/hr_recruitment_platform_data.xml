@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="hr_recruitment_platform_netempregos" model="hr.recruitment.platform">
+        <field name="name">Net-Empregos</field>
+        <field name="website">https://www.net-empregos.com/</field>
+        <field
+            name="image_1920"
+            type="base64"
+            file="ptplus_hr_recruitment_netempregos/static/img/net_empregos_logo.png"
+        />
+    </record>
+</odoo>

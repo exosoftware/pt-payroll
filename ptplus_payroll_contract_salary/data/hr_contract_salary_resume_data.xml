@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo noupdate="1">
+    <record id="hr_contract_salary_resume_gross_pt" model="hr.contract.salary.resume">
+        <field name="name">Gross</field>
+        <field name="value_type">payslip</field>
+        <field name="code">GROSS</field>
+        <field
+            name="category_id"
+            ref="hr_contract_salary.hr_contract_salary_resume_category_monthly_salary"
+        />
+        <field
+            name="structure_type_id"
+            ref="ptplus_payroll.structure_type_employee_pt"
+        />
+        <field name="impacts_monthly_total" eval="False" />
+    </record>
+
+    <record id="hr_contract_salary_resume_net_pt" model="hr.contract.salary.resume">
+        <field name="name">Net</field>
+        <field name="value_type">payslip</field>
+        <field name="code">NET</field>
+        <field
+            name="category_id"
+            ref="hr_contract_salary.hr_contract_salary_resume_category_monthly_salary"
+        />
+        <field
+            name="structure_type_id"
+            ref="ptplus_payroll.structure_type_employee_pt"
+        />
+        <field name="impacts_monthly_total" eval="True" />
+    </record>
+</odoo>

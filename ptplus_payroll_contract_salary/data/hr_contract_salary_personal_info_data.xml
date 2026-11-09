@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo noupdate="1">
+    <!-- Own section rather than the native "Situation" one, which Odoo ships
+         without a Portuguese translation. -->
+    <record
+        id="personal_info_type_family"
+        model="hr.contract.salary.personal.info.type"
+    >
+        <field name="name">Family Situation</field>
+        <field name="sequence">75</field>
+    </record>
+    <record id="personal_info_type_tax" model="hr.contract.salary.personal.info.type">
+        <field name="name">Tax Information</field>
+        <field name="sequence">80</field>
+    </record>
+
+    <record id="personal_info_marital" model="hr.contract.salary.personal.info">
+        <field name="name">Marital Status</field>
+        <field
+            name="res_field_id"
+            model="ir.model.fields"
+            eval="obj().search([('model', '=', 'hr.version'), ('name', '=', 'marital')])"
+        />
+        <field name="placeholder">Select a status</field>
+        <field name="display_type">dropdown</field>
+        <field name="dropdown_selection">specific</field>
+        <field name="impacts_net_salary" eval="False" />
+        <field name="info_type_id" ref="personal_info_type_family" />
+        <field name="applies_on">version_personal</field>
+        <field
+            name="structure_type_id"
+            ref="ptplus_payroll.structure_type_employee_pt"
+        />
+        <field name="sequence">10</field>
+    </record>
+    <record
+        id="personal_info_marital_single"
+        model="hr.contract.salary.personal.info.value"
+    >
+        <field name="name">Single</field>
+        <field name="value">single</field>
+        <field name="personal_info_id" ref="personal_info_marital" />
+        <field name="hide_children" eval="True" />
+    </record>
+    <record
+        id="personal_info_marital_married"
+        model="hr.contract.salary.personal.info.value"
+    >
+        <field name="name">Married</field>
+        <field name="value">married</field>
+        <field name="personal_info_id" ref="personal_info_marital" />
+    </record>
+    <record
+        id="personal_info_marital_cohabitant"
+        model="hr.contract.salary.personal.info.value"
+    >
+        <field name="name">Legal Cohabitant</field>
+        <field name="value">cohabitant</field>
+        <field name="personal_info_id" ref="personal_info_marital" />
+    </record>
+    <record
+        id="personal_info_marital_widower"
+        model="hr.contract.salary.personal.info.value"
+    >
+        <field name="name">Widower</field>
+        <field name="value">widower</field>
+        <field name="personal_info_id" ref="personal_info_marital" />
+        <field name="hide_children" eval="True" />
+    </record>
+    <record
+        id="personal_info_marital_divorced"
+        model="hr.contract.salary.personal.info.value"
+    >
+        <field name="name">Divorced</field>
+        <field name="value">divorced</field>
+        <field name="personal_info_id" ref="personal_info_marital" />
+        <field name="hide_children" eval="True" />
+    </record>
+
+    <record id="personal_info_spouse_name" model="hr.contract.salary.personal.info">
+        <field name="name">Spouse Legal Name</field>
+        <field
+            name="res_field_id"
+            model="ir.model.fields"
+            eval="obj().search([('model', '=', 'hr.version'), ('name', '=', 'spouse_complete_name')])"
+        />
+        <field name="info_type_id" ref="personal_info_type_family" />
+        <field name="applies_on">version_personal</field>
+        <field
+            name="structure_type_id"
+            ref="ptplus_payroll.structure_type_employee_pt"
+        />
+        <field name="parent_id" ref="personal_info_marital" />
+        <field name="is_required" eval="False" />
+        <field name="sequence">20</field>
+    </record>
+
+    <record
+        id="personal_info_spouse_birthdate"
+        model="hr.contract.salary.personal.info"
+    >
+        <field name="name">Spouse Birthdate</field>
+        <field
+            name="res_field_id"
+            model="ir.model.fields"
+            eval="obj().search([('model', '=', 'hr.version'), ('name', '=', 'spouse_birthdate')])"
+        />
+        <field name="display_type">date</field>
+        <field name="info_type_id" ref="personal_info_type_family" />
+        <field name="applies_on">version_personal</field>
+        <field
+            name="structure_type_id"
+            ref="ptplus_payroll.structure_type_employee_pt"
+        />
+        <field name="parent_id" ref="personal_info_marital" />
+        <field name="is_required" eval="False" />
+        <field name="sequence">30</field>
+    </record>
+
+    <!-- Withholding on a married employee cannot be computed without this, so it is
+         collected here rather than left for the first payslip to fail on. -->
+    <record id="personal_info_no_of_holders" model="hr.contract.salary.personal.info">
+        <field name="name">Number of Holders</field>
+        <field
+            name="res_field_id"
+            model="ir.model.fields"
+            eval="obj().search([('model', '=', 'hr.employee'), ('name', '=', 'l10n_pt_no_of_holders')])"
+        />
+        <field name="placeholder">Select an option</field>
+        <field name="display_type">dropdown</field>
+        <field name="dropdown_selection">specific</field>
+        <field name="impacts_net_salary" eval="False" />
+        <field name="info_type_id" ref="personal_info_type_family" />
+        <field name="applies_on">employee</field>
+        <field
+            name="structure_type_id"
+            ref="ptplus_payroll.structure_type_employee_pt"
+        />
+        <field name="parent_id" ref="personal_info_marital" />
+        <field name="is_required" eval="False" />
+        <field name="sequence">40</field>
+    </record>
+    <record
+        id="personal_info_holders_one"
+        model="hr.contract.salary.personal.info.value"
+    >
+        <field name="name">One holder</field>
+        <field name="value">married_one_holder</field>
+        <field name="personal_info_id" ref="personal_info_no_of_holders" />
+    </record>
+    <record
+        id="personal_info_holders_two"
+        model="hr.contract.salary.personal.info.value"
+    >
+        <field name="name">Two holders</field>
+        <field name="value">married_two_holders</field>
+        <field name="personal_info_id" ref="personal_info_no_of_holders" />
+    </record>
+
+    <record id="personal_info_children" model="hr.contract.salary.personal.info">
+        <field name="name">Dependent Children</field>
+        <field
+            name="res_field_id"
+            model="ir.model.fields"
+            eval="obj().search([('model', '=', 'hr.version'), ('name', '=', 'children')])"
+        />
+        <field name="display_type">integer</field>
+        <field name="impacts_net_salary" eval="False" />
+        <field name="info_type_id" ref="personal_info_type_family" />
+        <field name="applies_on">version_personal</field>
+        <field
+            name="structure_type_id"
+            ref="ptplus_payroll.structure_type_employee_pt"
+        />
+        <field name="sequence">50</field>
+    </record>
+
+    <record id="personal_info_ssnid" model="hr.contract.salary.personal.info">
+        <field name="name">Social Security Number</field>
+        <field
+            name="res_field_id"
+            model="ir.model.fields"
+            eval="obj().search([('model', '=', 'hr.version'), ('name', '=', 'ssnid')])"
+        />
+        <field name="info_type_id" ref="personal_info_type_tax" />
+        <field name="applies_on">version_personal</field>
+        <field
+            name="structure_type_id"
+            ref="ptplus_payroll.structure_type_employee_pt"
+        />
+        <field name="sequence">10</field>
+    </record>
+
+    <record id="personal_info_vat" model="hr.contract.salary.personal.info">
+        <field name="name">Tax ID</field>
+        <field
+            name="res_field_id"
+            model="ir.model.fields"
+            eval="obj().search([('model', '=', 'hr.employee'), ('name', '=', 'l10n_pt_vat')])"
+        />
+        <field name="info_type_id" ref="personal_info_type_tax" />
+        <field name="applies_on">employee</field>
+        <field
+            name="structure_type_id"
+            ref="ptplus_payroll.structure_type_employee_pt"
+        />
+        <field name="sequence">20</field>
+    </record>
+
+    <record
+        id="personal_info_income_tax_region"
+        model="hr.contract.salary.personal.info"
+    >
+        <field name="name">Income Tax Region</field>
+        <field
+            name="res_field_id"
+            model="ir.model.fields"
+            eval="obj().search([('model', '=', 'hr.employee'), ('name', '=', 'l10n_pt_income_tax_region')])"
+        />
+        <field name="placeholder">Select a region</field>
+        <field name="display_type">dropdown</field>
+        <field name="dropdown_selection">specific</field>
+        <field name="impacts_net_salary" eval="False" />
+        <field name="info_type_id" ref="personal_info_type_tax" />
+        <field name="applies_on">employee</field>
+        <field
+            name="structure_type_id"
+            ref="ptplus_payroll.structure_type_employee_pt"
+        />
+        <field name="sequence">30</field>
+    </record>
+    <record id="personal_info_region_c" model="hr.contract.salary.personal.info.value">
+        <field name="name">Continent</field>
+        <field name="value">c</field>
+        <field name="personal_info_id" ref="personal_info_income_tax_region" />
+    </record>
+    <record id="personal_info_region_a" model="hr.contract.salary.personal.info.value">
+        <field name="name">Azores Autonomous Region</field>
+        <field name="value">a</field>
+        <field name="personal_info_id" ref="personal_info_income_tax_region" />
+    </record>
+    <record id="personal_info_region_m" model="hr.contract.salary.personal.info.value">
+        <field name="name">Madeira Autonomous Region</field>
+        <field name="value">m</field>
+        <field name="personal_info_id" ref="personal_info_income_tax_region" />
+    </record>
+    <record id="personal_info_region_e" model="hr.contract.salary.personal.info.value">
+        <field name="name">Foreigners</field>
+        <field name="value">e</field>
+        <field name="personal_info_id" ref="personal_info_income_tax_region" />
+    </record>
+
+    <record id="personal_info_disability" model="hr.contract.salary.personal.info">
+        <field name="name">Disability</field>
+        <field
+            name="res_field_id"
+            model="ir.model.fields"
+            eval="obj().search([('model', '=', 'hr.employee'), ('name', '=', 'l10n_pt_disability')])"
+        />
+        <field name="display_type">checkbox</field>
+        <field name="impacts_net_salary" eval="False" />
+        <field name="info_type_id" ref="personal_info_type_tax" />
+        <field name="applies_on">employee</field>
+        <field
+            name="structure_type_id"
+            ref="ptplus_payroll.structure_type_employee_pt"
+        />
+        <field name="is_required" eval="False" />
+        <field name="sequence">40</field>
+    </record>
+    <record
+        id="personal_info_disability_degree"
+        model="hr.contract.salary.personal.info"
+    >
+        <field name="name">Disability Degree (%)</field>
+        <field
+            name="res_field_id"
+            model="ir.model.fields"
+            eval="obj().search([('model', '=', 'hr.employee'), ('name', '=', 'l10n_pt_disability_degree')])"
+        />
+        <field name="display_type">integer</field>
+        <field name="placeholder">0</field>
+        <field name="info_type_id" ref="personal_info_type_tax" />
+        <field name="applies_on">employee</field>
+        <field
+            name="structure_type_id"
+            ref="ptplus_payroll.structure_type_employee_pt"
+        />
+        <field name="parent_id" ref="personal_info_disability" />
+        <field name="is_required" eval="False" />
+        <field name="sequence">41</field>
+    </record>
+    <record
+        id="personal_info_disability_armed_forces"
+        model="hr.contract.salary.personal.info"
+    >
+        <field name="name">Disability Incurred in the Armed Forces</field>
+        <field
+            name="res_field_id"
+            model="ir.model.fields"
+            eval="obj().search([('model', '=', 'hr.employee'), ('name', '=', 'l10n_pt_disabilit_armed_forces')])"
+        />
+        <field name="display_type">checkbox</field>
+        <field name="info_type_id" ref="personal_info_type_tax" />
+        <field name="applies_on">employee</field>
+        <field
+            name="structure_type_id"
+            ref="ptplus_payroll.structure_type_employee_pt"
+        />
+        <field name="parent_id" ref="personal_info_disability" />
+        <field name="is_required" eval="False" />
+        <field name="sequence">42</field>
+    </record>
+
+    <record id="personal_info_pensioner" model="hr.contract.salary.personal.info">
+        <field name="name">Pensioner</field>
+        <field
+            name="res_field_id"
+            model="ir.model.fields"
+            eval="obj().search([('model', '=', 'hr.employee'), ('name', '=', 'l10n_pt_pensioner')])"
+        />
+        <field name="display_type">checkbox</field>
+        <field name="impacts_net_salary" eval="False" />
+        <field name="info_type_id" ref="personal_info_type_tax" />
+        <field name="applies_on">employee</field>
+        <field
+            name="structure_type_id"
+            ref="ptplus_payroll.structure_type_employee_pt"
+        />
+        <field name="is_required" eval="False" />
+        <field name="sequence">50</field>
+    </record>
+</odoo>

@@ -1,0 +1,994 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* ptplus_hr_recruitment_sapo
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-09-07 13:26+0000\n"
+"PO-Revision-Date: 2026-09-07 13:26+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: ptplus_hr_recruitment_sapo
+#. odoo-python
+#: code:addons/ptplus_hr_recruitment_sapo/models/res_company.py:0
+msgid "%(company)s has no SAPO Emprego API token."
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#. odoo-python
+#: code:addons/ptplus_hr_recruitment_sapo/models/ptplus_sapo_code.py:0
+msgid ""
+"%(lists)s lists refreshed from SAPO Emprego, %(entries)s entries in total."
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#. odoo-python
+#: code:addons/ptplus_hr_recruitment_sapo/models/res_company.py:0
+msgid "%(service)s, until %(date)s"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#. odoo-python
+#: code:addons/ptplus_hr_recruitment_sapo/models/res_company.py:0
+msgid "(unnamed service)"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_sapo.hr_recruitment_post_job_wizard_view_form_sapo
+msgid ""
+"<span>These describe the advert on SAPO Emprego. They come back filled from "
+"the last advert published for this job position, and clearing one of the "
+"last four takes its section off the advert.</span>"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_sapo.hr_job_post_view_form_sapo
+msgid ""
+"<span>This is how SAPO Emprego files the advert. Use Update to send a change"
+" to the platform.</span>"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_sapo.res_config_settings_view_form_sapo
+msgid ""
+"<span>Without a premium service, candidates apply on SAPO Emprego itself and"
+" each application is mailed to the email alias of the job position.</span>"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_sapo.res_config_settings_view_form_sapo
+msgid "API Token"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_sapo.res_config_settings_view_form_sapo
+msgid "Account"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_sapo.res_config_settings_view_form_sapo
+msgid "Account level"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_ptplus_sapo_code__active
+msgid "Active"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,help:ptplus_hr_recruitment_sapo.field_hr_job_post__l10n_pt_sapo_url
+msgid "Address of the published advert on SAPO Emprego."
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_hr_job_post__l10n_pt_sapo_url
+msgid "Advert Address"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields.selection,name:ptplus_hr_recruitment_sapo.selection__ptplus_sapo_code__code_type__salary_range
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_sapo.hr_job_post_view_form_sapo
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_sapo.hr_recruitment_post_job_wizard_view_form_sapo
+msgid "Annual Salary Range"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,help:ptplus_hr_recruitment_sapo.field_hr_job_post__l10n_pt_sapo_salary_range_id
+#: model:ir.model.fields,help:ptplus_hr_recruitment_sapo.field_hr_recruitment_post_job_wizard__l10n_pt_sapo_salary_range_id
+msgid ""
+"Annual salary range the offer is advertised under. SAPO Emprego asks for one"
+" of its own ranges, so it is chosen here rather than taken from the minimum "
+"and maximum salary."
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_sapo.hr_job_post_view_form_sapo
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_sapo.hr_recruitment_post_job_wizard_view_form_sapo
+msgid "Anonymous"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_hr_job_post__l10n_pt_sapo_anonymous
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_hr_recruitment_post_job_wizard__l10n_pt_sapo_anonymous
+msgid "Anonymous on SAPO Emprego"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,help:ptplus_hr_recruitment_sapo.field_hr_job_post__l10n_pt_sapo_observations
+#: model:ir.model.fields,help:ptplus_hr_recruitment_sapo.field_hr_recruitment_post_job_wizard__l10n_pt_sapo_observations
+msgid ""
+"Anything else worth telling a candidate. Fills the 'Observações' section of "
+"the advert."
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model,name:ptplus_hr_recruitment_sapo.model_hr_recruitment_degree
+msgid "Applicant Degree"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_sapo.ptplus_sapo_code_view_search
+msgid "Archived"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields.selection,name:ptplus_hr_recruitment_sapo.selection__ptplus_sapo_code__code_type__available_positions
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_sapo.hr_job_post_view_form_sapo
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_sapo.hr_recruitment_post_job_wizard_view_form_sapo
+msgid "Available Positions"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_ptplus_sapo_code__parent_id
+msgid "Belongs To"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_sapo.hr_job_post_view_form_sapo
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_sapo.hr_recruitment_post_job_wizard_view_form_sapo
+msgid "CV"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_res_company__l10n_pt_sapo_can_redirect_applications
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_res_config_settings__l10n_pt_sapo_can_redirect_applications
+msgid "Can Redirect Applications on SAPO Emprego"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model,name:ptplus_hr_recruitment_sapo.model_res_company
+msgid "Companies"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,help:ptplus_hr_recruitment_sapo.field_res_company__l10n_pt_sapo_account_name
+#: model:ir.model.fields,help:ptplus_hr_recruitment_sapo.field_res_config_settings__l10n_pt_sapo_account_name
+msgid "Company the API token belongs to, as SAPO Emprego knows it."
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model,name:ptplus_hr_recruitment_sapo.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model,name:ptplus_hr_recruitment_sapo.model_hr_contract_type
+#: model:ir.model.fields.selection,name:ptplus_hr_recruitment_sapo.selection__ptplus_sapo_code__code_type__contract_type
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_sapo.hr_job_post_view_form_sapo
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_sapo.hr_recruitment_post_job_wizard_view_form_sapo
+msgid "Contract Type"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,help:ptplus_hr_recruitment_sapo.field_hr_contract_type__l10n_pt_sapo_contract_type_id
+msgid ""
+"Contract type proposed on SAPO Emprego for offers using this employment "
+"type."
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#. odoo-python
+#: code:addons/ptplus_hr_recruitment_sapo/webservice.py:0
+msgid "Could not reach SAPO Emprego: %(error)s"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields.selection,name:ptplus_hr_recruitment_sapo.selection__ptplus_sapo_code__code_type__country
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_sapo.hr_job_post_view_form_sapo
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_sapo.hr_recruitment_post_job_wizard_view_form_sapo
+msgid "Country"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,help:ptplus_hr_recruitment_sapo.field_ptplus_sapo_code__parent_id
+msgid "Country a district belongs to, or district a municipality belongs to."
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,help:ptplus_hr_recruitment_sapo.field_hr_job_post__l10n_pt_sapo_country_id
+#: model:ir.model.fields,help:ptplus_hr_recruitment_sapo.field_hr_recruitment_post_job_wizard__l10n_pt_sapo_country_id
+msgid ""
+"Country the offer is advertised in. It cannot be changed once the offer is "
+"published."
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_ptplus_sapo_code__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_ptplus_sapo_code__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_hr_contract_type__display_name
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_hr_job_post__display_name
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_hr_recruitment_degree__display_name
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_hr_recruitment_platform__display_name
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_hr_recruitment_post_job_wizard__display_name
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_ptplus_sapo_code__display_name
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_res_company__display_name
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_res_config_settings__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields.selection,name:ptplus_hr_recruitment_sapo.selection__ptplus_sapo_code__code_type__district
+msgid "District"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_sapo.hr_job_post_view_form_sapo
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_sapo.hr_recruitment_post_job_wizard_view_form_sapo
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_sapo.ptplus_sapo_code_view_search
+msgid "Districts"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,help:ptplus_hr_recruitment_sapo.field_hr_job_post__l10n_pt_sapo_district_ids
+#: model:ir.model.fields,help:ptplus_hr_recruitment_sapo.field_hr_recruitment_post_job_wizard__l10n_pt_sapo_district_ids
+msgid ""
+"Districts the offer is listed under. They cannot be changed once the offer "
+"is published."
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.constraint,message:ptplus_hr_recruitment_sapo.constraint_ptplus_sapo_code_sapo_id_uniq
+msgid "Each SAPO Emprego entry may only be defined once per list."
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_sapo.res_config_settings_view_form_sapo
+msgid "Environment"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_sapo.hr_job_post_view_form_sapo
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_sapo.hr_recruitment_post_job_wizard_view_form_sapo
+msgid "How it is advertised"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,help:ptplus_hr_recruitment_sapo.field_hr_job_post__l10n_pt_sapo_available_positions_id
+#: model:ir.model.fields,help:ptplus_hr_recruitment_sapo.field_hr_recruitment_post_job_wizard__l10n_pt_sapo_available_positions_id
+msgid ""
+"How many positions the offer opens, as one of the ranges SAPO Emprego "
+"publishes."
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields.selection,name:ptplus_hr_recruitment_sapo.selection__hr_job_post__l10n_pt_sapo_work_model__hybrid
+#: model:ir.model.fields.selection,name:ptplus_hr_recruitment_sapo.selection__hr_recruitment_post_job_wizard__l10n_pt_sapo_work_model__hybrid
+msgid "Hybrid"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_hr_contract_type__id
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_hr_job_post__id
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_hr_recruitment_degree__id
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_hr_recruitment_platform__id
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_hr_recruitment_post_job_wizard__id
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_ptplus_sapo_code__id
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_res_company__id
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_res_config_settings__id
+msgid "ID"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#. odoo-python
+#: code:addons/ptplus_hr_recruitment_sapo/models/hr_recruitment_platform.py:0
+msgid "It can be read at %(url)s."
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model,name:ptplus_hr_recruitment_sapo.model_hr_job_post
+msgid "Job Post"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_ptplus_sapo_code__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_ptplus_sapo_code__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_ptplus_sapo_code__code_type
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_sapo.ptplus_sapo_code_view_search
+msgid "List"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,help:ptplus_hr_recruitment_sapo.field_hr_recruitment_degree__l10n_pt_sapo_qualification_id
+msgid ""
+"Minimum qualification proposed on SAPO Emprego for offers expecting this "
+"degree."
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields.selection,name:ptplus_hr_recruitment_sapo.selection__ptplus_sapo_code__code_type__municipality
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_sapo.hr_job_post_view_form_sapo
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_sapo.hr_recruitment_post_job_wizard_view_form_sapo
+msgid "Municipality"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,help:ptplus_hr_recruitment_sapo.field_hr_job_post__l10n_pt_sapo_municipality_id
+#: model:ir.model.fields,help:ptplus_hr_recruitment_sapo.field_hr_recruitment_post_job_wizard__l10n_pt_sapo_municipality_id
+msgid ""
+"Municipality the offer is listed under. It can only be filled in later if it"
+" was left empty when the offer was published."
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_ptplus_sapo_code__name
+msgid "Name"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#. odoo-python
+#: code:addons/ptplus_hr_recruitment_sapo/webservice.py:0
+msgid ""
+"No SAPO Emprego API token is set for %(company)s. Add it under Recruitment >"
+" Configuration > Settings."
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model_terms:ir.actions.act_window,help:ptplus_hr_recruitment_sapo.ptplus_sapo_code_action
+msgid "No SAPO Emprego codes yet"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#. odoo-python
+#: code:addons/ptplus_hr_recruitment_sapo/models/ptplus_sapo_code.py:0
+msgid ""
+"No company has a SAPO Emprego API token, so the lists cannot be read. Add it"
+" under Recruitment > Configuration > Settings."
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields.selection,name:ptplus_hr_recruitment_sapo.selection__hr_job_post__l10n_pt_sapo_cv_required__0
+#: model:ir.model.fields.selection,name:ptplus_hr_recruitment_sapo.selection__hr_recruitment_post_job_wizard__l10n_pt_sapo_cv_required__0
+msgid "Not Accepted"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#. odoo-python
+#: code:addons/ptplus_hr_recruitment_sapo/models/hr_job_post.py:0
+msgid ""
+"Nothing was published on SAPO Emprego under this post, so there was nothing "
+"to take down."
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,help:ptplus_hr_recruitment_sapo.field_ptplus_sapo_code__sapo_id
+msgid "Numeric identifier sent to SAPO Emprego for this entry."
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_hr_job_post__l10n_pt_sapo_observations
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_hr_recruitment_post_job_wizard__l10n_pt_sapo_observations
+msgid "Observations"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_hr_job_post__l10n_pt_sapo_offer
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_hr_recruitment_post_job_wizard__l10n_pt_sapo_offer
+msgid "Offer"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields.selection,name:ptplus_hr_recruitment_sapo.selection__hr_job_post__l10n_pt_sapo_work_model__presential
+#: model:ir.model.fields.selection,name:ptplus_hr_recruitment_sapo.selection__hr_recruitment_post_job_wizard__l10n_pt_sapo_work_model__presential
+msgid "On Site"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_sapo.hr_recruitment_post_job_wizard_view_form_sapo
+msgid ""
+"One benefit per line, e.g.\n"
+"Seguro de saúde\n"
+"Formação contínua"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,help:ptplus_hr_recruitment_sapo.field_hr_job_post__l10n_pt_sapo_pitch
+#: model:ir.model.fields,help:ptplus_hr_recruitment_sapo.field_hr_recruitment_post_job_wizard__l10n_pt_sapo_pitch
+msgid "One line shown under the title of the advert, in large type."
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields.selection,name:ptplus_hr_recruitment_sapo.selection__hr_job_post__l10n_pt_sapo_cv_required__2
+#: model:ir.model.fields.selection,name:ptplus_hr_recruitment_sapo.selection__hr_recruitment_post_job_wizard__l10n_pt_sapo_cv_required__2
+msgid "Optional"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,help:ptplus_hr_recruitment_sapo.field_ptplus_sapo_code__sequence
+msgid "Order SAPO Emprego presents this entry in."
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_hr_job_post__l10n_pt_sapo_pitch
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_hr_recruitment_post_job_wizard__l10n_pt_sapo_pitch
+msgid "Pitch"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model,name:ptplus_hr_recruitment_sapo.model_hr_recruitment_post_job_wizard
+msgid "Post Job"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_sapo.res_config_settings_view_form_sapo
+msgid "Premium services"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,help:ptplus_hr_recruitment_sapo.field_res_company__l10n_pt_sapo_premium_services
+#: model:ir.model.fields,help:ptplus_hr_recruitment_sapo.field_res_config_settings__l10n_pt_sapo_premium_services
+msgid ""
+"Premium services SAPO Emprego lists on this account, with the date each one "
+"runs until."
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields.selection,name:ptplus_hr_recruitment_sapo.selection__res_company__l10n_pt_sapo_environment__production
+msgid "Production"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_sapo.hr_job_post_view_form_sapo
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_sapo.hr_recruitment_post_job_wizard_view_form_sapo
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_sapo.ptplus_sapo_code_view_search
+msgid "Professional Categories"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields.selection,name:ptplus_hr_recruitment_sapo.selection__ptplus_sapo_code__code_type__category
+msgid "Professional Category"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields.selection,name:ptplus_hr_recruitment_sapo.selection__ptplus_sapo_code__code_type__experience
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_sapo.hr_job_post_view_form_sapo
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_sapo.hr_recruitment_post_job_wizard_view_form_sapo
+msgid "Professional Experience"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,help:ptplus_hr_recruitment_sapo.field_hr_job_post__l10n_pt_sapo_category_ids
+#: model:ir.model.fields,help:ptplus_hr_recruitment_sapo.field_hr_recruitment_post_job_wizard__l10n_pt_sapo_category_ids
+msgid "Professional categories the offer is listed under."
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,help:ptplus_hr_recruitment_sapo.field_hr_job_post__l10n_pt_sapo_experience_id
+#: model:ir.model.fields,help:ptplus_hr_recruitment_sapo.field_hr_recruitment_post_job_wizard__l10n_pt_sapo_experience_id
+msgid "Professional experience asked of the candidate."
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,help:ptplus_hr_recruitment_sapo.field_hr_recruitment_post_job_wizard__l10n_pt_sapo_contract_type_id
+#: model:ir.model.fields,help:ptplus_hr_recruitment_sapo.field_hr_recruitment_post_job_wizard__l10n_pt_sapo_work_hours_id
+msgid "Proposed from the employment type of the job position."
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,help:ptplus_hr_recruitment_sapo.field_hr_recruitment_post_job_wizard__l10n_pt_sapo_qualification_id
+msgid "Proposed from the expected degree of the job position."
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_sapo.res_config_settings_view_form_sapo
+msgid "Publish job offers on emprego.sapo.pt"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,help:ptplus_hr_recruitment_sapo.field_hr_job_post__l10n_pt_sapo_anonymous
+#: model:ir.model.fields,help:ptplus_hr_recruitment_sapo.field_hr_recruitment_post_job_wizard__l10n_pt_sapo_anonymous
+msgid "Publish the offer without naming the company."
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#. odoo-python
+#: code:addons/ptplus_hr_recruitment_sapo/models/hr_recruitment_platform.py:0
+msgid "Published on SAPO Emprego."
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields.selection,name:ptplus_hr_recruitment_sapo.selection__ptplus_sapo_code__code_type__qualification
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_sapo.hr_job_post_view_form_sapo
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_sapo.hr_recruitment_post_job_wizard_view_form_sapo
+msgid "Qualification"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model,name:ptplus_hr_recruitment_sapo.model_hr_recruitment_platform
+msgid "Recruitment Platform"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_sapo.res_config_settings_view_form_sapo
+msgid "Refresh from SAPO Emprego"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields.selection,name:ptplus_hr_recruitment_sapo.selection__hr_job_post__l10n_pt_sapo_work_model__remote
+#: model:ir.model.fields.selection,name:ptplus_hr_recruitment_sapo.selection__hr_recruitment_post_job_wizard__l10n_pt_sapo_work_model__remote
+msgid "Remote"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields.selection,name:ptplus_hr_recruitment_sapo.selection__hr_job_post__l10n_pt_sapo_cv_required__1
+#: model:ir.model.fields.selection,name:ptplus_hr_recruitment_sapo.selection__hr_recruitment_post_job_wizard__l10n_pt_sapo_cv_required__1
+msgid "Required"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_sapo.hr_job_post_view_form_sapo
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_sapo.hr_recruitment_post_job_wizard_view_form_sapo
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_sapo.res_config_settings_view_form_sapo
+msgid "SAPO Emprego"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_res_company__l10n_pt_sapo_api_token
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_res_config_settings__l10n_pt_sapo_api_token
+msgid "SAPO Emprego API Token"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_res_company__l10n_pt_sapo_account_name
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_res_config_settings__l10n_pt_sapo_account_name
+msgid "SAPO Emprego Account"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_res_company__l10n_pt_sapo_company_level
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_res_config_settings__l10n_pt_sapo_company_level
+msgid "SAPO Emprego Account Level"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_hr_job_post__l10n_pt_sapo_available_positions_id
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_hr_recruitment_post_job_wizard__l10n_pt_sapo_available_positions_id
+msgid "SAPO Emprego Available Positions"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_hr_job_post__l10n_pt_sapo_cv_required
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_hr_recruitment_post_job_wizard__l10n_pt_sapo_cv_required
+msgid "SAPO Emprego CV"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_hr_job_post__l10n_pt_sapo_category_ids
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_hr_recruitment_post_job_wizard__l10n_pt_sapo_category_ids
+msgid "SAPO Emprego Categories"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model,name:ptplus_hr_recruitment_sapo.model_ptplus_sapo_code
+msgid "SAPO Emprego Code"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.actions.act_window,name:ptplus_hr_recruitment_sapo.ptplus_sapo_code_action
+#: model:ir.ui.menu,name:ptplus_hr_recruitment_sapo.menu_ptplus_sapo_code
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_sapo.ptplus_sapo_code_view_list
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_sapo.ptplus_sapo_code_view_search
+msgid "SAPO Emprego Codes"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_hr_contract_type__l10n_pt_sapo_contract_type_id
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_hr_job_post__l10n_pt_sapo_contract_type_id
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_hr_recruitment_post_job_wizard__l10n_pt_sapo_contract_type_id
+msgid "SAPO Emprego Contract Type"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_hr_job_post__l10n_pt_sapo_country_id
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_hr_recruitment_post_job_wizard__l10n_pt_sapo_country_id
+msgid "SAPO Emprego Country"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_hr_job_post__l10n_pt_sapo_district_ids
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_hr_recruitment_post_job_wizard__l10n_pt_sapo_district_ids
+msgid "SAPO Emprego Districts"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_res_company__l10n_pt_sapo_environment
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_res_config_settings__l10n_pt_sapo_environment
+msgid "SAPO Emprego Environment"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_hr_job_post__l10n_pt_sapo_experience_id
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_hr_recruitment_post_job_wizard__l10n_pt_sapo_experience_id
+msgid "SAPO Emprego Experience"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_hr_job_post__l10n_pt_sapo_municipality_id
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_hr_recruitment_post_job_wizard__l10n_pt_sapo_municipality_id
+msgid "SAPO Emprego Municipality"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_res_company__l10n_pt_sapo_premium_services
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_res_config_settings__l10n_pt_sapo_premium_services
+msgid "SAPO Emprego Premium Services"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_hr_job_post__l10n_pt_sapo_qualification_id
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_hr_recruitment_degree__l10n_pt_sapo_qualification_id
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_hr_recruitment_post_job_wizard__l10n_pt_sapo_qualification_id
+msgid "SAPO Emprego Qualification"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_hr_job_post__l10n_pt_sapo_salary_range_id
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_hr_recruitment_post_job_wizard__l10n_pt_sapo_salary_range_id
+msgid "SAPO Emprego Salary Range"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_hr_contract_type__l10n_pt_sapo_work_hours_id
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_hr_job_post__l10n_pt_sapo_work_hours_id
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_hr_recruitment_post_job_wizard__l10n_pt_sapo_work_hours_id
+msgid "SAPO Emprego Work Hours"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_hr_job_post__l10n_pt_sapo_work_model
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_hr_recruitment_post_job_wizard__l10n_pt_sapo_work_model
+msgid "SAPO Emprego Work Model"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#. odoo-python
+#: code:addons/ptplus_hr_recruitment_sapo/models/ptplus_sapo_code.py:0
+msgid ""
+"SAPO Emprego answered the %(list)s list without any entry to read. The "
+"entries already stored were left alone; try again later."
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#. odoo-python
+#: code:addons/ptplus_hr_recruitment_sapo/webservice.py:0
+msgid ""
+"SAPO Emprego answered with an unexpected HTTP status (%(status)s)%(detail)s"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#. odoo-python
+#: code:addons/ptplus_hr_recruitment_sapo/webservice.py:0
+msgid ""
+"SAPO Emprego did not answer. The advert may or may not have gone through; "
+"check the platform before retrying."
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#. odoo-python
+#: code:addons/ptplus_hr_recruitment_sapo/wizard/hr_recruitment_post.py:0
+msgid ""
+"SAPO Emprego does not allow the %(fields)s of a published advert to be "
+"changed, so the advert keeps what it was published with. To advertise the "
+"new one, take this post down and publish it again."
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#. odoo-python
+#: code:addons/ptplus_hr_recruitment_sapo/wizard/hr_recruitment_post.py:0
+msgid ""
+"SAPO Emprego does not publish web or email addresses in an advert, so "
+"%(addresses)s was left out of the description. Candidates apply through the "
+"advert itself."
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,help:ptplus_hr_recruitment_sapo.field_res_company__l10n_pt_sapo_environment
+#: model:ir.model.fields,help:ptplus_hr_recruitment_sapo.field_res_config_settings__l10n_pt_sapo_environment
+msgid ""
+"SAPO Emprego grants access to the test environment first, and to production "
+"only after validating an advert published from here. Each environment has "
+"its own token."
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#. odoo-python
+#: code:addons/ptplus_hr_recruitment_sapo/webservice.py:0
+msgid ""
+"SAPO Emprego has no advert under this reference. It has expired or was "
+"already taken down."
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#. odoo-python
+#: code:addons/ptplus_hr_recruitment_sapo/wizard/hr_recruitment_post.py:0
+msgid ""
+"SAPO Emprego mails every application in, and needs an address to mail it to."
+" Give this job position its own email alias, so that each application "
+"becomes an applicant on it by itself, or pick the apply method that asks for"
+" an email address.\n"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#. odoo-python
+#: code:addons/ptplus_hr_recruitment_sapo/wizard/hr_recruitment_post.py:0
+msgid ""
+"SAPO Emprego needs the %(fields)s of this advert. Fill them in on the SAPO "
+"Emprego tab and post again.\n"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#. odoo-python
+#: code:addons/ptplus_hr_recruitment_sapo/wizard/hr_recruitment_post.py:0
+msgid ""
+"SAPO Emprego only sends candidates to your own website for accounts with the"
+" matching premium service, and %(account)s does not have it. Candidates will"
+" apply on SAPO Emprego itself, and each application arrives at %(email)s, "
+"where Odoo files it as an applicant on this job position."
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#. odoo-python
+#: code:addons/ptplus_hr_recruitment_sapo/wizard/hr_recruitment_post.py:0
+msgid ""
+"SAPO Emprego publishes every advert for a fixed period, so the campaign "
+"needs an end date.\n"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#. odoo-python
+#: code:addons/ptplus_hr_recruitment_sapo/webservice.py:0
+msgid ""
+"SAPO Emprego refused the API token of %(company)s (%(environment)s): "
+"%(message)s"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#. odoo-python
+#: code:addons/ptplus_hr_recruitment_sapo/webservice.py:0
+msgid "SAPO Emprego rejected the advert as invalid."
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.actions.server,name:ptplus_hr_recruitment_sapo.ir_cron_sapo_sync_codes_ir_actions_server
+msgid "SAPO Emprego: refresh the account and the offer lists"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_ptplus_sapo_code__sapo_id
+msgid "SAPO Id"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_ptplus_sapo_code__sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields.selection,name:ptplus_hr_recruitment_sapo.selection__res_company__l10n_pt_sapo_environment__sandbox
+msgid "Test"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#. odoo-python
+#: code:addons/ptplus_hr_recruitment_sapo/wizard/hr_recruitment_post.py:0
+msgid "The advert needs a description.\n"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#. odoo-python
+#: code:addons/ptplus_hr_recruitment_sapo/models/hr_recruitment_platform.py:0
+msgid ""
+"The advert was paused on SAPO Emprego, which is how the platform takes an "
+"offer off its listings."
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#. odoo-python
+#: code:addons/ptplus_hr_recruitment_sapo/models/hr_recruitment_platform.py:0
+msgid "The advert was updated on SAPO Emprego."
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,help:ptplus_hr_recruitment_sapo.field_hr_job_post__l10n_pt_sapo_schedule
+#: model:ir.model.fields,help:ptplus_hr_recruitment_sapo.field_hr_recruitment_post_job_wizard__l10n_pt_sapo_schedule
+msgid ""
+"The working hours in words, such as 'Segunda a sexta, 9h-18h'. Fills the "
+"'Horário' section of the advert."
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model_terms:ir.actions.act_window,help:ptplus_hr_recruitment_sapo.ptplus_sapo_code_action
+msgid ""
+"These are the districts, professional categories, work hours,\n"
+"                qualifications, salary ranges and other lists SAPO Emprego\n"
+"                describes an offer with. They are read from the platform:\n"
+"                enter the API token under Recruitment &gt; Configuration &gt;\n"
+"                Settings and use \"Refresh from SAPO Emprego\" there."
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,help:ptplus_hr_recruitment_sapo.field_res_company__l10n_pt_sapo_api_token
+#: model:ir.model.fields,help:ptplus_hr_recruitment_sapo.field_res_config_settings__l10n_pt_sapo_api_token
+msgid ""
+"Token used to publish job offers on SAPO Emprego. Request it in the company "
+"area of emprego.sapo.pt, under 'API'."
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#. odoo-python
+#: code:addons/ptplus_hr_recruitment_sapo/webservice.py:0
+msgid ""
+"Too many requests were sent to SAPO Emprego. Wait a minute and try again."
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_sapo.hr_job_post_view_form_sapo
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_sapo.hr_recruitment_post_job_wizard_view_form_sapo
+msgid "What"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,help:ptplus_hr_recruitment_sapo.field_hr_job_post__l10n_pt_sapo_offer
+#: model:ir.model.fields,help:ptplus_hr_recruitment_sapo.field_hr_recruitment_post_job_wizard__l10n_pt_sapo_offer
+msgid ""
+"What the company offers, one benefit per line. Fills the 'Oferta' section of"
+" the advert."
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_sapo.hr_job_post_view_form_sapo
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_sapo.hr_recruitment_post_job_wizard_view_form_sapo
+msgid "Where"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,help:ptplus_hr_recruitment_sapo.field_res_company__l10n_pt_sapo_can_redirect_applications
+#: model:ir.model.fields,help:ptplus_hr_recruitment_sapo.field_res_config_settings__l10n_pt_sapo_can_redirect_applications
+msgid ""
+"Whether SAPO Emprego will send candidates to your own website instead of "
+"taking the application itself. It is a premium service, and the platform "
+"accepts the address and then ignores it when the account does not have it, "
+"so this is read from the account rather than assumed."
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,help:ptplus_hr_recruitment_sapo.field_hr_job_post__l10n_pt_sapo_cv_required
+#: model:ir.model.fields,help:ptplus_hr_recruitment_sapo.field_hr_recruitment_post_job_wizard__l10n_pt_sapo_cv_required
+msgid "Whether candidates applying through SAPO Emprego have to attach a CV."
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_sapo.hr_job_post_view_form_sapo
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_sapo.hr_recruitment_post_job_wizard_view_form_sapo
+msgid "Who"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_sapo.hr_job_post_view_form_sapo
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_sapo.hr_recruitment_post_job_wizard_view_form_sapo
+msgid "Wording of the advert"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields.selection,name:ptplus_hr_recruitment_sapo.selection__ptplus_sapo_code__code_type__work_hours
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_sapo.hr_job_post_view_form_sapo
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_sapo.hr_recruitment_post_job_wizard_view_form_sapo
+msgid "Work Hours"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_sapo.hr_job_post_view_form_sapo
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_sapo.hr_recruitment_post_job_wizard_view_form_sapo
+msgid "Work Model"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,help:ptplus_hr_recruitment_sapo.field_hr_contract_type__l10n_pt_sapo_work_hours_id
+msgid ""
+"Work hours proposed on SAPO Emprego for offers using this employment type."
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_hr_job_post__l10n_pt_sapo_schedule
+#: model:ir.model.fields,field_description:ptplus_hr_recruitment_sapo.field_hr_recruitment_post_job_wizard__l10n_pt_sapo_schedule
+msgid "Working Hours"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#. odoo-python
+#: code:addons/ptplus_hr_recruitment_sapo/webservice.py:0
+msgid "access denied"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#. odoo-python
+#: code:addons/ptplus_hr_recruitment_sapo/wizard/hr_recruitment_post.py:0
+msgid "annual salary range"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#. odoo-python
+#: code:addons/ptplus_hr_recruitment_sapo/wizard/hr_recruitment_post.py:0
+msgid "country"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#. odoo-python
+#: code:addons/ptplus_hr_recruitment_sapo/wizard/hr_recruitment_post.py:0
+msgid "districts"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_sapo.hr_recruitment_post_job_wizard_view_form_sapo
+msgid "e.g. Junte-se à equipa que faz o nosso software"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_sapo.hr_recruitment_post_job_wizard_view_form_sapo
+msgid "e.g. Processo de seleção em duas fases"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#: model_terms:ir.ui.view,arch_db:ptplus_hr_recruitment_sapo.hr_recruitment_post_job_wizard_view_form_sapo
+msgid "e.g. Segunda a sexta, 9h-18h"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#. odoo-python
+#: code:addons/ptplus_hr_recruitment_sapo/wizard/hr_recruitment_post.py:0
+msgid "professional categories"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#. odoo-python
+#: code:addons/ptplus_hr_recruitment_sapo/wizard/hr_recruitment_post.py:0
+msgid "title"
+msgstr ""
+
+#. module: ptplus_hr_recruitment_sapo
+#. odoo-python
+#: code:addons/ptplus_hr_recruitment_sapo/wizard/hr_recruitment_post.py:0
+msgid "work hours"
+msgstr ""

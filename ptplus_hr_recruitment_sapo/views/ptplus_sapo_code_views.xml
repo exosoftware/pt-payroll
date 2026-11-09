@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="ptplus_sapo_code_view_list" model="ir.ui.view">
+        <field name="name">ptplus.sapo.code.list</field>
+        <field name="model">ptplus.sapo.code</field>
+        <field name="arch" type="xml">
+            <list string="SAPO Emprego Codes" create="false" edit="false">
+                <field name="code_type" />
+                <field name="sapo_id" />
+                <field name="name" />
+                <field name="parent_id" optional="show" />
+            </list>
+        </field>
+    </record>
+
+    <record id="ptplus_sapo_code_view_search" model="ir.ui.view">
+        <field name="name">ptplus.sapo.code.search</field>
+        <field name="model">ptplus.sapo.code</field>
+        <field name="arch" type="xml">
+            <search string="SAPO Emprego Codes">
+                <field name="name" />
+                <field name="sapo_id" />
+                <field name="parent_id" />
+                <filter
+                    name="filter_district"
+                    string="Districts"
+                    domain="[('code_type', '=', 'district')]"
+                />
+                <filter
+                    name="filter_category"
+                    string="Professional Categories"
+                    domain="[('code_type', '=', 'category')]"
+                />
+                <separator />
+                <filter
+                    name="filter_inactive"
+                    string="Archived"
+                    domain="[('active', '=', False)]"
+                />
+                <separator />
+                <filter
+                    name="groupby_code_type"
+                    string="List"
+                    context="{'group_by': 'code_type'}"
+                />
+            </search>
+        </field>
+    </record>
+
+    <record id="ptplus_sapo_code_action" model="ir.actions.act_window">
+        <field name="name">SAPO Emprego Codes</field>
+        <field name="res_model">ptplus.sapo.code</field>
+        <field name="view_mode">list</field>
+        <field name="context">{'search_default_groupby_code_type': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No SAPO Emprego codes yet
+            </p>
+            <p>
+                These are the districts, professional categories, work hours,
+                qualifications, salary ranges and other lists SAPO Emprego
+                describes an offer with. They are read from the platform:
+                enter the API token under Recruitment &gt; Configuration &gt;
+                Settings and use "Refresh from SAPO Emprego" there.
+            </p>
+        </field>
+    </record>
+
+    <menuitem
+        id="menu_ptplus_sapo_code"
+        name="SAPO Emprego Codes"
+        parent="hr_recruitment.menu_hr_job_boards"
+        action="ptplus_sapo_code_action"
+        sequence="70"
+    />
+</odoo>

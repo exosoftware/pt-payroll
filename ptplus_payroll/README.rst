@@ -49,6 +49,39 @@ change.
 Changelog
 =========
 
+9.13.5 (2026-11-09)
+~~~~~~~~~~~~~~~~~~~
+**Bugfixes**
+
+- The "Check at SS" button on the employee's SS Communication tab no longer
+  fails with a server error. Social Security now answers the permanent
+  remuneration values as text, and Odoo reads them as numbers again. The
+  comparison of the declared values with the values Social Security assessed
+  for the month also accepts amounts answered as text.
+
+9.13.4 (2026-11-05)
+~~~~~~~~~~~~~~~~~~~
+**Improvement**
+
+- In November 2026 the IRS withheld on salaries and pensions of employees of
+  Madeira is now also half the value of the withholding tables (Despacho n.º
+  434/2026 of the Madeira Regional Secretary of Finance). As for the Mainland
+  and the Azores, the reduction also applies to the holiday and Christmas
+  allowances paid in that month, and employees whose monthly pay falls in the
+  last bracket of the tables keep the full withholding. From December 2026 the
+  tables apply in full again.
+
+9.13.3 (2026-11-05)
+~~~~~~~~~~~~~~~~~~~
+**Improvement**
+
+- On a new installation, the "Férias" time off type now records the holidays
+  taken as "Dias de Férias Gozadas (c/Desc. Subs. Alimentação)" instead of
+  "Férias". The payslip shows the holidays under that line. The amounts do not
+  change: those days still carry no deduction from the wage and no meal
+  allowance. Existing databases keep their configuration: to use the new type,
+  select it in the "Work Entry Type" field of the "Férias" time off type.
+
 9.13.2 (2026-11-04)
 ~~~~~~~~~~~~~~~~~~~
 **Bugfixes**

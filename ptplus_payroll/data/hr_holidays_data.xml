@@ -230,7 +230,7 @@
         <field name="requires_allocation">False</field>
         <field name="responsible_ids" eval="[(4, ref('base.user_admin'))]" />
         <field name="color">1</field>
-        <field name="work_entry_type_id" ref="entry_type_pt_holiday" />
+        <field name="work_entry_type_id" ref="entry_type_pt_holiday_days" />
     </record>
 
     <record id="leave_type_pt_absence_by_start_end_of_contract" model="hr.leave.type">

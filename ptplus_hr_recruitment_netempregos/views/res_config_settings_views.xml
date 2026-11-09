@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="res_config_settings_view_form_netempregos" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.netempregos</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="75" />
+        <field name="inherit_id" ref="hr_recruitment.res_config_settings_view_form" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//block[@name='online_posting_setting_container']//setting[@id='publish_available_jobs_setting']"
+                position="after"
+            >
+                <setting
+                    id="netempregos_credentials"
+                    string="Net-Empregos"
+                    help="Publish job offers on net-empregos.com"
+                    invisible="company_country_code != 'PT'"
+                >
+                    <div class="content-group">
+                        <div class="row mt16">
+                            <label
+                                for="l10n_pt_netempregos_api_key"
+                                string="API Key"
+                                class="col-lg-3 o_light_label"
+                            />
+                            <field name="l10n_pt_netempregos_api_key" password="True" />
+                        </div>
+                    </div>
+                </setting>
+            </xpath>
+        </field>
+    </record>
+</odoo>

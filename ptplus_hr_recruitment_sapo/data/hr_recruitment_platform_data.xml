@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="hr_recruitment_platform_sapo" model="hr.recruitment.platform">
+        <field name="name">SAPO Emprego</field>
+        <field name="website">https://emprego.sapo.pt/</field>
+        <field
+            name="image_1920"
+            type="base64"
+            file="ptplus_hr_recruitment_sapo/static/img/sapo_emprego_logo.png"
+        />
+    </record>
+</odoo>
