@@ -9201,6 +9201,12 @@ msgstr ""
 
 #. module: ptplus_payroll
 #. odoo-python
+#: code:addons/ptplus_payroll/models/l10n_pt_scc_payment_document.py:0
+msgid "Social Security payment receipts query failed: %(code)s - %(message)s"
+msgstr ""
+
+#. module: ptplus_payroll
+#. odoo-python
 #: code:addons/ptplus_payroll/models/hr_version.py:0
 msgid "Social Security query failed: %(code)s - %(message)s"
 msgstr ""
@@ -9267,8 +9273,8 @@ msgstr ""
 msgid ""
 "Social Security workplace code of the worker, as registered by Social "
 "Security for the employer's establishments. Read from the establishment code"
-" of the work location's contact, falling back to the work address - the same"
-" code the monthly declaration uses."
+" of the work address (or its parent company), as the monthly declaration "
+"does, falling back to the work location's contact."
 msgstr ""
 
 #. module: ptplus_payroll

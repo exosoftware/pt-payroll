@@ -10,7 +10,7 @@
     "author": "Exo Software",
     "website": "https://github.com/exosoftware/portugal-payroll",
     "category": "Localization",
-    "version": "19.0.9.13.5",
+    "version": "19.0.9.13.6",
     "depends": [
         "ptplus",
         "ptplus_reports",

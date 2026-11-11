@@ -49,6 +49,18 @@ change.
 Changelog
 =========
 
+9.13.6 (2026-11-11)
+~~~~~~~~~~~~~~~~~~~
+**Bugfixes**
+
+- On the exit payslip, the IRS rate of a holiday or Christmas allowance
+  paid in one go now follows the amount paid, as in the year of admission.
+  In the year the contract ends the allowance is only the proportional
+  one, but the rate was still picked on a full month's allowance, so an
+  exit early in the year withheld IRS on a Christmas allowance below the
+  first bracket. A contract followed by a renewal is not an exit, and
+  allowances paid in twelfths keep the rate of the whole allowance.
+
 9.13.5 (2026-11-09)
 ~~~~~~~~~~~~~~~~~~~
 **Bugfixes**

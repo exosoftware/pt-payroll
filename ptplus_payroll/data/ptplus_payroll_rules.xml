@@ -2776,9 +2776,11 @@ if 'SUBS_NAT_TRIB_AUTO' in inputs:
     )
 else:
     # Each twelfth is taxed at the rate of the whole allowance (art. 99.º-C
-    # nº6 CIRS). In the admission year a full month's allowance is taken as
-    # the whole allowance, as in any other year.
-    if not pt_is_admission_year(payslip) or (
+    # nº6 CIRS). A full month's allowance is taken as the whole allowance, also
+    # in the admission and cessation years. Paid in one go in those years, the
+    # allowance is only the proportional one (art. 263.º nº2 a) and b) CT) and
+    # the rate follows the amount paid (art. 99.º-C nº5 CIRS).
+    if not (pt_is_admission_year(payslip) or pt_is_cessation_year(payslip)) or (
         "SUBS_NAT_DUO" in rules or "SUBS_NAT_DUO_50" in rules
     ):
         # The rate must be based on the full reference, not on how much of it
@@ -2786,8 +2788,7 @@ else:
         # this period (e.g. an independent christmas receipt) add up to more
         # than that reference, the base must follow the higher real amount
         # instead of understating it. Proportionals are part of what is paid,
-        # not an extra on top of the reference: at an exit only the
-        # proportional allowance may be due (art. 263.º nº2 b) CT).
+        # not an extra on top of the reference.
         previous_slip = payslip.l10n_pt_previous_payslip_id
         previous_paid = 0
         while previous_slip:
@@ -2984,9 +2985,11 @@ if 'SUBS_FER_TRIB_AUTO' in inputs:
     )
 else:
     # Each twelfth is taxed at the rate of the whole allowance (art. 99.º-C
-    # nº6 CIRS). In the admission year a full month's allowance is taken as
-    # the whole allowance, as in any other year.
-    if not pt_is_admission_year(payslip) or (
+    # nº6 CIRS). A full month's allowance is taken as the whole allowance, also
+    # in the admission and cessation years. Paid in one go in those years, the
+    # allowance follows the holidays due then (art. 239.º nº1 and art. 245.º
+    # nº1 CT) and the rate follows the amount paid (art. 99.º-C nº5 CIRS).
+    if not (pt_is_admission_year(payslip) or pt_is_cessation_year(payslip)) or (
         "SUBS_FER_DUO" in rules or "SUBS_FER_DUO_50" in rules
     ):
         # The rate must be based on the full reference, not on how much of it
@@ -2994,8 +2997,7 @@ else:
         # this period (e.g. an independent holidays receipt) add up to more
         # than that reference, the base must follow the higher real amount
         # instead of understating it. Proportionals are part of what is paid,
-        # not an extra on top of the reference: at an exit only the
-        # proportional allowance may be due (art. 263.º nº2 b) CT).
+        # not an extra on top of the reference.
         previous_slip = payslip.l10n_pt_previous_payslip_id
         previous_paid = 0
         while previous_slip:

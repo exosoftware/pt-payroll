@@ -9567,6 +9567,14 @@ msgstr ""
 
 #. module: ptplus_payroll
 #. odoo-python
+#: code:addons/ptplus_payroll/models/l10n_pt_scc_payment_document.py:0
+msgid "Social Security payment receipts query failed: %(code)s - %(message)s"
+msgstr ""
+"A consulta dos comprovativos de pagamento à Segurança Social falhou: %(code)s "
+"- %(message)s"
+
+#. module: ptplus_payroll
+#. odoo-python
 #: code:addons/ptplus_payroll/models/hr_version.py:0
 msgid "Social Security query failed: %(code)s - %(message)s"
 msgstr "A consulta à Segurança Social falhou: %(code)s - %(message)s"
@@ -9645,14 +9653,14 @@ msgstr ""
 msgid ""
 "Social Security workplace code of the worker, as registered by Social "
 "Security for the employer's establishments. Read from the establishment code "
-"of the work location's contact, falling back to the work address - the same "
-"code the monthly declaration uses."
+"of the work address (or its parent company), as the monthly declaration "
+"does, falling back to the work location's contact."
 msgstr ""
 "Código do local de trabalho do trabalhador na Segurança Social, conforme "
 "registado pela Segurança Social para os estabelecimentos da entidade "
-"empregadora. Lido do código de estabelecimento do contacto do local de "
-"trabalho, com recurso à morada de trabalho - o mesmo código usado pela "
-"declaração mensal."
+"empregadora. Lido do código de estabelecimento da morada de trabalho (ou da "
+"sua empresa-mãe), tal como na declaração mensal, com recurso ao contacto do "
+"local de trabalho."
 
 #. module: ptplus_payroll
 #: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_single_report_statement_wizard_experimental__ru_social_action_support_expenses
