@@ -17,6 +17,7 @@
                     <group>
                         <group string="Codes for Tax Returns">
                             <field name="l10n_pt_dri_subject_amount" />
+                            <field name="l10n_pt_scc_nature" />
                             <field name="l10n_pt_dmr_subject_amount" />
                             <field name="l10n_pt_dmr_exempt_amount" />
                         </group>
@@ -131,6 +132,7 @@
         <field name="arch" type="xml">
             <field name="partner_id" position="after">
                 <field name="l10n_pt_dri_subject_amount" optional="hide" />
+                <field name="l10n_pt_scc_nature" optional="hide" />
                 <field name="l10n_pt_dmr_subject_amount" optional="hide" />
                 <field name="l10n_pt_dmr_exempt_amount" optional="hide" />
                 <field name="l10n_pt_affects_income_tax" optional="hide" />

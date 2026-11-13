@@ -666,6 +666,7 @@ result = version.l10n_pt_diuturnities</field>
 result = version.l10n_pt_diuturnities</field>
         <field name="struct_id" ref="hr_payroll_structure_pt_monthly_pay" />
         <field name="l10n_pt_dri_subject_amount">B</field>
+        <field name="l10n_pt_scc_nature">M</field>
         <field name="l10n_pt_dmr_subject_amount">A</field>
         <field name="l10n_pt_dmr_exempt_amount">N/A</field>
         <field name="l10n_pt_standard_rule">True</field>
@@ -1174,6 +1175,7 @@ else:
     result = version.l10n_pt_shift_regime_rate * version.wage </field>
         <field name="struct_id" ref="hr_payroll_structure_pt_monthly_pay" />
         <field name="l10n_pt_dri_subject_amount">B</field>
+        <field name="l10n_pt_scc_nature">M</field>
         <field name="l10n_pt_dmr_subject_amount">A</field>
         <field name="l10n_pt_dmr_exempt_amount">N/A</field>
         <field name="l10n_pt_standard_rule">True</field>
@@ -1197,6 +1199,7 @@ else:
     result = version.l10n_pt_shift_regime_rate * version.wage </field>
         <field name="struct_id" ref="hr_payroll_structure_pt_monthly_pay" />
         <field name="l10n_pt_dri_subject_amount">B</field>
+        <field name="l10n_pt_scc_nature">M</field>
         <field name="l10n_pt_dmr_subject_amount">A</field>
         <field name="l10n_pt_dmr_exempt_amount">N/A</field>
         <field name="l10n_pt_standard_rule">True</field>
@@ -1220,6 +1223,7 @@ else:
     result = version.l10n_pt_shift_regime_rate * version.wage </field>
         <field name="struct_id" ref="hr_payroll_structure_pt_monthly_pay" />
         <field name="l10n_pt_dri_subject_amount">B</field>
+        <field name="l10n_pt_scc_nature">M</field>
         <field name="l10n_pt_dmr_subject_amount">A</field>
         <field name="l10n_pt_dmr_exempt_amount">N/A</field>
         <field name="l10n_pt_standard_rule">True</field>
@@ -1243,6 +1247,7 @@ else:
     result = version.l10n_pt_shift_regime_rate * version.wage </field>
         <field name="struct_id" ref="hr_payroll_structure_pt_monthly_pay" />
         <field name="l10n_pt_dri_subject_amount">B</field>
+        <field name="l10n_pt_scc_nature">M</field>
         <field name="l10n_pt_dmr_subject_amount">A</field>
         <field name="l10n_pt_dmr_exempt_amount">N/A</field>
         <field name="l10n_pt_standard_rule">True</field>

@@ -577,6 +577,8 @@
                     sum="Total"
                     decoration-warning="correction_amount != 0"
                 />
+                <field name="employee_tax_rate" optional="hide" />
+                <field name="company_tax_rate" optional="hide" />
                 <field
                     name="ss_state"
                     widget="badge"

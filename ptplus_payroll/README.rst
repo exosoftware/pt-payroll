@@ -49,6 +49,45 @@ change.
 Changelog
 =========
 
+9.15.0 (2026-11-13)
+~~~~~~~~~~~~~~~~~~~
+**Improvement**
+
+- In Portuguese companies, a time off registered after its payslip is
+  validated or paid is no longer deferred to the next month. The "Report to
+  Next Month" button no longer shows on the time off, and the "Defer to Next
+  Month" action explains what to do instead. The activity Odoo creates for
+  that time off now asks to add the "Assiduidade (mês anterior)" input to the
+  next payslip of the employee, which deducts the time off and corrects its
+  month in the DRI.
+
+9.14.0 (2026-11-12)
+~~~~~~~~~~~~~~~~~~~
+**Improvement**
+
+- The employee form had two "Non-resident" options. Only the one next to the
+  nationality is kept, and it is the one the Modelo 30 and the DMR use. The
+  update moves the option that was marked in the Portuguese block to it.
+
+**Bugfixes**
+
+- The DMR no longer declares the income of non-resident employees. The AT
+  instructions send that income to the Modelo 30, which now reads it from the
+  payslips. Before, it was declared on both.
+
+9.13.7 (2026-11-12)
+~~~~~~~~~~~~~~~~~~~
+**Bugfixes**
+
+- The shift subsidy and the diuturnities are now declared in the Social
+  Security monthly statement (SCC) as regular monthly subsidies (nature M).
+  Before, they were declared as monthly premiums (nature B), the DRI code of
+  their salary rules. Social Security already knows these values from the
+  permanent remunerations of the worker, so it counted them twice.
+- The salary rules have a new field, "SCC Nature", next to the DRI code. Fill
+  it in when a remuneration has a different nature in the SCC. When it is
+  empty, the SCC declares the DRI code. The DRI does not change.
+
 9.13.6 (2026-11-11)
 ~~~~~~~~~~~~~~~~~~~
 **Bugfixes**

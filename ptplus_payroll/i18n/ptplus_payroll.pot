@@ -1229,6 +1229,12 @@ msgid "Activity Type Icon"
 msgstr ""
 
 #. module: ptplus_payroll
+#. odoo-python
+#: code:addons/ptplus_payroll/models/hr_leave.py:0
+msgid "Add the \"Assiduidade (mês anterior)\" input to the next payslip of %s"
+msgstr ""
+
+#. module: ptplus_payroll
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_income_tax_pt__addi_port_to_be_abated_per_dep
 msgid "Additional Portion To Be Abated Der Dependent"
 msgstr ""
@@ -2362,6 +2368,7 @@ msgid "Correção de Provisão de Subs. de Natal"
 msgstr ""
 
 #. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_hr_leave__l10n_pt_country_code
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_payroll_edit_payslip_line__country_code
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_payroll_edit_payslip_worked_days_line__country_code
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_payroll_structure__country_code
@@ -3229,6 +3236,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_expense__display_name
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_income_tax_pt__display_name
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_insurance_company_pt__display_name
+#: model:ir.model.fields,field_description:ptplus_payroll.field_hr_leave__display_name
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_leave_type__display_name
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_marital_status_pt__display_name
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_payroll_edit_payslip_line__display_name
@@ -3499,6 +3507,11 @@ msgstr ""
 #. module: ptplus_payroll
 #: model:ir.model.fields.selection,name:ptplus_payroll.selection__l10n_pt_scc_worker_detail_remuneration__origin__entidade_empregadora
 msgid "Employer"
+msgstr ""
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_scc_statement_line__company_tax_rate
+msgid "Employer Rate (%)"
 msgstr ""
 
 #. module: ptplus_payroll
@@ -4843,6 +4856,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_expense__id
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_income_tax_pt__id
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_insurance_company_pt__id
+#: model:ir.model.fields,field_description:ptplus_payroll.field_hr_leave__id
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_leave_type__id
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_marital_status_pt__id
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_payroll_edit_payslip_line__id
@@ -5061,6 +5075,15 @@ msgid ""
 "If this field is left empty, the salary supplement will be applied to all "
 "payslips where date from is the same or later than the date start of the "
 "respective salary supplement."
+msgstr ""
+
+#. module: ptplus_payroll
+#. odoo-python
+#: code:addons/ptplus_payroll/models/hr_leave.py:0
+msgid ""
+"In Portuguese companies the time off is not deferred to the next month. Add "
+"the \"Assiduidade (mês anterior)\" input to the next payslip of the employee"
+" instead."
 msgstr ""
 
 #. module: ptplus_payroll
@@ -6468,11 +6491,6 @@ msgstr ""
 #. module: ptplus_payroll
 #: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_holiday_sheets_wizard_line__company_name
 msgid "Nome da Empresa"
-msgstr ""
-
-#. module: ptplus_payroll
-#: model:ir.model.fields,field_description:ptplus_payroll.field_hr_employee__l10n_pt_non_resident
-msgid "Non Resident"
 msgstr ""
 
 #. module: ptplus_payroll
@@ -8378,6 +8396,18 @@ msgid "SCC Membership (PSI)"
 msgstr ""
 
 #. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_hr_salary_rule__l10n_pt_scc_nature
+msgid "SCC Nature"
+msgstr ""
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,help:ptplus_payroll.field_hr_salary_rule__l10n_pt_scc_nature
+msgid ""
+"Remuneration nature declared in the Social Security monthly statement (SCC). "
+"Leave empty to declare the DRI code."
+msgstr ""
+
+#. module: ptplus_payroll
 #: model:ir.model,name:ptplus_payroll.model_l10n_pt_scc_payment_document
 msgid "SCC Payment Document"
 msgstr ""
@@ -9220,6 +9250,16 @@ msgid ""
 msgstr ""
 
 #. module: ptplus_payroll
+#: model:ir.model.fields,help:ptplus_payroll.field_l10n_pt_scc_statement_line__company_tax_rate
+msgid "Social Security rate of the employer the payslips were computed at."
+msgstr ""
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,help:ptplus_payroll.field_l10n_pt_scc_statement_line__employee_tax_rate
+msgid "Social Security rate of the worker the payslips were computed at."
+msgstr ""
+
+#. module: ptplus_payroll
 #. odoo-python
 #: code:addons/ptplus_payroll/models/hr_version.py:0
 msgid "Social Security refused the cessation: %(code)s - %(message)s"
@@ -9327,7 +9367,7 @@ msgstr ""
 #. odoo-python
 #: code:addons/ptplus_payroll/models/l10n_pt_scc_statement.py:0
 msgid ""
-"Some salary rules carry a DRI remuneration code that Social Security does not accept in the SCC (natures of Despacho n.º 2-I/SESS/2011). Change the DRI code of those rules to the nature the remuneration belongs to:\n"
+"Some salary rules carry a DRI remuneration code that Social Security does not accept in the SCC (natures of Despacho n.º 2-I/SESS/2011). Set the SCC nature of those rules to the nature the remuneration belongs to:\n"
 "%s"
 msgstr ""
 
@@ -10011,6 +10051,7 @@ msgid "The DRI days of work must be between 0 and 30, got %s."
 msgstr ""
 
 #. module: ptplus_payroll
+#: model:ir.model.fields,help:ptplus_payroll.field_hr_leave__l10n_pt_country_code
 #: model:ir.model.fields,help:ptplus_payroll.field_hr_payroll_edit_payslip_line__country_code
 #: model:ir.model.fields,help:ptplus_payroll.field_hr_payroll_edit_payslip_worked_days_line__country_code
 #: model:ir.model.fields,help:ptplus_payroll.field_hr_payroll_structure__country_code
@@ -10596,6 +10637,11 @@ msgstr ""
 #: model:ir.model.fields.selection,name:ptplus_payroll.selection__hr_version__l10n_pt_meal_allowance_payment_method__ticket
 #: model:ir.model.fields.selection,name:ptplus_payroll.selection__res_company__l10n_pt_default_meal_allowance_payment_method__ticket
 msgid "Ticket/Card"
+msgstr ""
+
+#. module: ptplus_payroll
+#: model:ir.model,name:ptplus_payroll.model_hr_leave
+msgid "Time Off"
 msgstr ""
 
 #. module: ptplus_payroll
@@ -11534,6 +11580,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_employee__l10n_pt_work_schedule_exemption_option
 #: model:ir.model.fields,field_description:ptplus_payroll.field_hr_version__l10n_pt_work_schedule_exemption_option
 msgid "Work Shedule Exemption Option"
+msgstr ""
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_scc_statement_line__employee_tax_rate
+msgid "Worker Rate (%)"
 msgstr ""
 
 #. module: ptplus_payroll
