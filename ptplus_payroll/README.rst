@@ -49,6 +49,59 @@ change.
 Changelog
 =========
 
+9.16.1 (2026-11-24)
+~~~~~~~~~~~~~~~~~~~
+**Bugfixes**
+
+- In the Holiday Sheets for the work accident insurance, the total of
+  contributions included the exempt meal allowance, as if it paid Social
+  Security contributions. Since version 9.9.12 the total was too high by the
+  exempt meal allowance times the contribution rate. The exempt meal allowance
+  is still declared to the insurer, but the total of contributions now leaves
+  it out.
+- The DRI in the new "DRI" menu no longer declares the exempt meal allowance.
+  It now declares the meal allowance as the DRI in "Payroll Statements" does:
+  only the part subject to contributions.
+
+9.16.0 (2026-11-20)
+~~~~~~~~~~~~~~~~~~~
+**Features**
+
+- Two new reasons for the end of a contract: "By Renewal of the Fixed-Term
+  Contract" and "By Update of the Contractual Conditions and Renewal". Neither
+  ends the employment relationship, so no cessation is communicated to Social
+  Security.
+- When a fixed-term contract ends "By Renewal of the Fixed-Term Contract" and
+  the new contract starts the next day, the payslip batch creates a single
+  payslip for the period, on the new contract, paid as a normal month: the
+  days and absences of both contracts are on it, and no days are deducted for
+  the start or the end of a contract. Before, a renewal in the middle of the
+  month gave two payslips. An update of the contractual conditions, with or
+  without a renewal, keeps the current behaviour: two payslips when it occurs
+  in the middle of the period, one when it occurs at the start of the period.
+
+9.15.2 (2026-11-18)
+~~~~~~~~~~~~~~~~~~~
+**Bugfixes**
+
+- A Christmas or holiday allowance pay run now lists the employees that
+  already have the month's regular payslip. Before, the "Select Employees"
+  list of a new pay run hid every employee with a payslip for the same
+  period and salary structure, whatever its kind, so after the monthly
+  payroll it offered only the employees left out of it. A second pay run of
+  the same kind still hides who already has that payslip.
+
+9.15.1 (2026-11-16)
+~~~~~~~~~~~~~~~~~~~
+**Improvement**
+
+- The shift subsidy of the contract is now one of the permanent remunerations
+  communicated to Social Security, as "Subsídio de trabalho por turnos"
+  (SPT). Its value is the shift regime rate times the base wage, as on the
+  payslip. Before, a contract with a shift regime never matched what Social
+  Security held when it already had that subsidy, and the employee showed a
+  remuneration to communicate that could not clear.
+
 9.15.0 (2026-11-13)
 ~~~~~~~~~~~~~~~~~~~
 **Improvement**

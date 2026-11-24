@@ -1871,6 +1871,16 @@ msgid "By Nature"
 msgstr "Por Natureza"
 
 #. module: ptplus_payroll
+#: model:ir.model.fields.selection,name:ptplus_payroll.selection__hr_version__l10n_pt_reason_for_end_of_contract__998
+msgid "By Renewal of the Fixed-Term Contract"
+msgstr "Por Renovação do Contrato a Termo"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields.selection,name:ptplus_payroll.selection__hr_version__l10n_pt_reason_for_end_of_contract__997
+msgid "By Update of the Contractual Conditions and Renewal"
+msgstr "Por Atualização das Condições Contratuais e Renovação"
+
+#. module: ptplus_payroll
 #: model:ir.model.fields.selection,name:ptplus_payroll.selection__l10n_pt_scc_comparison_line__kind__worker
 msgid "By Worker"
 msgstr "Por Trabalhador"
@@ -6009,6 +6019,7 @@ msgid "Mandatory Contributions Amount"
 msgstr "Valor das Contribuições Obrigatórias"
 
 #. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_scc_statement_line__manual
 #: model:ir.model.fields.selection,name:ptplus_payroll.selection__l10n_pt_scc_payment_document__payment_source__manual
 msgid "Manual"
 msgstr ""
@@ -11647,6 +11658,16 @@ msgstr "Valor dia de Férias não Gozadas [valor]"
 #: model:ir.model.fields.selection,name:ptplus_payroll.selection__hr_version__l10n_pt_work_schedule_exemption_option__value
 msgid "Value"
 msgstr "Valor"
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,help:ptplus_payroll.field_l10n_pt_scc_statement_line__manual
+msgid ""
+"Value added or changed by hand. Computing the lines again keeps it, in place "
+"of the value the payslips declare for the same worker, month and nature."
+msgstr ""
+"Valor adicionado ou alterado manualmente. Ao calcular novamente as linhas, "
+"este valor mantém-se e substitui o valor que os recibos declaram para o "
+"mesmo trabalhador, mês e natureza."
 
 #. module: ptplus_payroll
 #: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_scc_submission__record_count

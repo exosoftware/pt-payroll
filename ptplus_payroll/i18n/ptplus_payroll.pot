@@ -1724,6 +1724,16 @@ msgid "By Nature"
 msgstr ""
 
 #. module: ptplus_payroll
+#: model:ir.model.fields.selection,name:ptplus_payroll.selection__hr_version__l10n_pt_reason_for_end_of_contract__998
+msgid "By Renewal of the Fixed-Term Contract"
+msgstr ""
+
+#. module: ptplus_payroll
+#: model:ir.model.fields.selection,name:ptplus_payroll.selection__hr_version__l10n_pt_reason_for_end_of_contract__997
+msgid "By Update of the Contractual Conditions and Renewal"
+msgstr ""
+
+#. module: ptplus_payroll
 #: model:ir.model.fields.selection,name:ptplus_payroll.selection__l10n_pt_scc_comparison_line__kind__worker
 msgid "By Worker"
 msgstr ""
@@ -5769,6 +5779,7 @@ msgid "Mandatory Contributions Amount"
 msgstr ""
 
 #. module: ptplus_payroll
+#: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_scc_statement_line__manual
 #: model:ir.model.fields.selection,name:ptplus_payroll.selection__l10n_pt_scc_payment_document__payment_source__manual
 msgid "Manual"
 msgstr ""
@@ -11105,6 +11116,13 @@ msgstr ""
 #: model:ir.model.fields,field_description:ptplus_payroll.field_l10n_pt_scc_ss_remuneration__value
 #: model:ir.model.fields.selection,name:ptplus_payroll.selection__hr_version__l10n_pt_work_schedule_exemption_option__value
 msgid "Value"
+msgstr ""
+
+#. module: ptplus_payroll
+#: model:ir.model.fields,help:ptplus_payroll.field_l10n_pt_scc_statement_line__manual
+msgid ""
+"Value added or changed by hand. Computing the lines again keeps it, in place "
+"of the value the payslips declare for the same worker, month and nature."
 msgstr ""
 
 #. module: ptplus_payroll
