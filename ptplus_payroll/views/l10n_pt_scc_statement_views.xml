@@ -236,17 +236,31 @@
                         <page string="Declared Values" name="declared_values">
                             <field name="line_ids" readonly="state == 'confirmed'">
                                 <list
+                                    editable="bottom"
                                     decoration-danger="ss_state == 'alert'"
                                     decoration-muted="ss_state == 'substituted'"
+                                    decoration-info="manual"
                                 >
                                     <field
                                         name="employee_id"
                                         widget="many2one_avatar_employee"
+                                        required="1"
                                     />
-                                    <field name="niss" />
-                                    <field name="nature" />
+                                    <field name="niss" required="1" />
+                                    <field
+                                        name="year_month"
+                                        optional="hide"
+                                        required="1"
+                                    />
+                                    <field
+                                        name="qualification_type"
+                                        optional="hide"
+                                        required="1"
+                                    />
+                                    <field name="nature" required="1" />
                                     <field name="days" />
                                     <field name="amount" />
+                                    <field name="manual" optional="show" />
                                     <field
                                         name="correction_amount"
                                         optional="show"
@@ -482,7 +496,7 @@
                             <field name="currency_id" invisible="1" />
                         </group>
                     </group>
-                    <field name="line_ids">
+                    <field name="line_ids" readonly="1">
                         <list
                             decoration-danger="ss_state == 'alert'"
                             decoration-muted="ss_state == 'substituted'"
@@ -577,6 +591,8 @@
                     sum="Total"
                     decoration-warning="correction_amount != 0"
                 />
+                <field name="employee_tax_rate" optional="hide" />
+                <field name="company_tax_rate" optional="hide" />
                 <field
                     name="ss_state"
                     widget="badge"

@@ -69,7 +69,6 @@
                         <field name="l10n_pt_irct" />
                         <field name="l10n_pt_professional_category" />
                         <field name="l10n_pt_syndicate" />
-                        <field name="l10n_pt_non_resident" />
                     </group>
                     <group string="Insurance">
                         <field name="l10n_pt_insurance_company_id" />

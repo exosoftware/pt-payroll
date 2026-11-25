@@ -49,6 +49,145 @@ change.
 Changelog
 =========
 
+9.15.1 (2026-11-24)
+~~~~~~~~~~~~~~~~~~~
+**Bugfixes**
+
+- In the Holiday Sheets for the work accident insurance, the total of
+  contributions included the exempt meal allowance, as if it paid Social
+  Security contributions. Since version 9.8.4 the total was too high by the
+  exempt meal allowance times the contribution rate. The exempt meal allowance
+  is still declared to the insurer, but the total of contributions now leaves
+  it out.
+- The DRI in the new "DRI" menu no longer declares the exempt meal allowance.
+  It now declares the meal allowance as the DRI in "Payroll Statements" does:
+  only the part subject to contributions.
+
+9.15.0 (2026-11-20)
+~~~~~~~~~~~~~~~~~~~
+**Features**
+
+- Two new reasons for the end of a contract: "By Renewal of the Fixed-Term
+  Contract" and "By Update of the Contractual Conditions and Renewal". Neither
+  ends the employment relationship, so no cessation is communicated to Social
+  Security.
+- When a fixed-term contract ends "By Renewal of the Fixed-Term Contract" and
+  the new contract starts the next day, the payslip batch creates a single
+  payslip for the period, on the new contract, paid as a normal month: the
+  days and absences of both contracts are on it, and no days are deducted for
+  the start or the end of a contract. Before, a renewal in the middle of the
+  month gave two payslips. An update of the contractual conditions, with or
+  without a renewal, keeps the current behaviour: two payslips when it occurs
+  in the middle of the period, one when it occurs at the start of the period.
+
+9.14.1 (2026-11-16)
+~~~~~~~~~~~~~~~~~~~
+**Improvement**
+
+- The shift subsidy of the contract is now one of the permanent remunerations
+  communicated to Social Security, as "Subsídio de trabalho por turnos"
+  (SPT). Its value is the shift regime rate times the base wage, as on the
+  payslip. Before, a contract with a shift regime never matched what Social
+  Security held when it already had that subsidy, and the employee showed a
+  remuneration to communicate that could not clear.
+
+9.14.0 (2026-11-13)
+~~~~~~~~~~~~~~~~~~~
+**Improvement**
+
+- In Portuguese companies, a time off registered after its payslip is
+  validated or paid is no longer deferred to the next month. The "Report to
+  Next Month" button no longer shows on the time off, and the "Defer to Next
+  Month" action explains what to do instead. The activity Odoo creates for
+  that time off now asks to add the "Assiduidade (mês anterior)" input to the
+  next payslip of the employee, which deducts the time off and corrects its
+  month in the DRI.
+
+9.13.0 (2026-11-12)
+~~~~~~~~~~~~~~~~~~~
+**Improvement**
+
+- The employee form had two "Non-resident" options. Only the one next to the
+  country of birth is kept, and it is the one the Modelo 30 and the DMR use.
+  The update moves the option that was marked in the Portuguese block to it.
+
+**Bugfixes**
+
+- The DMR no longer declares the income of non-resident employees. The AT
+  instructions send that income to the Modelo 30, which now reads it from the
+  payslips. Before, it was declared on both.
+
+9.12.7 (2026-11-12)
+~~~~~~~~~~~~~~~~~~~
+**Bugfixes**
+
+- The DMR, the DRI, the aggregate salary statement and the annual accumulated
+  statement now read the confirmed payslips. Before, they only read the paid
+  ones, so a payslip confirmed but not yet paid was left out of them.
+- Cancelling a payslip whose journal entry is shared with other paid payslips
+  no longer fails. Those payslips go back to confirmed, so the next journal
+  entry includes them again.
+- In the aggregate salary statement and the annual accumulated statement, the
+  "Validated" filter now finds the confirmed payslips.
+
+9.12.6 (2026-11-12)
+~~~~~~~~~~~~~~~~~~~
+**Bugfixes**
+
+- The shift subsidy and the diuturnities are now declared in the Social
+  Security monthly statement (SCC) as regular monthly subsidies (nature M).
+  Before, they were declared as monthly premiums (nature B), the DRI code of
+  their salary rules. Social Security already knows these values from the
+  permanent remunerations of the worker, so it counted them twice.
+- The salary rules have a new field, "SCC Nature", next to the DRI code. Fill
+  it in when a remuneration has a different nature in the SCC. When it is
+  empty, the SCC declares the DRI code. The DRI does not change.
+
+9.12.5 (2026-11-11)
+~~~~~~~~~~~~~~~~~~~
+**Bugfixes**
+
+- On the exit payslip, the IRS rate of a holiday or Christmas allowance
+  paid in one go now follows the amount paid, as in the year of admission.
+  In the year the contract ends the allowance is only the proportional
+  one, but the rate was still picked on a full month's allowance, so an
+  exit early in the year withheld IRS on a Christmas allowance below the
+  first bracket. A contract followed by a renewal is not an exit, and
+  allowances paid in twelfths keep the rate of the whole allowance.
+
+9.12.4 (2026-11-09)
+~~~~~~~~~~~~~~~~~~~
+**Bugfixes**
+
+- The "Check at SS" button on the contract's SS Communication tab no longer
+  fails with a server error. Social Security now answers the permanent
+  remuneration values as text, and Odoo reads them as numbers again. The
+  comparison of the declared values with the values Social Security assessed
+  for the month also accepts amounts answered as text.
+
+9.12.3 (2026-11-05)
+~~~~~~~~~~~~~~~~~~~
+**Improvement**
+
+- In November 2026 the IRS withheld on salaries and pensions of employees of
+  Madeira is now also half the value of the withholding tables (Despacho n.º
+  434/2026 of the Madeira Regional Secretary of Finance). As for the Mainland
+  and the Azores, the reduction also applies to the holiday and Christmas
+  allowances paid in that month, and employees whose monthly pay falls in the
+  last bracket of the tables keep the full withholding. From December 2026 the
+  tables apply in full again.
+
+9.12.2 (2026-11-05)
+~~~~~~~~~~~~~~~~~~~
+**Improvement**
+
+- On a new installation, the "Férias" time off type now records the holidays
+  taken as "Dias de Férias Gozadas (c/Desc. Subs. Alimentação)" instead of
+  "Férias". The payslip shows the holidays under that line. The amounts do not
+  change: those days still carry no deduction from the wage and no meal
+  allowance. Existing databases keep their configuration: to use the new type,
+  select it in the "Work Entry Type" field of the "Férias" time off type.
+
 9.12.1 (2026-11-04)
 ~~~~~~~~~~~~~~~~~~~
 **Bugfixes**
